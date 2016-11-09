@@ -5,6 +5,7 @@ using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -37,7 +38,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedCandidates = candidateService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedCandidates
-                         select new[] {string.Empty, c.UserName, c.FirstName + " " + c.LastName, c.Phone.ToString(), c.Email.ToString(), c.State.ToString(), c.CreateDate.ToShortDateString(),string.Empty};
+                         select new[] {c.CandidateId.ToString(), c.UserName, c.FirstName + " " + c.LastName, c.Phone.ToString(), c.Email.ToString(), c.State.ToString(), c.CreateDate.ToShortDateString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
@@ -47,6 +48,21 @@ namespace KariyerPortali.Admin.Controllers
             },
                 JsonRequestBehavior.AllowGet);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var candidate = candidateService.GetCandidate(id.Value);
+                if (candidate != null)
+                {
+                    candidateService.DeleteCandidate(candidate);
+                    candidateService.SaveCandidate();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
+
         public ActionResult Edit(int?id)
         {
             if (id.HasValue)
@@ -61,13 +77,24 @@ namespace KariyerPortali.Admin.Controllers
             return HttpNotFound();       
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CandidateFormViewModel candidateForm)
+        public ActionResult Edit(CandidateFormViewModel candidateForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
                 var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
+                candidate.UpdatedBy = "ezgiesra"; //User.Identity.Name
+                candidate.CreateDate = DateTime.Now;
+                candidate.UpdatedDate = candidate.CreateDate;
+                if (upload != null)
+                {
+                    string dosyaYolu = Path.GetFileName(upload.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Candidate"), dosyaYolu);
+                    upload.SaveAs(yuklemeYeri);
+                    candidate.Photo = upload.FileName;
+                }
                 candidateService.UpdateCandidate(candidate);
                 candidateService.SaveCandidate();
                 return RedirectToAction("Index");
