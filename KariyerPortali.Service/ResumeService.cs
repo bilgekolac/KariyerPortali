@@ -12,10 +12,12 @@ namespace KariyerPortali.Service
 {
     public interface IResumeService
     {
-        IEnumerable<City> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
+        IEnumerable<Resume> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Resume> GetResumes();
         Resume GetResume(int id);
         void CreateResume(Resume resume);
+        void UpdateResume(Resume resume);
+        void DeleteResume(Resume resume);
         void SaveResume();
     }
     public class ResumeService : IResumeService
@@ -65,7 +67,7 @@ namespace KariyerPortali.Service
             unitOfWork.Commit();
         }
 
-        IEnumerable<City> IResumeService.Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        IEnumerable<Resume> IResumeService.Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
         {
             throw new NotImplementedException();
         }

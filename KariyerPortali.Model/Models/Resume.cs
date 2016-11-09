@@ -17,6 +17,7 @@ namespace KariyerPortali.Model
         public int ViewCount { get; set; }
         public int ResumeId { get; set; }
         public string ResumeName { get; set; }
+        public string Notes { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CitizenshipId { get; set; }
@@ -58,7 +59,7 @@ namespace KariyerPortali.Model
         public virtual City BirthCity { get; set; }
 
         public virtual MaritalStatus MaritalStatus { get; set; }
-
+        public virtual WorkStatus WorkStatus { get; set; }
         
         public int? CountryId { get; set; }
         public virtual Country Nationality { get; set; }
