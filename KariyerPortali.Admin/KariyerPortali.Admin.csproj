@@ -219,6 +219,7 @@
     <Compile Include="ViewModels\DepartmentFormViewModel.cs" />
     <Compile Include="ViewModels\DepartmentViewModel.cs" />
     <Compile Include="ViewModels\EmployerFormViewModel.cs" />
+    <Compile Include="ViewModels\EmployerViewModel.cs" />
     <Compile Include="ViewModels\FileFormViewModel.cs" />
     <Compile Include="ViewModels\JobApplicationViewModel.cs" />
     <Compile Include="ViewModels\JobFormViewModel.cs" />
@@ -6375,6 +6376,7 @@
     <Content Include="Views\Language\Delete.cshtml" />
     <Content Include="Views\Language\Details.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Applications\Details.cshtml" />
     <Content Include="Views\Country\Details.cshtml" />
     <Content Include="Views\Country\Edit.cshtml" />
     <Content Include="Views\Country\Delete.cshtml" />
