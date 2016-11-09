@@ -68,6 +68,23 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(universityForm);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var university = universityService.GetUniversity(id.Value);
+                if (university != null)
+                {
+                    universityService.DeleteUniversity(university);
+                    universityService.SaveUniversity();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            return HttpNotFound();
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
