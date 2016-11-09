@@ -6384,6 +6384,7 @@
     <Content Include="Views\Department\Edit.cshtml" />
     <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Employer\Edit.cshtml" />
+    <Content Include="Views\University\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
