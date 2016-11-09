@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Qualifications)<br />
                                         @Html.TextAreaFor(model => model.Qualifications, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
-                                        Html.ValidationMessageFor(model => model.Qualifications, "", new { class = "text-danger" })
+                                        @Html.ValidationMessageFor(model => model.Qualifications, "", new { @class = "text-danger" })
                                     </div>
 
                                     <div class="form-actions">
