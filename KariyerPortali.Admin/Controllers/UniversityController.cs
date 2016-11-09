@@ -68,8 +68,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(universityForm);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+
         public ActionResult Delete(int? id)
         {
             if (id.HasValue)
