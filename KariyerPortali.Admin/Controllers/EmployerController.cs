@@ -80,6 +80,7 @@ namespace KariyerPortali.Admin.Controllers
 
             }
             return HttpNotFound();
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -94,7 +95,7 @@ namespace KariyerPortali.Admin.Controllers
                 employer.UpdateDate = employer.CreateDate;
      
                 employer.SectorId = 1;
-                employer.CityId = 2;
+            
                 employer.Email = "bora@gmail.com";
                 employer.Phone = "2125522";
                 employer.WebSite = "www.bom.com";
