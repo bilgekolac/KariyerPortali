@@ -66,8 +66,46 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             return View(employerForm);
         }
-  
 
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var employer = employerService.GetEmployer(id.Value);
+                if (employer != null)
+                {
+                    var employerViewModel = Mapper.Map<Employer, EmployerViewModel>(employer);
+                    return View(employerViewModel);
+                }
+
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(EmployerFormViewModel employerForm, System.Web.HttpPostedFileBase upload)
+        {
+            if (ModelState.IsValid)
+            {
+                var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
+                employer.CreatedBy = "karacabora"; //User.Identity.Name
+                employer.CreateDate = DateTime.Now;
+                employer.UpdatedBy = "karacabora";
+                employer.UpdateDate = employer.CreateDate;
+                if (upload != null)
+                {
+                    string dosyaYolu = Path.GetFileName(upload.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Employer"), dosyaYolu);
+                    upload.SaveAs(yuklemeYeri);
+                    employer.Logo = upload.FileName;
+
+                }
+                employerService.UpdateEmployer(employer);
+                employerService.SaveEmployer();
+                return RedirectToAction("Index");
+            }
+            return View(employerForm);
+        }
 
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
