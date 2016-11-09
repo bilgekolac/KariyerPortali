@@ -6,7 +6,7 @@ using System.Web;
 
 namespace KariyerPortali.Admin.ViewModels
 {
-    public class ResumeViewModel
+    public class ResumeFormViewModel
     {
         public int ViewCount { get; set; }
         public int ResumeId { get; set; }
