@@ -144,34 +144,28 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         [AllowAnonymous]
-        public ActionResult MyProfile(string username)
+        public ActionResult MyProfile()
         {
-            if (username == null)
+            IList<UserViewModel> users = new List<UserViewModel>();
+            var userList = db.Users.ToList();
+            foreach (var user in userList)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ApplicationUser appUser = db.Users.First(u => u.UserName == username);
-            if (appUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(appUser);
-        }
-        [AllowAnonymous]
-        public ActionResult MyProfile(ApplicationUser model)
-        {
-            //if (username == null)
-            //{
-            //    //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            ////ApplicationUser appUser = db.Users.Find(username);
-            //ApplicationUser appUser = db.Users.First(u => u.UserName == username);
-            //if (appUser == null)
-            //{
-            //    //return HttpNotFound();
-            //}
+                var u = new UserViewModel();
+                u.UserName = user.UserName;
 
-            return View(model);
+                u.FirstName = user.FirstName;
+                u.LastName = user.LastName;
+                u.Title = user.Title;
+                foreach (var role in user.Roles)
+                {
+                    u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
+                }
+                u.CreatedDate = user.CreatedDate;
+
+                users.Add(u);
+            }
+
+            return View(users);
         }
 
 
