@@ -89,17 +89,20 @@ namespace KariyerPortali.Admin.Controllers
                 file.UpdatedBy = "aysenur";
                 if (upload != null)
                 {
-                    if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                    try
                     {
-                        string dosyaYolu = Path.GetFileName(upload.FileName);
-                        var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
-                        upload.SaveAs(yuklemeYeri);
-                        file.FileName = upload.FileName;
+                        if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                        {
+                            string dosyaYolu = Path.GetFileName(upload.FileName);
+                            var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
+                            upload.SaveAs(yuklemeYeri);
+                            file.FileName = upload.FileName;
+                        }
+                        else return View(fileForm);
+
                     }
-                    else return View(fileForm);
-
-
-                }else   return View(fileForm);
+                    catch (Exception) {return View(fileForm); }
+                }else   
               
                 fileService.UpdateFile(file);
                 fileService.SaveFile();
