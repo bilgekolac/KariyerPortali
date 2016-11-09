@@ -57,7 +57,13 @@
                     return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
                 }
             },
-
+             {  // set default column settings
+                 
+                 'targets': [1],
+                 'render': function (data, type, row) {
+                     return '<a href="/Uploads/File/' + row[1] + '" >' + row[1] + '</a>';
+                 }
+             },
             {
                 'orderable': false,
                 'searchable': false,
