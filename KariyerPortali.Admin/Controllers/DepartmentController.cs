@@ -42,6 +42,20 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(department);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var department = departmentService.GetDepartment(id.Value);
+                if (department != null)
+                {
+                    departmentService.DeleteDepartment(department);
+                    departmentService.SaveDepartment();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)
@@ -68,6 +82,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(departmentForm);
         }
+        
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";

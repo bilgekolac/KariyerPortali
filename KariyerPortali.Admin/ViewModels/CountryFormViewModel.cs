@@ -13,6 +13,7 @@ namespace KariyerPortali.Admin.ViewModels
         
        
         [DisplayName("Ülke Adı")]
+        [Required(ErrorMessage = "Lütfen bir ülke adı giriniz.")]
         public string CountryName { get; set; }
      //   public ICollection<City> Cities { get; set; }
     }

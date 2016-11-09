@@ -69,12 +69,8 @@ namespace KariyerPortali.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
           
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Details()
-        {
-            return View();
-        }
+      
+       
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)

@@ -213,6 +213,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CandidateFormViewModel.cs" />
+    <Compile Include="ViewModels\CandidateViewModel.cs" />
     <Compile Include="ViewModels\CityFormViewModel.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="ViewModels\CountryFormViewModel.cs" />
@@ -6375,14 +6376,14 @@
     <Content Include="Views\Account\Edit.cshtml" />
     <Content Include="Views\Language\Edit.cshtml" />
     <Content Include="Views\Language\Delete.cshtml" />
-    <Content Include="Views\Language\Details.cshtml" />
     <Content Include="Views\Account\Delete.cshtml" />
     <Content Include="Views\Applications\Details.cshtml" />
-    <Content Include="Views\Country\Details.cshtml" />
     <Content Include="Views\Country\Edit.cshtml" />
     <Content Include="Views\Country\Delete.cshtml" />
     <Content Include="Views\University\Edit.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Employer\Edit.cshtml" />
     <Content Include="Views\University\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -6392,6 +6393,7 @@
     <Folder Include="Uploads\Account\" />
     <Folder Include="Uploads\Candidate\" />
     <Folder Include="Uploads\Employer\" />
+    <Folder Include="Uploads\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

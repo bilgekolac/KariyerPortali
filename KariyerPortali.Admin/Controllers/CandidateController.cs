@@ -54,7 +54,7 @@ namespace KariyerPortali.Admin.Controllers
                 var candidate = candidateService.GetCandidate(id.Value);
                 if (candidate != null)
                 {
-                    var candidateViewModel = Mapper.Map<Candidate, CandidateFormViewModel>(candidate);
+                    var candidateViewModel = Mapper.Map<Candidate, CandidateViewModel>(candidate);
                     return View(candidateViewModel);
                 }
             }
