@@ -39,13 +39,6 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
 
-            //var socialrightNames = new string[socialrights.Count()];
-            //for (int i = 0; i < socialrights.Count(); i++) {
-            //    socialrightNames[i] = socialrights[i].SocialRightName;
-            //        }
-            //ViewBag.SocialRightNames = socialrightNames;
-            //var selectSocialRight = new List<SocialRight>();
-            //ViewBag.selectSocialRight = selectSocialRight;
             var jobform = new JobFormViewModel();
             return View(jobform);
         }
@@ -56,6 +49,8 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                job.Createdate = DateTime.Now;
+                job.UpdateDate = DateTime.Now;
                 jobService.CreateJob(job);
 
                 jobService.SaveJob();
