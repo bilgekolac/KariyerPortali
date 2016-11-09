@@ -10,9 +10,9 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Böyle bir kayıt bulunamamaktadır",
+            "emptyTable": "Görüntülenecek Kayıt Yok",
             "info": "Gösterilen _START_ ile _END_ toplam _TOTAL_ kayıt",
-            "infoEmpty": "Kayıt bulunamadı",
+            "infoEmpty": "Kayıt Bulunamadı",
             "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
