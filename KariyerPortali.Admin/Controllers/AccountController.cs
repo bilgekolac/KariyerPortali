@@ -13,17 +13,29 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using System.Collections.Generic;
 using System.IO;
+using System.ComponentModel;
 
 namespace KariyerPortali.Admin.Controllers
 {
     public class UserViewModel
     {
+        [DisplayName("Kullanıcı Adı")]
         public string UserName { get; set; }
+        [DisplayName("Yetki")]
         public string RoleNames { get; set; }
+        [DisplayName("E Posta")]
         public string Email { get; set; }
+        [DisplayName("Ad")]
         public string FirstName { get; set; }
+        [DisplayName("Soyad")]
         public string LastName { get; set; }
+        [DisplayName("Görev")]
         public string Title { get; set; }
+        [DisplayName("Görsel")]
+        public string ImagePath { get; set; }
+        [DisplayName("Telefon")]
+        public string PhoneNumber { get; set; }
+        [DisplayName("Oluşturulma Tarihi")]
         public DateTime CreatedDate { get; set; }
 
     }
@@ -42,11 +54,12 @@ namespace KariyerPortali.Admin.Controllers
             foreach (var user in userList)
             {
                 var u = new UserViewModel();
-                u.UserName = user.UserName;
-                
+                u.UserName = user.UserName;                
                 u.FirstName = user.FirstName;
                 u.LastName = user.LastName;
                 u.Title = user.Title;
+                u.ImagePath = user.ImagePath;
+                u.PhoneNumber = user.PhoneNumber;
                 foreach (var role in user.Roles)
                 {
                     u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
@@ -131,34 +144,28 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         [AllowAnonymous]
-        public ActionResult MyProfile(string username)
+        public ActionResult MyProfile()
         {
-            if (username == null)
+            IList<UserViewModel> users = new List<UserViewModel>();
+            var userList = db.Users.ToList();
+            foreach (var user in userList)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ApplicationUser appUser = db.Users.First(u => u.UserName == username);
-            if (appUser == null)
-            {
-                return HttpNotFound();
-            }
-            return View(appUser);
-        }
-        [AllowAnonymous]
-        public ActionResult MyProfile(ApplicationUser model)
-        {
-            //if (username == null)
-            //{
-            //    //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            //}
-            ////ApplicationUser appUser = db.Users.Find(username);
-            //ApplicationUser appUser = db.Users.First(u => u.UserName == username);
-            //if (appUser == null)
-            //{
-            //    //return HttpNotFound();
-            //}
+                var u = new UserViewModel();
+                u.UserName = user.UserName;
 
-            return View(model);
+                u.FirstName = user.FirstName;
+                u.LastName = user.LastName;
+                u.Title = user.Title;
+                foreach (var role in user.Roles)
+                {
+                    u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
+                }
+                u.CreatedDate = user.CreatedDate;
+
+                users.Add(u);
+            }
+
+            return View(users);
         }
 
 
