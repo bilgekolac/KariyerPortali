@@ -61,6 +61,7 @@ namespace KariyerPortali.Admin.Controllers
                 u.LastName = model.LastName; // Extra Property
                 u.ImagePath = model.ImagePath;
                 u.PhoneNumber = model.PhoneNumber;
+                u.Title = model.Title;
                 if (file != null && file.ContentLength > 0)  
                 {
                     string dosyaYolu = Path.GetFileName(file.FileName);
