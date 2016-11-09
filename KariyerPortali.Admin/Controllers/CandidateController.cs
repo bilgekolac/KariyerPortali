@@ -5,6 +5,7 @@ using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -79,11 +80,21 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CandidateFormViewModel candidateForm)
+        public ActionResult Edit(CandidateFormViewModel candidateForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
                 var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
+                candidate.UpdatedBy = "ezgiesra"; //User.Identity.Name
+                candidate.CreateDate = DateTime.Now;
+                candidate.UpdatedDate = candidate.CreateDate;
+                if (upload != null)
+                {
+                    string dosyaYolu = Path.GetFileName(upload.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Candidate"), dosyaYolu);
+                    upload.SaveAs(yuklemeYeri);
+                    candidate.Photo = upload.FileName;
+                }
                 candidateService.UpdateCandidate(candidate);
                 candidateService.SaveCandidate();
                 return RedirectToAction("Index");
