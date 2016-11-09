@@ -5,7 +5,7 @@ using System.Web;
 
 namespace KariyerPortali.Admin.ViewModels
 {
-	public class CityViewModel
-	{
-	}
+    public class EmployerViewModel
+    {
+    }
 }

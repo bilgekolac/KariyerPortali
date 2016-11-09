@@ -34,10 +34,10 @@ namespace KariyerPortali.Data.Repositories
             {
                 switch (sortColumnIndex)
                 {
-                    case 0:
+                    case 1:
                         filteredLanguages = filteredLanguages.OrderBy(l => l.LanguageId);
                         break;
-                    case 1:
+                    case 2:
                         filteredLanguages = filteredLanguages.OrderBy(l => l.LanguageName);
                         break;
 
@@ -51,10 +51,10 @@ namespace KariyerPortali.Data.Repositories
                 switch (sortColumnIndex)
                 {
 
-                    case 0:
+                    case 1:
                         filteredLanguages = filteredLanguages.OrderByDescending(l => l.LanguageId);
                         break;
-                    case 1:
+                    case 2:
                         filteredLanguages = filteredLanguages.OrderByDescending(l => l.LanguageName);
                         break;
 

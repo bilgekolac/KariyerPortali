@@ -66,6 +66,9 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             return View(employerForm);
         }
+  
+
+
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 
