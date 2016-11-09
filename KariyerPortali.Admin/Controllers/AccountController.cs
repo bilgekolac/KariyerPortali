@@ -70,7 +70,7 @@ namespace KariyerPortali.Admin.Controllers
             ApplicationUser appUser = db.Users.First(u => u.UserName == username);
             if (appUser == null)
             {
-                //return HttpNotFound();
+                return HttpNotFound();
             }
             return View(appUser);
         }
@@ -96,8 +96,7 @@ namespace KariyerPortali.Admin.Controllers
                     string dosyaYolu = Path.GetFileName(file.FileName);
                     var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Account"), dosyaYolu);
                     file.SaveAs(yuklemeYeri);
-                    u.ImagePath = file.FileName;
-                    
+                    u.ImagePath = file.FileName;                 
                 }
                 UserManager.Update(u);
                 return RedirectToAction("Index");
@@ -131,25 +130,35 @@ namespace KariyerPortali.Admin.Controllers
             return RedirectToAction("Index");
         }
         
-
-        public ActionResult MyProfile()
-        {
-            return View();
-        }
-        
+        [AllowAnonymous]
         public ActionResult MyProfile(string username)
         {
             if (username == null)
             {
-                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicationUser appUser = db.Users.Find(username);
+            ApplicationUser appUser = db.Users.First(u => u.UserName == username);
             if (appUser == null)
             {
-                //return HttpNotFound();
+                return HttpNotFound();
             }
-
             return View(appUser);
+        }
+        [AllowAnonymous]
+        public ActionResult MyProfile(ApplicationUser model)
+        {
+            //if (username == null)
+            //{
+            //    //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            ////ApplicationUser appUser = db.Users.Find(username);
+            //ApplicationUser appUser = db.Users.First(u => u.UserName == username);
+            //if (appUser == null)
+            //{
+            //    //return HttpNotFound();
+            //}
+
+            return View(model);
         }
 
 
