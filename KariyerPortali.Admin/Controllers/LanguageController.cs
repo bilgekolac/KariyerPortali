@@ -44,37 +44,34 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(languageForm);
         }
-        public ActionResult Edit()
-        {
+        //public ActionResult Edit(int? id)
+        //{
+        //    //if (id.HasValue)
+        //    //{
+        //    //    var language = languageService.GetLanguage(id.Value);
+        //    //    if (language != null)
+        //    //    {
+        //    //        var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
+        //    //        return View(languageViewModel);
+        //    //    }
 
-            return View();
-        }
+        //    //}
+        //    //return HttpNotFound();
+        //}
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(LanguageFormViewModel languageForm)
         {
-            if (ModelState.IsValid)
-            {
-                var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
-                languageService.UpdateLanguage(language);
-                languageService.SaveLanguage();
-                return RedirectToAction("Index");
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
+            //    languageService.UpdateLanguage(language);
+            //    languageService.SaveLanguage();
+            //    return RedirectToAction("Index");
+            //}
             return View(languageForm);
         }
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-                
-        //    }
-        //    //Language language = languageService.UpdateLanguage(id);
-        //    if (language == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    //return View(language);
-        //}
+        
         public ActionResult Delete()
         {
 
