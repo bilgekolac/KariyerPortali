@@ -75,6 +75,20 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
             return View (formCity);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var city = cityService.GetCity(id.Value);
+                if (city != null)
+                {
+                    cityService.DeleteCity(city);
+                    cityService.SaveCity();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
      
 
         public ActionResult About()
