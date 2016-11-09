@@ -63,8 +63,8 @@
                 'targets': [7],
                 'render': function(data, type, row) {
                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Employer/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Employer/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
-                        + '<a href="/Employer/Delete/' + row[0] + '"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Candidate/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Candidate/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                        + '<a href="/Candidate/Delete/' + row[0] + '"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                 }
                 
             }

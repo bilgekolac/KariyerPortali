@@ -1,0 +1,113 @@
+﻿@model KariyerPortali.Admin.ViewModels.FileViewModel
+@{
+    ViewBag.Title = "Detaylar";
+}
+
+<!-- BEGIN CONTENT BODY -->
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN THEME PANEL -->
+<!-- END THEME PANEL -->
+<!-- BEGIN PAGE BAR -->
+
+<br />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Media")">Dosyalar</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Düzenle</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+
+    </div>
+</div>
+<br />
+<!-- END PAGE BAR -->
+<!-- BEGIN PAGE TITLE-->
+<h1 class="page-title">
+    <small></small>
+</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+@using (Html.BeginForm("Edit", "Media", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-6 ">
+            <!-- BEGIN SAMPLE FORM PORTLET-->
+            <div class="portlet light bordered" style="
+    width: 442px;
+">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="icon-settings font-dark"></i>
+                        <span class="caption-subject bold uppercase">
+                            DOSYA DÜZENLE
+                        </span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+
+
+                            <div class="form-group">
+
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.FileId)
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Title)
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
+                                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+
+                                    @Html.LabelFor(model => model.Description)
+                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                    <input type="file" id="FileName" name="upload" />
+
+                                    @Html.ValidationMessageFor(model => model.FileName, "Dosyanın uzantısı .doc,.pdf veya .rtf olamalıdır.", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" tabindex="2" class="btn blue">
+                                Kaydet
+                            </button>
+                            <button type="button" tabindex="3" class="btn default" onclick="window.location='@Url.Action("Index","University")';">
+                                İptal
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<div class="row ">
+
+</div>

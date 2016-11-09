@@ -58,7 +58,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedCountries = countryService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedCountries
-                         select new[] {  string.Empty, c.CountryId.ToString(), c.CountryName, string.Empty };
+                         select new[] { c.CountryId.ToString(), c.CountryId.ToString(), c.CountryName, string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
@@ -69,12 +69,8 @@ namespace KariyerPortali.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
           
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Details()
-        {
-            return View();
-        }
+      
+       
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)
@@ -101,18 +97,21 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(countryForm);
         }
-        
-        public ActionResult Delete(CountryFormViewModel countryForm)
+        public ActionResult Delete(int? id)
         {
-            if (ModelState.IsValid)
+            if (id.HasValue)
             {
-                var country = Mapper.Map<CountryFormViewModel, Country>(countryForm);
+                var country = countryService.GetCountry(id.Value);
+                if (country != null)
+                {
+                    countryService.DeleteCountry(country);
+                    countryService.SaveCountry();
+                    return RedirectToAction("Index");
+                }
 
-                countryService.DeleteCountry(country);
-               
-                return RedirectToAction("Index");
             }
-            return View(countryForm);
+            return HttpNotFound();
         }
+      
     }
 }

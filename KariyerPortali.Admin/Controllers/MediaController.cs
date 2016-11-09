@@ -59,7 +59,33 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(fileForm);
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var file = fileService.GetFile(id.Value);
+                if (file != null)
+                {
+                    var fileViewModel = Mapper.Map<KariyerPortali.Model.File, FileViewModel>(file);
+                    return View(fileViewModel);
+                }
 
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FileFormViewModel fileForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
+                fileService.UpdateFile(file);
+                fileService.SaveFile();
+                return RedirectToAction("Index");
+            }
+            return View(fileForm);
+        }
 
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
@@ -74,7 +100,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedFiles = fileService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedFiles
-                         select new[] { string.Empty, c.FileName, c.CreatedBy, c.CreateDate.ToString(), c.UpdatedBy, c.UpdateDate.ToString(), string.Empty };
+                         select new[] { c.FileId.ToString(), c.FileName, c.CreatedBy, c.CreateDate.ToString(), c.UpdatedBy, c.UpdateDate.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,

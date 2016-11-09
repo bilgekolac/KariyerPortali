@@ -29,26 +29,37 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        //public ActionResult Edit(int? id)
-        //{
+        public ActionResult Edit(int? id)
+        {
+            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
+          
 
-        //    var city = cityService.GetCity(id.Value);
-        //    return View(city);
-            
-        //}
+            if (id.HasValue)
+            {
+                var city = cityService.GetCity(id.Value);
+                if (city != null)
+                {
+                    var cityViewModel = Mapper.Map<City, CityViewModel>(city);
+                    return View(cityViewModel);
+                }
 
-        //[HttpPost]
-        //public ActionResult Edit(City city)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        cityService.UpdateCity(city);
-        //        cityService.SaveCity();
-        //        return RedirectToAction("Index");
-                
-        //    }
-        //    return View(city);
-        //}
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CityFormViewModel cityForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var city = Mapper.Map<CityFormViewModel, City>(cityForm);
+                cityService.UpdateCity(city);
+                cityService.SaveCity();
+                return RedirectToAction("Index");
+            }
+            return View(cityForm);
+        }
 
       
         public ActionResult Create()
@@ -74,6 +85,20 @@ namespace KariyerPortali.Admin.Controllers
             }
             ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
             return View (formCity);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var city = cityService.GetCity(id.Value);
+                if (city != null)
+                {
+                    cityService.DeleteCity(city);
+                    cityService.SaveCity();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
         }
      
 
