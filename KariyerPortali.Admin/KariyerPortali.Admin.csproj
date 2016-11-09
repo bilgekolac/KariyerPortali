@@ -6392,6 +6392,7 @@
     <Folder Include="Uploads\Account\" />
     <Folder Include="Uploads\Candidate\" />
     <Folder Include="Uploads\Employer\" />
+    <Folder Include="Uploads\File\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
