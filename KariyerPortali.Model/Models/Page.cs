@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model.Models
+namespace KariyerPortali.Model
 {
-    class Page
+  public class Page
     {
         public int PageId { get; set; }
         public string Title { get; set; }
