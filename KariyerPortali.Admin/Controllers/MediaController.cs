@@ -59,7 +59,33 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(fileForm);
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var file = fileService.GetFile(id.Value);
+                if (file != null)
+                {
+                    var fileViewModel = Mapper.Map<KariyerPortali.Model.File, FileFormViewModel>(file);
+                    return View(fileViewModel);
+                }
 
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FileFormViewModel fileForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var university = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
+                fileService.UpdateFile(university);
+                fileService.SaveFile();
+                return RedirectToAction("Index");
+            }
+            return View(fileForm);
+        }
 
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
