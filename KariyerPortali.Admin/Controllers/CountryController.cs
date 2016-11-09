@@ -71,10 +71,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Details()
-        {
-            return View();
-        }
+       
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)
