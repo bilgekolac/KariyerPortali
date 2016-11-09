@@ -52,8 +52,8 @@ namespace KariyerPortali.Admin.Controllers
                     u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
                 }
                 u.CreatedDate = user.CreatedDate;
-                
 
+                users.Add(u);
             }
             
             return View(users);
