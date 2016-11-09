@@ -66,7 +66,7 @@ namespace KariyerPortali.Admin.Controllers
                 var file = fileService.GetFile(id.Value);
                 if (file != null)
                 {
-                    var fileViewModel = Mapper.Map<KariyerPortali.Model.File, FileFormViewModel>(file);
+                    var fileViewModel = Mapper.Map<KariyerPortali.Model.File, FileViewModel>(file);
                     return View(fileViewModel);
                 }
 
@@ -79,8 +79,8 @@ namespace KariyerPortali.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var university = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
-                fileService.UpdateFile(university);
+                var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
+                fileService.UpdateFile(file);
                 fileService.SaveFile();
                 return RedirectToAction("Index");
             }
@@ -100,7 +100,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedFiles = fileService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedFiles
-                         select new[] { string.Empty, c.FileName, c.CreatedBy, c.CreateDate.ToString(), c.UpdatedBy, c.UpdateDate.ToString(), string.Empty };
+                         select new[] { c.FileId.ToString(), c.FileName, c.CreatedBy, c.CreateDate.ToString(), c.UpdatedBy, c.UpdateDate.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,

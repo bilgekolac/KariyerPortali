@@ -31,6 +31,8 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Edit(int? id)
         {
+            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
+          
 
             if (id.HasValue)
             {

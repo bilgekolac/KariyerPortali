@@ -47,7 +47,7 @@ namespace KariyerPortali.Service
         }
         public JobApplication GetJobApplication(int id)
         {
-            var jobApplication = jobApplicationRepository.GetById(id, "Job", "Employer");
+            var jobApplication = jobApplicationRepository.GetById(id, "Job", "Employer","Candidate");
             return jobApplication;
         }
         public void CreateJobApplication(JobApplication jobApplication)
