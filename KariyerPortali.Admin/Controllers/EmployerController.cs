@@ -74,8 +74,8 @@ namespace KariyerPortali.Admin.Controllers
                 var employer = employerService.GetEmployer(id.Value);
                 if (employer != null)
                 {
-                    var employerViewModel = Mapper.Map<Employer, EmployerViewModel>(employer);
-                    return View(employerViewModel);
+                    var employerFormViewModel = Mapper.Map<Employer, EmployerFormViewModel>(employer);
+                    return View(employerFormViewModel);
                 }
 
             }
