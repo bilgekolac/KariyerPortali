@@ -1,5 +1,5 @@
-﻿@model IEnumerable<KariyerPortali.Admin.Models.ApplicationUser>
-@using System.Data
+﻿@model IEnumerable<KariyerPortali.Admin.Controllers.UserViewModel>
+
 @{
     ViewBag.Title = "Tüm Kullanıcılar";
 }
@@ -91,7 +91,7 @@
                         <th> @Html.DisplayNameFor(model=>model.FirstName)</th>
                         <th> @Html.DisplayNameFor(model => model.LastName) </th>
                         <th> @Html.DisplayNameFor(model => model.Title) </th>
-                        <th> @Html.DisplayNameFor(model => model.Roles) </th>
+                        <th> @Html.DisplayNameFor(model => model.RoleNames) </th>
                         <th> @Html.DisplayNameFor(model=>model.CreatedDate) </th>
                         <th> Eylemler </th>
                     </tr>
@@ -109,7 +109,7 @@
                         <td> @Html.DisplayFor(modelItem => item.FirstName)</td>
                         <td> @Html.DisplayFor(modelItem => item.LastName)</td>
                         <td> @Html.DisplayFor(modelItem => item.Title)</td>
-                        <td> @Html.DisplayFor(modelItem => item.Roles)</td>
+                        <td> @Html.DisplayFor(modelItem => item.RoleNames)</td>
                         <td> @item.CreatedDate.ToShortDateString()</td>
                         <td>
                             
