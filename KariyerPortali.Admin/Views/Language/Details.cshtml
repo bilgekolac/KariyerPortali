@@ -1,17 +1,10 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.LanguageFormViewModel
 @{
     ViewBag.Title = "Details";
 }
 
 <!DOCTYPE html>
 
-
-<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
-<!-- END HEAD -->
-<!-- BEGIN PAGE BAR -->
-
-<br />
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -27,3 +20,21 @@
     </div>
 </div>
 <br />
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageName)
+        </dd>
+
+        </dl>
+</div>
+<p>
+    
+    @Html.ActionLink("Geri Dön", "Index")
+</p>
+
