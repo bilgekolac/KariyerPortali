@@ -12,7 +12,7 @@ namespace KariyerPortali.Admin.ViewModels
         
 
         public int EmployerId { get; set; }
-        public string Logo { get; set; }
+        //public string Logo { get; set; }
         [DisplayName("Kullanıcı Adı")]
         public string UserName { get; set; }
         [Required(ErrorMessage="İşveren adı gereklidir.")]
