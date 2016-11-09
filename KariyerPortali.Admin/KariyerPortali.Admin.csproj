@@ -6393,6 +6393,8 @@
     <Content Include="Views\City\Delete.cshtml" />
     <Content Include="Views\Candidate\Delete.cshtml" />
     <Content Include="Views\Media\Edit.cshtml" />
+    <Content Include="Views\Exam\Edit.cshtml" />
+    <Content Include="Views\Exam\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
