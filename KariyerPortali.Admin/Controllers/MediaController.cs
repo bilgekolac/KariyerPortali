@@ -29,8 +29,10 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+     DateTime create;
         [HttpPost]
         [ValidateAntiForgeryToken]
+       
         public ActionResult Create(FileFormViewModel fileForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -38,6 +40,7 @@ namespace KariyerPortali.Admin.Controllers
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreatedBy = "mdemirci"; //User.Identity.Name
                 file.CreateDate = DateTime.Now;
+                create = file.CreateDate;
                 file.UpdatedBy = "mdemirci";
                 file.UpdateDate = DateTime.Now;
                 if (upload != null)
@@ -50,9 +53,9 @@ namespace KariyerPortali.Admin.Controllers
                         file.FileName = upload.FileName;
                     }
                     else return View(fileForm);
-                   
 
-                }
+
+                }else return View(fileForm);
                 fileService.CreateFile(file);
                 fileService.SaveFile();
                 return RedirectToAction("Index");
@@ -75,11 +78,29 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(FileFormViewModel fileForm)
+        public ActionResult Edit(FileFormViewModel fileForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
+                file.CreateDate = DateTime.Now;
+                file.CreatedBy = "aysenur";
+                file.UpdateDate = DateTime.Now;
+                file.UpdatedBy = "aysenur";
+                if (upload != null)
+                {
+                    if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                    {
+                        string dosyaYolu = Path.GetFileName(upload.FileName);
+                        var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
+                        upload.SaveAs(yuklemeYeri);
+                        file.FileName = upload.FileName;
+                    }
+                    else return View(fileForm);
+
+
+                }else   return View(fileForm);
+              
                 fileService.UpdateFile(file);
                 fileService.SaveFile();
                 return RedirectToAction("Index");
