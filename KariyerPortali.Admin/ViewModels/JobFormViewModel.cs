@@ -32,6 +32,8 @@ namespace KariyerPortali.Admin.ViewModels
         public int ExperienceId { get; set; }
         public Experience Experience { get; set; }
 
+        public List<int> SocialRightId { get; set; }
+        
         [DisplayName("Sorumluluklar")]
         public string Responsibilities { get; set; }
 

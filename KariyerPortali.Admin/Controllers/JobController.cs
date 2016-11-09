@@ -37,13 +37,27 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-            var socialrights = new List<SocialRight>(socialService.GetSocialRights());
-            var socialrightnames = new string[socialrights.Count()];
-            for (int i = 0; i < socialrights.Count(); i++) {
-                socialrightnames[i] = socialrights[i].SocialRightName;
-                    }
-            ViewBag.SocialRightNames = socialrightnames;
-            return View();
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
+
+            //var socialrightNames = new string[socialrights.Count()];
+            //for (int i = 0; i < socialrights.Count(); i++) {
+            //    socialrightNames[i] = socialrights[i].SocialRightName;
+            //        }
+            //ViewBag.SocialRightNames = socialrightNames;
+            //var selectSocialRight = new List<SocialRight>();
+            //ViewBag.selectSocialRight = selectSocialRight;
+            var jobForm = new JobFormViewModel();
+            return View(jobForm);
+        }
+
+        [HttpPost]
+        public ActionResult Create(JobFormViewModel jobForm)
+        {
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
+            return RedirectToAction("Index");
         }
         public ActionResult Liste()
         {
