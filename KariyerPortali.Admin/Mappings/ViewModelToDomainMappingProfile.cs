@@ -24,7 +24,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<CityFormViewModel, City>();
             Mapper.CreateMap<UniversityFormViewModel, University>();
             Mapper.CreateMap<FileFormViewModel, File>();
-            
+            Mapper.CreateMap<CandidateFormViewModel, Candidate>();
         }
     }
 }
