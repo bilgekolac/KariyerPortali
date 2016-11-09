@@ -40,13 +40,13 @@
         </div>
     </div>
     <div class="row">
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "Candidate", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        @Html.AntiForgeryToken()
+                    @Html.AntiForgeryToken()
 
 
 
-        <div class="actions">
+                    <div class="actions">
         </div>
 
                     <div class="portlet-body form">
@@ -90,18 +90,12 @@
                                                 @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
-                                                @Html.LabelFor(model => model.Photo)
-                                               @* @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "button  " })*@
-                                               @* @Html.LabelFor(model => model.Photo)*@
-                                                @*<div class="col-md-10">
-                                                    <a href="~/CVler/@Model.Photo">@Model.Photo</a>
-                                                    <input type="file" id="Photo" name="upload" /><input type="hidden" name="Photo" value="@Model.Photo" />
-                                                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
-                                                    </div>*@
-                                                </div>
-                                            @*<p class="help-block"> some help text here. </p>*@
-                                        
+                                                @Html.LabelFor(model => model.Photo,htmlAttributes: new { @class = "control-label col-md-2" })
+                                                <input type="file" id="Photo" name="upload" />
+                                                @Html.ValidationMessageFor(model => model.Photo, "", new { @class = " text-danger " })
+                                            
+                                                    </div>
+                                     
                                         <div class="form-group ">
                                             <img src="..." width="200" height="200" alt="Kişi Resmi" title="Kişi Resmi" />
                                         </div>

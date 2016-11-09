@@ -29,26 +29,26 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Edit(int? id)
-        {
+        //public ActionResult Edit(int? id)
+        //{
 
-            var city = cityService.GetCity(id.Value);
-            return View(city);
+        //    var city = cityService.GetCity(id.Value);
+        //    return View(city);
             
-        }
+        //}
 
-        [HttpPost]
-        public ActionResult Edit(City city)
-        {
-            if (ModelState.IsValid)
-            {
-                cityService.UpdateCity(city);
-                cityService.SaveCity();
-                return RedirectToAction("Index");
+        //[HttpPost]
+        //public ActionResult Edit(City city)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        cityService.UpdateCity(city);
+        //        cityService.SaveCity();
+        //        return RedirectToAction("Index");
                 
-            }
-            return View(city);
-        }
+        //    }
+        //    return View(city);
+        //}
 
       
         public ActionResult Create()

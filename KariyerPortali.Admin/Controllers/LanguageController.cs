@@ -48,11 +48,13 @@ namespace KariyerPortali.Admin.Controllers
 
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "LanguageID,LanguageName")] Language language)
         {
             if (ModelState.IsValid)
             {
-                languageService.CreateLanguage(language);
+                languageService.UpdateLanguage(language);
                 languageService.SaveLanguage();
                 return RedirectToAction("Index");
             }
@@ -62,6 +64,18 @@ namespace KariyerPortali.Admin.Controllers
         {
 
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete([Bind(Include = "LanguageID,LanguageName")] Language language)
+        {
+            if (ModelState.IsValid)
+            {
+                languageService.DeleteLanguage(language);
+                languageService.SaveLanguage();
+                return RedirectToAction("Index");
+            }
+            return View(language);
         }
         public ActionResult Details()
         {

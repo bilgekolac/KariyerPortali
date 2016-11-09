@@ -16,7 +16,17 @@ using System.IO;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    
+    public class UserViewModel
+    {
+        public string UserName { get; set; }
+        public string RoleNames { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Title { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+    }
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -27,7 +37,26 @@ namespace KariyerPortali.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            IList<UserViewModel> users = new List<UserViewModel>();
+            var userList = db.Users.ToList();
+            foreach (var user in userList)
+            {
+                var u = new UserViewModel();
+                u.UserName = user.UserName;
+                
+                u.FirstName = user.FirstName;
+                u.LastName = user.LastName;
+                u.Title = user.Title;
+                foreach (var role in user.Roles)
+                {
+                    u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
+                }
+                u.CreatedDate = user.CreatedDate;
+                
+
+            }
+            
+            return View(users);
         }
 
 
