@@ -25,12 +25,17 @@ namespace KariyerPortali.Admin.ViewModels
         public int CityId { get; set; }
         public City City { get; set; }
 
+        [DisplayName("Çalışma Şekli")]
         public JobType JobType { get; set; }
 
+        [DisplayName("İş Tecrübesi")]
         public int ExperienceId { get; set; }
         public Experience Experience { get; set; }
 
+        [DisplayName("Sorumluluklar")]
         public string Responsibilities { get; set; }
+
+        [DisplayName("Vasıflar")]
         public string Qualifications { get; set; }
         public DateTime Createdate { get; set; }
         public string CreatedBy { get; set; }

@@ -6,6 +6,7 @@ using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -31,15 +32,41 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UniversityId,UniversityName")] University university)
+        public ActionResult Create(UniversityFormViewModel universityForm)
         {
             if (ModelState.IsValid)
             {
+                var university = Mapper.Map<UniversityFormViewModel, University>(universityForm);
                 universityService.CreateUniversity(university);
                 universityService.SaveUniversity();
                 return RedirectToAction("Index");
             }
-            return View(university);
+            return View(universityForm);
+        }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue) { 
+                var university = universityService.GetUniversity(id.Value);
+                if (university != null) { 
+                    var universityViewModel = Mapper.Map<University, UniversityViewModel>(university);
+                    return View(universityViewModel);
+                }
+                
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(UniversityFormViewModel universityForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var university = Mapper.Map<UniversityFormViewModel, University>(universityForm);
+                universityService.UpdateUniversity(university);
+                universityService.SaveUniversity();
+                return RedirectToAction("Index");
+            }
+            return View(universityForm);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
@@ -50,7 +77,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalRecords;
             int iTotalDisplayRecords;
             var displayedUniversities = universityService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
-            var result = from u in displayedUniversities select new[] { string.Empty, u.UniversityId.ToString(), u.UniversityName.ToString() };
+            var result = from u in displayedUniversities select new[] { u.UniversityId.ToString(), u.UniversityId.ToString(), u.UniversityName.ToString() };
             
             return Json(new
             {

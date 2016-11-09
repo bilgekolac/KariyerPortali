@@ -12,10 +12,21 @@ using KariyerPortali.Admin.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using System.Collections.Generic;
+using System.IO;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    
+    public class UserViewModel
+    {
+        public string UserName { get; set; }
+        public string RoleNames { get; set; }
+        public string Email { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Title { get; set; }
+        public DateTime CreatedDate { get; set; }
+
+    }
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -26,7 +37,26 @@ namespace KariyerPortali.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            IList<UserViewModel> users = new List<UserViewModel>();
+            var userList = db.Users.ToList();
+            foreach (var user in userList)
+            {
+                var u = new UserViewModel();
+                u.UserName = user.UserName;
+                
+                u.FirstName = user.FirstName;
+                u.LastName = user.LastName;
+                u.Title = user.Title;
+                foreach (var role in user.Roles)
+                {
+                    u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
+                }
+                u.CreatedDate = user.CreatedDate;
+                
+
+            }
+            
+            return View(users);
         }
 
 
@@ -49,15 +79,26 @@ namespace KariyerPortali.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Edit(ApplicationUser model)
+        public ActionResult Edit(ApplicationUser model,System.Web.HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 ApplicationUser u = UserManager.FindByEmail(model.UserName);
-                u.UserName = model.UserName;
+                u.UserName = model.Email;
                 u.Email = model.Email;
-                //u.FirstName = model.FirstName; // Extra Property
-                //u.LastName = model.LastName; // Extra Property
+                u.FirstName = model.FirstName; // Extra Property
+                u.LastName = model.LastName; // Extra Property
+                u.ImagePath = model.ImagePath;
+                u.PhoneNumber = model.PhoneNumber;
+                u.Title = model.Title;
+                if (file != null && file.ContentLength > 0)  
+                {
+                    string dosyaYolu = Path.GetFileName(file.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Account"), dosyaYolu);
+                    file.SaveAs(yuklemeYeri);
+                    u.ImagePath = file.FileName;
+                    
+                }
                 UserManager.Update(u);
                 return RedirectToAction("Index");
             }

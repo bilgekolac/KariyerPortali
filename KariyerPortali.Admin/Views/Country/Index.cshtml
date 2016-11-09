@@ -79,17 +79,17 @@
                                     <ul class="dropdown-menu pull-left" role="menu">
                                         <li>
                                             <a href="javascript:;">
-                                                <i class="icon-note"></i> Düzenle
+                                                <i class="icon-note" onclick="window.location='@Url.Action("Edit","Country")';"></i> Düzenle
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <i class="icon-list"></i> Detaylar
+                                                <i class="icon-list" onclick="window.location='@Url.Action("Details","Country")';"></i> Detaylar
                                             </a>
                                         </li>
                                         <li>
                                             <a href="javascript:;">
-                                                <i class="icon-ban"></i> Sil
+                                                <i class="icon-ban" onclick="window.location='@Url.Action("Delete","Country")';"></i> Sil
                                             </a>
                                         </li>
                                         <li class="divider"> </li>
@@ -97,44 +97,7 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr class="odd gradeX">
-                            <td>
-                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                    <input type="checkbox" class="checkboxes" value="1" />
-                                    <span></span>
-                                </label>
-                            </td>
-                            <th>2</th>
-                            <td> Almanya</td>
-
-
-                            <td>
-                                <div class="btn-group">
-                                    <button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-                                        Eylemler
-                                        <i class="fa fa-angle-down"></i>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="icon-note"></i> Düzenle
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="icon-list"></i> Detaylar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:;">
-                                                <i class="icon-ban"></i> Sil
-                                            </a>
-                                        </li>
-                                        <li class="divider"> </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>

@@ -29,12 +29,54 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+        //public ActionResult Edit(int? id)
+        //{
+
+        //    var city = cityService.GetCity(id.Value);
+        //    return View(city);
+            
+        //}
+
+        //[HttpPost]
+        //public ActionResult Edit(City city)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        cityService.UpdateCity(city);
+        //        cityService.SaveCity();
+        //        return RedirectToAction("Index");
+                
+        //    }
+        //    return View(city);
+        //}
+
+      
         public ActionResult Create()
         {
             ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
+          
 
             return View();
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(CityFormViewModel formCity)
+        {
+            if (ModelState.IsValid)
+            {
+                var city = Mapper.Map<CityFormViewModel, City>(formCity);
+                cityService.CreateCity(city);             
+
+                cityService.SaveCity();
+                return RedirectToAction("Index");
+               
+            }
+            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
+            return View (formCity);
+        }
+     
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -58,9 +100,9 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            var displayedEmployers = cityService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var displayedCities = cityService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-            var result = from c in displayedEmployers
+            var result = from c in displayedCities
                          select new[] { c.CityId.ToString(), c.CityId.ToString(), c.CityName.ToString(),  string.Empty };
             return Json(new
             {

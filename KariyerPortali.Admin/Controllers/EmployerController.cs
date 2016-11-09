@@ -5,6 +5,7 @@ using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -39,7 +40,7 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EmployerFormViewModel employerForm)
+        public ActionResult Create(EmployerFormViewModel employerForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
@@ -48,10 +49,21 @@ namespace KariyerPortali.Admin.Controllers
                 employer.CreateDate = DateTime.Now;
                 employer.UpdatedBy = "mdemirci";
                 employer.UpdateDate = employer.CreateDate;
+                if (upload != null)
+                {
+                    string dosyaYolu = Path.GetFileName(upload.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Employer"), dosyaYolu);
+                    upload.SaveAs(yuklemeYeri);
+                    employer.Logo = upload.FileName;
+
+                }
                 employerService.CreateEmployer(employer);
                 employerService.SaveEmployer();
                 return RedirectToAction("Index");
             }
+         
+            ViewBag.SectorId = new SelectList(sectorService.GetSectors(), "SectorId", "SectorName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             return View(employerForm);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)

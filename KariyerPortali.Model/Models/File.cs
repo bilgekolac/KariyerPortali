@@ -9,6 +9,7 @@ namespace KariyerPortali.Model
     public class File
     {
         public int FileId { get; set; }
+        public string Title { get; set; }
         public string FileName { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreateDate { get; set; }

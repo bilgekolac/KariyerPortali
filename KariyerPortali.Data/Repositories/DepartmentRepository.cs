@@ -19,7 +19,7 @@ namespace KariyerPortali.Data.Repositories
             var searchWords = search.Split(' ');
 
 
-            var query = this.DbContext.Departments.Include("University").AsQueryable();
+            var query = this.DbContext.Departments.AsQueryable();
             foreach (string sSearch in searchWords)
             {
                 if (sSearch != null && sSearch != "")
@@ -36,13 +36,14 @@ namespace KariyerPortali.Data.Repositories
             {
                 switch (sortColumnIndex)
                 {
-                    case 0:
+                    case 1:
+                        filteredDepartments = filteredDepartments.OrderBy(c => c.DepartmentId);
+                        break;
+                    case 2:
                         filteredDepartments = filteredDepartments.OrderBy(c => c.DepartmentName);
                         break;
-                    
-
                     default:
-                        filteredDepartments = filteredDepartments.OrderBy(c => c.DepartmentName);
+                        filteredDepartments = filteredDepartments.OrderBy(c => c.DepartmentId);
                         break;
                 }
             }
@@ -50,11 +51,14 @@ namespace KariyerPortali.Data.Repositories
             {
                 switch (sortColumnIndex)
                 {
-                    case 0:
+                    case 1:
+                        filteredDepartments = filteredDepartments.OrderByDescending(c => c.DepartmentId);
+                        break;
+                    case 2:
                         filteredDepartments = filteredDepartments.OrderByDescending(c => c.DepartmentName);
                         break;
                     default:
-                        filteredDepartments = filteredDepartments.OrderByDescending(c => c.DepartmentName);
+                        filteredDepartments = filteredDepartments.OrderByDescending(c => c.DepartmentId);
                         break;
                 }
             }

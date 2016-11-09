@@ -10,6 +10,9 @@ namespace KariyerPortali.Admin.ViewModels
     public class FileFormViewModel
     {
         public int FileId { get; set; }
+        [DisplayName("Başlık")]
+        public string Title { get; set; }
+        [Required(ErrorMessage = "Dosya Adı gereklidir.")]
         [DisplayName("Dosya Adı")]
         public string FileName { get; set; }
         public string CreatedBy { get; set; }

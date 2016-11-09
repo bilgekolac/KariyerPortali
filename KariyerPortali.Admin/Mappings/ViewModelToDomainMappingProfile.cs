@@ -19,6 +19,10 @@ namespace KariyerPortali.Admin.Mappings
         {
             Mapper.CreateMap<EmployerFormViewModel, Employer>();
             Mapper.CreateMap<DepartmentFormViewModel, Department>();
+            Mapper.CreateMap<LanguageFormViewModel, Language>();
+            Mapper.CreateMap<CountryFormViewModel, Country>();           
+            Mapper.CreateMap<CityFormViewModel, City>();
+            Mapper.CreateMap<UniversityFormViewModel, University>();
             
         }
     }
