@@ -66,7 +66,7 @@
                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Eylemler <i class="fa fa-angle-down"></i></button>'
                         + '<ul class="dropdown-menu" role="menu"><li><a href="/City/Edit/' + row[0]
                         
-                        + '"><i class="icon-list"></i> Düzenle</a></li><li>' + '<a href="/City/Delete/' + row[0]
+                        + '"><i class="icon-list"></i> Düzenle</a></li><li>' + '<a href="/City/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                         + '"><i class="icon-ban"></i> Sil </a></li></ul></div>';
                 }
 
