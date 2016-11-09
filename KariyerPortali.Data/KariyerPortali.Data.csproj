@@ -64,6 +64,7 @@
     <Compile Include="Configuration\JobConfiguration.cs" />
     <Compile Include="Configuration\LanguageConfiguration.cs" />
     <Compile Include="Configuration\LanguageInfoConfiguration.cs" />
+    <Compile Include="Configuration\PageConfiguration.cs" />
     <Compile Include="Configuration\PostConfiguration.cs" />
     <Compile Include="Configuration\ReferenceConfiguration.cs" />
     <Compile Include="Configuration\ResumeConfiguration.cs" />
