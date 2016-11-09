@@ -5,6 +5,7 @@ using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,7 +17,7 @@ namespace KariyerPortali.Admin.Controllers
         private readonly IFileService fileService;
         // GET: Media
 
-         public MediaController(IFileService fileService)
+        public MediaController(IFileService fileService)
         {
             this.fileService = fileService;
         }
@@ -30,25 +31,36 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FileFormViewModel fileForm)
+        public ActionResult Create(FileFormViewModel fileForm, System.Web.HttpPostedFileBase upload)
         {
-          
             if (ModelState.IsValid)
             {
-                var file = Mapper.Map<FileFormViewModel, File>(fileForm);
+                var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreatedBy = "mdemirci"; //User.Identity.Name
                 file.CreateDate = DateTime.Now;
                 file.UpdatedBy = "mdemirci";
                 file.UpdateDate = DateTime.Now;
-                file.FileName = "aysenur"; //upload.FileName;
+                if (upload != null)
+                {
+                    if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                    {
+                        string dosyaYolu = Path.GetFileName(upload.FileName);
+                        var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
+                        upload.SaveAs(yuklemeYeri);
+                        file.FileName = upload.FileName;
+                    }
+                    else return View(fileForm);
+                   
+
+                }
                 fileService.CreateFile(file);
                 fileService.SaveFile();
                 return RedirectToAction("Index");
             }
             return View(fileForm);
         }
-       
-      
+
+
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 
@@ -62,7 +74,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedFiles = fileService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedFiles
-                         select new[] { string.Empty, c.FileName, c.CreatedBy ,c.CreateDate.ToString() ,c.UpdatedBy ,c.UpdateDate.ToString(), string.Empty };
+                         select new[] { string.Empty, c.FileName, c.CreatedBy, c.CreateDate.ToString(), c.UpdatedBy, c.UpdateDate.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,

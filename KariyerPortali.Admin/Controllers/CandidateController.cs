@@ -13,7 +13,6 @@ namespace KariyerPortali.Admin.Controllers
 {
     public class CandidateController : Controller
     {
-        
         private readonly ICandidateService candidateService;
 
         public CandidateController(ICandidateService candidateService)
@@ -27,7 +26,6 @@ namespace KariyerPortali.Admin.Controllers
             return View();
 
         }
-
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
@@ -49,22 +47,32 @@ namespace KariyerPortali.Admin.Controllers
             },
                 JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int?id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var candidate = candidateService.GetCandidate(id.Value);
+                if (candidate != null)
+                {
+                    var candidateViewModel = Mapper.Map<Candidate, CandidateViewModel>(candidate);
+                    return View(candidateViewModel);
+                }
+            }
+            return HttpNotFound();       
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CandidateID,UserName,FirstName,LastName,Email,Phone,BirthDate,Photo,State")] Candidate candidate)
+        public ActionResult Edit(CandidateFormViewModel candidateForm)
         {
             if (ModelState.IsValid)
             {
-                candidateService.CreateCandidate(candidate);
+                var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
+                candidateService.UpdateCandidate(candidate);
                 candidateService.SaveCandidate();
                 return RedirectToAction("Index");
             }
-            return View(candidate);
+            return View(candidateForm);
         }
     }
 }

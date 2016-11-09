@@ -35,10 +35,10 @@ namespace KariyerPortali.Data.Repositories
             {
                 switch (sortColumnIndex)
                 {
-                    case 0:
+                    case 1:
                         filteredCountries = filteredCountries.OrderBy(c => c.CountryId);
                         break;
-                    case 1:
+                    case 2:
                         filteredCountries = filteredCountries.OrderBy(c => c.CountryName);
                         break;
 
@@ -51,10 +51,10 @@ namespace KariyerPortali.Data.Repositories
             {
                 switch (sortColumnIndex)
                 {
-                    case 0:
+                    case 1:
                         filteredCountries = filteredCountries.OrderByDescending(c => c.CountryId);
                         break;
-                    case 1:
+                    case 2:
                         filteredCountries = filteredCountries.OrderByDescending(c => c.CountryName);
                         break;
 
