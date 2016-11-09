@@ -144,28 +144,24 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         [AllowAnonymous]
-        public ActionResult MyProfile()
+        public ActionResult MyProfile(string username)
         {
-            IList<UserViewModel> users = new List<UserViewModel>();
-            var userList = db.Users.ToList();
-            foreach (var user in userList)
-            {
+
+
+            var user = db.Users.First(c => c.UserName == username);
                 var u = new UserViewModel();
                 u.UserName = user.UserName;
-
                 u.FirstName = user.FirstName;
                 u.LastName = user.LastName;
                 u.Title = user.Title;
+                u.ImagePath = user.ImagePath;
                 foreach (var role in user.Roles)
                 {
                     u.RoleNames += db.Roles.FirstOrDefault(r => r.Id == role.RoleId).Name;
                 }
                 u.CreatedDate = user.CreatedDate;
-
-                users.Add(u);
-            }
-
-            return View(users);
+    
+            return View(u);
         }
 
 

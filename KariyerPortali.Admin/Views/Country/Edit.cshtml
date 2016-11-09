@@ -30,8 +30,7 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.CountryId)
+                   
                 </div>
             </div>
             @using (Html.BeginForm())
@@ -39,8 +38,11 @@
                 @Html.AntiForgeryToken()
                 <div class="portlet-body form">
                     <form role="form">
-                        <div class="form-body">
-                            <div class="form-group">
+                        <div class="form-group">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.CountryId)
+                            <div class="form-body">
+
                                 @Html.LabelFor(model => model.CountryName)
                                 @Html.EditorFor(model => model.CountryName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
                                 @Html.ValidationMessageFor(model => model.CountryName, "", new { @class = "text-danger" })
