@@ -62,6 +62,21 @@ namespace KariyerPortali.Admin.Controllers
                 return View(Mapper.Map<JobApplication, JobApplicationViewModel>(JobApplication));
 
         }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var jobapplication = jobApplicationService.GetJobApplication(id.Value);
+                if (jobapplication != null)
+                {
+                    jobApplicationService.DeleteJobApplication(jobapplication);
+                    jobApplicationService.SaveJobApplication();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
     }
 }
 
