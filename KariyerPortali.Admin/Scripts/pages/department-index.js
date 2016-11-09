@@ -10,9 +10,9 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Böyle bir kayıt bulunamamaktadır",
+            "emptyTable": "Görüntülenecek Kayıt Yok",
             "info": "Gösterilen _START_ ile _END_ toplam _TOTAL_ kayıt",
-            "infoEmpty": "Kayıt bulunamadı",
+            "infoEmpty": "Kayıt Bulunamadı",
             "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
@@ -63,7 +63,7 @@
                 'targets': [3],
                 'render': function (data, type, row) {
                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Department/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Department/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Department/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
                         + '<a href="/Department/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                 }
 
