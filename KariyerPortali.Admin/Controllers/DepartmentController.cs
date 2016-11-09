@@ -68,6 +68,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(departmentForm);
         }
+        
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
