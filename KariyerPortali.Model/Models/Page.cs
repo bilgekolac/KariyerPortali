@@ -10,7 +10,7 @@ namespace KariyerPortali.Model.Models
     {
         public int PageId { get; set; }
         public string Title { get; set; }
-        public string MyProperty { get; set; }
+        public string Author { get; set; }
         public float Statistic { get; set; }
         public DateTime CreateDate { get; set; }
     }
