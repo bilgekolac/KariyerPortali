@@ -59,6 +59,10 @@
                             @Html.HiddenFor(model => model.EmployerId)
 
                             <div class="form-group">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.Logo)
+
+
                                 @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <input type="file" id="Logo" name="upload" />
                                 @Model.Logo
