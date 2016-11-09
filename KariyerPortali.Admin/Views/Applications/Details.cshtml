@@ -1,0 +1,179 @@
+﻿@model KariyerPortali.Admin.ViewModels.JobApplicationViewModel
+    @{
+        ViewBag.Title = "Details";
+    }    
+   <!-- BEGIN SAMPLE FORM PORTLET-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    table, td, th {
+        border: none;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="/Applications">Başvurular</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Başvuru Detayları</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+
+    </div>
+</div>
+<br />
+<div class="portlet light bordered">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="" />
+        </div>
+        <div class="col-md-8">
+            <h1 class="page-title"><strong>Başvuru Detayları</strong></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">note</i>
+                        <span class="caption-subject"><strong>Başvuru Bilgileri</strong></span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="portlet-title">
+
+                            <div class="form-group">
+                                <label><strong>Başvuru Tarihi :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Son Güncelleme :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Ön Yazı :</strong></label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">person</i>
+                        <span class="caption-subject"><strong>Aday Bilgileri</strong></span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label><strong>Adı :</strong> </label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Soyadı :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Cep Telefonu :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>E-Posta :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Adres :</strong> </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+               
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">person</i>
+                        <span class="caption-subject"><strong>İşveren Bilgileri</strong></span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="portlet-title">
+
+                            <div class="form-group">
+                                <label><strong>İş Veren :</strong></label>
+                            </div>
+
+                            <div class="form-group">
+                                <label><strong>Sektör :</strong> </label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Şehir :</strong> </label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Web Sayfası :</strong> </label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">note</i>
+                        <span class="caption-subject"><strong>İş Bilgileri</strong></span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="portlet-title">
+
+                            <div class="form-group">
+                                <label><strong>İş Tanımı :</strong></label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Açıklama :</strong></label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+
+        <div class="col-md-4">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">build</i>
+                        <span class="caption-subject"><strong>Diğer İşlemler</strong></span>
+                    </div>
+
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <a href=""><strong>Aday Özgeçmişini Görüntüle</strong></a>
+                            </div>
+                            <div class="form-group">
+                                <a href=""><strong>İşveren Detaylarını Görüntüle</strong></a>
+                            </div>
+                            <div class="form-group">
+                                <a href=""><strong>İş Detaylarını Görüntüle</strong></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

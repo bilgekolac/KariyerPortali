@@ -29,7 +29,6 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(DepartmentFormViewModel department)
@@ -39,10 +38,35 @@ namespace KariyerPortali.Admin.Controllers
                 var dep = Mapper.Map<DepartmentFormViewModel, Department>(department);
                 departmentService.CreateDepartment(dep);
                 departmentService.SaveDepartment();
+                return RedirectToAction("Index");
             }
-
-            
-            return RedirectToAction("Index");
+            return View(department);
+        }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var department = departmentService.GetDepartment(id.Value);
+                if (department != null)
+                {
+                    var dapartmentViewModel = Mapper.Map<Department, DepartmentViewModel>(department);
+                    return View(dapartmentViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(DepartmentFormViewModel departmentForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var department = Mapper.Map<DepartmentFormViewModel, Department>(departmentForm);
+                departmentService.UpdateDepartment(department);
+                departmentService.SaveDepartment();
+                return RedirectToAction("Index");
+            }
+            return View(departmentForm);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
@@ -65,5 +89,6 @@ namespace KariyerPortali.Admin.Controllers
             },
                 JsonRequestBehavior.AllowGet);
         }
+
     }
 }
