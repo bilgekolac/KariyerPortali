@@ -58,13 +58,13 @@
                         <div class="portlet-title">
 
                             <div class="form-group">
-                                <label><strong>Başvuru Tarihi :</strong></label>
+                                <label><strong>Başvuru Tarihi :</strong>@Html.DisplayFor(model=>model.ApplicationDate)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Son Güncelleme :</strong></label>
+                                <label><strong>Son Güncelleme :</strong>@Html.DisplayFor(model => model.UpdateDate)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Ön Yazı :</strong></label>
+                                <label><strong>Ön Yazı :</strong>@Html.DisplayFor(model => model.CoverLetter)</label>
                             </div>
                         </div>
                     </form>
@@ -80,16 +80,16 @@
                     <form role="form">
                         <div class="form-body">
                             <div class="form-group">
-                                <label><strong>Adı :</strong> </label>
+                                <label><strong>Adı :</strong> @Html.DisplayFor(model => model.Candidate.FirstName)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Soyadı :</strong></label>
+                                <label><strong>Soyadı :</strong>@Html.DisplayFor(model => model.Candidate.LastName)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Cep Telefonu :</strong></label>
+                                <label><strong>Cep Telefonu :</strong>@Html.DisplayFor(model => model.Candidate.Phone)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>E-Posta :</strong></label>
+                                <label><strong>E-Posta :</strong>@Html.DisplayFor(model => model.Candidate.Email)</label>
                             </div>
                             <div class="form-group">
                                 <label><strong>Adres :</strong> </label>
@@ -111,17 +111,17 @@
                         <div class="portlet-title">
 
                             <div class="form-group">
-                                <label><strong>İş Veren :</strong></label>
+                                <label><strong>İş Veren :</strong>@Html.DisplayFor(model => model.Employer.EmployerName)</label>
                             </div>
 
                             <div class="form-group">
-                                <label><strong>Sektör :</strong> </label>
+                                <label><strong>Sektör :</strong>@Html.DisplayFor(model => model.Employer.Sector.SectorName) </label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Şehir :</strong> </label>
+                                <label><strong>Şehir :</strong> @Html.DisplayFor(model => model.Employer.City.CityName)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Web Sayfası :</strong> </label>
+                                <label><strong>Web Sayfası :</strong>@Html.DisplayFor(model => model.Employer.WebSite) </label>
                             </div>
                         </div>
                     </form>
@@ -136,13 +136,16 @@
                 <div class="portlet-body form">
                     <form role="form">
                         <div class="portlet-title">
-
                             <div class="form-group">
-                                <label><strong>İş Tanımı :</strong></label>
+                                <label><strong>İlan Tarihi :</strong>@Html.DisplayFor(model => model.Job.Createdate)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>Açıklama :</strong></label>
+                                <label><strong>İş Tanımı :</strong>@Html.DisplayFor(model => model.Job.Title)</label>
                             </div>
+                            <div class="form-group">
+                                <label><strong>Açıklama :</strong>@Html.DisplayFor(model => model.Job.Description)</label>
+                            </div>
+                            
                         </div>
                     </form>
                 </div>

@@ -25,5 +25,11 @@ namespace KariyerPortali.Admin.ViewModels
         public int JobId { get; set; }
         public Job Job { get; set; }
 
+        public int SectorId { get; set; }
+        public Sector Sector { get; set; }
+
+        public int CityId { get; set; }
+        public City City { get; set; }
+
     }
 }
