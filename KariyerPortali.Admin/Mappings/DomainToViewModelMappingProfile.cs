@@ -29,6 +29,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<University, UniversityViewModel>();
             Mapper.CreateMap<Employer, EmployerViewModel>();
             Mapper.CreateMap<File, FileViewModel>();
+            Mapper.CreateMap<Post, PostViewModel>();
 #pragma warning restore CS0618 // Type or member is obsolete
         }
     
