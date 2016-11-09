@@ -22,7 +22,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Country, CountryViewModel>();
             Mapper.CreateMap<City, CityViewModel>();
             Mapper.CreateMap<Candidate, CandidateViewModel>();
-            Mapper.CreateMap<Job, JobViewModel>();
+            Mapper.CreateMap<Job, JobFormViewModel>();
             Mapper.CreateMap<Language, LanguageViewModel>();
             Mapper.CreateMap<Department, DepartmentViewModel>();
             Mapper.CreateMap<JobApplication, JobApplicationViewModel>();
