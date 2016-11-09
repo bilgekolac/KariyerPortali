@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IExamService
     {
+        IEnumerable<Exam> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Exam> GetExams();
         Exam GetExam(int id);
         void CreateExam(Exam exam);
@@ -18,7 +19,7 @@ namespace KariyerPortali.Service
         void DeleteExam(Exam exam);
         void SaveExam();
     }
-    public class ExamService:IExamService
+    public class ExamService : IExamService
     {
         private readonly IExamRepository examRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -28,6 +29,13 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region IExamService Members
+        public IEnumerable<Exam> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var exams = examRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return exams;
+
+        }
         public IEnumerable<Exam> GetExams()
         {
             var exams = examRepository.GetAll();
