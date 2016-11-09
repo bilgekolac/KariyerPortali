@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KariyerPortali.Admin.ap
+﻿@model KariyerPortali.Admin.Controllers.UserViewModel
 @{
     ViewBag.Title = "Profilim";
 }
@@ -37,16 +37,25 @@
                             <div class="">
                                 <!-- PORTLET MAIN -->
                                 <div class="portlet light">
-                                    <!-- SIDEBAR USERPIC -->
+                                    <!-- SIDEBAR USERPIC -->      
+                                    
                                     <div class="profile-userpic">
-                                        <img src="/assets/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
+                                       
+                                        <img src="/Uploads/Account/@Html.DisplayFor(model=>model.ImagePath)" class="img-responsive" alt="Kişi Resmi">
+                                        
                                     </div>
+                                    
                                     <!-- END SIDEBAR USERPIC -->
                                     <!-- SIDEBAR USER TITLE -->
+                                    
+                                        
+                                    
                                     <div class="profile-usertitle">
-                                        <div class="profile-usertitle-name"> Marcus Doe </div>
-                                        <div class="profile-usertitle-job"> Developer </div>
+                                        <div class="profile-usertitle-name">@Html.DisplayFor(model=>model.UserName)</div>
+                                        <div class="profile-usertitle-job"style="font-size:20px">@Html.DisplayFor(model => model.RoleNames) </div>
+                                        <div class="profile-usertitle-job">@Html.DisplayFor(model => model.Title) </div>
                                     </div>
+                                    
                                     <!-- END SIDEBAR USER TITLE -->
                                     <!-- SIDEBAR BUTTONS -->
                                     

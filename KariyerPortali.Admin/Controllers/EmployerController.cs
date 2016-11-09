@@ -92,6 +92,14 @@ namespace KariyerPortali.Admin.Controllers
                 employer.CreateDate = DateTime.Now;
                 employer.UpdatedBy = "karacabora";
                 employer.UpdateDate = employer.CreateDate;
+     
+                employer.SectorId = 1;
+                employer.CityId = 1;
+                employer.Email = "bora@gmail.com";
+                employer.Phone = "2125522";
+                employer.WebSite = "www.bom.com";
+                employer.Address = "asdadsa";
+
                 if (upload != null)
                 {
                     string dosyaYolu = Path.GetFileName(upload.FileName);
@@ -104,6 +112,8 @@ namespace KariyerPortali.Admin.Controllers
                 employerService.SaveEmployer();
                 return RedirectToAction("Index");
             }
+            ViewBag.SectorId = new SelectList(sectorService.GetSectors(), "SectorId", "SectorName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             return View(employerForm);
         }
 
