@@ -73,5 +73,6 @@ namespace KariyerPortali.Data.Repositories
     public interface IDepartmentRepository : IRepository<Department>
     {
         IEnumerable<Department> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
+
     }
 }
