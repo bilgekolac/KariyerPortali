@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static KariyerPortali.Data.Repositories.ResumeRepository;
 
 namespace KariyerPortali.Service
 {
     public interface IResumeService
     {
+        IEnumerable<City> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Resume> GetResumes();
         Resume GetResume(int id);
         void CreateResume(Resume resume);
@@ -27,6 +29,12 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region IResumeService Members
+        public IEnumerable<Resume> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var resumes = resumeRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return resumes;
+        }
         public IEnumerable<Resume> GetResumes()
         {
             var cvs = resumeRepository.GetAll();
@@ -55,6 +63,11 @@ namespace KariyerPortali.Service
         public void SaveResume()
         {
             unitOfWork.Commit();
+        }
+
+        IEnumerable<City> IResumeService.Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }
