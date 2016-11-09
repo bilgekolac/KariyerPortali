@@ -47,28 +47,28 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(examForm);
         }
-        //public ActionResult AjaxHandler(jQueryDataTableParamModel param)
-        //{
-        //    string sSearch = "";
-        //    if (param.sSearch != null) sSearch = param.sSearch;
-        //    var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
-        //    var sortDirection = Request["sSortDir_0"]; // asc or desc
-        //    int iTotalRecords;
-        //    int iTotalDisplayRecords;
-        //    var displayedExams = examService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+        public ActionResult AjaxHandler(jQueryDataTableParamModel param)
+        {
+            string sSearch = "";
+            if (param.sSearch != null) sSearch = param.sSearch;
+            var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
+            var sortDirection = Request["sSortDir_0"]; // asc or desc
+            int iTotalRecords;
+            int iTotalDisplayRecords;
+            var displayedExams = examService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-        //    var result = from e in displayedExams
-        //                 select new[] { e.ExamId.ToString(), e.ExamId.ToString(), e.ExamName, string.Empty };
-        //    return Json(new
-        //    {
-        //        sEcho = param.sEcho,
-        //        iTotalRecords = iTotalRecords,
-        //        iTotalDisplayRecords = iTotalDisplayRecords,
-        //        aaData = result.ToList()
-        //    },
-        //        JsonRequestBehavior.AllowGet);
+            var result = from e in displayedExams
+                         select new[] { e.ExamId.ToString(), e.ExamId.ToString(), e.ExamName, string.Empty };
+            return Json(new
+            {
+                sEcho = param.sEcho,
+                iTotalRecords = iTotalRecords,
+                iTotalDisplayRecords = iTotalDisplayRecords,
+                aaData = result.ToList()
+            },
+                JsonRequestBehavior.AllowGet);
 
-        //}
+        }
 
 
         public ActionResult Edit(int? id)
