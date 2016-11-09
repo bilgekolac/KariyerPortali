@@ -53,6 +53,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CandidateID,UserName,FirstName,LastName,Email,Phone,BirthDate,Photo,State")] Candidate candidate)
