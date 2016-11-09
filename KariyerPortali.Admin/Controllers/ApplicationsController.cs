@@ -56,7 +56,11 @@ namespace KariyerPortali.Admin.Controllers
 
         }
 
-
+        public ActionResult Details()
+        {
+            //ViewBag.JobApplicationId = jobApplicationService.GetJobApplication();
+            return View();
+        }
     }
 }
 
