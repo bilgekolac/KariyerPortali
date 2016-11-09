@@ -4,7 +4,7 @@
 }
 <br />
 <!-- BEGIN SAMPLE FORM PORTLET-->
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Account", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 { 
     @Html.AntiForgeryToken()
 <div class="row">
@@ -59,10 +59,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputFile1">Resim Seçin</label>
-                                        <input type="file" id="exampleInputFile1">
+                                        <input type="file" id="exampleInputFile1" name="file">
+                                        @TempData["result"]
                                         @*<p class="help-block"> some help text here. </p>*@
                                     </div>
                                     <div class="form-group">
+                                        
                                         <img src="..." width="200" height="200" alt="Kişi Resmi" title="Kişi Resmi" />
                                     </div>
                                     <label>Durum</label>
@@ -76,7 +78,10 @@
                             </div>
                             <div class="form-actions right">
                                 <button type="submit" class="btn blue">Kaydet</button>
-                                <button type="button" class="btn default">İptal</button>
+                                @*<button type="button" class="btn default">İptal</button>*@
+                                <a href="/Account/Index" id="sample_editable_1_new" class="btn default">
+                                    İptal                                  
+                                </a>
                             </div>
                         </div>
                     </div>

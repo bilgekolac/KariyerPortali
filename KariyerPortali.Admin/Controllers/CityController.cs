@@ -29,6 +29,26 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+        //public ActionResult Edit(int? id)
+        //{
+
+        //    var city = cityService.GetCity(id.Value);
+        //    return View(city);
+            
+        //}
+
+        //[HttpPost]
+        //public ActionResult Edit(City city)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        cityService.UpdateCity(city);
+        //        cityService.SaveCity();
+        //        return RedirectToAction("Index");
+                
+        //    }
+        //    return View(city);
+        //}
 
       
         public ActionResult Create()
@@ -80,9 +100,9 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            var displayedEmployers = cityService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var displayedCities = cityService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-            var result = from c in displayedEmployers
+            var result = from c in displayedCities
                          select new[] { c.CityId.ToString(), c.CityId.ToString(), c.CityName.ToString(),  string.Empty };
             return Json(new
             {

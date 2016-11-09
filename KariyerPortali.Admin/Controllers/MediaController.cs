@@ -28,6 +28,27 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(FileFormViewModel fileForm)
+        {
+          
+            if (ModelState.IsValid)
+            {
+                var file = Mapper.Map<FileFormViewModel, File>(fileForm);
+                file.CreatedBy = "mdemirci"; //User.Identity.Name
+                file.CreateDate = DateTime.Now;
+                file.UpdatedBy = "mdemirci";
+                file.UpdateDate = DateTime.Now;
+                file.FileName = "aysenur"; //upload.FileName;
+                fileService.CreateFile(file);
+                fileService.SaveFile();
+                return RedirectToAction("Index");
+            }
+            return View(fileForm);
+        }
+       
+      
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 

@@ -1,29 +1,45 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.LanguageFormViewModel
 @{
     ViewBag.Title = "Delete";
 }
 
 <!DOCTYPE html>
-
-
-<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
-<!-- END HEAD -->
-<!-- BEGIN PAGE BAR -->
-
-<br />
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="~/Language/Index">Tüm Diller</a>
+            <a href="@Url.Action("Index","Language")" class="nav-link ">Tüm Diller</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
             <span>Sil</span>
         </li>
     </ul>
-    <div class="page-toolbar">
 
-    </div>
 </div>
-<br />
+
+<h3>Silmek istediğinizden emin misiniz</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn blue" /> |
+            @Html.ActionLink("Geri Dön", "Index")
+        </div>
+    }
+</div>
+

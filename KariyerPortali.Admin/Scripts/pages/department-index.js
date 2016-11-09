@@ -35,6 +35,9 @@
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
+        "bServerSide": true,
+        "bProcessing": true,
+        "sAjaxSource": "/Department/AjaxHandler",
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
@@ -57,7 +60,7 @@
             {
                 'orderable': false,
                 'searchable': false,
-                'targets': [5],
+                'targets': [3],
                 'render': function (data, type, row) {
                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Department/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Department/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
@@ -72,7 +75,7 @@
         ] // set first column as a default sort by asc
     });
 
-    var tableWrapper = jQuery('#allApplicationsTable_wrapper');
+    var tableWrapper = jQuery('#allDepartmentTable_wrapper');
 
     table.find('.group-checkable').change(function () {
         var set = jQuery(this).attr("data-set");

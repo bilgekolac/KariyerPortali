@@ -4,36 +4,34 @@
 }
 
 <!-- BEGIN CONTENT BODY -->
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN THEME PANEL -->
+<!-- END THEME PANEL -->
+<!-- BEGIN PAGE BAR -->
 
+<br />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","University")">Üniversiteler</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Düzenle</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
 
-    <!-- BEGIN PAGE HEADER-->
-    <!-- BEGIN THEME PANEL -->
-    <!-- END THEME PANEL -->
-    <!-- BEGIN PAGE BAR -->
-
-    <br />
-    <div class="page-bar">
-        <ul class="page-breadcrumb">
-            <li>
-                <a href="@Url.Action("Index","University")">Üniversiteler</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <span>Yeni Üniversite</span>
-            </li>
-        </ul>
-        <div class="page-toolbar">
-
-        </div>
     </div>
-    <br />
-    <!-- END PAGE BAR -->
-    <!-- BEGIN PAGE TITLE-->
-    <h1 class="page-title">
-        <small></small>
-    </h1>
-    <!-- END PAGE TITLE-->
-    <!-- END PAGE HEADER-->
+</div>
+<br />
+<!-- END PAGE BAR -->
+<!-- BEGIN PAGE TITLE-->
+<h1 class="page-title">
+    <small></small>
+</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -48,7 +46,7 @@
                     <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
                         <span class="caption-subject bold uppercase">
-                            YENİ ÜNİVERSİTE
+                            ÜNİVERSİTE DÜZENLE
                         </span>
                     </div>
 
@@ -56,23 +54,24 @@
                 <div class="portlet-body form">
                     <form role="form">
                         <div class="form-body">
-                          
+
 
                             <div class="form-group">
-                                
-                               
+
+
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model=>model.UniversityId)
                                 <div class="form-body">
                                     @Html.LabelFor(model => model.UniversityName)
-                                    
-                                        @Html.EditorFor(model => model.UniversityName, new { htmlAttributes = new {@tabindex="1", @class = "form-control" } })
 
-                                        @Html.ValidationMessageFor(model => model.UniversityName, "", new { @class = "text-danger" })
-                                    </div>
-                                
-                                       
-                                    
-                                
+                                    @Html.EditorFor(model => model.UniversityName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
+
+                                    @Html.ValidationMessageFor(model => model.UniversityName, "", new { @class = "text-danger" })
+                                </div>
+
+
+
+
                             </div>
 
 
@@ -96,6 +95,6 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
-    <div class="row ">
+<div class="row ">
 
-    </div>
+</div>

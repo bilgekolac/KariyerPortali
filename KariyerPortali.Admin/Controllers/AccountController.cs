@@ -12,6 +12,7 @@ using KariyerPortali.Admin.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Net;
 using System.Collections.Generic;
+using System.IO;
 
 namespace KariyerPortali.Admin.Controllers
 {
@@ -78,15 +79,25 @@ namespace KariyerPortali.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [AllowAnonymous]
-        public ActionResult Edit(ApplicationUser model)
+        public ActionResult Edit(ApplicationUser model,System.Web.HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
                 ApplicationUser u = UserManager.FindByEmail(model.UserName);
-                u.UserName = model.UserName;
+                u.UserName = model.Email;
                 u.Email = model.Email;
-                //u.FirstName = model.FirstName; // Extra Property
-                //u.LastName = model.LastName; // Extra Property
+                u.FirstName = model.FirstName; // Extra Property
+                u.LastName = model.LastName; // Extra Property
+                u.ImagePath = model.ImagePath;
+                u.PhoneNumber = model.PhoneNumber;
+                if (file != null && file.ContentLength > 0)  
+                {
+                    string dosyaYolu = Path.GetFileName(file.FileName);
+                    var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Account"), dosyaYolu);
+                    file.SaveAs(yuklemeYeri);
+                    u.ImagePath = file.FileName;
+                    
+                }
                 UserManager.Update(u);
                 return RedirectToAction("Index");
             }

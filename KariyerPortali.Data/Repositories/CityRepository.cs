@@ -23,7 +23,7 @@ namespace KariyerPortali.Data.Repositories
             {
                 if (sSearch != null && sSearch != "")
                 {
-                    query = query.Where(c => c.CityId.ToString().Contains(sSearch));
+                    query = query.Where(c => c.CityName.ToString().Contains(sSearch));
                 }
             }
 

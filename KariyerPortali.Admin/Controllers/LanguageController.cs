@@ -48,6 +48,16 @@ namespace KariyerPortali.Admin.Controllers
 
             return View();
         }
+        public ActionResult Edit([Bind(Include = "LanguageID,LanguageName")] Language language)
+        {
+            if (ModelState.IsValid)
+            {
+                languageService.CreateLanguage(language);
+                languageService.SaveLanguage();
+                return RedirectToAction("Index");
+            }
+            return View(language);
+        }
         public ActionResult Delete()
         {
 

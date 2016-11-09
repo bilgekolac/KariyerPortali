@@ -30,10 +30,11 @@ namespace KariyerPortali.Admin.ViewModels
         public int CityId { get; set; }
 
         [DisplayName("Telefon")]
+    
         public string Phone { get; set; }
 
         [DisplayName("E-Mail")]
-        [DataType(DataType.EmailAddress)]
+        [DataType(DataType.EmailAddress)] 
         public string Email { get; set; }
 
         [DisplayName("Web Site")]

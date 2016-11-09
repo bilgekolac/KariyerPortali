@@ -1,7 +1,7 @@
 ﻿@model KariyerPortali.Admin.ViewModels.EmployerFormViewModel
 <div class="page-container" style="
-    margin-top: 19px;
-">
+     margin-top:19px;
+     ">
     <!-- BEGIN SIDEBAR -->
     <div class="page-sidebar-wrapper">
         <!-- BEGIN SIDEBAR -->
@@ -9,7 +9,7 @@
         <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
         <!-- END SIDEBAR -->
     </div>
-   
+
     <div class="page-content-wrapper">
         <!-- BEGIN CONTENT BODY -->
         <div class="page-content" style="min-height: 571px; margin-left: 0px; padding-left: 0px; padding-top: 0px;">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        @using (Html.BeginForm())
+                        @using (Html.BeginForm("Create", "Employer", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
                         {
                             @Html.AntiForgeryToken()
                             <div class="col-md-6 ">
@@ -57,88 +57,96 @@
 
 
                                         <div class="form-body">
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.EmployerName)
-                                                @Html.EditorFor(model => model.EmployerName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.EmployerName, "", new { @class = "text-danger" })
-                                            </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.UserName)
-                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @tabindex = "3", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                                            </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.SectorId)
-                                                @Html.DropDownList("SectorId", null, new { @tabindex = "5", @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.SectorId, "", new { @class = "text-danger" })
 
-                                            </div>
                                             <div class="form-group">
-                                                @Html.LabelFor(model => model.CityId)
-                                                @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control" })
-                                                @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                                                @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
+                                                    <input type="file" id="Logo" name="upload" />
+                                                    @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+                                                
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.EmployerName)
+                                                    @Html.EditorFor(model => model.EmployerName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
+                                                    @Html.ValidationMessageFor(model => model.EmployerName, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.UserName)
+                                                    @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @tabindex = "3", @class = "form-control spinner" } })
+                                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.SectorId)
+                                                    @Html.DropDownList("SectorId", null, new { @tabindex = "5", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.SectorId, "", new { @class = "text-danger" })
+
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.CityId)
+                                                    @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                                                </div>
                                             </div>
+
+
                                         </div>
-
-
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 ">
-                                <div class="portlet light bordered">
+                                <div class="col-md-6 ">
+                                    <div class="portlet light bordered">
 
-                                    <div class="portlet-body form" style="margin-left: 15px;margin-right: 15px;">
+                                        <div class="portlet-body form" style="margin-left: 15px;margin-right: 15px;">
 
-                                        <div class="form-body">
-                                            <div class="form-group">
-                                           
+                                            <div class="form-body">
+                                                <div class="form-group">
+
                                                     @Html.LabelFor(model => model.Email)
                                                     @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
                                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                                                   
+
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Phone)
+                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
+                                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.WebSite)
+                                                    @Html.EditorFor(model => model.WebSite, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
+                                                    @Html.ValidationMessageFor(model => model.WebSite, "", new { @class = "text-danger" })
+
+                                                </div>
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.Address)
+                                                    @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
+                                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                @Html.LabelFor(model => model.Phone)
-                                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
-
-
+                                                <button type="submit" tabindex="9" class="btn blue">Kaydet</button>
+                                                <button type="button" tabindex="10" class="btn default" onclick="window.location='@Url.Action("Index","Employer")';">İptal</button>
                                             </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.WebSite)
-                                                @Html.EditorFor(model => model.WebSite, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.WebSite, "", new { @class = "text-danger" })
-
-                                            </div>
-                                            <div class="form-group">
-                                                @Html.LabelFor(model => model.Address)
-                                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
-                                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
 
 
-                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <button type="submit" tabindex="9" class="btn blue">Kaydet</button>
-                                            <button type="button" tabindex="10" class="btn default" onclick="window.location='@Url.Action("Index","Employer")';">İptal</button>
-                                        </div>
-
 
                                     </div>
-
                                 </div>
+                                }
                             </div>
-                        }
+                        </div>
                     </div>
+
                 </div>
+        <!-- END CONTENT BODY -->
             </div>
+    <!-- END CONTENT -->
 
         </div>
-        <!-- END CONTENT BODY -->
-    </div>
-    <!-- END CONTENT -->
-   
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+        @section Scripts {
+            @Scripts.Render("~/bundles/jqueryval")
+        }

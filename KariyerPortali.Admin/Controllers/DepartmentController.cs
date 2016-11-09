@@ -55,13 +55,13 @@ namespace KariyerPortali.Admin.Controllers
             var displayedDepartments = departmentService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedDepartments
-                         select new[] { string.Empty, c.DepartmentName };
+                         select new[] { c.DepartmentId.ToString(), c.DepartmentId.ToString(), c.DepartmentName, string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
                 iTotalRecords = iTotalRecords,
                 iTotalDisplayRecords = iTotalDisplayRecords,
-                aaData = result.ToList()
+                aaData = result
             },
                 JsonRequestBehavior.AllowGet);
         }
