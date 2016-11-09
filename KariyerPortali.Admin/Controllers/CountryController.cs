@@ -32,19 +32,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Details()
-        {
-            return View();
-        }
-        public ActionResult Edit()
-        {
-           
-            return View();
-        }
-        public ActionResult Delete()
-         {
-             return View();
-         }
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CountryFormViewModel countryForm)
@@ -80,6 +68,47 @@ namespace KariyerPortali.Admin.Controllers
             },
                 JsonRequestBehavior.AllowGet);
           
+        }
+      
+       
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            { 
+                var country = countryService.GetCountry(id.Value);
+                if (country != null) {
+                    var countryViewModel = Mapper.Map<Country, CountryViewModel>(country);
+                    return View(countryViewModel);
+                }
+                
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CountryFormViewModel countryForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var country = Mapper.Map<CountryFormViewModel, Country>(countryForm);
+                countryService.UpdateCountry(country);
+                countryService.SaveCountry();
+                return RedirectToAction("Index");
+            }
+            return View(countryForm);
+        }
+        
+        public ActionResult Delete(CountryFormViewModel countryForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var country = Mapper.Map<CountryFormViewModel, Country>(countryForm);
+
+                countryService.DeleteCountry(country);
+               
+                return RedirectToAction("Index");
+            }
+            return View(countryForm);
         }
     }
 }

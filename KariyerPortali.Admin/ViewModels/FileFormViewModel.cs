@@ -12,8 +12,9 @@ namespace KariyerPortali.Admin.ViewModels
         public int FileId { get; set; }
         [DisplayName("Başlık")]
         public string Title { get; set; }
-        [Required(ErrorMessage = "Dosya Adı gereklidir.")]
+       
         [DisplayName("Dosya Adı")]
+      //  [Required(ErrorMessage = "Dosya uzantısı doğru değil")]
         public string FileName { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreateDate { get; set; }
