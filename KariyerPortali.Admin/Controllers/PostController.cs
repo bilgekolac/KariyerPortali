@@ -29,11 +29,11 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(PostFormViewModel postForm)
+        public ActionResult Create(PostViewModel postForm)
         {
             if (ModelState.IsValid)
             {
-                var post = Mapper.Map<PostFormViewModel, Post>(postForm);
+                var post = Mapper.Map<PostViewModel, Post>(postForm);
                 postService.CreatePost(post);
                 postService.SavePost();
                 return RedirectToAction("Index");
