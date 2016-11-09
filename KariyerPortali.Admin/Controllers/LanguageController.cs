@@ -99,19 +99,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(language);
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete([Bind(Include = "LanguageID,LanguageName")] Language language)
-        {
-            if (ModelState.IsValid)
-            {
-                languageService.DeleteLanguage(language);
-                languageService.SaveLanguage();
-                return RedirectToAction("Index");
-            }
-            return View(language);
-        }
-        
+  
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 
