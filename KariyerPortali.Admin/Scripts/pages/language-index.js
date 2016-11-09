@@ -62,7 +62,7 @@
                  'targets': [3],
                  'render': function (data, type, row) {
                      return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Language/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Language/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Language/Edit/' + row[0] +'"><i class="icon-note"></i> Düzenle</a</li><li>'
                          + '<a href="/Language/Delete/' + row[0] + '"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                  }
 

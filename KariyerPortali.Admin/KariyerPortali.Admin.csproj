@@ -6382,8 +6382,8 @@
     <Content Include="Views\Country\Delete.cshtml" />
     <Content Include="Views\University\Edit.cshtml" />
     <Content Include="Views\Department\Edit.cshtml" />
-    <Content Include="Views\Department\Delete.cshtml" />
     <Content Include="Views\Employer\Edit.cshtml" />
+    <Content Include="Views\City\Edit.cshtml" />
     <Content Include="Views\University\Delete.cshtml" />
     <Content Include="Views\City\Delete.cshtml" />
   </ItemGroup>
