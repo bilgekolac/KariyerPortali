@@ -44,38 +44,62 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(languageForm);
         }
-        //public ActionResult Edit(int? id)
-        //{
-        //    //if (id.HasValue)
-        //    //{
-        //    //    var language = languageService.GetLanguage(id.Value);
-        //    //    if (language != null)
-        //    //    {
-        //    //        var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
-        //    //        return View(languageViewModel);
-        //    //    }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var language = languageService.GetLanguage(id.Value);
+                if (language != null)
+                {
+                    var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
+                    return View(languageViewModel);
+                }
 
-        //    //}
-        //    //return HttpNotFound();
-        //}
+            }
+            return HttpNotFound();
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(LanguageFormViewModel languageForm)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
-            //    languageService.UpdateLanguage(language);
-            //    languageService.SaveLanguage();
-            //    return RedirectToAction("Index");
-            //}
+            if (ModelState.IsValid)
+            {
+                var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
+                languageService.UpdateLanguage(language);
+                languageService.SaveLanguage();
+                return RedirectToAction("Index");
+            }
             return View(languageForm);
         }
-        
-        public ActionResult Delete()
-        {
 
-            return View();
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(LanguageFormViewModel languageForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
+                languageService.DeleteLanguage(language);
+                languageService.SaveLanguage();
+                return RedirectToAction("Index");
+            }
+            return View(languageForm);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var language = languageService.GetLanguage(id.Value);
+                if (language != null)
+                {
+                    var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
+                    return View(languageViewModel);
+                }
+
+            }
+            return HttpNotFound();
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -89,11 +113,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(language);
         }
-        public ActionResult Details()
-        {
-
-            return View();
-        }
+        
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 
@@ -105,7 +125,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalDisplayRecords;
             var displayedLanguages = languageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
             var result = from l in displayedLanguages
-                         select new[] { string.Empty, l.LanguageId.ToString(), l.LanguageName.ToString(), string.Empty };
+                         select new[] { l.LanguageId.ToString(), l.LanguageId.ToString(), l.LanguageName.ToString(), string.Empty };
             
             return Json(new
             {
