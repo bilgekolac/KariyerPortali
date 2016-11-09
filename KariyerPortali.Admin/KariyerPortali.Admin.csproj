@@ -230,6 +230,8 @@
     <Compile Include="ViewModels\JobFormViewModel.cs" />
     <Compile Include="ViewModels\LanguageFormViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
+    <Compile Include="ViewModels\PostFormViewModel.cs" />
+    <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\UniversityFormViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
