@@ -88,18 +88,16 @@ namespace KariyerPortali.Admin.Controllers
 
         public ActionResult Delete(int? id)
         {
-            if (id.HasValue)
+            if (id == null)
             {
-                var language = languageService.GetLanguage(id.Value);
-                if (language != null)
-                {
-                    var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
-                    return View(languageViewModel);
-                }
-
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return HttpNotFound();
-
+            var language = languageService.GetLanguage(id.Value);
+            if (language == null)
+            {
+                return HttpNotFound();
+            }
+            return View(language);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
