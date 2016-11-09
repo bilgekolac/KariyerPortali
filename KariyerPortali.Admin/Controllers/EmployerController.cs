@@ -74,8 +74,8 @@ namespace KariyerPortali.Admin.Controllers
                 var employer = employerService.GetEmployer(id.Value);
                 if (employer != null)
                 {
-                    var employerFormViewModel = Mapper.Map<Employer, EmployerFormViewModel>(employer);
-                    return View(employerFormViewModel);
+                    var employerViewModel = Mapper.Map<Employer, EmployerViewModel>(employer);
+                    return View(employerViewModel);
                 }
 
             }
@@ -94,7 +94,7 @@ namespace KariyerPortali.Admin.Controllers
                 employer.UpdateDate = employer.CreateDate;
      
                 employer.SectorId = 1;
-                employer.CityId = 1;
+                employer.CityId = 2;
                 employer.Email = "bora@gmail.com";
                 employer.Phone = "2125522";
                 employer.WebSite = "www.bom.com";
@@ -112,8 +112,8 @@ namespace KariyerPortali.Admin.Controllers
                 employerService.SaveEmployer();
                 return RedirectToAction("Index");
             }
-            ViewBag.SectorId = new SelectList(sectorService.GetSectors(), "SectorId", "SectorName");
-            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.SectorId = new SelectList(sectorService.GetSectors(), "SectorId", "SectorName", employerForm.SectorId);
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName", employerForm.CityId);
             return View(employerForm);
         }
 
