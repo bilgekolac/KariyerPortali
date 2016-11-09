@@ -56,8 +56,11 @@ namespace KariyerPortali.Data.Infrastructure
                 dbSet.Remove(obj);
         }
 
-        public virtual T GetById(int id)
+        public virtual T GetById(int id, params string[] Navigations)
         {
+            foreach (string nav in Navigations)
+                dbSet.Include(nav);
+
             return dbSet.Find(id);
         }
 
