@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Service;
+﻿using AutoMapper;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
+using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +27,18 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(PostFormViewModel postForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var post = Mapper.Map<PostFormViewModel, Post>(postForm);
+                postService.CreatePost(post);
+                postService.SavePost();
+                return RedirectToAction("Index");
+            }
+            return View(postForm);
+        }
     }
 }
