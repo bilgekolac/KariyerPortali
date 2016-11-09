@@ -3,7 +3,7 @@
     ViewBag.Title = "Şehir Düzenle";
 }
 
-<h2>Edit</h2>
+<h2>Düzenle</h2>
 
 <!-- BEGIN CONTENT BODY -->
 <!-- BEGIN PAGE HEADER-->
@@ -70,8 +70,14 @@
 
                                     @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-danger" })
                                 </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.CountryId)
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Country.CountryName)
+                                    @Html.DropDownList("CountryId", null, new { @tabindex = "2", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Country.CountryName, "", new { @class = "text-danger" })
 
-
+                                </div>
 
 
                             </div>

@@ -51,7 +51,7 @@ namespace KariyerPortali.Admin.Controllers
                 var language = languageService.GetLanguage(id.Value);
                 if (language != null)
                 {
-                    var languageViewModel = Mapper.Map<Language, LanguageFormViewModel>(language);
+                    var languageViewModel = Mapper.Map<Language, LanguageViewModel>(language);
                     return View(languageViewModel);
                 }
 
@@ -72,46 +72,21 @@ namespace KariyerPortali.Admin.Controllers
             return View(languageForm);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(LanguageFormViewModel languageForm)
-        {
-            if (ModelState.IsValid)
-            {
-                var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
-                languageService.DeleteLanguage(language);
-                languageService.SaveLanguage();
-                return RedirectToAction("Index");
-            }
-            return View(languageForm);
-        }
-
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            if (id.HasValue)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var language = languageService.GetLanguage(id.Value);
+                if (language != null)
+                {
+                    languageService.DeleteLanguage(language);
+                    languageService.SaveLanguage();
+                    return RedirectToAction("Index");
+                }
             }
-            var language = languageService.GetLanguage(id.Value);
-            if (language == null)
-            {
-                return HttpNotFound();
-            }
-            return View(language);
+            return HttpNotFound();
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete([Bind(Include = "LanguageID,LanguageName")] Language language)
-        {
-            if (ModelState.IsValid)
-            {
-                languageService.DeleteLanguage(language);
-                languageService.SaveLanguage();
-                return RedirectToAction("Index");
-            }
-            return View(language);
-        }
-        
+  
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 

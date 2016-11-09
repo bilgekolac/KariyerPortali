@@ -56,7 +56,11 @@ namespace KariyerPortali.Data.Repositories
                         break;
                 }
             }
-            var displayedUniversities=filteredUniversities.Skip(displayStart).Take(displayLength);
+            var displayedUniversities=filteredUniversities.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedUniversities = displayedUniversities.Take(displayLength);
+            }
             totalRecords=allUniversities.Count();
             totalDisplayRecords=filteredUniversities.Count();
             return displayedUniversities.ToList();
