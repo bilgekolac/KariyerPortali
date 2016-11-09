@@ -85,7 +85,7 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
-                candidate.UpdatedBy = "ezgiesra"; //User.Identity.Name
+                candidate.UpdatedBy = User.Identity.Name; 
                 candidate.CreateDate = DateTime.Now;
                 candidate.UpdatedDate = candidate.CreateDate;
                 if (upload != null)
