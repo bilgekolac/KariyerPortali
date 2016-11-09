@@ -43,9 +43,17 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(universityForm);
         }
-        public ActionResult Edit()
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id.HasValue) { 
+                var university = universityService.GetUniversity(id.Value);
+                if (university != null) { 
+                    var universityViewModel = Mapper.Map<University, UniversityViewModel>(university);
+                    return View(universityViewModel);
+                }
+                
+            }
+            return HttpNotFound();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

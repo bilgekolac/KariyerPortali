@@ -6,6 +6,7 @@ using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -50,16 +51,30 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "LanguageID,LanguageName")] Language language)
+        public ActionResult Edit(LanguageFormViewModel languageForm)
         {
             if (ModelState.IsValid)
             {
+                var language = Mapper.Map<LanguageFormViewModel, Language>(languageForm);
                 languageService.UpdateLanguage(language);
                 languageService.SaveLanguage();
                 return RedirectToAction("Index");
             }
-            return View(language);
+            return View(languageForm);
         }
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+                
+        //    }
+        //    //Language language = languageService.UpdateLanguage(id);
+        //    if (language == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    //return View(language);
+        //}
         public ActionResult Delete()
         {
 
