@@ -1,4 +1,4 @@
-﻿@model KariyerPortali.Admin.ViewModels.CandidateFormViewModel
+﻿@model KariyerPortali.Admin.ViewModels.CandidateViewModel
 @{
     ViewBag.Title = "Edit";
 }
@@ -55,6 +55,8 @@
                         <form role="form">
                             <div class="form-body">
                                 <div class="form-group">
+                            
+                                    @Html.HiddenFor(model => model.CandidateId)
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
