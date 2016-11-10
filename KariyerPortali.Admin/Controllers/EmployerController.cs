@@ -128,6 +128,21 @@ namespace KariyerPortali.Admin.Controllers
             }
             return HttpNotFound();
         }
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
+            {
+                var employer = employerService.GetEmployer(id.Value);
+                if (employer != null)
+                {
+
+                    employerService.SaveEmployer();
+                    var employerViewModel = Mapper.Map<Employer, EmployerViewModel>(employer);
+                    return View(employerViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
 
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
