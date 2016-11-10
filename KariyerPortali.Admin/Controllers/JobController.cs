@@ -50,12 +50,12 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
-                List<SocialRight> selectedSocialRights = new List<SocialRight>();
-                foreach (var item in jobForm.SocialRightId)
-                {
-                        selectedSocialRights.Add(socialService.GetSocialRight(item));
-                }
-                job.SocialRights = selectedSocialRights;
+                //List<SocialRight> selectedSocialRights = new List<SocialRight>();
+                //foreach (var item in jobForm.SocialRightId)
+                //{
+                //    selectedSocialRights.Add(socialService.GetSocialRight(item));
+                //}
+                //job.SocialRights = selectedSocialRights;
                 job.Createdate = DateTime.Now;
                 job.CreatedBy = User.Identity.Name;
                 job.UpdateDate = DateTime.Now;
@@ -84,8 +84,14 @@ namespace KariyerPortali.Admin.Controllers
                 var job = jobService.GetJob(id.Value);
                 if (job != null)
                 {
-                    var selectedrights = jobService.GetSocialRightById(id.Value);
+                    var selectedrights = job.SocialRights;
+                    var selectedRightIds = new List<int>();
                     var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    foreach(var item in selectedrights)
+                    {
+                        selectedRightIds.Add(item.SocialRightId);
+                    }
+                    jobViewModel.SocialRightId = selectedRightIds;
                     return View(jobViewModel);
                 }
             }

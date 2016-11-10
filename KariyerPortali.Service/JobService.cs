@@ -18,7 +18,7 @@ namespace KariyerPortali.Service
         void UpdateJob(Job job);
         void DeleteJob(Job job);
         void SaveJob();
-        List<SocialRight> GetSocialRightById(int id);
+        
     }
     public class JobService : IJobService
     {
@@ -62,11 +62,7 @@ namespace KariyerPortali.Service
         {
             unitOfWork.Commit();
         }
-        public List<SocialRight> GetSocialRightById(int id)
-        {
-            var selectedrightjobs=jobRepository.GetSocialRightById(id);
-            return selectedrightjobs;
-        }
+        
         #endregion
     }
 }
