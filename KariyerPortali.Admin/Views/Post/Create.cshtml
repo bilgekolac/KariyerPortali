@@ -70,30 +70,31 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Body)
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
+                            @*@Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })*@
 
-                            @*<p>
+                            <p>
                         <br>
 
-                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @cols = "80", @rows = "10"} })
+                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new {@tabindex="2", @cols = "80", @rows = "10"} })
 
                             CKEDITOR.replace('Body');
 
-                    </p>*@
+                    </p>
 
 
 
 
-                            @*<div id="content2" style="display: none" data-sample="2">
+                            <div id="content2" style="display: none" data-sample="2">
                         <p>The number of <code>change</code> events: <strong><span id="changes"></span></strong>.</p>
                         <h3>Mirrored Content</h3>
                          This <div> will be used to display the editor content.
                         <div id="editorcontent2">
                         </div>
-                    </div>*@
+                    </div>
                             @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                         </div>
                     </div>
+                        </div>
                 </form>
                     </div>
                 
