@@ -44,7 +44,7 @@ namespace KariyerPortali.Admin.Controllers
                              (j.Candidate != null ? j.Candidate.LastName.ToString():string.Empty),
                              (j.Employer != null ? j.Employer.EmployerName.ToString():string.Empty ),
                              (j.Job !=null ? j.Job.Title.ToString():string.Empty), j.ApplicationDate.ToShortDateString(),
-                             j.UpdateDate.ToShortTimeString(), string.Empty};
+                             j.UpdateDate.ToShortDateString(), string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
