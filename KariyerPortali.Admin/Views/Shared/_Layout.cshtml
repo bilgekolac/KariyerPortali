@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model KariyerPortali.Admin.Controllers.HomeController
+<!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
 Version: 4.7.1
@@ -193,7 +194,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 <img alt="" class="img-circle" src="/assets/layouts/layout/img/avatar3_small.jpg" />
-                                <span class="username username-hide-on-mobile"> Nick </span>
+                                <span class="username username-hide-on-mobile"> @Html.DisplayFor(model=>model.User.Identity.Name) </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-default">
