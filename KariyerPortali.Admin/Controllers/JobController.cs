@@ -87,10 +87,7 @@ namespace KariyerPortali.Admin.Controllers
                     var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
                     return View(jobViewModel);
                 }
-
             }
-            
-
             return HttpNotFound();
         }
 
