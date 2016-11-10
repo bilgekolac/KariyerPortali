@@ -11,6 +11,8 @@ namespace KariyerPortali.Service
 {
     public interface ISectorService
     {
+        IEnumerable<Sector> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
+        
         IEnumerable<Sector> GetSectors();
         Sector GetSector(int id);
         void CreateSector(Sector sector);
@@ -28,6 +30,12 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region ISectorService Members
+        public IEnumerable<Sector> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var sectors = sectorRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return sectors;
+        }
         public IEnumerable<Sector> GetSectors()
         {
             var sectors = sectorRepository.GetAll();
