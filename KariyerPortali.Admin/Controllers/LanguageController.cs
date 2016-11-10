@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class LanguageController : Controller
+    public class LanguageController : BaseController
     {
         private readonly ILanguageService languageService;
 
