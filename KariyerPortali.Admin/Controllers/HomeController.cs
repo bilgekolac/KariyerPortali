@@ -11,8 +11,11 @@ namespace KariyerPortali.Admin.Controllers
     {
         public ActionResult Index()
         {
-            var username = User.Identity.Name;
-            var user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == username);
+
+            var username = "";
+            username = User.Identity.Name;
+            var  user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == username);
+            ViewBag.UserPhoto = "";
             ViewBag.UserPhoto = user.ImagePath;
             ViewBag.UserName = username;
             return View();
