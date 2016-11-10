@@ -93,5 +93,21 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(sectorForm);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var sector = sectorService.GetSector(id.Value);
+                if (sector != null)
+                {
+                    sectorService.DeleteSector(sector);
+                    sectorService.SaveSector();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            return HttpNotFound();
+        }
+
     }
 }
