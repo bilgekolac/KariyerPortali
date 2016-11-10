@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static KariyerPortali.Data.Repositories.ResumeRepository;
 
 namespace KariyerPortali.Data.Repositories
 {
@@ -106,9 +105,10 @@ namespace KariyerPortali.Data.Repositories
             totalDisplayRecords = filteredResumes.Count();
             return displayedResumes.ToList();
         }
-        public interface IResumeRepository : IRepository<Resume>
+        
+    }
+    public interface IResumeRepository : IRepository<Resume>
         {
             IEnumerable<Resume> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         }
-    }
 }
