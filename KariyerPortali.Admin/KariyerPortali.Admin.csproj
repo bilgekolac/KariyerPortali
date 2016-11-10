@@ -242,6 +242,8 @@
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SectorFormViewModel.cs" />
     <Compile Include="ViewModels\SectorViewModel.cs" />
+    <Compile Include="ViewModels\SettingFormViewModel.cs" />
+    <Compile Include="ViewModels\SettingViewModel.cs" />
     <Compile Include="ViewModels\SkillFormViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\UniversityFormViewModel.cs" />
