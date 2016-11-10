@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IPostService
     {
+        IEnumerable<Post> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Post> GetPosts();
         Post GetPost(int id);
         void CreatePost(Post post);
@@ -28,6 +29,11 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region IPostService Members
+        public IEnumerable<Post> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var posts = postRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+            return posts;
+        }
         public IEnumerable<Post> GetPosts()
         {
             var posts = postRepository.GetAll();

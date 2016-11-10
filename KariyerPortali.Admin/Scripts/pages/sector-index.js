@@ -10,21 +10,20 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-
-
-            "emptyTable": "Böyle bir kayıt bulunamamaktadır",
-            "info": "Gösterilen _START_ ile _END_ toplam _TOTAL_ kayıt",
-            "infoEmpty": "Kayıt bulunamadı",
-            "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
+            "emptyTable": "Tabloda veri bulunmamaktadır.",
+            "info": "_TOTAL_ Kaydın _START_ ile _END_ Arası Gösteriliyor",
+            "infoEmpty": "Herhangi bir kayıt bulunamadı.",
+            "infoFiltered": "(filtered1 from _MAX_ total records)",
             "lengthMenu": "Göster _MENU_",
-            "search": "Arama:",
-            "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
+            "search": "Ara:",
+            "zeroRecords": "Eşleşen bir sonuç bulunamadı.",
             "paginate": {
                 "previous": "Önceki",
                 "next": "Sonraki",
-                "last": "Son",
-                "first": "İlk"
-            }
+                "last": "Son Sayfa",
+                "first": "İlk Sayfa"
+            },
+            "sProcessing": "Yükleniyor..."
         },
 
         // Or you can use remote translation file
@@ -36,7 +35,9 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
+        "bServerSide": true,
+        "bProcessing": true,
+        "sAjaxSource": "/Sector/AjaxHandler",
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
@@ -49,16 +50,22 @@
         "columnDefs": [
             {  // set default column settings
                 'orderable': false,
-                'targets': [0]
+                'searchable': false,
+                'targets': [0],
+                'render': function (data, type, row) {
+                    return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
+                }
             },
-            {
-                "searchable": false,
-                "targets": [0]
-            },
-            {
-                "className": "dt-right",
-                //"targets": [2]
-            }
+             {
+                 'orderable': false,
+                 'searchable': false,
+                 'targets': [3],
+                 'render': function (data, type, row) {
+                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Sector/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
+                        + '<a href="/Sector/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                 }
+             }
         ],
         "order": [
             [1, "asc"]

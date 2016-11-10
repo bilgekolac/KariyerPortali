@@ -4,10 +4,8 @@ using KariyerPortali.Admin.ViewModels;
 using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
@@ -91,19 +89,14 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
-            
                 employer.UpdatedBy = User.Identity.Name;
-                employer.UpdateDate = employer.CreateDate;
-     
-             
-     
+                employer.UpdateDate = DateTime.Now;
                 if (upload != null)
                 {
                     string dosyaYolu = Path.GetFileName(upload.FileName);
                     var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/Employer"), dosyaYolu);
                     upload.SaveAs(yuklemeYeri);
                     employer.Logo = upload.FileName;
-
                 }
                 employerService.UpdateEmployer(employer);
                 employerService.SaveEmployer();
