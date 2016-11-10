@@ -6403,6 +6403,8 @@
     <Content Include="Views\Job\Edit.cshtml" />
     <Content Include="Views\Job\Delete.cshtml" />
     <Content Include="Views\Candidate\Details.cshtml" />
+    <Content Include="Views\Expertise\Edit.cshtml" />
+    <Content Include="Views\Expertise\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
