@@ -84,6 +84,7 @@ namespace KariyerPortali.Admin.Controllers
                 var job = jobService.GetJob(id.Value);
                 if (job != null)
                 {
+                    var selectedrights = jobService.GetSocialRightById(id.Value);
                     var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
                     return View(jobViewModel);
                 }

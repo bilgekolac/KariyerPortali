@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
 using KariyerPortali.Admin.ViewModels;
 using KariyerPortali.Model;
 using KariyerPortali.Service;
@@ -28,17 +29,38 @@ namespace KariyerPortali.Admin.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateInput(false)]
         public ActionResult Create(PostViewModel postViewModel)
         {
             if (ModelState.IsValid)
             {
                 var post = Mapper.Map<PostViewModel, Post>(postViewModel);
+                post.CreatedBy = User.Identity.Name;
+                post.CreateDate = DateTime.Now;
                 postService.CreatePost(post);
                 postService.SavePost();
                 return RedirectToAction("Index");
             }
             return View(postViewModel);
+        }
+        public ActionResult AjaxHandler(jQueryDataTableParamModel param)
+        {
+            string sSearch = "";
+            if (param.sSearch != null) sSearch = param.sSearch;
+            var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
+            var sortDirection = Request["sSortDir_0"];
+            int iTotalRecords;
+            int iTotalDisplayRecords;
+            var displayedPosts = postService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var result = from p in displayedPosts select new[] { p.PostId.ToString(), p.PostId.ToString(), p.Title.ToString(), p.CreatedBy.ToString(), p.CreateDate.ToString() };
+            return Json(new
+            {
+                sEcho = param.sEcho,
+                iTotalRecords = iTotalRecords,
+                iTotalDisplayRecords = iTotalDisplayRecords,
+                aaData = result.ToList()
+            },
+            JsonRequestBehavior.AllowGet);
         }
     }
 }
