@@ -1,0 +1,131 @@
+﻿@model KariyerPortali.Admin.ViewModels.CandidateViewModel
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            @Html.ActionLink("Adaylar", "Index", "Candidate")
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Aday Detayı</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+
+        </div>
+    </div>
+</div>
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<!-- BEGIN SAMPLE FORM PORTLET-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Aday Detayı </span>
+                </div>
+
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FirstName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LastName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.BirthDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.BirthDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Photo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Photo)
+                    <div class="form-group ">
+                        <img src="~/Uploads/Candidate/@Model.Photo" width="200" height="200" alt="Kişi Resmi" title="Kişi Resmi" />
+                    </div>
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.State)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.State)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpdatedBy)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpdatedDate)
+                </dd>
+
+            </dl>
+
+
+        </div>
+    </div>
+</div>

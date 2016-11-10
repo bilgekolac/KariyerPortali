@@ -11,24 +11,27 @@ namespace KariyerPortali.Admin.ViewModels
     {
         public int CandidateId { get; set; }
         [Required(ErrorMessage = "Aday kullanıcı adı gereklidir.")]
-        [DisplayName("Kullanıcı Adı")]
+        [DisplayName("Kullanıcı Adı :")]
         public string UserName { get; set; }
-        [DisplayName("Aday Adı")]
+        [DisplayName("Aday Adı :")]
         public string FirstName { get; set; }
-        [DisplayName("Aday Soyadı")]
+        [DisplayName("Aday Soyadı :")]
         public string LastName { get; set; }
-        [DisplayName("Eposta")]
+        [DisplayName("Eposta :")]
         public string Email { get; set; }
-        [DisplayName("Telefon No")]
+        [DisplayName("Telefon No :")]
         public string Phone { get; set; }
-        [DisplayName("Doğum Tarihi")]
+        [DisplayName("Doğum Tarihi :")]
         public DateTime BirthDate { get; set; }
-        [DisplayName("Fotoğraf Seç")]
+        [DisplayName("Fotoğraf :")]
         public string Photo { get; set; }
+        [DisplayName("Oluşturulma Tarihi:")]
         public DateTime CreateDate { get; set; }
-        [DisplayName("Durum")]
+        [DisplayName("Durum :")]
         public bool State { get; set; }
+        [DisplayName("Güncelleyen :")]
         public string UpdatedBy { get; set; }
+        [DisplayName("Güncelleme Tarihi:")]
         public DateTime UpdatedDate { get; set; }
     }
 }
