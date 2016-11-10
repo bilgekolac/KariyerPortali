@@ -30,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -179,6 +180,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
@@ -237,6 +239,8 @@
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\ResumeFormViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
+    <Compile Include="ViewModels\SkillFormViewModel.cs" />
+    <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\UniversityFormViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
@@ -6403,6 +6407,9 @@
     <Content Include="Views\Job\Edit.cshtml" />
     <Content Include="Views\Job\Delete.cshtml" />
     <Content Include="Views\Candidate\Details.cshtml" />
+    <Content Include="Views\Expertise\Edit.cshtml" />
+    <Content Include="Views\Expertise\Delete.cshtml" />
+    <Content Include="Views\Employer\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6412,6 +6419,7 @@
     <Folder Include="Uploads\Candidate\" />
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

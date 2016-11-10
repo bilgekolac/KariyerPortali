@@ -114,6 +114,20 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName", employerForm.CityId);
             return View(employerForm);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var employer = employerService.GetEmployer(id.Value);
+                if (employer != null)
+                {
+                    employerService.DeleteEmployer(employer);
+                    employerService.SaveEmployer();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
 
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
