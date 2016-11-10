@@ -29,7 +29,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        DateTime create;
+        double size;
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -40,7 +40,6 @@ namespace KariyerPortali.Admin.Controllers
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreatedBy = "mdemirci"; //User.Identity.Name
                 file.CreateDate = DateTime.Now;
-                create = file.CreateDate;
                 file.UpdatedBy = "mdemirci";
                 file.UpdateDate = DateTime.Now;
                 if (upload != null)
@@ -52,6 +51,7 @@ namespace KariyerPortali.Admin.Controllers
                         var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
                         upload.SaveAs(yuklemeYeri);
                         file.FileName = upload.FileName;
+                        size = upload.ContentLength;
                         fileService.CreateFile(file);
                         fileService.SaveFile();
                         return RedirectToAction("Index");

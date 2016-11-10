@@ -21,5 +21,6 @@ namespace KariyerPortali.Admin.ViewModels
         public DateTime UpdateDate { get; set; }
         [DisplayName("Açıklama")]
         public string Description { get; set; }
+        public double Size { get; set; }
     }
 }
