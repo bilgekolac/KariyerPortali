@@ -126,7 +126,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedCities = PageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedCities
-                         select new[] { c.PageId.ToString(), c.PageId.ToString(), c.PageName.ToString(),  string.Empty };
+                         select new[] { c.PageId.ToString(), c.PageId.ToString(), /*c.PageName.ToString(),*/  string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
