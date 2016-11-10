@@ -26,11 +26,8 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-      
-        public ActionResult Edit()
-        {
-            return View();
-        }
+
+       //Create ve Edit Action Olmayacak 
         public ActionResult Delete()
         {
             return View();
