@@ -239,6 +239,10 @@
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\ResumeFormViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
+    <Compile Include="ViewModels\SectorFormViewModel.cs" />
+    <Compile Include="ViewModels\SectorViewModel.cs" />
+    <Compile Include="ViewModels\SkillFormViewModel.cs" />
+    <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\UniversityFormViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
@@ -6408,6 +6412,8 @@
     <Content Include="Views\Expertise\Edit.cshtml" />
     <Content Include="Views\Expertise\Delete.cshtml" />
     <Content Include="Views\Employer\Delete.cshtml" />
+    <Content Include="Views\Employer\Details.cshtml" />
+    <Content Include="Views\Media\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
