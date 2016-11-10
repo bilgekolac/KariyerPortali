@@ -67,10 +67,7 @@ namespace KariyerPortali.Service
             unitOfWork.Commit();
         }
 
-        IEnumerable<Resume> IResumeService.Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
-        {
-            throw new NotImplementedException();
-        }
+      
         #endregion
     }
     
