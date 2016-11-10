@@ -51,8 +51,8 @@ namespace KariyerPortali.Admin.Controllers
             var displayedResumes = resumeService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedResumes
-                         select new[] { c.ResumeId.ToString(), c.ResumeId.ToString(), c.FirstName.ToString(),c.LastName.ToString() ,c.Gender.ToString(),
-                         c.ComputerSkill.ToString(),c.WorkStatus.ToString(),c.Notes.ToString(),string.Empty};
+                         select new[] { c.ResumeId.ToString(), c.ResumeId.ToString(), c.FirstName,c.LastName,c.Gender.ToString(),
+                         c.ComputerSkill,c.WorkStatus.ToString(),c.Notes,string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,

@@ -51,8 +51,15 @@ namespace KariyerPortali.Data.Repositories
                     case 4:
                         filteredResumes = filteredResumes.OrderBy(c => c.Gender);
                         break;
-
-
+                    case 5:
+                        filteredResumes = filteredResumes.OrderBy(c => c.ComputerSkill);
+                        break;
+                    case 6:
+                        filteredResumes = filteredResumes.OrderBy(c => c.WorkStatus);
+                        break;
+                    case 7:
+                        filteredResumes = filteredResumes.OrderBy(c => c.Notes);
+                        break;
                     default:
                         filteredResumes = filteredResumes.OrderBy(c => c.ResumeId);
                         break;
@@ -73,6 +80,15 @@ namespace KariyerPortali.Data.Repositories
                         break;
                     case 4:
                         filteredResumes = filteredResumes.OrderByDescending(c => c.Gender);
+                        break;
+                    case 5:
+                        filteredResumes = filteredResumes.OrderByDescending(c => c.ComputerSkill);
+                        break;
+                    case 6:
+                        filteredResumes = filteredResumes.OrderByDescending(c => c.WorkStatus);
+                        break;
+                    case 7:
+                        filteredResumes = filteredResumes.OrderByDescending(c => c.Notes);
                         break;
                     default:
                         filteredResumes = filteredResumes.OrderByDescending(c => c.ResumeId);
