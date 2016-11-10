@@ -6419,6 +6419,8 @@
     <Content Include="Views\Employer\Details.cshtml" />
     <Content Include="Views\Media\Details.cshtml" />
     <Content Include="Views\Sector\Edit.cshtml" />
+  <Content Include="Views\Sector\Delete.cshtml" />
+  <Content Include="Views\Skill\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
