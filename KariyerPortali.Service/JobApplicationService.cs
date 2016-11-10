@@ -17,6 +17,7 @@ namespace KariyerPortali.Service
         void CreateJobApplication(JobApplication jobApplication);
         void UpdateJobApplication(JobApplication jobApplication);
         void DeleteJobApplication(JobApplication jobApplication);
+        int CountJobApplication();
         void SaveJobApplication();
     }
     public class JobApplicationService : IJobApplicationService
@@ -61,6 +62,10 @@ namespace KariyerPortali.Service
         public void DeleteJobApplication(JobApplication jobApplication)
         {
             jobApplicationRepository.Delete(jobApplication);
+        }
+        public int CountJobApplication()
+        {
+            return jobApplicationRepository.GetAll().Count();
         }
         public void SaveJobApplication()
         {
