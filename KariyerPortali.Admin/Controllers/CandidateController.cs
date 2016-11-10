@@ -23,7 +23,7 @@ namespace KariyerPortali.Admin.Controllers
         // GET: Candidate
         public ActionResult Index()
         {
-        
+
             return View();
 
         }
@@ -38,7 +38,7 @@ namespace KariyerPortali.Admin.Controllers
             var displayedCandidates = candidateService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from c in displayedCandidates
-                         select new[] {c.CandidateId.ToString(), c.UserName, c.FirstName + " " + c.LastName, c.Phone.ToString(), c.Email.ToString(), c.State.ToString(), c.CreateDate.ToShortDateString(),string.Empty};
+                         select new[] { c.CandidateId.ToString(), c.UserName, c.FirstName + " " + c.LastName, c.Phone.ToString(), c.Email.ToString(), c.State.ToString(), c.CreateDate.ToShortDateString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
@@ -63,7 +63,7 @@ namespace KariyerPortali.Admin.Controllers
             return HttpNotFound();
         }
 
-        public ActionResult Edit(int?id)
+        public ActionResult Edit(int? id)
         {
             if (id.HasValue)
             {
@@ -74,7 +74,7 @@ namespace KariyerPortali.Admin.Controllers
                     return View(candidateViewModel);
                 }
             }
-            return HttpNotFound();       
+            return HttpNotFound();
         }
 
 
@@ -85,7 +85,7 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
-                candidate.UpdatedBy = User.Identity.Name; 
+                candidate.UpdatedBy = User.Identity.Name;
                 candidate.CreateDate = DateTime.Now;
                 candidate.UpdatedDate = candidate.CreateDate;
                 if (upload != null)
@@ -116,4 +116,5 @@ namespace KariyerPortali.Admin.Controllers
             }
             return HttpNotFound();
         }
+    }
 }
