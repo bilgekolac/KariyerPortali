@@ -43,7 +43,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(SettingFormViewModel settingForm)
+        public ActionResult Index(SettingFormViewModel settingForm)
         {
             if (ModelState.IsValid)
             {
