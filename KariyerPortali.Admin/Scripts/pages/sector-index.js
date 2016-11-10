@@ -65,10 +65,7 @@
                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Sector/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
                         + '<a href="/Sector/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                  }
-
              }
-
-
         ],
         "order": [
             [1, "asc"]
