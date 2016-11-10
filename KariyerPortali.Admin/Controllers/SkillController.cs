@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Admin.Models;
+﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
@@ -8,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SkillController :Controller
+    public class SkillController :BaseController
     {
         private readonly ISkillService skillService;
 
@@ -24,6 +27,20 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(SkillFormViewModel skillForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var skill = Mapper.Map<SkillFormViewModel, Skill>(skillForm);
+
+                skillService.CreateSkill(skill);
+                skillService.SaveSkill();
+                return RedirectToAction("Index");
+            }
+            return View(skillForm);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {

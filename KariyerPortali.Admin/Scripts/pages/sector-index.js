@@ -10,21 +10,20 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-
-
-            "emptyTable": "Böyle bir kayıt bulunamamaktadır",
-            "info": "Gösterilen _START_ ile _END_ toplam _TOTAL_ kayıt",
-            "infoEmpty": "Kayıt bulunamadı",
-            "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
+            "emptyTable": "Tabloda veri bulunmamaktadır.",
+            "info": "_TOTAL_ Kaydın _START_ ile _END_ Arası Gösteriliyor",
+            "infoEmpty": "Herhangi bir kayıt bulunamadı.",
+            "infoFiltered": "(filtered1 from _MAX_ total records)",
             "lengthMenu": "Göster _MENU_",
-            "search": "Arama:",
-            "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
+            "search": "Ara:",
+            "zeroRecords": "Eşleşen bir sonuç bulunamadı.",
             "paginate": {
                 "previous": "Önceki",
                 "next": "Sonraki",
-                "last": "Son",
-                "first": "İlk"
-            }
+                "last": "Son Sayfa",
+                "first": "İlk Sayfa"
+            },
+            "sProcessing": "Yükleniyor..."
         },
 
         // Or you can use remote translation file
@@ -66,10 +65,7 @@
                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Sector/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
                         + '<a href="/Sector/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                  }
-
              }
-
-
         ],
         "order": [
             [1, "asc"]

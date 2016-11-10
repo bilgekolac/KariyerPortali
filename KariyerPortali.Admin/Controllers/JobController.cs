@@ -59,7 +59,7 @@ namespace KariyerPortali.Admin.Controllers
                 job.Createdate = DateTime.Now;
                 job.CreatedBy = User.Identity.Name;
                 job.UpdateDate = DateTime.Now;
-                job.CreatedBy = User.Identity.Name;
+                job.UpdatedBy = User.Identity.Name;
                 jobService.CreateJob(job);
 
                 jobService.SaveJob();
@@ -87,10 +87,7 @@ namespace KariyerPortali.Admin.Controllers
                     var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
                     return View(jobViewModel);
                 }
-
             }
-            
-
             return HttpNotFound();
         }
 
@@ -112,7 +109,7 @@ namespace KariyerPortali.Admin.Controllers
                 }
                 job.SocialRights = selectedSocialRights;
                 job.UpdateDate = DateTime.Now;
-                job.CreatedBy = User.Identity.Name;
+                job.UpdatedBy = User.Identity.Name;
                 jobService.UpdateJob(job);
                 jobService.SaveJob();
                 return RedirectToAction("Index");

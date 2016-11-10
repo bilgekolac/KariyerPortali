@@ -14,6 +14,7 @@ using System.Net;
 using System.Collections.Generic;
 using System.IO;
 using System.ComponentModel;
+using System.Net.Mail;
 
 namespace KariyerPortali.Admin.Controllers
 {
@@ -377,10 +378,30 @@ namespace KariyerPortali.Admin.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("ertyeni@gmail.com", "Kariyer Portalı");
+                mailMessage.Subject = "Şifre Sıfırlama İsteği ";
+                mailMessage.To.Add(model.Email);
+                string body;
+                body = "E posta adresi : " + model.Email +" <br / >";
+                body += "<a href="+callbackUrl +"> Şifremi Sıfırla </a>"+ "<br/>";
+
+
+
+
+                mailMessage.IsBodyHtml = true;
+                mailMessage.Body = body;
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+                smtp.Credentials = new System.Net.NetworkCredential("ertyeni@gmail.com", "48448300+");
+                smtp.EnableSsl = true;
+                smtp.Send(mailMessage);
+                //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
                 // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form

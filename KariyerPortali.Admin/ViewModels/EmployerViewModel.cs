@@ -13,6 +13,7 @@ namespace KariyerPortali.Admin.ViewModels
         public int EmployerId { get; set; }
         public string Logo { get; set; }
         [DisplayName("Kullanıcı Adı")]
+        [Required(ErrorMessage = "Kullanıcı adı gereklidir.")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "İşveren adı gereklidir.")]
         [DisplayName("İşveren Adı")]
@@ -23,6 +24,7 @@ namespace KariyerPortali.Admin.ViewModels
         public Sector Sector { get; set; }
 
         [DisplayName("Adres")]
+        [Required(ErrorMessage = "Adres bilgisi gereklidir.")]
         public string Address { get; set; }
 
         [DisplayName("Şehir")]
@@ -30,14 +32,16 @@ namespace KariyerPortali.Admin.ViewModels
         public City City { get; set; }
 
         [DisplayName("Telefon")]
-
+        [Required(ErrorMessage = "Telefon bilgisi gereklidir.")]
         public string Phone { get; set; }
 
         [DisplayName("E-Mail")]
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "E-mail bilgisi gereklidir.")]
         public string Email { get; set; }
 
         [DisplayName("Web Site")]
+        [Required(ErrorMessage = "Website bilgisi gereklidir.")]
         public string WebSite { get; set; }
 
         [DisplayName("Oluşturulma Tarihi")]
