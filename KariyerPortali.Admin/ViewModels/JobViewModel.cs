@@ -8,7 +8,7 @@ using System.Web;
 
 namespace KariyerPortali.Admin.ViewModels
 {
-    public class JobFormViewModel
+    public class JobViewModel
     {
         public int JobId { get; set; }
 

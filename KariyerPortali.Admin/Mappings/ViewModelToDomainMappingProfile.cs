@@ -18,6 +18,7 @@ namespace KariyerPortali.Admin.Mappings
         protected override void Configure()
         {
             Mapper.CreateMap<EmployerFormViewModel, Employer>();
+            Mapper.CreateMap<ResumeFormViewModel, Resume>();
             Mapper.CreateMap<DepartmentFormViewModel, Department>();
             Mapper.CreateMap<LanguageFormViewModel, Language>();
             Mapper.CreateMap<CountryFormViewModel, Country>();           
@@ -26,7 +27,8 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<FileFormViewModel, File>();
             Mapper.CreateMap<CandidateFormViewModel, Candidate>();
             Mapper.CreateMap<PostFormViewModel, Post>();
-            Mapper.CreateMap<ExamFormViewModel, Exam>(); 
+            Mapper.CreateMap<ExamFormViewModel, Exam>();
+            Mapper.CreateMap<JobFormViewModel, Job>();
         }
     }
 }

@@ -1,19 +1,13 @@
-﻿using System;
+﻿using KariyerPortali.Model;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace KariyerPortali.Model
+namespace KariyerPortali.Admin.ViewModels
 {
-    public class Resume
+    public class ResumeFormViewModel
     {
-        public Resume()
-        {
-            ViewCount = 0;
-        }
-
         public int ViewCount { get; set; }
         public int ResumeId { get; set; }
         public string ResumeName { get; set; }
@@ -44,23 +38,23 @@ namespace KariyerPortali.Model
         public DateTime CreateDate { get; set; }
         public DateTime MilitaryPostponeDate { get; set; }
 
-       
+
         public int? CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
 
-       
+
         public int? LanguageId { get; set; }
         public virtual Language Language { get; set; }
 
         public virtual Gender Gender { get; set; }
 
-        
+
         public int? BirthCityId { get; set; }
         public virtual City BirthCity { get; set; }
 
         public virtual MaritalStatus MaritalStatus { get; set; }
         public virtual WorkStatus WorkStatus { get; set; }
-        
+
         public int? CountryId { get; set; }
         public virtual Country Nationality { get; set; }
 
@@ -84,13 +78,5 @@ namespace KariyerPortali.Model
         public virtual BloodType BloodType { get; set; }
         public virtual CigaretteStatus CigaretteStatus { get; set; }
         public virtual SalaryWaited SalaryWaited { get; set; }
-
-        public virtual ICollection<LanguageInfo> LanguageInfos { get; set; }
-        public virtual ICollection<ExamInfo> ExamInfos { get; set; }
-        public virtual ICollection<SkillInfo> SkillInfos { get; set; }
-        public virtual ICollection<Course> Courses { get; set; }
-        public virtual ICollection<Reference> References { get; set; }
-        public virtual ICollection<Experience> Experiences { get; set; }
-        public virtual ICollection<EducationInfo> EducationInfos { get; set; }
     }
 }
