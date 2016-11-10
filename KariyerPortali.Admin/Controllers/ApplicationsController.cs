@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class ApplicationsController : Controller
+    public class ApplicationsController : BaseController
     {
         // GET: Applications
         private readonly IJobApplicationService jobApplicationService;
