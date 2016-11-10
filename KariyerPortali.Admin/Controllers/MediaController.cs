@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class MediaController : Controller
+    public class MediaController : BaseController
     {
         private readonly IFileService fileService;
         // GET: Media
@@ -29,7 +29,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        double size;
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -38,9 +38,9 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
-                file.CreatedBy = "mdemirci"; //User.Identity.Name
+                file.CreatedBy = User.Identity.Name;
                 file.CreateDate = DateTime.Now;
-                file.UpdatedBy = "mdemirci";
+                file.UpdatedBy =User.Identity.Name;
                 file.UpdateDate = DateTime.Now;
                 if (upload != null)
                 {
@@ -83,9 +83,9 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreateDate = DateTime.Now;
-               file.CreatedBy = "aysenur";
+               file.CreatedBy = User.Identity.Name;
                 file.UpdateDate = DateTime.Now;
-                file.UpdatedBy = "aysenur";
+                file.UpdatedBy = User.Identity.Name;
                 if (upload != null)
                 {
                     try
