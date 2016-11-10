@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Admin.Models;
+﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
@@ -23,10 +26,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Create()
-        {
-            return View();
-        }
+      
         public ActionResult Edit()
         {
             return View();
@@ -52,7 +52,7 @@ namespace KariyerPortali.Admin.Controllers
 
             var result = from c in displayedResumes
                          select new[] { c.ResumeId.ToString(), c.ResumeId.ToString(), c.FirstName,c.LastName,c.Gender.ToString(),
-                         c.ComputerSkill,c.WorkStatus.ToString(),c.Notes,string.Empty};
+                         c.ComputerSkill,c.WorkStatus.ToString(),c.Notes.ToString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
