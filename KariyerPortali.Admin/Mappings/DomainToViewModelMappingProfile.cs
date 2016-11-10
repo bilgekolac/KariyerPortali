@@ -32,6 +32,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Post, PostViewModel>();
             Mapper.CreateMap<Exam, ExamViewModel>();
             Mapper.CreateMap<Expertise, ExpertiseViewModel>();
+            Mapper.CreateMap<Skill, SkillViewModel>();
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }
