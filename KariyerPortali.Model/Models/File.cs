@@ -16,6 +16,7 @@ namespace KariyerPortali.Model
         public string UpdatedBy { get; set; }
         public DateTime UpdateDate { get; set; }
         public string Description { get; set; }
+        public double Size { get; set; }
 
 
     }

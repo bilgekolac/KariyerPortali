@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -19,13 +20,14 @@ namespace KariyerPortali.Admin.ViewModels
 
         [DisplayName("Sektör")]
         public int SectorId { get; set; }
-
+        public Sector Sector { get; set; }
 
         [DisplayName("Adres")]
         public string Address { get; set; }
 
         [DisplayName("Şehir")]
         public int CityId { get; set; }
+        public City City { get; set; }
 
         [DisplayName("Telefon")]
 

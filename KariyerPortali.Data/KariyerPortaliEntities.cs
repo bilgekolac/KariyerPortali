@@ -42,6 +42,7 @@ namespace KariyerPortali.Data
         public DbSet<SkillInfo> SkillInfos { get; set; }
         public DbSet<SocialRight> SocialRights { get; set; }
         public DbSet<University> Universities { get; set; }
+        public DbSet<Page> Pages { get; set; }
 
 
         public virtual void Commit()
@@ -75,6 +76,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new SkillInfoConfiguration());
             modelBuilder.Configurations.Add(new SocialRightConfiguration());
             modelBuilder.Configurations.Add(new UniversityConfiguration());
+            modelBuilder.Configurations.Add(new PageConfiguration());
         }
     }
 }

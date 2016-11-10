@@ -29,10 +29,10 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-     DateTime create;
+        double size;
         [HttpPost]
         [ValidateAntiForgeryToken]
-       
+
         public ActionResult Create(FileFormViewModel fileForm, System.Web.HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
@@ -40,25 +40,24 @@ namespace KariyerPortali.Admin.Controllers
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreatedBy = "mdemirci"; //User.Identity.Name
                 file.CreateDate = DateTime.Now;
-                create = file.CreateDate;
                 file.UpdatedBy = "mdemirci";
                 file.UpdateDate = DateTime.Now;
                 if (upload != null)
                 {
+
                     if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
                     {
                         string dosyaYolu = Path.GetFileName(upload.FileName);
                         var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
                         upload.SaveAs(yuklemeYeri);
                         file.FileName = upload.FileName;
+                        file.Size = upload.ContentLength/2048;
+                        fileService.CreateFile(file);
+                        fileService.SaveFile();
+                        return RedirectToAction("Index");
                     }
                     else return View(fileForm);
-
-
-                }else return View(fileForm);
-                fileService.CreateFile(file);
-                fileService.SaveFile();
-                return RedirectToAction("Index");
+                }
             }
             return View(fileForm);
         }
@@ -84,7 +83,7 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var file = Mapper.Map<FileFormViewModel, KariyerPortali.Model.File>(fileForm);
                 file.CreateDate = DateTime.Now;
-                file.CreatedBy = "aysenur";
+               file.CreatedBy = "aysenur";
                 file.UpdateDate = DateTime.Now;
                 file.UpdatedBy = "aysenur";
                 if (upload != null)
@@ -101,16 +100,44 @@ namespace KariyerPortali.Admin.Controllers
                         else return View(fileForm);
 
                     }
-                    catch (Exception) {return View(fileForm); }
-                }else   
-              
+                    catch (Exception) { return View(fileForm); }
+                }
                 fileService.UpdateFile(file);
                 fileService.SaveFile();
                 return RedirectToAction("Index");
             }
             return View(fileForm);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var file = fileService.GetFile(id.Value);
+                if (file != null)
+                {
+                    try
+                    {
+                        var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), file.FileName);
+                        if (System.IO.File.Exists(yuklemeYeri))
+                        {
+                            System.IO.File.Delete(yuklemeYeri);
+                        }
+                        fileService.DeleteFile(file);
+                        fileService.SaveFile();
+                        return RedirectToAction("Index");
+                    }
+                    catch (Exception) { return HttpNotFound(); }
+                }
 
+            }
+            return HttpNotFound();
+        }
+        public ActionResult Details(int id)
+        {
+            var file = fileService.GetFile(id);
+            return View(Mapper.Map<KariyerPortali.Model.File, FileViewModel>(file));
+
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 

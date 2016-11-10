@@ -16,7 +16,12 @@ namespace KariyerPortali.Data.Configuration
             ToTable("Posts");
             HasKey<int>(c=>c.PostId);
             Property(c => c.Title).IsRequired().HasMaxLength(100);
+            Property(c => c.Slug).IsRequired().HasMaxLength(500);
             Property(c => c.Body).IsRequired();
+            Property(c => c.CreatedBy).IsRequired().HasMaxLength(100);
+            Property(c => c.CreateDate).IsRequired();
+            Property(c => c.UptdatedBy).IsRequired();
+            Property(c => c.UpdateDate).IsRequired();
         }
     }
 }

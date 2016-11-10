@@ -9,16 +9,12 @@ namespace KariyerPortali.Admin.ViewModels
 {
     public class PostViewModel
     {
-       
-            public int PostId { get; set; }
-        [DisplayName("Başlık Adı")]
+        public int PostId { get; set; }
         [Required(ErrorMessage = "Lütfen yazınıza bir başlık giriniz.")]
-            public string Title { get; set; }
-        [DisplayName("İçerik")]
+        [DisplayName("Başlık Adı")]
+        public string Title { get; set; }
         [Required(ErrorMessage = "Lütfen yazı giriniz.")]
-
-            public string Body { get; set; }
-
-        
+        [DisplayName("İçerik")]
+        public string Body { get; set; }
     }
 }

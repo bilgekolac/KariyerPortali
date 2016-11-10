@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class ApplicationsController : Controller
+    public class ApplicationsController : BaseController
     {
         // GET: Applications
         private readonly IJobApplicationService jobApplicationService;
@@ -44,7 +44,7 @@ namespace KariyerPortali.Admin.Controllers
                              (j.Candidate != null ? j.Candidate.LastName.ToString():string.Empty),
                              (j.Employer != null ? j.Employer.EmployerName.ToString():string.Empty ),
                              (j.Job !=null ? j.Job.Title.ToString():string.Empty), j.ApplicationDate.ToShortDateString(),
-                             j.UpdateDate.ToShortTimeString(), string.Empty};
+                             j.UpdateDate.ToShortDateString(), string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,

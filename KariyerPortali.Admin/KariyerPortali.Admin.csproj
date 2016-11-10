@@ -6413,6 +6413,7 @@
     <Content Include="Views\Expertise\Delete.cshtml" />
     <Content Include="Views\Employer\Delete.cshtml" />
     <Content Include="Views\Employer\Details.cshtml" />
+    <Content Include="Views\Media\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
