@@ -39,7 +39,7 @@ namespace KariyerPortali.Admin.Controllers
         public DateTime CreatedDate { get; set; }
 
     }
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
