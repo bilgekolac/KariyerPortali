@@ -12,7 +12,7 @@ namespace KariyerPortali.Admin.Controllers
         // GET: Base
         public BaseController()
         {
-            if (User.Identity.IsAuthenticated)
+            if (User!=null && User.Identity != null && User.Identity.IsAuthenticated)
             {
                 using (var db = new ApplicationDbContext())
                 {
