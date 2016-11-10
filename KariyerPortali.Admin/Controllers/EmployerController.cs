@@ -93,7 +93,7 @@ namespace KariyerPortali.Admin.Controllers
                 var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
             
                 employer.UpdatedBy = User.Identity.Name;
-                employer.UpdateDate = employer.CreateDate;
+                employer.UpdateDate = DateTime.Now;
      
              
      

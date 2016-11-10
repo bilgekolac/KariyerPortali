@@ -77,7 +77,7 @@
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.FileName, htmlAttributes: new { @class = "control-label col-md-2" })
-                            <input type="file" id="FileName" name="upload" />@Model.FileName
+                            <input type="file" id="FileName" name="upload" /><a href="/Uploads/File/@Model.FileName">@Model.FileName</a>
                             <br />
                              @Html.ValidationMessageFor(model => model.FileName, "Dosyanın uzantısı .doc,.pdf veya .rtf olamalıdır.", new { @class = "text-danger" })
 

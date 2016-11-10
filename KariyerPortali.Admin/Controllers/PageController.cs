@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class PageController : Controller
+    public class PageController : BaseController
     {
         // GET: Pages
         public ActionResult Index()

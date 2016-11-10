@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SettingsController : Controller
+    public class SettingsController : BaseController
     {
         // GET: Settings
         public ActionResult Index()
