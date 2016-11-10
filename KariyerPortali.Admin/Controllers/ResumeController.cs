@@ -32,9 +32,19 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        public ActionResult Details()
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var resume = resumeService.GetResume(id.Value);
+                if (resume != null)
+                {                  
+                    resumeService.SaveResume();
+                    var resumeViewModel = Mapper.Map<Resume, ResumeViewModel>(resume);
+                    return View(resumeViewModel);
+                }
+            }
+            return HttpNotFound();
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
