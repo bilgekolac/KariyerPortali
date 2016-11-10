@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Service;
+﻿using AutoMapper;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
+using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,32 +27,32 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
-        //public ActionResult Index(int? id)
-        //{
-        //    if (id.HasValue)
-        //    {
-        //        var setting = settingService.GetSetting(id.Value);
-        //        if (setting != null)
-        //        {
-        //            var settingViewModel = Mapper.Map<Setting, SettingViewModel>(setting);
-        //            return View(settingViewModel);
-        //        }
+        public ActionResult Index(int? id)
+        {
+            if (id.HasValue)
+            {
+                var setting = settingService.GetSetting(id.Value);
+                if (setting != null)
+                {
+                    var settingViewModel = Mapper.Map<Setting, SettingViewModel>(setting);
+                    return View(settingViewModel);
+                }
 
-        //    }
-        //    return HttpNotFound();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(SettingFormViewModel settingForm)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var setting = Mapper.Map<settingFormViewModel, Setting>(settingForm);
-        //        settingService.UpdateSetting(setting);
-        //        settingService.SaveSetting();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(settingForm);
-        //}
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(SettingFormViewModel settingForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var setting = Mapper.Map<SettingFormViewModel, Setting>(settingForm);
+                settingService.UpdateSetting(setting);
+                settingService.SaveSetting();
+                return RedirectToAction("Index");
+            }
+            return View(settingForm);
+        }
     }
 }
