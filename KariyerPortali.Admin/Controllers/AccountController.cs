@@ -144,10 +144,10 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         [AllowAnonymous]
-        public ActionResult MyProfile(string username)
+        public ActionResult MyProfile()
         {
 
-
+            var username = User.Identity.Name;
             var user = db.Users.First(c => c.UserName == username);
                 var u = new UserViewModel();
                 u.UserName = user.UserName;
