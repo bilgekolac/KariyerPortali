@@ -68,34 +68,55 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
-
-
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
             if (id.HasValue)
             {
                 var job = jobService.GetJob(id.Value);
                 if (job != null)
                 {
-                    var cityViewModel = Mapper.Map<Job, JobViewModel>(job);
-                    return View(cityViewModel);
+                    var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    return View(jobViewModel);
                 }
 
             }
+            
+
             return HttpNotFound();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(CityFormViewModel cityForm)
+        public ActionResult Edit(JobFormViewModel jobForm)
         {
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
             if (ModelState.IsValid)
             {
-                var city = Mapper.Map<CityFormViewModel, City>(cityForm);
-                cityService.UpdateCity(city);
-                cityService.SaveCity();
+                var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                job.UpdateDate = DateTime.Now;
+                jobService.UpdateJob(job);
+                jobService.SaveJob();
                 return RedirectToAction("Index");
             }
-            return View(cityForm);
+            
+            return View(jobForm);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var job = jobService.GetJob(id.Value);
+                if (job != null)
+                {
+                    jobService.DeleteJob(job);
+                    jobService.SaveJob();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            return HttpNotFound();
         }
         public ActionResult Liste()
         {

@@ -1,4 +1,4 @@
-﻿@model KariyerPortali.Admin.ViewModels.JobFormViewModel
+﻿@model KariyerPortali.Admin.ViewModels.JobViewModel
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <title>@ViewBag.Title-Kariyer Portalı</title>
@@ -45,13 +45,19 @@
 
 
                             <div class="portlet-body form">
-
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.JobId)
                                 <div class="form-body">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.EmployerId)
+                                    @Html.HiddenFor(model=>model.Createdate)
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.EmployerId)
                                         @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.EmployerId, "", new { @class = "text-danger" })
                                     </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.CityId)
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.CityId)
                                         @Html.DropDownList("CityId", null, new { @tabindex = "3", @class = "form-control" })
@@ -62,6 +68,8 @@
                                         @Html.EnumDropDownListFor(model => model.JobType, "", new { @tabindex = "5", @class = "form-control" })
                                         @Html.ValidationMessageFor(model => model.JobType, "", new { @class = "text-danger" })
                                     </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.ExperienceId)
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.ExperienceId)
                                         @Html.DropDownList("ExperienceId", null, new { @tabindex = "7", @class = "form-control" })
