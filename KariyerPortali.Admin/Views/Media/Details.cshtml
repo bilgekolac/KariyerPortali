@@ -1,8 +1,87 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.FileViewModel
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    table, td, th {
+        border: none;
+        text-align: left;
+    }
 
-<h2>Details</h2>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 15px;
+    }
+</style>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="/Jobs">İş İlanları</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>İş İlanı Detayları</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+    </div>
+</div>
+<br />
+<div class="portlet light bordered">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="page-title"><strong>İş İlanı Detayları</strong></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="material-icons">note</i>
+                        <span class="caption-subject"><strong>İş Bilgileri</strong></span>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="portlet-title">
+                            <div class="form-group">
+                                <label><strong>Başlık :</strong>@Html.DisplayFor(model => model.Title)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Açıklama :</strong>@Html.DisplayFor(model => model.Description)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Dosya Adı :</strong>@Html.DisplayFor(model => model.Employer.EmployerName)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Dosya Boyutu :</strong> @Html.DisplayFor(model => model.Qualifications)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Oluşturan Kişi :</strong> @Html.DisplayFor(model => model.City.CityName)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Oluşturulma Tarihi :</strong> @Html.DisplayFor(model => model.JobType)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Güncelleyen Kişi :</strong> @Html.DisplayFor(model => model.Experience.ExperienceName)</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>Güncelleme Tarihi :</strong> @Html.DisplayFor(model => model.Responsibilities)</label>
+                            </div>
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
