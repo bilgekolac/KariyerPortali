@@ -194,8 +194,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                 @if (ViewBag.LoggedInUser != null)
                                 {
-                                    <img alt="" class="img-circle" src="@(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).ImagePath)" />
-
+                                    <img alt="" class="img-circle" src="/Uploads/Account/@(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).ImagePath)" />
 
                                 }
                                 
@@ -207,12 +206,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                                 </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
-                            <p>@if (ViewBag.LoggedInUser != null)
+                            @*<p>@if (ViewBag.LoggedInUser != null)
                             {
                                 <text>
                                     @(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).UserName)
                                 </text>
-                            }</p>
+                            }</p>*@
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
                                     <a href="@Url.Action("MyProfile","Account")">
