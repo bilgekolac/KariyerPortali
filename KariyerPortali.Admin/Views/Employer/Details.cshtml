@@ -41,7 +41,8 @@
                     @Html.DisplayNameFor(model => model.Logo)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Logo)
+                  @Html.HiddenFor(model => model.Logo)
+                <img src="/Uploads/Employer/@Model.Logo" width="200" height="200" alt="Logo Resmi" title="Logo Resmi" />
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.EmployerName)
