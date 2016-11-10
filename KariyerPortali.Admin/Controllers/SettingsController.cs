@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Service;
+﻿using AutoMapper;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
+using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,41 +18,37 @@ namespace KariyerPortali.Admin.Controllers
         {
             this.settingService = settingService;
         }
-        // GET: Settings
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
         public ActionResult Theme()
         {
             return View();
         }
-        //public ActionResult Index(int? id)
-        //{
-        //    if (id.HasValue)
-        //    {
-        //        var setting = settingService.GetSetting(id.Value);
-        //        if (setting != null)
-        //        {
-        //            var settingViewModel = Mapper.Map<Setting, SettingViewModel>(setting);
-        //            return View(settingViewModel);
-        //        }
+        public ActionResult Index()
+        {
+            var settings = settingService.GetSettings();
+            var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
+            return View(settingViewModels);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(SettingFormViewModel settingForm)
+        {
+            if (ModelState.IsValid)
+            {
+                // header script setting güncellenir
+                var setting1 = settingService.GetSetting(1); // servise ve repository'e GetSettingByName metodu eklenir
+                setting1.Value = settingForm.HeaderScript;
+                settingService.UpdateSetting(setting1);
 
-        //    }
-        //    return HttpNotFound();
-        //}
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit(SettingFormViewModel settingForm)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var setting = Mapper.Map<settingFormViewModel, Setting>(settingForm);
-        //        settingService.UpdateSetting(setting);
-        //        settingService.SaveSetting();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(settingForm);
-        //}
+                // google analytics setting güncellenir
+
+                // footer script setting güncellenir
+
+                // değişiklikler kaydedilir
+                settingService.SaveSetting();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index", new { error = "1" });
+        }
     }
 }

@@ -214,18 +214,26 @@ License: You must have a valid license purchased only from themeforest(the above
                             }</p>*@
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
-                                    <a href="@Url.Action("MyProfile","Account",new { username = User.Identity.Name })">
+                                    <a href="@Url.Action("MyProfile","Account", new { username = User.Identity.Name })">
                                         <i class="icon-user"></i> Profilim
                                     </a>
+                                    
                                 </li>
 
                                 <li class="divider"> </li>
-
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+    {
+        @Html.AntiForgeryToken()
                                 <li>
-                                    <a href="@Url.Action("Login","Account")">
-                                        <i class="icon-key"></i> Çıkış
+                                    <a href="javascript:document.getElementById('logoutForm').submit()" >
+                                        <i class="icon-key"></i>Çıkış
                                     </a>
+                              
                                 </li>
+    }
+}
                             </ul>
                         </li>
 

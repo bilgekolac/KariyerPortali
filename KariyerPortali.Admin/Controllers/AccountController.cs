@@ -47,7 +47,7 @@ namespace KariyerPortali.Admin.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
+        [Authorize(Roles ="Admin")]
         public ActionResult Index()
         {
             IList<UserViewModel> users = new List<UserViewModel>();
@@ -74,7 +74,7 @@ namespace KariyerPortali.Admin.Controllers
         }
 
 
-        [AllowAnonymous]
+        
         public ActionResult Edit(string username)
         {
             if (username == null)
@@ -92,7 +92,7 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [AllowAnonymous]
+        
         public ActionResult Edit(ApplicationUser model,System.Web.HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
@@ -144,7 +144,7 @@ namespace KariyerPortali.Admin.Controllers
             return RedirectToAction("Index");
         }
         
-        [AllowAnonymous]
+        
         public ActionResult MyProfile(string usernames)
         {
 
@@ -574,7 +574,7 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //

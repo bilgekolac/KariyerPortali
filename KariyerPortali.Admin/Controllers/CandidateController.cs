@@ -86,8 +86,7 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var candidate = Mapper.Map<CandidateFormViewModel, Candidate>(candidateForm);
                 candidate.UpdatedBy = User.Identity.Name;
-                candidate.CreateDate = DateTime.Now;
-                candidate.UpdatedDate = candidate.CreateDate;
+                candidate.UpdatedDate = DateTime.Now;
                 if (upload != null)
                 {
                     string dosyaYolu = Path.GetFileName(upload.FileName);

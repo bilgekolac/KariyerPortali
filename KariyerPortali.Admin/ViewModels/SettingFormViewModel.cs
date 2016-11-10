@@ -7,5 +7,8 @@ namespace KariyerPortali.Admin.ViewModels
 {
     public class SettingFormViewModel
     {
+        public string HeaderScript { get; set; }
+        public string GoogleAnalytics { get; set; }
+        public string FooterScript { get; set; }
     }
 }
