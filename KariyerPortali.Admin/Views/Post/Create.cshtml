@@ -67,7 +67,7 @@
                         <div class="form-body">
                             @Html.LabelFor(model => model.Body)
                           
-                            @Html.ValidationMessageFor(model => model.Body, "", new { @class="text-danger"})
+                            
                             <p>
                                 <br>
 
@@ -86,7 +86,7 @@
                                 <div id="editorcontent2">
                                 </div>
                             </div>
-
+                            @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
