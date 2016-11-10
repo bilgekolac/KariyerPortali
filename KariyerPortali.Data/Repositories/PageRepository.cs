@@ -40,27 +40,6 @@ namespace KariyerPortali.Data.Repositories
                 {
 
                     case 0:
-                        filteredPages = filteredPages.OrderByDescending(p => p.Title);
-                        break;
-                    case 1:
-                        filteredPages = filteredPages.OrderByDescending(p => p.CreatedBy);
-                        break;
-                    case 2:
-                        filteredPages = filteredPages.OrderByDescending(c => c.ViewCount);
-                        break;
-                    case 3:
-                        filteredPages = filteredPages.OrderByDescending(c => c.UpdateDate);
-                        break;
-                    default:
-                        filteredPages = filteredPages.OrderByDescending(c => c.Title);
-                        break;
-                }
-            }
-            else
-            {
-                switch (sortColumnIndex)
-                {
-                    case 0:
                         filteredPages = filteredPages.OrderBy(p => p.Title);
                         break;
                     case 1:
@@ -74,6 +53,27 @@ namespace KariyerPortali.Data.Repositories
                         break;
                     default:
                         filteredPages = filteredPages.OrderBy(c => c.Title);
+                        break;
+                }
+            }
+            else
+            {
+                switch (sortColumnIndex)
+                {
+                    case 0:
+                        filteredPages = filteredPages.OrderByDescending(p => p.Title);
+                        break;
+                    case 1:
+                        filteredPages = filteredPages.OrderByDescending(p => p.CreatedBy);
+                        break;
+                    case 2:
+                        filteredPages = filteredPages.OrderByDescending(c => c.ViewCount);
+                        break;
+                    case 3:
+                        filteredPages = filteredPages.OrderByDescending(c => c.UpdateDate);
+                        break;
+                    default:
+                        filteredPages = filteredPages.OrderByDescending(c => c.Title);
                         break;
                 }
             }
