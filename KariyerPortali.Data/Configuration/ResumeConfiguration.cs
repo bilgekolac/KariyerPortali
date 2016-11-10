@@ -12,12 +12,14 @@ namespace KariyerPortali.Data.Configuration
     {
         public ResumeConfiguration()
         {
-            /* Fluent-API */
             ToTable("Resumes");
             HasKey<int>(c => c.ResumeId);
             Property(c => c.ResumeName).IsRequired().HasMaxLength(200);
             Property(c => c.FirstName).IsRequired().HasMaxLength(200);
             Property(c => c.LastName).IsRequired().HasMaxLength(200);
+            Property(c => c.WorkStatus).IsRequired();
+            Property(c => c.Notes).IsOptional().HasMaxLength(200);
+            Property(c => c.Gender).IsRequired();
             Property(c => c.CreateDate).IsRequired();
             Property(c => c.CreatedBy).IsRequired().HasMaxLength(200);
             Property(c => c.UpdateDate).IsRequired();

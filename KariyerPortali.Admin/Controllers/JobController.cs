@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KariyerPortali.Data.Repositories;
 using KariyerPortali.Admin.Models;
 using KariyerPortali.Admin.ViewModels;
 using KariyerPortali.Model;
@@ -11,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class JobController : Controller
+    public class JobController : BaseController
     {
         private readonly IJobService jobService;
         private readonly IEmployerService employerService;
@@ -49,8 +50,16 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                List<SocialRight> selectedSocialRights = new List<SocialRight>();
+                foreach (var item in jobForm.SocialRightId)
+                {
+                        selectedSocialRights.Add(socialService.GetSocialRight(item));
+                }
+                job.SocialRights = selectedSocialRights;
                 job.Createdate = DateTime.Now;
+                job.CreatedBy = User.Identity.Name;
                 job.UpdateDate = DateTime.Now;
+                job.CreatedBy = User.Identity.Name;
                 jobService.CreateJob(job);
 
                 jobService.SaveJob();
@@ -65,10 +74,11 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Edit(int? id)
         {
+            var jobform = new JobFormViewModel();
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobform.SocialRightId);
             if (id.HasValue)
             {
                 var job = jobService.GetJob(id.Value);
@@ -95,7 +105,14 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                List<SocialRight> selectedSocialRights = new List<SocialRight>();
+                foreach (var item in jobForm.SocialRightId)
+                {
+                    selectedSocialRights.Add(socialService.GetSocialRight(item));
+                }
+                job.SocialRights = selectedSocialRights;
                 job.UpdateDate = DateTime.Now;
+                job.CreatedBy = User.Identity.Name;
                 jobService.UpdateJob(job);
                 jobService.SaveJob();
                 return RedirectToAction("Index");

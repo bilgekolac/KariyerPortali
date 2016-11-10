@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class CountryController : Controller
+    public class CountryController : BaseController
     {
       
 
