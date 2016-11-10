@@ -34,6 +34,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Expertise, ExpertiseViewModel>();
             Mapper.CreateMap<Skill, SkillViewModel>();
             Mapper.CreateMap<Sector, SectorViewModel>();
+            Mapper.CreateMap<Page, PageViewModel>();
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }

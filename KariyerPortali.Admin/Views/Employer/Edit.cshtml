@@ -59,13 +59,25 @@
                             @Html.HiddenFor(model => model.CreatedBy)
                             @Html.HiddenFor(model => model.UpdateDate)
                             @Html.HiddenFor(model => model.UpdatedBy)
+
                             <div class="form-group">
+                                <label for="exampleInputFile1">Resim Seçin</label>
+                                <input type="file" id="Logo" name="upload" />
+                                @TempData["result"]
+                     
+                            </div>
+                            <div class="form-group">
+                                @Html.HiddenFor(model => model.Logo)
+                                <img src="/Uploads/Employer/@Model.Logo" width="200" height="200" alt="Logo Resmi" title="Logo Resmi" />
+                        
+                                @*<label for="exampleInputFile1">Resim Seçin</label>
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 @Html.HiddenFor(model => model.Logo)
+                                <img src="~/Uploads/Employer/" width="200" height="200" alt="Logo Resmi" title="Logo Resmi" />
                                 @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-md-2" })
                                 <input type="file" id="Logo" name="upload" />
                                 @Model.Logo
-                                @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })*@
 
                                 <div class="form-body">
                                     @Html.LabelFor(model => model.EmployerName)

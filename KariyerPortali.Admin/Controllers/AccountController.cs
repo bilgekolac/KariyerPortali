@@ -47,7 +47,7 @@ namespace KariyerPortali.Admin.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        
+        [Authorize(Roles ="Admin")]
         public ActionResult Index()
         {
             IList<UserViewModel> users = new List<UserViewModel>();
