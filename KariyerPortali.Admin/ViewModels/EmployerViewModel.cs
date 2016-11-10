@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -19,13 +20,14 @@ namespace KariyerPortali.Admin.ViewModels
 
         [DisplayName("Sektör")]
         public int SectorId { get; set; }
-
+        public Sector Sector { get; set; }
 
         [DisplayName("Adres")]
         public string Address { get; set; }
 
         [DisplayName("Şehir")]
         public int CityId { get; set; }
+        public City City { get; set; }
 
         [DisplayName("Telefon")]
 
@@ -38,5 +40,13 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Web Site")]
         public string WebSite { get; set; }
 
+        [DisplayName("Oluşturulma Tarihi")]
+        public DateTime CreateDate { get; set; }
+        [DisplayName("Oluşturan Kişi")]
+        public string CreatedBy { get; set; }
+        [DisplayName("Güncellenme Tarihi")]
+        public DateTime UpdateDate { get; set; }
+        [DisplayName("Güncelleyen Kişi")]
+        public string UpdatedBy { get; set; }
     }
 }

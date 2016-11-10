@@ -51,7 +51,7 @@ namespace KariyerPortali.Admin.Controllers
                         var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
                         upload.SaveAs(yuklemeYeri);
                         file.FileName = upload.FileName;
-                        size = upload.ContentLength;
+                        file.Size = upload.ContentLength/2048;
                         fileService.CreateFile(file);
                         fileService.SaveFile();
                         return RedirectToAction("Index");

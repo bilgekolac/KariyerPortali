@@ -1,7 +1,140 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.EmployerViewModel
 @{
     ViewBag.Title = "Details";
 }
+<br />
 
-<h2>Details</h2>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Employer")">Tüm İşverenler</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Aday Detayı</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
 
+        </div>
+    </div>
+</div>
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<!-- BEGIN SAMPLE FORM PORTLET-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Tüm İşverenler Detayı </span>
+                </div>
+
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Logo)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Logo)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmployerName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.EmployerName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UserName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SectorId)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Sector.SectorName)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CityId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.City.CityName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.WebSite)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.WebSite)
+                </dd>
+              
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdateDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.UpdatedBy)
+                </dd>
+          
+            </dl>
+        </div>
+        <div class="form-actions right">
+            <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Employer")';">Tüm İşverenlere Dön</button>
+        </div>
+    </div>
+</div>

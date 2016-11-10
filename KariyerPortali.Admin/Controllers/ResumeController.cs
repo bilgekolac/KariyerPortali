@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class ResumeController : Controller
+    public class ResumeController : BaseController 
     {
         private readonly IResumeService resumeService;
        
