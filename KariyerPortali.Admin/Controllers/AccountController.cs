@@ -47,7 +47,7 @@ namespace KariyerPortali.Admin.Controllers
 
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        [AllowAnonymous]
+        
         public ActionResult Index()
         {
             IList<UserViewModel> users = new List<UserViewModel>();
@@ -145,7 +145,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         [AllowAnonymous]
-        public ActionResult MyProfile()
+        public ActionResult MyProfile(string usernames)
         {
 
             var username = User.Identity.Name;
