@@ -64,6 +64,33 @@ namespace KariyerPortali.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
 
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var skill = skillService.GetSkill(id.Value);
+                if (skill != null)
+                {
+                    var skillViewModel = Mapper.Map<Skill, SkillViewModel>(skill);
+                    return View(skillViewModel);
+                }
+
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(SkillFormViewModel skillForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var skill = Mapper.Map<SkillFormViewModel, Skill>(skillForm);
+                skillService.UpdateSkill(skill);
+                skillService.SaveSkill();
+                return RedirectToAction("Index");
+            }
+            return View(skillForm);
+        }
 
 
     }
