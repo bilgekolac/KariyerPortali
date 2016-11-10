@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IExpertiseService
     {
+        IEnumerable<Expertise> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Expertise> GetExpertises();
         Expertise GetExpertise(int id);
         void CreateExpertise(Expertise expertise);
@@ -28,6 +29,12 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region IExpertiseService Members
+        public IEnumerable<Expertise> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var expertises = expertiseRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return expertises;
+        }
         public IEnumerable<Expertise> GetExpertises()
         {
             var expertises = expertiseRepository.GetAll();

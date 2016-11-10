@@ -224,6 +224,8 @@
     <Compile Include="ViewModels\EmployerViewModel.cs" />
     <Compile Include="ViewModels\ExamFormViewModel.cs" />
     <Compile Include="ViewModels\ExamViewModel.cs" />
+    <Compile Include="ViewModels\ExpertiseFormViewModel.cs" />
+    <Compile Include="ViewModels\ExpertiseViewModel.cs" />
     <Compile Include="ViewModels\FileFormViewModel.cs" />
     <Compile Include="ViewModels\FileViewModel.cs" />
     <Compile Include="ViewModels\JobApplicationViewModel.cs" />
