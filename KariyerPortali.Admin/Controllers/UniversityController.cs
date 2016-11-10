@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class UniversityController : Controller
+    public class UniversityController :  BaseController
     {
         // GET: Universities
         private readonly IUniversityService universityService;

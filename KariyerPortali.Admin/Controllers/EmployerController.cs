@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class EmployerController : Controller
+    public class EmployerController : BaseController
     {
         private readonly IEmployerService employerService;
         private readonly ISectorService sectorService;

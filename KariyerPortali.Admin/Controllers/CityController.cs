@@ -13,7 +13,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class CityController : Controller
+    public class CityController : BaseController
     {
         // GET: City
         private readonly ICityService cityService;
