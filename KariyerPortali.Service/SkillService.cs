@@ -28,6 +28,14 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region ISkillService Members
+                public IEnumerable<Skill> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength,  out int  totalRecords, out int totalDisplayRecords)
+        {
+            var skills = skillRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return skills;
+
+        }
+
         public IEnumerable<Skill> GetSkills()
         {
             var skills = skillRepository.GetAll();

@@ -45,9 +45,9 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
-                employer.CreatedBy = "mdemirci"; //User.Identity.Name
+                employer.CreatedBy = User.Identity.Name;
                 employer.CreateDate = DateTime.Now;
-                employer.UpdatedBy = "mdemirci";
+                employer.UpdatedBy = User.Identity.Name;
                 employer.UpdateDate = employer.CreateDate;
                 if (upload != null)
                 {
@@ -91,9 +91,8 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
-                employer.CreatedBy = "karacabora"; //User.Identity.Name
-                employer.CreateDate = DateTime.Now;
-                employer.UpdatedBy = "karacabora";
+            
+                employer.UpdatedBy = User.Identity.Name;
                 employer.UpdateDate = employer.CreateDate;
      
              
