@@ -28,6 +28,11 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region ISettingService Members
+        // public IEnumerable<Setting> GetSettingByName()
+        //{
+        //    var settings = settingRepository.GetSettingByName();
+
+        //    return settings;
         public IEnumerable<Setting> GetSettings()
         {
             var settings = settingRepository.GetAll();
