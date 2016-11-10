@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class ExpertiseController : Controller
+    public class ExpertiseController : BaseController
     { 
         private readonly IExpertiseService expertiseService;
 
