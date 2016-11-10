@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface ISkillService
     {
+        IEnumerable<Skill> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Skill> GetSkills();
         Skill GetSkill(int id);
         void CreateSkill(Skill skill);
@@ -28,7 +29,7 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region ISkillService Members
-                public IEnumerable<Skill> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength,  out int  totalRecords, out int totalDisplayRecords)
+                public IEnumerable<Skill>Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength,  out int  totalRecords, out int totalDisplayRecords)
         {
             var skills = skillRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
 
