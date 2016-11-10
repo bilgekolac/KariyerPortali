@@ -165,13 +165,13 @@
                     <form role="form">
                         <div class="form-body">
                             <div class="form-group">
-                                <a href=""><strong>Aday Özgeçmişini Görüntüle</strong></a>
+                                <a href="@Url.Action("Details", "Resume", new { id =Model.ResumeId })"><strong>Aday Özgeçmişini Görüntüle</strong></a>
                             </div>
                             <div class="form-group">
-                                <a href=""><strong>İşveren Detaylarını Görüntüle</strong></a>
+                                <a href="@Url.Action("Details", "Employer", new { id =Model.EmployerId })"><strong>İşveren Detaylarını Görüntüle</strong></a>
                             </div>
                             <div class="form-group">
-                                <a href=""><strong>İş Detaylarını Görüntüle</strong></a>
+                                <a href="@Url.Action("Details", "Job", new { id =Model.JobId })"><strong>İş Detaylarını Görüntüle</strong></a>
                             </div>
                         </div>
                     </form>
