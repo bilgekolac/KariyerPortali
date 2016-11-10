@@ -81,7 +81,11 @@ namespace KariyerPortali.Data.Repositories
                 }
             }
 
-            var displayedEmployers = filteredEmployers.Skip(displayStart).Take(displayLength);
+            var displayedEmployers = filteredEmployers.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedEmployers = displayedEmployers.Take(displayLength);
+            }
 
             totalRecords = allEmployers.Count();
             totalDisplayRecords = filteredEmployers.Count();
