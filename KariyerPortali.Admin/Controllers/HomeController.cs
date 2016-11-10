@@ -10,6 +10,7 @@ namespace KariyerPortali.Admin.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 

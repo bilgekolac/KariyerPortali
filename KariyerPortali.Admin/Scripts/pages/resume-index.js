@@ -1,6 +1,6 @@
 ﻿var initTable1 = function () {
 
-    var table = $('#AllResumesTable');
+    var table = $('#allResumeTable');
     // begin first table
     table.dataTable({
 
@@ -10,19 +10,20 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Tabloda Kayıt Yok",
-            "info": " _TOTAL_ Kaydın _START_ ile _END_ Arası Gösteriliyor",
-            "infoEmpty": "Kayıt Bulunamadı",
+            "emptyTable": "Tabloda veri bulunmamaktadır.",
+            "info": "_TOTAL_ Kaydın _START_ ile _END_ Arası Gösteriliyor",
+            "infoEmpty": "Herhangi bir kayıt bulunamadı.",
             "infoFiltered": "(filtered1 from _MAX_ total records)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
-            "zeroRecords": "Aradığınız Kelimeyle Eşleşen Kayıt Bulunamdı",
+            "zeroRecords": "Eşleşen bir sonuç bulunamadı.",
             "paginate": {
                 "previous": "Önceki",
                 "next": "Sonraki",
                 "last": "Son Sayfa",
                 "first": "İlk Sayfa"
-            }
+            },
+           "sProcessing": "Yükleniyor..."
         },
 
         // Or you can use remote translation file
@@ -34,12 +35,14 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
+        "bServerSide": true,
+        "bProcessing": true,       
+        "sAjaxSource": "/Resume/AjaxHandler",        
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
             [5, 15, 20, -1],
-            [5, 15, 20, "Tümü"] // change per page values here
+            [5, 15, 20, "All"] // change per page values here
         ],
         // set the initial value
         "pageLength": 5,
@@ -47,23 +50,35 @@
         "columnDefs": [
             {  // set default column settings
                 'orderable': false,
-                'targets': [0]
-            },
-            {
                 "searchable": false,
-                "targets": [0]
+                "targets": [0],
+                'render': function (data, type, row) {
+                    return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
+                }
             },
+
             {
-                "className": "dt-right",
-                //"targets": [2]
+                'orderable': false,
+                'searchable': false,
+                'targets': [7],
+                'render': function(data, type, row) {
+                    return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Resume/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Resume/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                        + '<a href="/Resume/Delete/' + row[0] + '"onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;">><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                }
+                
+
             }
+            
         ],
+          
+        
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
     });
 
-    var tableWrapper = jQuery('#AllResumesTable_wrapper');
+    var tableWrapper = jQuery('#allResumeTable_wrapper');
 
     table.find('.group-checkable').change(function () {
         var set = jQuery(this).attr("data-set");

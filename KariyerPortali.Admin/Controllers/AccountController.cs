@@ -207,6 +207,7 @@ namespace KariyerPortali.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -218,6 +219,8 @@ namespace KariyerPortali.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return View(model);

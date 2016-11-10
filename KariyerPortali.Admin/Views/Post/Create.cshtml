@@ -1,7 +1,7 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.PostViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Yazı Oluştur";
 }
 
 <!-- BEGIN PAGE HEADER-->
@@ -13,7 +13,7 @@
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="/Post">Yazılar</a>
+            <a href="@Url.Action("Index","Post")">Yazılar</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -32,6 +32,11 @@
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
+@Html.ValidationSummary(true, "", new { @class="text-danger"})
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
 <div class="row">
     <div class="col-md-6 ">
         <!-- BEGIN SAMPLE FORM PORTLET-->
@@ -54,41 +59,43 @@
 
 
                         <div class="form-group">
-                            <label></label>
-                            <div class="input-icon right">
-
-                                <input type="text" class="form-control" placeholder="BAŞLIĞI GİRİNİZ">
-                            </div>
+                            @Html.LabelFor(model => model.Title)
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
                         </div>
 
+                        <div class="form-body">
+                            @Html.LabelFor(model => model.Body)
+                          
+                            @Html.ValidationMessageFor(model => model.Body, "", new { @class="text-danger"})
+                            <p>
+                                <br>
 
-                        <p>
-                            <br>
-
-                            <textarea cols="80" id="editor1" name="editor1" rows="10" data-sample="2"></textarea>
-                            <script>
+                                <textarea cols="80" id="editor1" name="editor1" rows="10" data-sample="2"></textarea>
+                                <script>
                                     CKEDITOR.replace('editor1');
-                            </script>
-                        </p>
+                                </script>
+                            </p>
 
 
 
-                        <div id="content2" style="display: none" data-sample="2">
-                            <p>The number of <code>change</code> events: <strong><span id="changes"></span></strong>.</p>
-                            <h3>Mirrored Content</h3>
-                            <!-- This <div> will be used to display the editor content. -->
-                            <div id="editorcontent2">
+                            <div id="content2" style="display: none" data-sample="2">
+                                <p>The number of <code>change</code> events: <strong><span id="changes"></span></strong>.</p>
+                                <h3>Mirrored Content</h3>
+                                <!-- This <div> will be used to display the editor content. -->
+                                <div id="editorcontent2">
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
 
 
                     <div class="form-actions">
-                        <button type="submit" class="btn blue">
+                        <button type="submit"tabindex="3" class="btn blue">
                             Kaydet
                         </button>
-                        <button type="button" class="btn default">
+                        <button type="button"tabindex="4" class="btn default" onclick="window.location='@Url.Action("Index","University")';">
                             İptal
                         </button>
                     </div>
@@ -100,6 +107,10 @@
     </div>
 
 </div>
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
 <div class="row ">
 
 </div>

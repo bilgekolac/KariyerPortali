@@ -63,8 +63,11 @@ namespace KariyerPortali.Data.Repositories
                         break;
                 }
             }
-            var displayedCountries = filteredCountries.Skip(displayStart).Take(displayLength);
-
+            var displayedCountries = filteredCountries.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedCountries = displayedCountries.Take(displayLength);
+            }
             totalRecords = allCountries.Count();
             totalDisplayRecords = filteredCountries.Count();
             return displayedCountries.ToList();

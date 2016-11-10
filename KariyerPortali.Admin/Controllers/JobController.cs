@@ -37,13 +37,86 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-            var socialrights = new List<SocialRight>(socialService.GetSocialRights());
-            var socialrightnames = new string[socialrights.Count()];
-            for (int i = 0; i < socialrights.Count(); i++) {
-                socialrightnames[i] = socialrights[i].SocialRightName;
-                    }
-            ViewBag.SocialRightNames = socialrightnames;
-            return View();
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
+
+            var jobform = new JobFormViewModel();
+            return View(jobform);
+        }
+
+        [HttpPost]
+        public ActionResult Create(JobFormViewModel jobForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                job.Createdate = DateTime.Now;
+                job.UpdateDate = DateTime.Now;
+                jobService.CreateJob(job);
+
+                jobService.SaveJob();
+                return RedirectToAction("Index");
+
+            }
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
+            return View(jobForm);
+        }
+        public ActionResult Edit(int? id)
+        {
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
+            if (id.HasValue)
+            {
+                var job = jobService.GetJob(id.Value);
+                if (job != null)
+                {
+                    var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    return View(jobViewModel);
+                }
+
+            }
+            
+
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(JobFormViewModel jobForm)
+        {
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
+            if (ModelState.IsValid)
+            {
+                var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                job.UpdateDate = DateTime.Now;
+                jobService.UpdateJob(job);
+                jobService.SaveJob();
+                return RedirectToAction("Index");
+            }
+            
+            return View(jobForm);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var job = jobService.GetJob(id.Value);
+                if (job != null)
+                {
+                    jobService.DeleteJob(job);
+                    jobService.SaveJob();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            return HttpNotFound();
         }
         public ActionResult Liste()
         {
