@@ -101,5 +101,19 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(candidateForm);
         }
-    }
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
+            {
+                var candidate = candidateService.GetCandidate(id.Value);
+                if (candidate != null)
+                {
+                    //candidateService.DeleteCandidate(candidate);
+                    candidateService.SaveCandidate();
+                    var candidateViewModel = Mapper.Map<Candidate, CandidateViewModel>(candidate);
+                    return View(candidateViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
 }
