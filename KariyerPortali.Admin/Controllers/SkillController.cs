@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SkillController : Controller
+    public class SkillController :Controller
     {
         private readonly ISkillService skillService;
 
