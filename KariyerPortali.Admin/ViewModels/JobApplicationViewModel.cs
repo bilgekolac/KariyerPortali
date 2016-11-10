@@ -31,5 +31,8 @@ namespace KariyerPortali.Admin.ViewModels
         public int CityId { get; set; }
         public City City { get; set; }
 
+        public int ResumeId { get; set; }
+        public Resume Resume { get; set; }
+
     }
 }
