@@ -69,7 +69,7 @@
                                         @*<p class="help-block"> some help text here. </p>*@
                                     </div>
                                     <div class="form-group">
-                                        
+                                        @Html.HiddenFor(model=>model.ImagePath)
                                         <img src="/Uploads/Account/@Model.ImagePath" width="200" height="200" alt="Kişi Resmi" title="Kişi Resmi" />
                                     </div>
                                     
