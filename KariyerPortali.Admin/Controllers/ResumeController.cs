@@ -27,10 +27,20 @@ namespace KariyerPortali.Admin.Controllers
             return View();
         }
 
-       //Create ve Edit Action Olmayacak 
-        public ActionResult Delete()
+        //Create ve Edit Action Olmayacak 
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var candidate = resumeService.GetResume(id.Value);
+                if (candidate != null)
+                {
+                    resumeService.DeleteResume(candidate);
+                    resumeService.SaveResume();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
         }
         public ActionResult Details(int? id)
         {
