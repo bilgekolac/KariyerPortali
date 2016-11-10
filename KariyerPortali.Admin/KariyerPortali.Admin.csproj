@@ -239,6 +239,8 @@
     <Compile Include="ViewModels\PostViewModel.cs" />
     <Compile Include="ViewModels\ResumeFormViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
+    <Compile Include="ViewModels\SkillFormViewModel.cs" />
+    <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\UniversityFormViewModel.cs" />
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
