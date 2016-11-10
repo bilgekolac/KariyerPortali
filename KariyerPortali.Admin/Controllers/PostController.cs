@@ -30,18 +30,20 @@ namespace KariyerPortali.Admin.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(PostViewModel postViewModel)
+        public ActionResult Create(PostFormViewModel postFrom)
         {
             if (ModelState.IsValid)
             {
-                var post = Mapper.Map<PostViewModel, Post>(postViewModel);
+                var post = Mapper.Map<PostFormViewModel, Post>(postFrom);
                 post.CreatedBy = User.Identity.Name;
                 post.CreateDate = DateTime.Now;
+                post.UptdatedBy = User.Identity.Name;
+                post.UpdateDate = DateTime.Now;
                 postService.CreatePost(post);
                 postService.SavePost();
                 return RedirectToAction("Index");
             }
-            return View(postViewModel);
+            return View(postFrom);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
