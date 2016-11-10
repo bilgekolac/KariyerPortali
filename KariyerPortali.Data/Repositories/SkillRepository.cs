@@ -28,9 +28,9 @@ namespace KariyerPortali.Data.Repositories
                 }
             }
 
-            var allCountries = query;
+            var allSkills = query;
 
-            IEnumerable<Skill> filteredSkills = allCountries;
+            IEnumerable<Skill> filteredSkills = allSkills;
 
             if (sortDirection == "asc")
             {
@@ -69,7 +69,7 @@ namespace KariyerPortali.Data.Repositories
             {
                 displayedSkills = displayedSkills.Take(displayLength);
             }
-            totalRecords = allCountries.Count();
+            totalRecords = allSkills.Count();
             totalDisplayRecords = filteredSkills.Count();
             return displayedSkills.ToList();
 
