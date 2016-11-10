@@ -10,7 +10,7 @@ namespace KariyerPortali.Admin.ViewModels
     public class DepartmentFormViewModel
     {
         public int DepartmentId { get; set; }
-        [Required(ErrorMessage = "İşveren adı gereklidir.")]
+        [Required(ErrorMessage = "Bölüm adı gereklidir.")]
         [DisplayName("Bölüm Adı")]
         public string DepartmentName { get; set; }
     }

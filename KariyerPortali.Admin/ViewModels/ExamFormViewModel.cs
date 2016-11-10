@@ -13,6 +13,6 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Sınav Adı")]
         [Required(ErrorMessage = "Lütfen bir sınav adı giriniz.")]
         public string ExamName { get; set; }
-        public float Point { get; set; }
+        
     }
 }

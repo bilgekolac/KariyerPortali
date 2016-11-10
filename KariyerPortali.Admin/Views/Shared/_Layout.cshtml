@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
 Version: 4.7.1
@@ -193,11 +192,27 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                         <li class="dropdown dropdown-user">
                             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                <img alt="" class="img-circle" src="/assets/layouts/layout/img/avatar3_small.jpg" />
-                                <span class="username username-hide-on-mobile"> nick </span>
+                                @if (ViewBag.LoggedInUser != null)
+                                {
+                                    <img alt="" class="img-circle" src="@(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).ImagePath)" />
+
+
+                                }
+                                
+                                <span class="username username-hide-on-mobile"> @if (ViewBag.LoggedInUser != null) {
+                                                                                    <text>
+                                        @(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).UserName)
+</text>
+                                                                                }
+                                                                                </span>
                                 <i class="fa fa-angle-down"></i>
                             </a>
-                           @* <p>@Html.DisplayFor(model=>model.UserName)</p>*@
+                            <p>@if (ViewBag.LoggedInUser != null)
+                            {
+                                <text>
+                                    @(((KariyerPortali.Admin.Models.ApplicationUser)ViewBag.LoggedInUser).UserName)
+                                </text>
+                            }</p>
                             <ul class="dropdown-menu dropdown-menu-default">
                                 <li>
                                     <a href="@Url.Action("MyProfile","Account")">

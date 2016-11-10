@@ -15,7 +15,7 @@ namespace KariyerPortali.Data.Configuration
             ToTable("Exams");
             HasKey<int>(c => c.ExamId);
             Property(c => c.ExamName).IsRequired().HasMaxLength(50);
-            Property(c => c.Point).IsRequired();
+           
         }
     }
 }
