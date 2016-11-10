@@ -33,9 +33,9 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            var displayedCountries = skillService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var displayedSkills = skillService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-            var result = from c in displayedCountries
+            var result = from c in displayedSkills
                          select new[] { c.SkillId.ToString(), c.SkillId.ToString(), c.SkillName, string.Empty };
             return Json(new
             {
