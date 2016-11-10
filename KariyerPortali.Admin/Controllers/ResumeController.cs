@@ -59,7 +59,7 @@ namespace KariyerPortali.Admin.Controllers
 
             var result = from c in displayedResumes
                          select new[] { c.ResumeId.ToString(), c.ResumeId.ToString(), c.FirstName,c.LastName,c.Gender.ToString(),
-                         c.ComputerSkill,c.WorkStatus.ToString(),c.Notes.ToString(),string.Empty};
+                         c.ComputerSkill,c.Notes.ToString(),c.WorkStatus.ToString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
