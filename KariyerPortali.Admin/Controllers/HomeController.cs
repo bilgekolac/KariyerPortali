@@ -15,8 +15,8 @@ namespace KariyerPortali.Admin.Controllers
             var username = "";
             username = User.Identity.Name;
             var  user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == username);
-            ViewBag.UserPhoto = "";
-            ViewBag.UserPhoto = user.ImagePath;
+            //ViewBag.UserPhoto = "";
+            //ViewBag.UserPhoto = user.ImagePath;
             ViewBag.UserName = username;
             return View();
         }
