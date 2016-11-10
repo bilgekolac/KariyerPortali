@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Admin.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,10 @@ namespace KariyerPortali.Admin.Controllers
     {
         public ActionResult Index()
         {
-            
+            var username = User.Identity.Name;
+            var user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == username);
+            ViewBag.UserPhoto = user.ImagePath;
+            ViewBag.UserName = username;
             return View();
         }
 

@@ -29,6 +29,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<PostFormViewModel, Post>();
             Mapper.CreateMap<ExamFormViewModel, Exam>();
             Mapper.CreateMap<JobFormViewModel, Job>();
+            Mapper.CreateMap<ExpertiseFormViewModel, Expertise>();
         }
     }
 }
