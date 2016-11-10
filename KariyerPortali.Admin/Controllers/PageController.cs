@@ -15,12 +15,9 @@ namespace KariyerPortali.Admin.Controllers
     {
         // GET: Pages
        private readonly IPageService PageService;
-        private readonly ICountryService countryService;
-
         public PageController(IPageService PageService,ICountryService countryService)
         {
             this.PageService = PageService;
-            this.countryService = countryService;
         }
 
         public ActionResult Index()
@@ -29,9 +26,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Edit(int? id)
         {
-            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
-          
-
+           
             if (id.HasValue)
             {
                 var Page = PageService.GetPage(id.Value);
@@ -62,9 +57,7 @@ namespace KariyerPortali.Admin.Controllers
       
         public ActionResult Create()
         {
-            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
-          
-
+           
             return View();
         }
 
@@ -81,9 +74,17 @@ namespace KariyerPortali.Admin.Controllers
                 return RedirectToAction("Index");
                
             }
-            ViewBag.CountryId = new SelectList(countryService.GetCountries(), "CountryId", "CountryName");
+      
             return View (formPage);
         }
+
+        public ActionResult Details(int id)
+        {
+            var Page = PageService.GetPage(id);
+            return View(Mapper.Map<Page, PageViewModel>(Page));
+
+        }
+
         public ActionResult Delete(int? id)
         {
             if (id.HasValue)
@@ -123,9 +124,9 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            var displayedCities = PageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var displayedPages = PageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-            var result = from c in displayedCities
+            var result = from c in displayedPages
                          select new[] { c.PageId.ToString(), c.PageId.ToString(), /*c.PageName.ToString(),*/  string.Empty };
             return Json(new
             {
