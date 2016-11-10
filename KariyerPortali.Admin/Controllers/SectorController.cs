@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SectorController : Controller
+    public class SectorController : BaseController
     {
         private readonly ISectorService sectorService;
 
@@ -66,6 +66,32 @@ namespace KariyerPortali.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
 
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var sector = sectorService.GetSector(id.Value);
+                if (sector != null)
+                {
+                    var sectorViewModel = Mapper.Map<Sector, SectorViewModel>(sector);
+                    return View(sectorViewModel);
+                }
 
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(SectorFormViewModel sectorForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var sector = Mapper.Map < SectorFormViewModel, Sector>(sectorForm);
+                sectorService.UpdateSector(sector);
+                sectorService.SaveSector();
+                return RedirectToAction("Index");
+            }
+            return View(sectorForm);
+        }
     }
 }
