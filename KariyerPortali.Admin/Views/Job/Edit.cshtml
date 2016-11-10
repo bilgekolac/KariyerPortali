@@ -1,7 +1,134 @@
-﻿
-@{
-    ViewBag.Title = "Edit";
-}
+﻿@model KariyerPortali.Admin.ViewModels.JobFormViewModel
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>@ViewBag.Title-Kariyer Portalı</title>
+<br />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Job")">İş İlanları</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>İş İlanı Düzenle</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
 
-<h2>Edit</h2>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Yenİ İş İlanı</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-6 ">
+                        <!-- BEGIN SAMPLE FORM PORTLET-->
+                        <div class="portlet light bordered">
+
+                            <!--İLAN VERİLİŞ TARİHİ O AN ALINACAK-->
+
+
+
+                            <div class="portlet-body form">
+
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EmployerId)
+                                        @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EmployerId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.CityId)
+                                        @Html.DropDownList("CityId", null, new { @tabindex = "3", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.JobType)
+                                        @Html.EnumDropDownListFor(model => model.JobType, "", new { @tabindex = "5", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.JobType, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ExperienceId)
+                                        @Html.DropDownList("ExperienceId", null, new { @tabindex = "7", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ExperienceId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label("Sosyal Haklar")<br />
+                                        @foreach (SelectListItem item in ViewBag.SocialRights)
+                                        {
+                                            <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                                <input type="checkbox" name="SocialRightId" class="checkboxes" value="@item.Value" />
+                                                <span></span>
+                                                @item.Text
+                                            </label>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- END SAMPLE FORM PORTLET-->
+                        <!-- BEGIN SAMPLE FORM PORTLET-->
+                    </div>
+
+                        <div class="col-md-6 ">
+                            <!-- BEGIN SAMPLE FORM PORTLET-->
+                            <div class="portlet light bordered">
+                                <div class="portlet-body form">
+
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Title)
+                                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
+                                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Description)<br />
+                                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
+                                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Responsibilities)<br />
+                                            @Html.TextAreaFor(model => model.Responsibilities, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
+                                            @Html.ValidationMessageFor(model => model.Responsibilities, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Qualifications)<br />
+                                            @Html.TextAreaFor(model => model.Qualifications, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
+                                            @Html.ValidationMessageFor(model => model.Qualifications, "", new { @class = "text-danger" })
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn blue">Gönder</button>
+                                            <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Job")';">Çıkış</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 

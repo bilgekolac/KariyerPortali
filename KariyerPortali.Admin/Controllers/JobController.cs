@@ -63,6 +63,40 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
             return View(jobForm);
         }
+        public ActionResult Edit(int? id)
+        {
+            ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
+            ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
+
+
+            if (id.HasValue)
+            {
+                var job = jobService.GetJob(id.Value);
+                if (job != null)
+                {
+                    var cityViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    return View(cityViewModel);
+                }
+
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(CityFormViewModel cityForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var city = Mapper.Map<CityFormViewModel, City>(cityForm);
+                cityService.UpdateCity(city);
+                cityService.SaveCity();
+                return RedirectToAction("Index");
+            }
+            return View(cityForm);
+        }
         public ActionResult Liste()
         {
             return View();
