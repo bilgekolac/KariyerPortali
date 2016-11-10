@@ -8,14 +8,12 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Data.Repositories
 {
-   
+
     public class ExpertiseRepository : RepositoryBase<Expertise>, IExpertiseRepository
     {
         public ExpertiseRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
-    }
-    public interface IExpertiseRepository : IRepository<Expertise>
-    {
+
         public IEnumerable<Expertise> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
         {
             search = search.Trim();
@@ -72,10 +70,11 @@ namespace KariyerPortali.Data.Repositories
             totalDisplayRecords = filteredExpertises.Count();
             return displayedExpertises.ToList();
         }
+    }
         public interface IExpertiseRepository : IRepository<Expertise>
         {
             IEnumerable<Expertise> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         }
 
-    }
+    
 }
