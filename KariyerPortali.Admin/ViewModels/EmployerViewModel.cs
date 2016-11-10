@@ -40,5 +40,13 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Web Site")]
         public string WebSite { get; set; }
 
+        [DisplayName("Oluşturulma Tarihi")]
+        public DateTime CreateDate { get; set; }
+        [DisplayName("Oluşturan Kişi")]
+        public string CreatedBy { get; set; }
+        [DisplayName("Güncellenme Tarihi")]
+        public DateTime UpdateDate { get; set; }
+        [DisplayName("Güncelleyen Kişi")]
+        public string UpdatedBy { get; set; }
     }
 }

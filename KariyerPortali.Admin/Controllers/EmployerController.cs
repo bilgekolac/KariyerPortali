@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class EmployerController : Controller
+    public class EmployerController : BaseController
     {
         private readonly IEmployerService employerService;
         private readonly ISectorService sectorService;
@@ -93,7 +93,7 @@ namespace KariyerPortali.Admin.Controllers
                 var employer = Mapper.Map<EmployerFormViewModel, Employer>(employerForm);
             
                 employer.UpdatedBy = User.Identity.Name;
-                employer.UpdateDate = employer.CreateDate;
+                employer.UpdateDate = DateTime.Now;
      
              
      
