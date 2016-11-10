@@ -1,4 +1,4 @@
-﻿@{
+﻿@model KariyerPortali.Admin.ViewModels.JobApplicationViewModel
     ViewBag.Title = "Home Page";
 }
 @*
@@ -79,7 +79,7 @@
             </div>
             <div class="details">
                 <div class="number">
-                    <span data-counter="counterup" data-value="125">0</span>
+                    <span data-counter="counterup" data-value="@ViewBag.JobApplicationCount">0</span>
                 </div>
                 <div class="desc"> Başvuru </div>
             </div>

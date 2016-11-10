@@ -1,4 +1,5 @@
 ﻿using KariyerPortali.Admin.Models;
+using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,14 @@ namespace KariyerPortali.Admin.Controllers
 {
     public class HomeController : BaseController
     {
+        private readonly IJobApplicationService jobApplicationService;
+        public HomeController(IJobApplicationService jobApplicationService)
+        {
+            this.jobApplicationService = jobApplicationService;
+        }
         public ActionResult Index()
         {
+            ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
             return View();
         }
 
