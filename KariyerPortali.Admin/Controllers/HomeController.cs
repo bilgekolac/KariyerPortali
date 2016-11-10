@@ -7,17 +7,10 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
-
-            //var username = "";
-            //username = User.Identity.Name;
-            //var  user = new ApplicationDbContext().Users.FirstOrDefault(u => u.UserName == username);
-            ////ViewBag.UserPhoto = "";
-            ////ViewBag.UserPhoto = user.ImagePath;
-            //ViewBag.UserName = username;
             return View();
         }
 

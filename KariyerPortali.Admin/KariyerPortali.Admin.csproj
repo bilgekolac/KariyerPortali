@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\CountryController.cs" />
@@ -6412,6 +6413,7 @@
     <Folder Include="Uploads\Candidate\" />
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
