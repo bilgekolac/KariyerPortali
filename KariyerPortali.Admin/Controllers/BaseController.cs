@@ -10,9 +10,9 @@ namespace KariyerPortali.Admin.Controllers
     public class BaseController : Controller
     {
         // GET: Base
-        public BaseController()
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (User!=null && User.Identity != null && User.Identity.IsAuthenticated)
+            if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
             {
                 using (var db = new ApplicationDbContext())
                 {
@@ -20,6 +20,8 @@ namespace KariyerPortali.Admin.Controllers
                     ViewBag.LoggedInUser = loggedInUser;
                 }
             }
+ 	            base.OnActionExecuting(filterContext);
         }
+        
     }
 }
