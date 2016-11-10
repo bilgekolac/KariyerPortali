@@ -63,6 +63,8 @@
     <Compile Include="Models\LanguageLevel.cs" />
     <Compile Include="Models\MaritalStatus.cs" />
     <Compile Include="Models\MilitaryService.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Reference.cs" />
