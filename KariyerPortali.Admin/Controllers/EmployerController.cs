@@ -75,6 +75,8 @@ namespace KariyerPortali.Admin.Controllers
                 if (employer != null)
                 {
                     var employerViewModel = Mapper.Map<Employer, EmployerViewModel>(employer);
+                    ViewBag.SectorId = new SelectList(sectorService.GetSectors(), "SectorId", "SectorName", employer.SectorId);
+                    ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName", employer.CityId);
                     return View(employerViewModel);
                 }
 
@@ -94,13 +96,8 @@ namespace KariyerPortali.Admin.Controllers
                 employer.UpdatedBy = "karacabora";
                 employer.UpdateDate = employer.CreateDate;
      
-                employer.SectorId = 1;
-            
-                employer.Email = "bora@gmail.com";
-                employer.Phone = "2125522";
-                employer.WebSite = "www.bom.com";
-                employer.Address = "asdadsa";
-
+             
+     
                 if (upload != null)
                 {
                     string dosyaYolu = Path.GetFileName(upload.FileName);
