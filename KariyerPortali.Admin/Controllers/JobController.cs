@@ -118,6 +118,12 @@ namespace KariyerPortali.Admin.Controllers
             }
             return HttpNotFound();
         }
+        public ActionResult Details(int id)
+        {
+            var job = jobService.GetJob(id);
+            return View(Mapper.Map<Job, JobViewModel>(job));
+
+        }
         public ActionResult Liste()
         {
             return View();
