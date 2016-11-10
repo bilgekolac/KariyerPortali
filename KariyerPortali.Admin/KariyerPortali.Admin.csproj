@@ -6407,6 +6407,7 @@
     <Content Include="Views\Candidate\Details.cshtml" />
     <Content Include="Views\Expertise\Edit.cshtml" />
     <Content Include="Views\Expertise\Delete.cshtml" />
+    <Content Include="Views\Employer\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
