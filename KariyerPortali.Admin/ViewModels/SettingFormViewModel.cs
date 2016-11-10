@@ -7,10 +7,8 @@ namespace KariyerPortali.Admin.ViewModels
 {
     public class SettingFormViewModel
     {
-        public int SettingId { get; set; }
-        //string length 100 olucak
-        public string Name { get; set; }
-        //string length max olucak
-        public string Value { get; set; }
+        public string HeaderScript { get; set; }
+        public string GoogleAnalytics { get; set; }
+        public string FooterScript { get; set; }
     }
 }

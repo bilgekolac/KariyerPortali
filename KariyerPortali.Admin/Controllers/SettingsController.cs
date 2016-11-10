@@ -18,28 +18,16 @@ namespace KariyerPortali.Admin.Controllers
         {
             this.settingService = settingService;
         }
-        // GET: Settings
-        public ActionResult Index()
-        {
-            return View();
-        }
+       
         public ActionResult Theme()
         {
             return View();
         }
-        public ActionResult Index(int? id)
+        public ActionResult Index()
         {
-            if (id.HasValue)
-            {
-                var setting = settingService.GetSetting(id.Value);
-                if (setting != null)
-                {
-                    var settingViewModel = Mapper.Map<Setting, SettingViewModel>(setting);
-                    return View(settingViewModel);
-                }
-
-            }
-            return HttpNotFound();
+            var settings = settingService.GetSettings();
+            var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
+            return View(settingViewModels);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -47,12 +35,20 @@ namespace KariyerPortali.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var setting = Mapper.Map<SettingFormViewModel, Setting>(settingForm);
-                settingService.UpdateSetting(setting);
+                // header script setting güncellenir
+                var setting1 = settingService.GetSetting(1); // servise ve repository'e GetSettingByName metodu eklenir
+                setting1.Value = settingForm.HeaderScript;
+                settingService.UpdateSetting(setting1);
+
+                // google analytics setting güncellenir
+
+                // footer script setting güncellenir
+
+                // değişiklikler kaydedilir
                 settingService.SaveSetting();
                 return RedirectToAction("Index");
             }
-            return View(settingForm);
+            return RedirectToAction("Index", new { error = "1" });
         }
     }
 }
