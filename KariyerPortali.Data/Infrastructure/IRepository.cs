@@ -15,6 +15,7 @@ namespace KariyerPortali.Data.Infrastructure
         void Update(T entity);
         // Marks an entity to be removed
         void Delete(T entity);
+        void Count(T entity);
         void Delete(Expression<Func<T, bool>> where);
         // Get an entity by int id
         T GetById(int id, params string[] Navigations);

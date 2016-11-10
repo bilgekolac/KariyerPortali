@@ -65,7 +65,12 @@ namespace KariyerPortali.Data.Repositories
                 }
             }
 
-            var displayedExpertises = filteredExpertises.Skip(displayStart).Take(displayLength);
+            var displayedExpertises = filteredExpertises.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedExpertises = displayedExpertises.Take(displayLength);
+            }
+
             totalRecords = allExpertises.Count();
             totalDisplayRecords = filteredExpertises.Count();
             return displayedExpertises.ToList();
