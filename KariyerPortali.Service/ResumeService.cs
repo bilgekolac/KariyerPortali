@@ -18,6 +18,7 @@ namespace KariyerPortali.Service
         void CreateResume(Resume resume);
         void UpdateResume(Resume resume);
         void DeleteResume(Resume resume);
+        int CountResume();
         void SaveResume();
     }
     public class ResumeService : IResumeService
@@ -60,6 +61,10 @@ namespace KariyerPortali.Service
         public void DeleteResume(Resume resume)
         {
             resumeRepository.Delete(resume);
+        }
+        public int CountResume()
+        {
+            return resumeRepository.GetAll().Count();
         }
 
         public void SaveResume()

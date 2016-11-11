@@ -37,13 +37,57 @@ namespace KariyerPortali.Admin.Controllers
                 var post = Mapper.Map<PostFormViewModel, Post>(postFrom);
                 post.CreatedBy = User.Identity.Name;
                 post.CreateDate = DateTime.Now;
-                post.UptdatedBy = User.Identity.Name;
+                post.UpdatedBy = User.Identity.Name;
                 post.UpdateDate = DateTime.Now;
                 postService.CreatePost(post);
                 postService.SavePost();
                 return RedirectToAction("Index");
             }
             return View(postFrom);
+        }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var post = postService.GetPost(id.Value);
+                if (post != null)
+                {
+                    var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    return View(postViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(PostFormViewModel postForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var post = Mapper.Map<PostFormViewModel, Post>(postForm);
+                //post.CreateDate = post.CreateDate;
+                //post.CreatedBy = post.CreatedBy;
+                post.UpdatedBy = User.Identity.Name;
+                post.UpdateDate = DateTime.Now;
+                postService.UpdatePost(post);
+                postService.SavePost();
+                return RedirectToAction("Index");
+            }
+            return View(postForm);
+        }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var post = postService.GetPost(id.Value);
+                if (post != null)
+                {
+                    postService.DeletePost(post);
+                    postService.SavePost();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
@@ -54,7 +98,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalRecords;
             int iTotalDisplayRecords;
             var displayedPosts = postService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
-            var result = from p in displayedPosts select new[] { p.PostId.ToString(), p.PostId.ToString(), p.Title.ToString(), p.CreatedBy.ToString(), p.CreateDate.ToString() };
+            var result = from p in displayedPosts select new[] { p.PostId.ToString(), p.PostId.ToString(), p.Title.ToString(), p.CreatedBy.ToString(), p.CreateDate.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,

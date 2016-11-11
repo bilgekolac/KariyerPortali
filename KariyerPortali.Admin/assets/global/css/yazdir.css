@@ -1,0 +1,19 @@
+@media print
+{
+#non_write{
+    /*display:none;*/
+    visibility:hidden;
+}
+#sample_editable_1_new{
+    /*display:none;*/
+    visibility:hidden;
+}
+#write{
+    visibility:visible;
+    /*ikinci sayfaya otomatik bölünsün diye*/
+    page-break-before: auto;
+}
+title{
+    visibility:hidden;
+}
+}
