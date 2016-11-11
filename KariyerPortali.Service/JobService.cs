@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IJobService
     {
+        IEnumerable<SocialRight> GetJobSocialRights(int id);
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Job> GetJobs();
         Job GetJob(int id);
@@ -18,7 +19,7 @@ namespace KariyerPortali.Service
         void UpdateJob(Job job);
         void DeleteJob(Job job);
         void SaveJob();
-        List<SocialRight> GetSocialRightById(int id);
+        
     }
     public class JobService : IJobService
     {
@@ -62,10 +63,10 @@ namespace KariyerPortali.Service
         {
             unitOfWork.Commit();
         }
-        public List<SocialRight> GetSocialRightById(int id)
+        public IEnumerable<SocialRight> GetJobSocialRights(int id)
         {
-            var selectedrightjobs=jobRepository.GetSocialRightById(id);
-            return selectedrightjobs;
+            var socialrights = jobRepository.asd(id);
+            return socialrights;
         }
         #endregion
     }

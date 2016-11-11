@@ -39,9 +39,7 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
-
-            var jobform = new JobFormViewModel();
-            return View(jobform);
+            return View();
         }
 
         [HttpPost]
@@ -53,7 +51,7 @@ namespace KariyerPortali.Admin.Controllers
                 List<SocialRight> selectedSocialRights = new List<SocialRight>();
                 foreach (var item in jobForm.SocialRightId)
                 {
-                        selectedSocialRights.Add(socialService.GetSocialRight(item));
+                    selectedSocialRights.Add(socialService.GetSocialRight(item));
                 }
                 job.SocialRights = selectedSocialRights;
                 job.Createdate = DateTime.Now;
@@ -84,8 +82,14 @@ namespace KariyerPortali.Admin.Controllers
                 var job = jobService.GetJob(id.Value);
                 if (job != null)
                 {
-                    var selectedrights = jobService.GetSocialRightById(id.Value);
+                    var selectedrights = job.SocialRights;
+                    var selectedRightIds = new List<int>();
                     var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    foreach(var item in selectedrights)
+                    {
+                        selectedRightIds.Add(item.SocialRightId);
+                    }
+                    jobViewModel.SocialRightId = selectedRightIds;
                     return View(jobViewModel);
                 }
             }
@@ -155,7 +159,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalDisplayRecords;
             var displayedJobs = jobService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
             var result = from c in displayedJobs
-                         select new[] {c.JobId.ToString(), c.Title.ToString(), c.Description.ToString(), (c.Employer != null ? c.Employer.EmployerName.ToString() : string.Empty), (c.Employer != null ? c.City.CityName.ToString() : string.Empty), c.JobType.ToString(), c.Createdate.ToShortDateString(),string.Empty};
+                         select new[] {c.JobId.ToString(), c.Title.ToString(), (c.Description!=null ? c.Description.ToString() : string.Empty), (c.Employer != null ? c.Employer.EmployerName.ToString() : string.Empty), (c.Employer != null ? c.City.CityName.ToString() : string.Empty), c.JobType.ToString(), c.Createdate.ToShortDateString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,

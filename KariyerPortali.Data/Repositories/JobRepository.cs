@@ -103,29 +103,17 @@ namespace KariyerPortali.Data.Repositories
             totalDisplayRecords = filteredJobs.Count();
             return displayedJobs.ToList();
         }
-        public List<SocialRight> GetSocialRightById(int id)
+        public IEnumerable<SocialRight> GetJobSocialRights(int id)
         {
-            using (KariyerPortaliEntities entity = new KariyerPortaliEntities())
-            {
-                var result = (
-                from a in entity.Jobs
-                from b in a.SocialRights
-                join c in entity.SocialRights on b.SocialRightId equals c.SocialRightId
-                where a.JobId == id
-                select new SocialRight
-                {
-                    SocialRightId = c.SocialRightId,
-                    SocialRightName = c.SocialRightName
-                }).ToList();
-                return result;
-            }
-
+            var query = this.DbContext.Jobs.Where(c => c.JobId == id).SelectMany(c => c.SocialRights);
+            return query;
         }
+        
     }
     public interface IJobRepository : IRepository<Job>
     {
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
-        List<SocialRight> GetSocialRightById(int id);
+        IEnumerable<SocialRight> GetJobSocialRights(int id)
     }
     
 }

@@ -11,7 +11,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Aday Detayı</span>
+            <span>İşveren Detayı</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -31,17 +31,20 @@
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption font-dark">
-                    <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Tüm İşverenler Detayı </span>
+                    <i class="icon-briefcase"></i>
+                    <span class="caption-subject bold uppercase">İşveren Detayı </span>
                 </div>
-
+                <a href="javascript:void(0);" onclick="window.print()" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
+                    <i class="fa fa-print"></i> Yazdır
+                </a>
             </div>
             <dl class="dl-horizontal">
                 <dt>
                     @Html.DisplayNameFor(model => model.Logo)
                 </dt>
                 <dd>
-                    @Html.DisplayFor(model => model.Logo)
+                  @Html.HiddenFor(model => model.Logo)
+                <img src="/Uploads/Employer/@Model.Logo" width="200" height="200" alt="Logo Resmi" title="Logo Resmi" />
                 </dd>
                 <dt>
                     @Html.DisplayNameFor(model => model.EmployerName)
@@ -49,6 +52,7 @@
                 <dd>
                     @Html.DisplayFor(model => model.EmployerName)
                 </dd>
+                
                 <dt>
                     @Html.DisplayNameFor(model => model.UserName)
                 </dt>
@@ -133,8 +137,8 @@
           
             </dl>
         </div>
-        <div class="form-actions right">
+        @*<div class="form-actions right">
             <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Employer")';">Tüm İşverenlere Dön</button>
-        </div>
+        </div>*@
     </div>
 </div>

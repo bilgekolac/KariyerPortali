@@ -27,10 +27,20 @@ namespace KariyerPortali.Admin.Controllers
             return View();
         }
 
-       //Create ve Edit Action Olmayacak 
-        public ActionResult Delete()
+        //Create ve Edit Action Olmayacak 
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var candidate = resumeService.GetResume(id.Value);
+                if (candidate != null)
+                {
+                    resumeService.DeleteResume(candidate);
+                    resumeService.SaveResume();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
         }
         public ActionResult Details(int? id)
         {
@@ -59,7 +69,7 @@ namespace KariyerPortali.Admin.Controllers
 
             var result = from c in displayedResumes
                          select new[] { c.ResumeId.ToString(), c.ResumeId.ToString(), c.FirstName,c.LastName,c.Gender.ToString(),
-                         c.ComputerSkill,c.WorkStatus.ToString(),c.Notes.ToString(),string.Empty};
+                         c.ComputerSkill,c.Notes.ToString(),c.WorkStatus.ToString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
