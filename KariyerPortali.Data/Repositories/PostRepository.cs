@@ -59,7 +59,7 @@ namespace KariyerPortali.Data.Repositories
                 }
 
             } var displayedPosts = filteredPosts.Skip(displayStart);
-            if (displayLength >= 0)
+            if (displayLength > 0)
             {
                 displayedPosts = displayedPosts.Take(displayLength);
             }

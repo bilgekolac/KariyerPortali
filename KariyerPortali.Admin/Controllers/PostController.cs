@@ -54,7 +54,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalRecords;
             int iTotalDisplayRecords;
             var displayedPosts = postService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
-            var result = from p in displayedPosts select new[] { p.PostId.ToString(), p.PostId.ToString(), p.Title.ToString(), p.CreatedBy.ToString(), p.CreateDate.ToString() };
+            var result = from p in displayedPosts select new[] { p.PostId.ToString(), p.PostId.ToString(), p.Title.ToString(), p.CreatedBy.ToString(), p.CreateDate.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
