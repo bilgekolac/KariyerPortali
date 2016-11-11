@@ -20,7 +20,7 @@ namespace KariyerPortali.Data.Configuration
             Property(c => c.Body).IsRequired();
             Property(c => c.CreatedBy).IsRequired().HasMaxLength(100);
             Property(c => c.CreateDate).IsRequired();
-            Property(c => c.UpdatedBy).IsRequired();
+            Property(c => c.UpdatedBy).IsRequired().HasMaxLength(100);
             Property(c => c.UpdateDate).IsRequired();
         }
     }
