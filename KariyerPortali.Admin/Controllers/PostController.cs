@@ -89,6 +89,20 @@ namespace KariyerPortali.Admin.Controllers
             }
             return HttpNotFound();
         }
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
+            {
+                var post = postService.GetPost(id.Value);
+                if (post != null)
+                {
+                    postService.SavePost();
+                    var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    return View(postViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
