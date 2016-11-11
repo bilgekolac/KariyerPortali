@@ -37,7 +37,7 @@ namespace KariyerPortali.Admin.Controllers
                 var post = Mapper.Map<PostFormViewModel, Post>(postFrom);
                 post.CreatedBy = User.Identity.Name;
                 post.CreateDate = DateTime.Now;
-                post.UptdatedBy = User.Identity.Name;
+                post.UpdatedBy = User.Identity.Name;
                 post.UpdateDate = DateTime.Now;
                 postService.CreatePost(post);
                 postService.SavePost();
