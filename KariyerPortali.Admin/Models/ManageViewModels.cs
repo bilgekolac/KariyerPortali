@@ -47,7 +47,7 @@ namespace KariyerPortali.Admin.Models
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Şifre en az 6 karakter olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Yeni şifre")]
         public string NewPassword { get; set; }

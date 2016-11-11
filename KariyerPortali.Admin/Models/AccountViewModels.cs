@@ -71,14 +71,14 @@ namespace KariyerPortali.Admin.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Şifre en az 6 karakter olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Şifreyi Doğrula")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Şifreyi Tekrar")]
+        [Compare("Password", ErrorMessage = "Şifre ve şifreyi doğrula uyuşmadı.")]
         public string ConfirmPassword { get; set; }
 
     }
