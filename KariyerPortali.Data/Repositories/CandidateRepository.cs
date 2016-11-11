@@ -96,8 +96,11 @@ namespace KariyerPortali.Data.Repositories
                         break;
                 }
             }
-            var displayedCandidates = filteredCandidates.Skip(displayStart).Take(displayLength);
-
+            var displayedCandidates = filteredCandidates.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedCandidates = displayedCandidates.Take(displayLength);
+            }
             totalRecords = allCandidates.Count();
             totalDisplayRecords = filteredCandidates.Count();
             return displayedCandidates.ToList();
