@@ -28,6 +28,8 @@ namespace KariyerPortali.Admin.Controllers
         {
             ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
             ViewBag.CandidateCount = candidateService.CountCandidate();
+            ViewBag.ResumeCount = resumeService.CountResume();
+            ViewBag.JobCount = jobService.CountJob();
             return View();
         }
 
