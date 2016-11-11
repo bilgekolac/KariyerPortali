@@ -91,8 +91,7 @@ namespace KariyerPortali.Admin.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        
+        [ValidateAntiForgeryToken]        
         public ActionResult Edit(ApplicationUser model,System.Web.HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
@@ -221,8 +220,7 @@ namespace KariyerPortali.Admin.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
-        {
-            
+        {            
 
             if (!ModelState.IsValid)
             {
@@ -455,6 +453,10 @@ namespace KariyerPortali.Admin.Controllers
             return View();
         }
 
+       
+
+
+
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
@@ -465,6 +467,9 @@ namespace KariyerPortali.Admin.Controllers
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
+
+
+
 
         //
         // GET: /Account/SendCode
