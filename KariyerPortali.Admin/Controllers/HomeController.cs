@@ -23,6 +23,7 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult Index()
         {
             ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
+            ViewBag.CandidateCount = candidateService.CountCandidate();
             return View();
         }
 
