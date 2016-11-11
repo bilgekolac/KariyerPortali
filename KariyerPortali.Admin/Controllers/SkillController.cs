@@ -91,6 +91,22 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(skillForm);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var skill = skillService.GetSkill(id.Value);
+                if (skill != null)
+                {
+                    skillService.DeleteSkill(skill);
+                    skillService.SaveSkill();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            return HttpNotFound();
+        }
+
 
 
     }

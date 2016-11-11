@@ -277,6 +277,7 @@
     <Content Include="assets\global\css\plugins-md.min.css" />
     <Content Include="assets\global\css\plugins.css" />
     <Content Include="assets\global\css\plugins.min.css" />
+    <Content Include="assets\global\css\yazdir.css" />
     <Content Include="assets\global\img\accordion-plusminus.png" />
     <Content Include="assets\global\img\ajax-loading.gif" />
     <Content Include="assets\global\img\ajax-modal-loading.gif" />
@@ -6422,6 +6423,7 @@
     <Content Include="Views\Sector\Delete.cshtml" />
     <Content Include="Views\Skill\Edit.cshtml" />
     <Content Include="Views\Resume\Delete.cshtml" />
+    <Content Include="Views\Skill\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

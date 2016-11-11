@@ -145,10 +145,10 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         
-        public ActionResult MyProfile()
+        public ActionResult MyProfile(string username)
         {
 
-            var username = User.Identity.Name;
+            //var username = User.Identity.Name;
             var user = db.Users.First(c => c.UserName == username);
                 var u = new UserViewModel();
                 u.UserName = user.UserName;

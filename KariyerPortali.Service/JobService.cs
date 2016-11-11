@@ -18,6 +18,8 @@ namespace KariyerPortali.Service
         void CreateJob(Job job);
         void UpdateJob(Job job);
         void DeleteJob(Job job);
+        int CountJob();
+
         void SaveJob();
         
     }
@@ -62,6 +64,10 @@ namespace KariyerPortali.Service
         public void SaveJob()
         {
             unitOfWork.Commit();
+        }
+        public int CountJob()
+        {
+            return jobRepository.GetAll().Count();
         }
         public IEnumerable<SocialRight> GetJobSocialRights(int id)
         {
