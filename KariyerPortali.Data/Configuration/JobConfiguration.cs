@@ -19,7 +19,7 @@ namespace KariyerPortali.Data.Configuration
             //Property(c => c.JobType).HasMaxLength(500);
             Property(c => c.Responsibilities).IsRequired();
             Property(c => c.Qualifications).IsRequired();
-
+            HasMany(c => c.SocialRights).WithMany(c => c.Jobs).Map(m => m.ToTable("JobSocialRights").MapLeftKey("JobId").MapRightKey("SocialRightId"));
 
            
          
