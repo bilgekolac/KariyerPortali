@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface ISettingService
     {
+        Setting GetSettingByName(string name);
         IEnumerable<Setting> GetSettings();
         Setting GetSetting(int id);
         void CreateSetting(Setting setting);
@@ -28,11 +29,11 @@ namespace KariyerPortali.Service
             this.unitOfWork = unitOfWork;
         }
         #region ISettingService Members
-        // public IEnumerable<Setting> GetSettingByName()
-        //{
-        //    var settings = settingRepository.GetSettingByName();
-
-        //    return settings;
+        public Setting GetSettingByName(string name)
+        {
+            var settings = settingRepository.GetSettingByName(name);
+            return settings;
+        }
         public IEnumerable<Setting> GetSettings()
         {
             var settings = settingRepository.GetAll();

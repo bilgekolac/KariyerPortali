@@ -22,6 +22,7 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Telefon No :")]
         public string Phone { get; set; }
         [DisplayName("Doğum Tarihi :")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
         [DisplayName("Fotoğraf :")]
         public string Photo { get; set; }
