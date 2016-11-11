@@ -45,6 +45,36 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(postFrom);
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var post = postService.GetPost(id.Value);
+                if (post != null)
+                {
+                    var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    return View(postViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Edit(PostFormViewModel postForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var post = Mapper.Map<PostFormViewModel, Post>(postForm);
+                //post.CreateDate = post.CreateDate;
+                //post.CreatedBy = post.CreatedBy;
+                post.UpdatedBy = User.Identity.Name;
+                post.UpdateDate = DateTime.Now;
+                postService.UpdatePost(post);
+                postService.SavePost();
+                return RedirectToAction("Index");
+            }
+            return View(postForm);
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
