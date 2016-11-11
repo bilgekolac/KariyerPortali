@@ -75,6 +75,20 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(postForm);
         }
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var post = postService.GetPost(id.Value);
+                if (post != null)
+                {
+                    postService.DeletePost(post);
+                    postService.SavePost();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
             string sSearch = "";
