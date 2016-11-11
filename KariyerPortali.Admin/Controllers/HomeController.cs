@@ -12,10 +12,14 @@ namespace KariyerPortali.Admin.Controllers
     {
         private readonly IJobApplicationService jobApplicationService;
          private readonly ICandidateService candidateService;
-         public HomeController(IJobApplicationService jobApplicationService, ICandidateService candidateService)
+         private readonly IJobService jobService;
+         private readonly IResumeService resumeService;
+         public HomeController(IJobApplicationService jobApplicationService, ICandidateService candidateService, IJobService jobService, IResumeService resumeService)
         {
             this.jobApplicationService = jobApplicationService;
             this.candidateService = candidateService;
+            this.jobService = jobService;
+            this.resumeService = resumeService;
         }
        
 
@@ -24,6 +28,8 @@ namespace KariyerPortali.Admin.Controllers
         {
             ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
             ViewBag.CandidateCount = candidateService.CountCandidate();
+            ViewBag.ResumeCount = resumeService.CountResume();
+            ViewBag.JobCount = jobService.CountJob();
             return View();
         }
 
