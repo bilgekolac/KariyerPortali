@@ -22,7 +22,7 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Oluşturulma Tarihi")]
         public DateTime CreateDate { get; set; }
         [DisplayName("Güncelleyen Kişi")]
-        public string UptdatedBy { get; set; }
+        public string UpdatedBy { get; set; }
         [DisplayName("Güncelleme Tarihi")]
         public DateTime UpdateDate { get; set; }
     }
