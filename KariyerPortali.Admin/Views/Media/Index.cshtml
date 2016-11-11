@@ -5,6 +5,13 @@
 
 <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    function exportExcel() {
+        var tableExport = document.getElementById('allMediaTable');
+        var html = tableExport.outerHTML;
+        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+    }
+</script>
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -55,9 +62,10 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="javascript:void(0)" onclick="exportExcel();">
                                             <i class="fa fa-file-excel-o"></i> Excel'e Aktar
                                         </a>
+
                                     </li>
                                 </ul>
                             </div>
