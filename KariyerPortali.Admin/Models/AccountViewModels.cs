@@ -49,14 +49,15 @@ namespace KariyerPortali.Admin.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "E Posta alanı gereklidir")]
         [Display(Name = "E Posta")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Şifre alanı gereklidir")]
         [DataType(DataType.Password)]
         [Display(Name = "Şifre")]
+
         public string Password { get; set; }
 
         [Display(Name = "Beni hatırla")]
