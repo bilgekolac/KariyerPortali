@@ -11,13 +11,19 @@ namespace KariyerPortali.Admin.Controllers
     public class HomeController : BaseController
     {
         private readonly IJobApplicationService jobApplicationService;
-        public HomeController(IJobApplicationService jobApplicationService)
+         private readonly ICandidateService candidateService;
+         public HomeController(IJobApplicationService jobApplicationService, ICandidateService candidateService)
         {
             this.jobApplicationService = jobApplicationService;
+            this.candidateService = candidateService;
         }
+       
+
+       
         public ActionResult Index()
         {
             ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
+            ViewBag.CandidateCount = candidateService.CountCandidate();
             return View();
         }
 

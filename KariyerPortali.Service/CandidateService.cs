@@ -17,6 +17,7 @@ namespace KariyerPortali.Service
         void CreateCandidate(Candidate candidate);
         void UpdateCandidate(Candidate candidate);
         void DeleteCandidate(Candidate candidate);
+        int CountCandidate();
         void SaveCandidate();
     }
     public class CandidateService : ICandidateService
@@ -60,6 +61,10 @@ namespace KariyerPortali.Service
         public void SaveCandidate()
         {
             unitOfWork.Commit();
+        }
+        public int CountCandidate()
+        {
+            return candidateRepository.GetAll().Count();
         }
         
         #endregion
