@@ -36,7 +36,7 @@ namespace KariyerPortali.Data
                     FirstName="Muhammed",
                     LastName="SEZGİN",
                     Email="muhammed.sezgin88@gmail.com",
-                    Phone="05396451032",
+                    Phone="(0539)-6451032",
                     BirthDate= Convert.ToDateTime("05.11.1988"),
                     Photo= null,
                     CreateDate=DateTime.Now,
