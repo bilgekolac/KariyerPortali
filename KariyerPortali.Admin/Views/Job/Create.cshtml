@@ -1,4 +1,4 @@
-﻿@model KariyerPortali.Admin.ViewModels.JobViewModel
+﻿@model KariyerPortali.Admin.ViewModels.JobFormViewModel
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <title>@ViewBag.Title-Kariyer Portalı</title>
@@ -72,7 +72,7 @@
                                         @foreach (SelectListItem item in ViewBag.SocialRights)
                                         {
                                             <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" name="SocialRightId" class="checkboxes" value="@item.Value" />
+                                                <input type="checkbox" name="SocialRightId" class="checkboxes" value="@item.Value" checked="@item.Selected"/>
                                                 <span></span>
                                                 @item.Text
                                             </label>
