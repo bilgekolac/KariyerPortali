@@ -34,7 +34,7 @@ namespace KariyerPortali.Admin.Models
         public string Code { get; set; }
         public string ReturnUrl { get; set; }
 
-        [Display(Name = "Tarayıcı hatırlasın mı?")]
+        [Display(Name = "Beni hatırla")]
         public bool RememberBrowser { get; set; }
 
         public bool RememberMe { get; set; }
