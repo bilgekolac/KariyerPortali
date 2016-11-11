@@ -145,7 +145,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         
-        public ActionResult MyProfile(string usernames)
+        public ActionResult MyProfile()
         {
 
             var username = User.Identity.Name;
