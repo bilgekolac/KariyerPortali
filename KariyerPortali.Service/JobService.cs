@@ -65,7 +65,7 @@ namespace KariyerPortali.Service
         }
         public IEnumerable<SocialRight> GetJobSocialRights(int id)
         {
-            var socialrights = jobRepository.asd(id);
+            var socialrights = jobRepository.GetJobSocialRights(id);
             return socialrights;
         }
         #endregion

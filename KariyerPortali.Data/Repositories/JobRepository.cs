@@ -113,7 +113,7 @@ namespace KariyerPortali.Data.Repositories
     public interface IJobRepository : IRepository<Job>
     {
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
-        IEnumerable<SocialRight> GetJobSocialRights(int id)
+        IEnumerable<SocialRight> GetJobSocialRights(int id);
     }
     
 }
