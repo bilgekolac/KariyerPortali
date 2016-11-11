@@ -236,7 +236,8 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("MyProfile","Account");
+                //new { Message = ManageMessageId.ChangePasswordSuccess } return de dönen mesajı iptal ettim
             }
             AddErrors(result);
             return View(model);

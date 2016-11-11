@@ -6425,6 +6425,7 @@
     <Content Include="Views\Skill\Edit.cshtml" />
     <Content Include="Views\Resume\Delete.cshtml" />
     <Content Include="Views\Skill\Delete.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
