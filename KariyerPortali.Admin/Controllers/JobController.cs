@@ -39,9 +39,7 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
             ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
-
-            var jobform = new JobFormViewModel();
-            return View(jobform);
+            return View();
         }
 
         [HttpPost]
@@ -50,12 +48,12 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
-                //List<SocialRight> selectedSocialRights = new List<SocialRight>();
-                //foreach (var item in jobForm.SocialRightId)
-                //{
-                //    selectedSocialRights.Add(socialService.GetSocialRight(item));
-                //}
-                //job.SocialRights = selectedSocialRights;
+                List<SocialRight> selectedSocialRights = new List<SocialRight>();
+                foreach (var item in jobForm.SocialRightId)
+                {
+                    selectedSocialRights.Add(socialService.GetSocialRight(item));
+                }
+                job.SocialRights = selectedSocialRights;
                 job.Createdate = DateTime.Now;
                 job.CreatedBy = User.Identity.Name;
                 job.UpdateDate = DateTime.Now;
@@ -161,7 +159,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalDisplayRecords;
             var displayedJobs = jobService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
             var result = from c in displayedJobs
-                         select new[] {c.JobId.ToString(), c.Title.ToString(), c.Description.ToString(), (c.Employer != null ? c.Employer.EmployerName.ToString() : string.Empty), (c.Employer != null ? c.City.CityName.ToString() : string.Empty), c.JobType.ToString(), c.Createdate.ToShortDateString(),string.Empty};
+                         select new[] {c.JobId.ToString(), c.Title.ToString(), (c.Description!=null ? c.Description.ToString() : string.Empty), (c.Employer != null ? c.Employer.EmployerName.ToString() : string.Empty), (c.Employer != null ? c.City.CityName.ToString() : string.Empty), c.JobType.ToString(), c.Createdate.ToShortDateString(),string.Empty};
             return Json(new
             {
                 sEcho = param.sEcho,
