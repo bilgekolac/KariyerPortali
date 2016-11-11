@@ -103,11 +103,17 @@ namespace KariyerPortali.Data.Repositories
             totalDisplayRecords = filteredJobs.Count();
             return displayedJobs.ToList();
         }
+        public IEnumerable<SocialRight> GetJobSocialRights(int id)
+        {
+            var query = this.DbContext.Jobs.Where(c => c.JobId == id).SelectMany(c => c.SocialRights);
+            return query;
+        }
         
     }
     public interface IJobRepository : IRepository<Job>
     {
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
+        IEnumerable<SocialRight> GetJobSocialRights(int id)
     }
     
 }
