@@ -17,7 +17,7 @@ namespace KariyerPortali.Service
         void CreateCandidate(Candidate candidate);
         void UpdateCandidate(Candidate candidate);
         void DeleteCandidate(Candidate candidate);
-        int CountJobApplication();
+        int CountCandidate();
         void SaveCandidate();
     }
     public class CandidateService : ICandidateService
