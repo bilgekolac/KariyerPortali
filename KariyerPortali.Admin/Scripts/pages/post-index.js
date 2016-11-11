@@ -21,7 +21,8 @@
                 "previous": "Önceki",
                 "next": "Sonraki",
                 "last": "Son Sayfa",
-                "first": "İlk Sayfa"
+                "first": "İlk Sayfa",
+                "proccessing":"Yükleniyor"
             }
         },
 
