@@ -2,6 +2,7 @@ namespace KariyerPortali.Admin.Migrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -43,12 +44,25 @@ namespace KariyerPortali.Admin.Migrations
                 var role = new IdentityRole { Name = "SubAdmin" };
                 manager.Create(role);
             }
-            if (!context.Roles.Any(r => r.Name == "User"))
+            if (!context.Roles.Any(r => r.Name == "Aday"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "User" };
+                var role = new IdentityRole { Name = "Aday" };
                 manager.Create(role);
+            }
+            if (!context.Users.Any(u => u.Email == "kariyerportali@gmail.com"))
+            {
+                var password = "Admin123+";
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { UserName = "kariyerportali@gmail.com", Email = "kariyerportali@gmail.com", EmailConfirmed = true, FirstName = "Admin", LastName = "Root", CreatedDate = DateTime.Now, ImagePath = "kariyerportaliAdminDefault.png" };
+                //manager.Create(user, password);
+                var result = manager.Create(user, password);
+                if (result.Succeeded)
+                {
+                    manager.AddToRole(user.Id, "Admin");
+                }
             }
         }
     }

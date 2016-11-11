@@ -78,6 +78,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new SocialRightConfiguration());
             modelBuilder.Configurations.Add(new UniversityConfiguration());
             modelBuilder.Configurations.Add(new PageConfiguration());
+            modelBuilder.Configurations.Add(new SettingConfiguration());
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
         // GET: Base
