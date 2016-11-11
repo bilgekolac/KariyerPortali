@@ -1,9 +1,10 @@
 ﻿@model KariyerPortali.Admin.ViewModels.JobApplicationViewModel
-    @{
-        ViewBag.Title = "Details";
-    }    
-   <!-- BEGIN SAMPLE FORM PORTLET-->
+@{
+    ViewBag.Title = "Details";
+}
+<!-- BEGIN SAMPLE FORM PORTLET-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="~/assets/global/css/yazdir.css" media="print">
 <style>
     table, td, th {
         border: none;
@@ -30,11 +31,10 @@
         </li>
     </ul>
     <div class="page-toolbar">
-
     </div>
 </div>
 <br />
-<div class="portlet light bordered">
+<div class="portlet light bordered" id="non_write">
     <div class="row">
         <div class="col-md-4">
             <img src="" />
@@ -45,20 +45,21 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="portlet light bordered">
+            <div class="portlet light bordered" id="write">
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">note</i>
                         <span class="caption-subject"><strong>Başvuru Bilgileri</strong></span>
                     </div>
-
+                    <a href="javascript:void(0)" onclick="window.print();" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
+                        <i class="fa fa-print"></i> Yazdır
+                    </a>
                 </div>
                 <div class="portlet-body form">
                     <form role="form">
                         <div class="portlet-title">
-
                             <div class="form-group">
-                                <label><strong>Başvuru Tarihi :</strong>@Html.DisplayFor(model=>model.ApplicationDate)</label>
+                                <label><strong>Başvuru Tarihi :</strong>@Html.DisplayFor(model => model.ApplicationDate)</label>
                             </div>
                             <div class="form-group">
                                 <label><strong>Son Güncelleme :</strong>@Html.DisplayFor(model => model.UpdateDate)</label>
@@ -74,7 +75,6 @@
                         <i class="material-icons">person</i>
                         <span class="caption-subject"><strong>Aday Bilgileri</strong></span>
                     </div>
-
                 </div>
                 <div class="portlet-body form">
                     <form role="form">
@@ -98,22 +98,18 @@
                     </form>
                 </div>
 
-               
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">person</i>
                         <span class="caption-subject"><strong>İşveren Bilgileri</strong></span>
                     </div>
-
                 </div>
                 <div class="portlet-body form">
                     <form role="form">
                         <div class="portlet-title">
-
                             <div class="form-group">
                                 <label><strong>İş Veren :</strong>@Html.DisplayFor(model => model.Employer.EmployerName)</label>
                             </div>
-
                             <div class="form-group">
                                 <label><strong>Sektör :</strong>@Html.DisplayFor(model => model.Employer.Sector.SectorName) </label>
                             </div>
@@ -131,7 +127,6 @@
                         <i class="material-icons">note</i>
                         <span class="caption-subject"><strong>İş Bilgileri</strong></span>
                     </div>
-
                 </div>
                 <div class="portlet-body form">
                     <form role="form">
@@ -145,36 +140,36 @@
                             <div class="form-group">
                                 <label><strong>Açıklama :</strong>@Html.DisplayFor(model => model.Job.Description)</label>
                             </div>
-                            
+
                         </div>
                     </form>
                 </div>
             </div>
-            </div>
-
-        <div class="col-md-4">
-            <div class="portlet light bordered">
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">build</i>
-                        <span class="caption-subject"><strong>Diğer İşlemler</strong></span>
+        </div>
+        <div class="portlet light bordered" id="write">
+            <div class="col-md-4">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">build</i>
+                            <span class="caption-subject"><strong>Diğer İşlemler</strong></span>
+                        </div>
                     </div>
-
-                </div>
-                <div class="portlet-body form">
-                    <form role="form">
-                        <div class="form-body">
-                            <div class="form-group">
-                                <a href="@Url.Action("Details", "Resume", new { id =Model.ResumeId })"><strong>Aday Özgeçmişini Görüntüle</strong></a>
+                    <div class="portlet-body form">
+                        <form role="form">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <a href="@Url.Action("Details", "Resume", new { id =Model.ResumeId })"><strong>Aday Özgeçmişini Görüntüle</strong></a>
+                                </div>
+                                <div class="form-group">
+                                    <a href="@Url.Action("Details", "Employer", new { id =Model.EmployerId })"><strong>İşveren Detaylarını Görüntüle</strong></a>
+                                </div>
+                                <div class="form-group">
+                                    <a href="@Url.Action("Details", "Job", new { id =Model.JobId })"><strong>İş Detaylarını Görüntüle</strong></a>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <a href="@Url.Action("Details", "Employer", new { id =Model.EmployerId })"><strong>İşveren Detaylarını Görüntüle</strong></a>
-                            </div>
-                            <div class="form-group">
-                                <a href="@Url.Action("Details", "Job", new { id =Model.JobId })"><strong>İş Detaylarını Görüntüle</strong></a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
