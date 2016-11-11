@@ -1,7 +1,88 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.SkillViewModel
 @{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "Skill")" class="nav-link">Yetenekler</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Düzenle</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+
+    </div>
+</div>
+<br />
+<!-- END PAGE BAR -->
+<!-- BEGIN PAGE TITLE-->
+<h1 class="page-title">
+    <small></small>
+</h1>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<div class="row">
+    <div class="col-md-6 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered" style="
+             width 442px;
+             ">
+            <div class="portlet-title">
+                <div class="caption font-black-sunglo">
+                    <i class="icon-settings font-black-sunglo"></i>
+                    <span class="caption-subject bold uppercase">
+                        YENİ YETENEK
+                    </span>
+                </div>
+
+            </div>   <div class="row">
+                <div class="col-md-12">
+       
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-group">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.SkillId)
+                            <div class="form-body">
+                                                                
+                                @Html.LabelFor(model => model.SkillName)
+                                @Html.EditorFor(model => model.SkillName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
+                                @Html.ValidationMessageFor(model => model.SkillName, "", new { @class = "text-danger" })
+
+                            </div>
+                                                    </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn blue">Kaydet</button>
+                            <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Skill")';">İptal</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+
+    </div>
+
+</div>
+<div class="row ">
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
 
