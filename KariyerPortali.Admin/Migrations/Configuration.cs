@@ -44,11 +44,11 @@ namespace KariyerPortali.Admin.Migrations
                 var role = new IdentityRole { Name = "SubAdmin" };
                 manager.Create(role);
             }
-            if (!context.Roles.Any(r => r.Name == "User"))
+            if (!context.Roles.Any(r => r.Name == "Aday"))
             {
                 var store = new RoleStore<IdentityRole>(context);
                 var manager = new RoleManager<IdentityRole>(store);
-                var role = new IdentityRole { Name = "User" };
+                var role = new IdentityRole { Name = "Aday" };
                 manager.Create(role);
             }
             if (!context.Users.Any(u => u.Email == "kariyerportali@gmail.com"))
