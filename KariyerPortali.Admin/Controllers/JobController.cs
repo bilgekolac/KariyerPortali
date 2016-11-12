@@ -99,7 +99,7 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(JobViewModel jobForm)
+        public ActionResult Edit(JobFormViewModel jobForm)
         {
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
@@ -107,13 +107,18 @@ namespace KariyerPortali.Admin.Controllers
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
             if (ModelState.IsValid)
             {
-                var job = Mapper.Map<JobViewModel, Job>(jobForm);
+                var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
+                var jobindb = jobService.GetJob(job.JobId);
+                jobService.ClearSocialRights(jobindb);
+                jobService.SaveJob();
+
                 List<SocialRight> selectedSocialRights = new List<SocialRight>();
                 foreach (var item in jobForm.SocialRightId)
                 {
                     selectedSocialRights.Add(socialService.GetSocialRight(item));
                 }
-                job.SocialRights = selectedSocialRights;
+                jobService.AddSocialRights(jobindb, selectedSocialRights);
+                jobService.SaveJob();
                 job.UpdateDate = DateTime.Now;
                 job.UpdatedBy = User.Identity.Name;
                 jobService.UpdateJob(job);
