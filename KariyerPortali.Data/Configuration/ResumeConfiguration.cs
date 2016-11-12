@@ -14,6 +14,7 @@ namespace KariyerPortali.Data.Configuration
         {
             ToTable("Resumes");
             HasKey<int>(c => c.ResumeId);
+            Property(c => c.ViewCount).IsRequired();
             Property(c => c.ResumeName).IsRequired().HasMaxLength(200);
             Property(c => c.FirstName).IsRequired().HasMaxLength(200);
             Property(c => c.LastName).IsRequired().HasMaxLength(200);

@@ -13,14 +13,14 @@ namespace KariyerPortali.Data
         
         protected override void Seed(KariyerPortaliEntities context)
         {
-            //GetResumes().ForEach(c => context.Resumes.Add(c));
+           
             GetCandidates().ForEach(c => context.Candidates.Add(c));
             GetHighSchoolTypes().ForEach(c => context.HighSchollTypes.Add(c));
             GetHighSchoolDeparments().ForEach(c => context.HighSchollDepartments.Add(c));
             GetCountries().ForEach(c => context.Countries.Add(c));
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
-          
+            //GetResumes().ForEach(c => context.Resumes.Add(c));
 
 
             context.Commit();
@@ -39,7 +39,7 @@ namespace KariyerPortali.Data
                     Phone="(0539)-6451032",
                     BirthDate= Convert.ToDateTime("05.11.1988"),
                     Photo= null,
-                    CreateDate=DateTime.Now,
+                    CreateDate =DateTime.Now,
                     State =true,
                     UpdatedBy= "muhammed",
                     UpdatedDate=DateTime.Now,
@@ -116,7 +116,7 @@ namespace KariyerPortali.Data
             return new List<Resume>
             {
                 new Resume {
-                    ViewCount=1,
+                    ViewCount=0,
                     ResumeId=1,
                     ResumeName="muhammedCV",
                     Notes= "C# , .NET , ADO.NET ",
@@ -130,6 +130,7 @@ namespace KariyerPortali.Data
                     CellPhone="(0539)6454545",
                     CellPhone2="(0505)4441444",
                     HomePhone="(0212)4441111",
+                    Website="www.muhammedsezgin.wordpress.com",
                     Address="Bahçeşehir/İSTANBUL",
                     HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
                     ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
@@ -164,15 +165,9 @@ namespace KariyerPortali.Data
                     BloodType = BloodType.ARhP,
                     CigaretteStatus = CigaretteStatus.Yes,
                     SalaryWaited = SalaryWaited.B3000and4000,
+
+                  
                     
-
-
-
-
-
-
-
-
                     
                 },
                 
