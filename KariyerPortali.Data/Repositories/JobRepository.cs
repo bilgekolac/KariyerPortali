@@ -103,17 +103,32 @@ namespace KariyerPortali.Data.Repositories
             totalDisplayRecords = filteredJobs.Count();
             return displayedJobs.ToList();
         }
-        public IEnumerable<SocialRight> GetJobSocialRights(int id)
+        public override void Update(Job entity)
         {
-            var query = this.DbContext.Jobs.Where(c => c.JobId == id).SelectMany(c => c.SocialRights);
-            return query;
+
+            var job= DbContext.Jobs.Include("SocialRights").Where(c => c.JobId == entity.JobId).Single();
+            job.SocialRights.Clear();
+            foreach (var socialright in entity.SocialRights) {
+                job.SocialRights.Add(socialright);
+                    }
+            job.JobType = entity.JobType;
+            job.Qualifications = entity.Qualifications;
+            job.Responsibilities = entity.Responsibilities;
+            job.Title = entity.Title;
+            job.UpdateDate = entity.UpdateDate;
+            job.UpdatedBy = entity.UpdatedBy;
+            job.CityId = entity.CityId;
+            job.EmployerId = entity.EmployerId;
+            job.Description = entity.Description;
+            job.Createdate = entity.Createdate;
+            job.CreatedBy = entity.CreatedBy;
+            job.Experience = entity.Experience;
+            DbContext.SaveChanges();
         }
-        
     }
     public interface IJobRepository : IRepository<Job>
     {
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
-        IEnumerable<SocialRight> GetJobSocialRights(int id);
     }
     
 }
