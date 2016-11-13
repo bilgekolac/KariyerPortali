@@ -116,6 +116,10 @@
                     <div class="form-group">
                         <label><strong>Uyruk &ensp; &ensp;&ensp;&ensp; &ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </strong>@Html.DisplayFor(model => model.Nationality.CountryName)</label>
                     </div>
+
+                    <div class="form-group">
+                        <label><strong>TC Kimlik NO &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;: </strong>@Model.CitizenshipId</label>
+                    </div>
                     <div class="form-group">
                         <label><strong>Doğum Tarihi &ensp; &ensp;&ensp; &ensp;&ensp; : </strong>@Model.BirthDate.ToShortDateString() </label>
                     </div>
@@ -321,9 +325,24 @@
                     </li>
                 </ul>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
-
-
+            <div class="portlet light bordered">
+                
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label><strong> Created By &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.CreatedBy)</label>
+                            <label><strong> Create Date &ensp;&ensp;: </strong>@Model.CreateDate.ToShortDateString()</label>
+                            <label><strong> Update Date &ensp; : </strong>@Model.UpdateDate.ToShortDateString()</label>
+                            <label><strong> Update By &ensp; &ensp;&ensp;: </strong>@Html.DisplayFor(model => model.UpdatedBy)</label>
+                        </div>                                                              
+                   </div>             
+            </div>
         </div>
 
 
