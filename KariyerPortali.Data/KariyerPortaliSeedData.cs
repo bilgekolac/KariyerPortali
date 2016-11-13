@@ -20,6 +20,7 @@ namespace KariyerPortali.Data
             GetCountries().ForEach(c => context.Countries.Add(c));
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
+            GetLanguageInfo().ForEach(c => context.LanguageInfos.Add(c));
             //GetResumes().ForEach(c => context.Resumes.Add(c));
 
 
@@ -38,7 +39,7 @@ namespace KariyerPortali.Data
                     Email="muhammed.sezgin88@gmail.com",
                     Phone="(0539)-6451032",
                     BirthDate= Convert.ToDateTime("05.11.1988"),
-                    Photo= null,
+                    Photo=null,
                     CreateDate =DateTime.Now,
                     State =true,
                     UpdatedBy= "muhammed",
@@ -111,11 +112,25 @@ namespace KariyerPortali.Data
 
             };
         }
+
+        public static List<LanguageInfo> GetLanguageInfo()
+        {
+            return new List<LanguageInfo>
+            {
+                new LanguageInfo {
+                    LanguageId=1,
+                    LanguageInfoId=1,
+                    SpeakingLanguageLevel =LanguageLevel.Advance,
+                    WritingLanguageLevel = LanguageLevel.Advance,
+                    ReadingLanguageLevel=LanguageLevel.Advance,                  
+
+                },
+
+            };
+        }
         private static List<Resume> GetResumes()
         {
-            return new List<Resume>
-            {
-                new Resume {
+            return new List<Resume> {  new Resume {
                     ViewCount=0,
                     ResumeId=1,
                     ResumeName="muhammedCV",
@@ -164,14 +179,10 @@ namespace KariyerPortali.Data
                     CertificateDegree= 3,
                     BloodType = BloodType.ARhP,
                     CigaretteStatus = CigaretteStatus.Yes,
-                    SalaryWaited = SalaryWaited.B3000and4000,
-
-                  
+                    SalaryWaited = SalaryWaited.B3000and4000,},};
                     
-                    
-                },
-                
-            };
+             GetLanguageInfo();
+            
         }
 
     }

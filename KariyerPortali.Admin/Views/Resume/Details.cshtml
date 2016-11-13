@@ -265,7 +265,7 @@
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">poll</i>
-                        <span class="caption-subject">Seminerler ve Kurslar :</span>
+                        <span class="caption-subject">Seminerler ve Kurslar</span>
                     </div>
                 </div>
 
@@ -276,6 +276,9 @@
                         <span class="caption-subject">Burslar ve Projeler</span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label><strong>Projeler&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp;&ensp;&ensp;&ensp;  :</strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
+                </div>
 
                 <br />
                 <div class="portlet-title">
@@ -284,6 +287,16 @@
                         <span class="caption-subject">Ek Bilgiler</span>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label><strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong> @Html.DisplayFor(model => model.BloodType)</label>             
+                </div>
+                <div class="form-group">
+                    <label><strong>Hobiler &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;&ensp; &ensp;&ensp;:</strong> @Html.DisplayFor(model => model.Hobby)</label>
+                </div>
+                <div class="form-group">
+                    <label><strong>Sigara Kullanımı &ensp; &ensp;&thinsp;&thinsp; :</strong> @Html.DisplayFor(model => model.CigaretteStatus)</label>
+                </div>
+
 
                 <br />
                 <div class="portlet-title">
