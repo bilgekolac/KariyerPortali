@@ -108,17 +108,13 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
-                var jobindb = jobService.GetJob(job.JobId);
-                jobService.ClearSocialRights(jobindb);
-                jobService.SaveJob();
 
                 List<SocialRight> selectedSocialRights = new List<SocialRight>();
                 foreach (var item in jobForm.SocialRightId)
                 {
                     selectedSocialRights.Add(socialService.GetSocialRight(item));
                 }
-                jobService.AddSocialRights(jobindb, selectedSocialRights);
-                jobService.SaveJob();
+                job.SocialRights = selectedSocialRights;
                 job.UpdateDate = DateTime.Now;
                 job.UpdatedBy = User.Identity.Name;
                 jobService.UpdateJob(job);

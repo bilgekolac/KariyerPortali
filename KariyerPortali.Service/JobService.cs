@@ -11,8 +11,6 @@ namespace KariyerPortali.Service
 {
     public interface IJobService
     {
-        void ClearSocialRights(Job job);
-        void AddSocialRights(Job job, List<SocialRight> socialrights);
         IEnumerable<Job> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Job> GetJobs();
         Job GetJob(int id);
@@ -69,17 +67,6 @@ namespace KariyerPortali.Service
         public int CountJob()
         {
             return jobRepository.GetAll().Count();
-        }
-        public void ClearSocialRights(Job job)
-        {
-            job.SocialRights.Clear();
-        }
-        public void AddSocialRights(Job job, List<SocialRight> socialrights)
-        {
-            foreach (var socialright in socialrights)
-            {
-                job.SocialRights.Add(socialright);
-            }
         }
         #endregion
     }
