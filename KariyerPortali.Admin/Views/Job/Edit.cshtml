@@ -36,15 +36,15 @@
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 " >
                         <!-- BEGIN SAMPLE FORM PORTLET-->
-                        <div class="portlet light bordered">
+                        <div class="portlet light bordered" style="height:60vh">
 
                             <!--İLAN VERİLİŞ TARİHİ O AN ALINACAK-->
 
 
 
-                            <div class="portlet-body form">
+                            <div class="portlet-body form" >
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 @Html.HiddenFor(model => model.JobId)
                                 <div class="form-body">
@@ -96,9 +96,9 @@
                         <!-- BEGIN SAMPLE FORM PORTLET-->
                     </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-md-6 " >
                             <!-- BEGIN SAMPLE FORM PORTLET-->
-                            <div class="portlet light bordered">
+                            <div class="portlet light bordered" style="height:60vh">
                                 <div class="portlet-body form">
 
                                     <div class="form-body">
@@ -109,17 +109,17 @@
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Description)<br />
-                                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Description, new { @tabindex = "4", @class = "form-control spinner" })
                                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Responsibilities)<br />
-                                            @Html.TextAreaFor(model => model.Responsibilities, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Responsibilities, new { @tabindex = "6", @class = "form-control spinner" } )
                                             @Html.ValidationMessageFor(model => model.Responsibilities, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Qualifications)<br />
-                                            @Html.TextAreaFor(model => model.Qualifications, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Qualifications, new { @tabindex = "8", @class = "form-control spinner" } )
                                             @Html.ValidationMessageFor(model => model.Qualifications, "", new { @class = "text-danger" })
                                         </div>
 
