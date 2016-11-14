@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace KariyerPortali.Model.Models
 
         public string Value { get; set; }
 
-        public virtual ICollection<FormType> FormTypes { get; set; }
+        public int? FormTypeId { get; set; }
+
+        public virtual FormType FormType { get; set; }
     }
 }
