@@ -15,11 +15,11 @@ namespace KariyerPortali.Data.Configuration
             ToTable("Notifications");
             HasKey<int>(n => n.NotificationId);
             Property(n => n.Message).IsOptional().HasMaxLength(200);
-            Property(n => n.Detail).IsOptional();
+            Property(n => n.Details).IsOptional();
             Property(n => n.NotificationDate).IsRequired();
-            Property(n => n.param1).IsOptional();
-            Property(n => n.param2).IsOptional();
-            Property(n => n.param3).IsOptional();
+            Property(n => n.Param1).IsOptional();
+            Property(n => n.Param2).IsOptional();
+            Property(n => n.Param3).IsOptional();
             Property(n => n.NotificationType).IsRequired();
         }
     }

@@ -10,8 +10,8 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Tabloda veri yok.",
-            "info": " Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt",
+            "emptyTable":"Kayıt Bulunamadı",
+            "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt bulunamadı.",
             "infoFiltered": "( _MAX_ adet kayıttan arananlar)",
             "lengthMenu": "Göster _MENU_ ",
