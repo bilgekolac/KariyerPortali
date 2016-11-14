@@ -108,9 +108,13 @@ namespace KariyerPortali.Data.Repositories
 
             var job= DbContext.Jobs.Include("SocialRights").Where(c => c.JobId == entity.JobId).Single();
             job.SocialRights.Clear();
-            foreach (var socialright in entity.SocialRights) {
-                job.SocialRights.Add(socialright);
-                    }
+            if (entity.SocialRights != null)
+            {
+                foreach (var socialright in entity.SocialRights)
+                {
+                    job.SocialRights.Add(socialright);
+                }
+            }
             job.JobType = entity.JobType;
             job.Qualifications = entity.Qualifications;
             job.Responsibilities = entity.Responsibilities;
