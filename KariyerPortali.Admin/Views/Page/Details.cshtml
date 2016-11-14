@@ -1,7 +1,71 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.PageViewModel
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Sayfa Detayları";
 }
 
-<h2>Details</h2>
+
+
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            @Html.ActionLink("Sayfalar", "Index", "Page")
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Sayfa Detayları</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Sayfa Detayları </span>
+                </div>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Body)
+                </dt>
+                <dd>
+
+                    @Html.Raw(Model.Body)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreatedBy)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreatedBy)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.CreateDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.CreateDate)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.UpdatedBy)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.UpdateDate)
+                </dd>
+            </dl>
+        </div>
+        <div class="form-actions right">
+            <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Page")';">Sayfalara Dön</button>
+        </div>
+    </div>
+</div>
 
