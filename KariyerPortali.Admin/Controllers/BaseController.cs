@@ -13,26 +13,24 @@ namespace KariyerPortali.Admin.Controllers
         // GET: Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
+            try
             {
-                using (var db = new ApplicationDbContext())
-
-                    
-                    try
+                if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    using (var db = new ApplicationDbContext())
                     {
                         var loggedInUser = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
                         ViewBag.LoggedInUser = loggedInUser;
-                        base.OnActionExecuting(filterContext);
                     }
-                    catch (Exception)
-                    {
-
-                        ViewBag.LoggedInUser = null;
-                        base.OnActionExecuting(filterContext);
-                    }
-                    
                 }
+                base.OnActionExecuting(filterContext);
             }
+            catch (Exception ex)
+            {
+                throw ex;
+               
+            }
+            
  	            
         }
         
