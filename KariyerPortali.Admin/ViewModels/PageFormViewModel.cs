@@ -12,7 +12,11 @@ namespace KariyerPortali.Admin.ViewModels
 
         [DisplayName("Başlık")]
         public string Title { get; set; }
+
+        [DisplayName("Kısa Ad")]
         public string Slug { get; set; }
+        
+        [DisplayName("İçerik")]
         public string Body { get; set; }
 
         [DisplayName("İstatistikler")]

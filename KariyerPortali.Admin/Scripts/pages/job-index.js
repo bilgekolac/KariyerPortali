@@ -10,8 +10,8 @@
                 "sortAscending": ": A'dan Z'ye Sonuçlar Listeleniyor.",
                 "sortDescending": ": Z'den A'ya Sonuçlar Listeleniyor."
             },
-            "emptyTable": "Bu Tabloda Veri Bulunamadı.",
-            "info": " _START_ Sayfadaki _END_ Kayıttan _TOTAL_ 'si Gösteriliyor.",
+            "emptyTable": "Kayıt Bulunamadı",
+            "info":"Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı.",
 
             "lengthMenu": "Sayfa başına _MENU_ kayıt göster",
@@ -41,7 +41,7 @@
 
         "lengthMenu": [
             [5, 15, 20, -1],
-            [5, 15, 20, "All"] // change per page values here
+            [5, 15, 20, "Tümü"] // change per page values here
         ],
         // set the initial value
         "pageLength": 5,

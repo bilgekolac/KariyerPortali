@@ -10,8 +10,8 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Tabloda Sonuç Bulunamadı",
-            "info": " _START_ - _END_ Arasındaki Toplam ' _TOTAL_ ' Kayıt Gösteriliyor ",
+            "emptyTable":"Kayıt Bulunamadı",
+            "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı",
             "infoFiltered": "(Toplam _MAX_ Kayıt Arasından)",
             "lengthMenu": "Göster : _MENU_",

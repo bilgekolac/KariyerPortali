@@ -2,12 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace KariyerPortali.Model
+namespace KariyerPortali.Admin.ViewModels
 {
-    public class Notification
+    public class NotificationViewModel
     {
         public int NotificationId { get; set; }
         public string Message { get; set; }

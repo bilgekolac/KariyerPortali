@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model.Models
+namespace KariyerPortali.Model
 {
     public enum NotificationType
     {
-        Resume=1,
-        JobApplication=2,
+        NewResume=1,
+        NewJobApplication=2,
         Error=3,
         Custom=4
     }

@@ -13,6 +13,8 @@ namespace KariyerPortali.Admin.ViewModels
         [Required(ErrorMessage = "Lütfen yazınıza bir başlık giriniz.")]
         [DisplayName("Başlık Adı")]
         public string Title { get; set; }
+        [Required]
+        [DisplayName("Bağlantı")]
         public string Slug { get; set; }
         [Required(ErrorMessage = "Lütfen yazı giriniz.")]
         [DisplayName("İçerik")]

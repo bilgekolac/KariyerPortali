@@ -10,8 +10,8 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Tabloda veri yok.",
-            "info": " _START_ ile _END_ arasında toplam _TOTAL_ kayıt gösteriliyor.",
+            "emptyTable": "Kayıt Bulunamadı",
+            "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt bulunamadı.",
             "infoFiltered": "( _MAX_ adet kayıttan arananlar)",
             "lengthMenu": "Göster _MENU_ ",
@@ -42,7 +42,7 @@
 
         "lengthMenu": [
             [5, 15, 20, -1],
-            [5, 15, 20, "Hepsi"] // change per page values here
+            [5, 15, 20, "Tümü"] // change per page values here
         ],
         // set the initial value
         "pageLength": 5,
