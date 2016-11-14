@@ -122,7 +122,7 @@ namespace KariyerPortali.Data.Repositories
             job.Description = entity.Description;
             job.Createdate = entity.Createdate;
             job.CreatedBy = entity.CreatedBy;
-            job.Experience = entity.Experience;
+            job.ExperienceId = entity.ExperienceId;
             DbContext.SaveChanges();
         }
     }
