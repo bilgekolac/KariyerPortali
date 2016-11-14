@@ -47,8 +47,9 @@ namespace KariyerPortali.Data
 
 
         public virtual void Commit()
-        {
-            base.SaveChanges();
+        {  
+                base.SaveChanges();
+         
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
