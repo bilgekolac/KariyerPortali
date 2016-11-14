@@ -45,6 +45,7 @@ namespace KariyerPortali.Data
         public DbSet<University> Universities { get; set; }
         public DbSet<Page> Pages { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public virtual void Commit()
         {
@@ -86,6 +87,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new UniversityConfiguration());
             modelBuilder.Configurations.Add(new PageConfiguration());
             modelBuilder.Configurations.Add(new SettingConfiguration());
+            modelBuilder.Configurations.Add(new CategoryConfiguration());
         }
     }
 }
