@@ -126,8 +126,8 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalDisplayRecords;
             var displayedPages = PageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
-            var result = from c in displayedPages
-                         select new[] { c.PageId.ToString(), c.PageId.ToString(), /*c.PageName.ToString(),*/  string.Empty };
+            var result = from p in displayedPages
+                         select new[] { p.PageId.ToString(), p.Title.ToString(),p.CreatedBy.ToString(),p.ViewCount.ToString(),p.UpdateDate.ToString(),string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
