@@ -182,24 +182,58 @@
                     </div>
                 </div>
 
-
                 <table class="table">
-
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Üniversite Adı</th>
+                            <th>Bölüm</th>
+                            <th>Giriş - Mezuniyet Tarihi</th>
+                           
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr>
-                            @foreach (var educationInfo in Model.EducationInfos) { 
-                            <td><strong>Eğitim Durumu &ensp; &ensp;&ensp; : </strong>@educationInfo.EducationStatus</td>
-                            <td><strong>@educationInfo.University.UniversityName</strong><br />@educationInfo.Department.DepartmentName<br />@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
-                            }
-                        </tr>
+                        @foreach (var educationInfo in Model.EducationInfos)
+                        {
+                            <tr>
+                                <td>@educationInfo.EducationStatus</td>
+                                <td>@educationInfo.University.UniversityName</td>
+                                <td>@educationInfo.Department.DepartmentName</td>
+                                <td>@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
+                             
+                            </tr>
 
-                        <tr>
-                            <td><strong>Lise Bilgileri  &ensp; &ensp;&ensp;&ensp;&ensp;&ensp; </strong></td>
-                            <td><strong>@Model.HighSchoolName</strong><br />@Model.HighSchoolType.TypeName , @Model.HighSchoolDepartment.DepartmentName<br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
-
-                        </tr>
+                        }
                     </tbody>
                 </table>
+
+                @*<table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Lise Adı</th>
+                            <th>Bölüm</th>
+                            <th>Giriş - Mezuniyet Tarihi</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                            <tr>
+                                <td>@Html.DisplayFor(model => model.HighSchoolName)</td>
+                                <td>@Html.DisplayFor(model => model.HighSchoolType)</td>
+                                <td>@Html.DisplayFor(model => model.HighSchoolStart.ToShortDateString())</td>
+                                <td>>@Html.DisplayFor(model => model.HighSchoolEnd.ToShortDateString())</td>
+
+                            </tr>
+
+                       
+                    </tbody>
+                </table>*@
+
+                
+                
+             
 
                 <br />
 

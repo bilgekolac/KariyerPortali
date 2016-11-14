@@ -111,7 +111,7 @@ namespace KariyerPortali.Data
                     LanguageId=1,
                     LanguageName="İngilizce"},
             
-                new Language{LanguageId=2,LanguageName="Fransızca"}
+                new Language{LanguageId=2,LanguageName="Fransızca"},
             
             };
 
@@ -125,10 +125,12 @@ namespace KariyerPortali.Data
             {
                 new University {
                     UniversityId=1,
-                    UniversityName="Ankara Üniversitesi"
-                    
+                    UniversityName="Ankara Üniversitesi"},
+                     new University {
+                    UniversityId=2,
+                    UniversityName="Yıldız Teknik Üniversitesi"},
 
-                }
+
 
             };
         }
@@ -142,7 +144,12 @@ namespace KariyerPortali.Data
                     DepartmentId=1,
                     DepartmentName="Fizik Mühendisliği"
                     
-
+                },
+                new Department {
+                    
+                    DepartmentId=2,
+                    DepartmentName="Elektronik-Haberleşme Mühendisliği"
+                    
                 }
 
             };
@@ -207,13 +214,15 @@ namespace KariyerPortali.Data
 
             resume.LanguageInfos = new List<LanguageInfo>();
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
+            resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 2, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
 
          
             
-           
-
+         
             resume.EducationInfos = new List<EducationInfo>();
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=1,DepartmentId=1,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
+            resume.EducationInfos.Add(new EducationInfo() { EducationInfoId = 1, EducationStatus = EducationStatus.Master, UniversityId = 2, DepartmentId = 2, UniversityStart = Convert.ToDateTime("14.03.2016"), UniversityEnd = Convert.ToDateTime("14.03.2019") });
+
 
            
 
