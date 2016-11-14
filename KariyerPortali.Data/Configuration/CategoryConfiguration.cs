@@ -19,7 +19,7 @@ namespace KariyerPortali.Data.Configuration
             Property(c => c.Slug).IsRequired().HasMaxLength(500);
             Property(c => c.Description);
        //     Property(c => c.ParentName).HasMaxLength(100);
-            Property(c => c.Quantity).IsRequired(); ;
+            Property(c => c.Quantity).IsRequired(); 
            
         }
     }
