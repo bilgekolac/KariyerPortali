@@ -62,8 +62,6 @@ namespace KariyerPortali.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        [HttpPost]
         [ValidateInput(false)]
         public ActionResult Create(PageFormViewModel PageForm)
         {
