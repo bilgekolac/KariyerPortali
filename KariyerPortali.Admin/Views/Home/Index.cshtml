@@ -155,116 +155,153 @@
                     <span class="caption-subject font-dark bold uppercase">Onaylanan Başvurular</span>
                     <span class="caption-helper">aylık istatistikler...</span>
                 </div>
-                
+
             </div>
             <div class="portlet-body">
                 <div class="row">
-                    <style>if ($('#site_activities').size() != 0)
-            {
-                //site activities
-                var previousPoint2 = null;
-                $('#site_activities_loading').hide();
-                $('#site_activities_content').show();
-
-                var data1 = [
-                    ['DEC', 0],
-                    ['JAN', 600],
-                    ['FEB', 1100],
-                    ['MAR', 1200],
-                    ['APR', 860],
-                    ['MAY', 1200],
-                    ['JUN', 1450],
-                    ['JUL', 1800],
-                    ['AUG', 1200],
-                    ['SEP', 600]
-                ];
-
-
-                var plot_statistics = $.plot($("#site_activities"),
-
-                    [{
-                        data: data1,
-                        lines: {
-                            fill: 0.2,
-                            lineWidth: 0,
-                        },
-                        color: ['#BAD9F5']
-                    }, {
-                        data: data1,
-                        points: {
-                            show: true,
-                            fill: true,
-                            radius: 4,
-                            fillColor: "#9ACAE6",
-                            lineWidth: 2
-                        },
-                        color: '#9ACAE6',
-                        shadowSize: 1
-                    }, {
-                        data: data1,
-                        lines: {
-                            show: true,
-                            fill: false,
-                            lineWidth: 3
-                        },
-                        color: '#9ACAE6',
-                        shadowSize: 0
-                    }],
-
-                    {
-
-                        xaxis: {
-                            tickLength: 0,
-                            tickDecimals: 0,
-                            mode: "categories",
-                            min: 0,
-                            font: {
-                                lineHeight: 18,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            }
-                        },
-                        yaxis: {
-                            ticks: 5,
-                            tickDecimals: 0,
-                            tickColor: "#eee",
-                            font: {
-                                lineHeight: 14,
-                                style: "normal",
-                                variant: "small-caps",
-                                color: "#6F7B8A"
-                            }
-                        },
-                        grid: {
-                            hoverable: true,
-                            clickable: true,
-                            tickColor: "#eee",
-                            borderColor: "#eee",
-                            borderWidth: 1
+                    <style type=”text/css” media=”screen”>
+                        /* SETUP */
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            list-style-type: none;
                         }
-                    });
 
-                $("#site_activities").bind("plothover", function(event, pos, item) {
-                    $("#x").text(pos.x.toFixed(2));
-                    $("#y").text(pos.y.toFixed(2));
-                    if (item) {
-                        if (previousPoint2 != item.dataIndex) {
-                            previousPoint2 = item.dataIndex;
-                            $("#tooltip").remove();
-                            var x = item.datapoint[0].toFixed(2),
-                                y = item.datapoint[1].toFixed(2);
-                            showChartTooltip(item.pageX, item.pageY, item.datapoint[0], item.datapoint[1] + 'M$');
+                        body {
+                            font-family: Helvetica, Arial, sans-serif;
+                            color: #333;
                         }
-                    }
-                });
 
-                $('#site_activities').bind("mouseleave", function() {reyhurtuyt
-                    $("#tooltip").remove();
-                });
-            }</style>
+                        a {
+                            color: #2D7BB2;
+                            text-decoration: none;
+                            font-weight: bold;
+                        }
+
+                            a:hover {
+                                color: #333;
+                            }
+
+                        h2, h3, h4 {
+                            clear: both;
+                            margin: 0 0 0.6em 0;
+                        }
+
+                        h3 {
+                            color: #666;
+                        }
+
+                        .section {
+                            float: left;
+                            clear: left;
+                            padding: 1em 2em;
+                        }
+
+                        /* CHART LISTS */
+                        .chartlist {
+                            float: left;
+                            border-top: 1px solid #EEE;
+                            width: 15em;
+                        }
+
+                            .chartlist li {
+                                position: relative;
+                                display: block;
+                                border-bottom: 1px solid #EEE;
+                                _zoom: 1;
+                            }
+
+                                .chartlist li a {
+                                    display: block;
+                                    padding: 0.4em 4.5em 0.4em 0.5em;
+                                    position: relative;
+                                    z-index: 2;
+                                }
+
+                            .chartlist .count {
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                right: 0;
+                                margin: 0 0.3em;
+                                text-align: right;
+                                color: #999;
+                                font-weight: bold;
+                                font-size: 0.875em;
+                                line-height: 2em;
+                            }
+
+                            .chartlist .index {
+                                display: block;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                height: 100%;
+                                background: #B8E4F5;
+                                text-indent: -9999px;
+                                overflow: hidden;
+                                line-height: 2em;
+                            }
+
+                            .chartlist li:hover {
+                                background: #EFEFEF;
+                            }
+                    </style>
+                    <div>
+                        <ul>
+                            <li>
+                                <a>Ocak</a>
+                                <span data-value="@ViewBag.JobApplicationMonth1">0</span>
+
+                            </li>
+                            <li>
+                                <a>Şubat</a>
+                                <span data-value="@ViewBag.JobApplicationMonth2">0</span>
+                            </li>
+                            <li>
+                                <a>Mart</a>
+                                <span data-value="@ViewBag.JobApplicationMonth3">0</span>
+                            </li>
+                            <li>
+                                <a>Nisan</a>
+                                <span data-value="@ViewBag.JobApplicationMonth4">0</span>
+                            </li>
+                            <li>
+                                <a>Mayıs</a>
+                                <span data-value="@ViewBag.JobApplicationMonth5">0</span>
+                            </li>
+                            <li>
+                                <a>Haziran</a>
+                                <span data-value="@ViewBag.JobApplicationMonth6">0</span>
+                            </li>
+                            <li>
+                                <a>Temmuz</a>
+                                <span data-value="@ViewBag.JobApplicationMonth7">0</span>
+                            </li>
+                            <li>
+                                <a>Ağustos</a>
+                                <span data-value="@ViewBag.JobApplicationMonth8">0</span>
+                            </li>
+                            <li>
+                                <a>Eylül</a>
+                                <span data-value="@ViewBag.JobApplicationMonth9">0</span>
+                            </li>
+                            <li>
+                                <a>Ekim</a>
+                                <span data-value="@ViewBag.JobApplicationMonth10">0</span>
+                            </li>
+                            <li>
+                                <a>Kasım</a>
+                                <span data-value="@ViewBag.JobApplicationMonth11">0</span>
+                            </li>
+                            <li>
+                                <a>Aralık</a>
+                                <span data-value="@ViewBag.JobApplicationMonth12">0</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                
+
             </div>
         </div>
         <!-- END PORTLET-->
