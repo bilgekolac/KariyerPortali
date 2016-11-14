@@ -62,20 +62,21 @@ namespace KariyerPortali.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(PageFormViewModel formPage)
+        [ValidateInput(false)]
+        public ActionResult Create(PageFormViewModel PageForm)
         {
             if (ModelState.IsValid)
             {
-                var Page = Mapper.Map<PageFormViewModel, Page>(formPage);
-                PageService.CreatePage(Page);             
-
+                var page = Mapper.Map<PageFormViewModel, Page>(PageForm);
+                page.CreatedBy = User.Identity.Name;
+                page.CreateDate = DateTime.Now;
+                page.UpdatedBy = User.Identity.Name;
+                page.UpdateDate = DateTime.Now;
+                PageService.CreatePage(page);
                 PageService.SavePage();
                 return RedirectToAction("Index");
-               
             }
-      
-            return View (formPage);
+            return View(PageForm);
         }
 
         public ActionResult Details(int id)

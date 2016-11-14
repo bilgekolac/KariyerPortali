@@ -34,6 +34,8 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<SectorFormViewModel, Sector>();
             Mapper.CreateMap<SettingFormViewModel, Setting>();
             Mapper.CreateMap<NotificationFormViewModel, Notification>();
+            Mapper.CreateMap<PageFormViewModel, Page>();
+            Mapper.CreateMap<CategoryFormViewModel, Category>();
         }
     }
 }
