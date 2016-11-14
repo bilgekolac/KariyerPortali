@@ -56,10 +56,10 @@ namespace KariyerPortali.Admin.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("KariyerPortaliEntities", throwIfV1Schema: false)
         {
             Database.SetInitializer<ApplicationDbContext>(new MigrateDatabaseToLatestVersion<ApplicationDbContext, KariyerPortali.Admin.Migrations.Configuration>
-                ("DefaultConnection"));
+                ("KariyerPortaliEntities"));
         }
         public static ApplicationDbContext Create()
         {

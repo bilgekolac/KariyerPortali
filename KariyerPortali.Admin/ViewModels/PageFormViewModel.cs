@@ -12,7 +12,11 @@ namespace KariyerPortali.Admin.ViewModels
 
         [DisplayName("Başlık")]
         public string Title { get; set; }
+
+        [DisplayName("Kısa Ad")]
         public string Slug { get; set; }
+        
+        [DisplayName("İçerik")]
         public string Body { get; set; }
 
         [DisplayName("İstatistikler")]
@@ -21,7 +25,7 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Yazar")]
         public string CreatedBy { get; set; }
         public DateTime CreateDate { get; set; }
-        public string UptdatedBy { get; set; }
+        public string UpdatedBy { get; set; }
 
         [DisplayName("Tarih")]
         public DateTime UpdateDate { get; set; }

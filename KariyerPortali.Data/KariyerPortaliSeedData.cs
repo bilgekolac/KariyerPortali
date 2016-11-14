@@ -20,7 +20,6 @@ namespace KariyerPortali.Data
             GetCountries().ForEach(c => context.Countries.Add(c));
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
-            GetLanguageInfo().ForEach(c => context.LanguageInfos.Add(c));
             GetResumes().ForEach(c => context.Resumes.Add(c));
 
 
@@ -106,80 +105,91 @@ namespace KariyerPortali.Data
             {
                 new Language {
                     LanguageId=1,
-                    LanguageName="İngilizce",
+                    LanguageName="İngilizce"
 
-                },
-
-            };
-        }
-
-        public static List<LanguageInfo> GetLanguageInfo()
-        {
-            return new List<LanguageInfo>
-            {
-                new LanguageInfo {
-                    LanguageId=1,
-                    LanguageInfoId=1,
-                    SpeakingLanguageLevel =LanguageLevel.Advance,
-                    WritingLanguageLevel = LanguageLevel.Advance,
-                    ReadingLanguageLevel=LanguageLevel.Advance,                  
-
-                },
+                }
 
             };
         }
+
+
+        //private static List<LanguageInfo> GetLanguageInfos()
+        //{
+        //    return new List<LanguageInfo>
+        //    {
+        //        new LanguageInfo {
+        //           LanguageId=1,
+        //           LanguageInfoId=1,
+                   
+
+        //        },
+
+        //    };
+        //}
+
+       
         private static List<Resume> GetResumes()
         {
-            return new List<Resume> {  new Resume {
-                    ViewCount=0,
-                    ResumeId=1,
-                    ResumeName="muhammedCV",
-                    Notes= "C# , .NET , ADO.NET ",
-                    FirstName="Muhammed",
-                    LastName="SEZGİN",
-                    CitizenshipId="20902981214",
-                    CreatedBy="muhammed",
-                    UpdatedBy="muhammed",
-                    CoverLetter="Merhaba, Bilişim Eğitim Merkezi",
-                    Email="muhammed.sezgin88@gmail.com",
-                    CellPhone="(0539)6454545",
-                    CellPhone2="(0505)4441444",
-                    HomePhone="(0212)4441111",
-                    Website="www.muhammedsezgin.wordpress.com",
-                    Address="Bahçeşehir/İSTANBUL",
-                    HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
-                    ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
-                    Certificate="İŞKUR Yazılım Sertifikası",
-                    ScholarshipAndProject="Kariyer Portalı",
-                    Hobby="Müzik,Spor",
-                    MemberOwnedCommunity="TEV",
-                    DrivingLicenseExists= true,
-                    HighSchoolStart= Convert.ToDateTime("09.08.2002"),
-                    HighSchoolEnd= Convert.ToDateTime("07.07.2006"),
-                    UpdateDate=DateTime.Now,
-                    BirthDate=Convert.ToDateTime("05.11.1988"),
-                    CreateDate=Convert.ToDateTime("11.11.2016"),
-                    MilitaryPostponeDate=Convert.ToDateTime("18.04.2018"),
-                    CandidateId=1,
-                    LanguageId=1,
-                    Gender = Gender.Male,
-                    BirthCityId=1,
-                    MaritalStatus =MaritalStatus.Single,
-                    WorkStatus =WorkStatus.Active,
-                    CountryId=1,
-                    MilitaryService=MilitaryService.Postpone,
-                    DrivingLicense1Class = DrivingLicenseClass.B,
-                    DrivingLicense2Class= DrivingLicenseClass.A1,
-                    DrivingLicense1Date = Convert.ToDateTime("05.08.2008"),
-                    DrivingLicense2Date= Convert.ToDateTime("04.07.2009"),
-                    HighSchoolTypeId=1,
-                    HighSchoolDepartmentId=1,
-                    HighSchoolCertificate=HighSchoolCertificate.N100,
-                    CertificateDegree= 3,
-                    BloodType = BloodType.ARhP,
-                    CigaretteStatus = CigaretteStatus.Yes,
-                    SalaryWaited = SalaryWaited.B3000and4000,},};
-                    
+            var resumes = new List<Resume>();  
+                
+            var resume = new Resume {
+                ViewCount=0,
+                ResumeId=1,
+                ResumeName="muhammedCV",
+                Notes= "C# , .NET , ADO.NET ",
+                FirstName="Muhammed",
+                LastName="SEZGİN",
+                CitizenshipId="20902981214",
+                CreatedBy="muhammed",
+                UpdatedBy="muhammed",
+                CoverLetter="Merhaba, Bilişim Eğitim Merkezi",
+                Email="muhammed.sezgin88@gmail.com",
+                CellPhone="(0539)6454545",
+                CellPhone2="(0505)4441444",
+                HomePhone="(0212)4441111",
+                Website="www.muhammedsezgin.wordpress.com",
+                Address="Bahçeşehir/İSTANBUL",
+                HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
+                ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
+                Certificate="İŞKUR Yazılım Sertifikası",
+                ScholarshipAndProject="Kariyer Portalı",
+                Hobby="Müzik,Spor",
+                MemberOwnedCommunity="TEV",
+                DrivingLicenseExists= true,
+                HighSchoolStart= Convert.ToDateTime("09.08.2002"),
+                HighSchoolEnd= Convert.ToDateTime("07.07.2006"),
+                UpdateDate=DateTime.Now,
+                BirthDate=Convert.ToDateTime("05.11.1988"),
+                CreateDate=Convert.ToDateTime("11.11.2016"),
+                MilitaryPostponeDate=Convert.ToDateTime("18.04.2018"),
+                CandidateId=1,
+                LanguageId=1,
+                Gender = Gender.Male,
+                BirthCityId=1,
+                MaritalStatus =MaritalStatus.Single,
+                WorkStatus =WorkStatus.Active,
+                CountryId=1,
+                MilitaryService=MilitaryService.Postpone,
+                DrivingLicense1Class = DrivingLicenseClass.B,
+                DrivingLicense2Class= DrivingLicenseClass.A1,
+                DrivingLicense1Date = Convert.ToDateTime("05.08.2008"),
+                DrivingLicense2Date= Convert.ToDateTime("04.07.2009"),
+                HighSchoolTypeId=1,
+                HighSchoolDepartmentId=1,
+                HighSchoolCertificate=HighSchoolCertificate.N100,
+                CertificateDegree= 3,
+                BloodType = BloodType.ARhP,
+                CigaretteStatus = CigaretteStatus.Yes,
+                SalaryWaited = SalaryWaited.B3000and4000
+            };
+
+            resume.LanguageInfos = new List<LanguageInfo>();
+            resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
+
+
+            resumes.Add(resume);
+
+            return resumes;
              
             
         }

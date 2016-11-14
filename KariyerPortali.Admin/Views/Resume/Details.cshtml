@@ -220,19 +220,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>İngilizce</strong></td>
-                            <td>İleri</td>
-                            <td>İleri</td>
-                            <td>İleri</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Fransızca</strong></td>
-                            <td>İleri</td>
-                            <td>İleri</td>
-                            <td>İleri</td>
-                        </tr>
-
+                        @foreach (var languageInfo in Model.LanguageInfos) {
+                            <tr>
+                                <td><strong>@languageInfo.Language.LanguageName</strong></td>
+                                <td>@languageInfo.ReadingLanguageLevel</td>
+                                <td>@languageInfo.WritingLanguageLevel</td>
+                                <td>@languageInfo.SpeakingLanguageLevel</td>
+                            </tr>
+                       
+                        }
                     </tbody>
                 </table>
 

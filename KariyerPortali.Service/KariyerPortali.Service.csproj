@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CandidateService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="CourseService.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="JobService.cs" />
     <Compile Include="LanguageInfoService.cs" />
     <Compile Include="LanguageService.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="ReferenceService.cs" />
