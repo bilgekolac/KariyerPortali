@@ -1,4 +1,4 @@
-﻿@model KariyerPortali.Admin.ViewModels.PageViewModel
+﻿@model KariyerPortali.Admin.ViewModels.PageFormViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -38,7 +38,7 @@
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 </div>
             </div>
-            @using (Html.BeginForm("Create", "Media", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "Page", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
           {
                 @Html.AntiForgeryToken()
                 <div class="portlet-body form">
@@ -120,12 +120,13 @@
                         </div>
 
                         <div class="form-actions">
-                            <button type="submit" class="btn blue">
+                            <button type="submit" tabindex="4" class="btn blue">
                                 Kaydet
                             </button>
-                            <button type="button" class="btn default">
+                            <button type="button" tabindex="5" class="btn default" onclick="window.location='@Url.Action("Index","Page")';">
                                 İptal
                             </button>
+
                         </div>
                     </div>
                     
