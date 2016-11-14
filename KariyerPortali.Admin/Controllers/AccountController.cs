@@ -148,7 +148,11 @@ namespace KariyerPortali.Admin.Controllers
         {
 
             if (username == "")
-                username = User.Identity.Name; 
+                username = User.Identity.Name;
+            else if(Session["User"]!=null)
+            {
+                username = Session["User"].ToString();
+            }
 
             var user = db.Users.First(c => c.UserName == username);
                 var u = new UserViewModel();
