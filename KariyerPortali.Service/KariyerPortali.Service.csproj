@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CandidateService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="CityService.cs" />
     <Compile Include="CountryService.cs" />
     <Compile Include="CourseService.cs" />
