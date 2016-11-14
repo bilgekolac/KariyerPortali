@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class PostController : Controller
+    public class PostController : BaseController
     {
         // GET: Post
         private readonly IPostService postService;
