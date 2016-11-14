@@ -21,7 +21,7 @@ namespace KariyerPortali.Data.Repositories
             {
                 if (sSearch != null && sSearch != "")
                 {
-                    query = query.Where(c => c.CategoryId.ToString().Contains(sSearch) || c.CategoryName.Contains(sSearch) || c.Slug.Contains(sSearch) || c.ParentName.Contains(sSearch) || c.Description.Contains(sSearch) || c.Quantity.ToString().Contains(sSearch) );
+                    query = query.Where(c => c.CategoryId.ToString().Contains(sSearch) || c.CategoryName.Contains(sSearch) || c.Slug.Contains(sSearch)  || c.Description.Contains(sSearch) || c.Quantity.ToString().Contains(sSearch) );
                 }
             }
             var allCategories = query;
