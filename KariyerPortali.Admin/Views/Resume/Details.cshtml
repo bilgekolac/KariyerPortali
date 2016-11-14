@@ -66,6 +66,7 @@
                 </div>
 
                 <br />
+                <br />
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">local_phone</i>
@@ -182,12 +183,13 @@
                     </div>
                 </div>
 
-                <table class="table">
+
+                <table class="table" style="margin-right:auto">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Üniversite Adı</th>
-                            <th>Bölüm</th>
+                            <th>Bölüm Adı</th>
                             <th>Giriş - Mezuniyet Tarihi</th>
                            
                         </tr>
@@ -196,7 +198,8 @@
                         @foreach (var educationInfo in Model.EducationInfos)
                         {
                             <tr>
-                                <td>@educationInfo.EducationStatus</td>
+
+                                <td><strong>(@educationInfo.EducationStatus)</strong></td>
                                 <td>@educationInfo.University.UniversityName</td>
                                 <td>@educationInfo.Department.DepartmentName</td>
                                 <td>@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
@@ -206,30 +209,32 @@
                         }
                     </tbody>
                 </table>
-
-                @*<table class="table">
+                <br />
+                <table class="table" style="margin-right:auto">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th><strong>Lise Bilgileri</strong></th>
                             <th>Lise Adı</th>
-                            <th>Bölüm</th>
-                            <th>Giriş - Mezuniyet Tarihi</th>
+                            <th>Lise Türü - Bölüm</th>
+                           
+                            <th>Giriş ve Mezuniyet Tarihi</th>
 
                         </tr>
                     </thead>
                     <tbody>
                        
                             <tr>
+                                <td></td>
                                 <td>@Html.DisplayFor(model => model.HighSchoolName)</td>
-                                <td>@Html.DisplayFor(model => model.HighSchoolType)</td>
-                                <td>@Html.DisplayFor(model => model.HighSchoolStart.ToShortDateString())</td>
-                                <td>>@Html.DisplayFor(model => model.HighSchoolEnd.ToShortDateString())</td>
+                                <td>@Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName)</td>
+                            
+                                <td>@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
 
                             </tr>
 
                        
                     </tbody>
-                </table>*@
+                </table>
 
                 
                 
@@ -335,9 +340,13 @@
                         <span class="caption-subject">Referanslar</span>
                     </div>
                 </div>
-
-
+            
             </div>
+
+            <div class="form-actions right" style="margin-left:653px">
+                <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Candidate")';">Özgeçmişlere Dön</button>
+            </div>
+
         </div>
 
        
