@@ -16,7 +16,6 @@ namespace KariyerPortali.Model
         public virtual Skill Skill { get; set; }
         public float Point { get; set; }
 
-        public int? ResumeId { get; set; }
-        public virtual Resume Resume { get; set; }
+        public virtual ICollection<Resume> Resumes { get; set; }
     }
 }

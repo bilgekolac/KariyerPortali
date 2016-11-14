@@ -21,7 +21,7 @@ namespace KariyerPortali.Data
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
             GetLanguageInfo().ForEach(c => context.LanguageInfos.Add(c));
-            //GetResumes().ForEach(c => context.Resumes.Add(c));
+            GetResumes().ForEach(c => context.Resumes.Add(c));
 
 
             context.Commit();
@@ -92,7 +92,7 @@ namespace KariyerPortali.Data
                 new City {
 
                     CityId =1,
-                    CityName="İstanbul",
+                    CityName="İstanbul (Avr.)",
          
                
                     
@@ -163,7 +163,6 @@ namespace KariyerPortali.Data
                     CandidateId=1,
                     LanguageId=1,
                     Gender = Gender.Male,
-                    BirthCity= new City() {CityId=1 },
                     BirthCityId=1,
                     MaritalStatus =MaritalStatus.Single,
                     WorkStatus =WorkStatus.Active,
@@ -181,7 +180,7 @@ namespace KariyerPortali.Data
                     CigaretteStatus = CigaretteStatus.Yes,
                     SalaryWaited = SalaryWaited.B3000and4000,},};
                     
-             GetLanguageInfo();
+             
             
         }
 

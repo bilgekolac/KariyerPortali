@@ -67,10 +67,10 @@ namespace KariyerPortali.Model
         public virtual MilitaryService MilitaryService { get; set; }
 
         public virtual DrivingLicenseClass DrivingLicense1Class { get; set; }
-        public DateTime DrivingLicense1Date { get; set; }
+        public DateTime? DrivingLicense1Date { get; set; }
 
         public virtual DrivingLicenseClass DrivingLicense2Class { get; set; }
-        public DateTime DrivingLicense2Date { get; set; }
+        public DateTime? DrivingLicense2Date { get; set; }
 
         public int? HighSchoolTypeId { get; set; }
         public virtual HighSchoolType HighSchoolType { get; set; }
