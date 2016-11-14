@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IJobApplicationService
     {
+        int GetJobApplicationCountByMonth(int month);
         IEnumerable<JobApplication> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<JobApplication> GetJobApplications();
         JobApplication GetJobApplication(int id);
@@ -66,6 +67,10 @@ namespace KariyerPortali.Service
         public int CountJobApplication()
         {
             return jobApplicationRepository.GetAll().Count();
+        }
+        public int GetJobApplicationCountByMonth(int month) 
+        {
+            return jobApplicationRepository.GetMany(j => j.ApplicationDate.Month == month).Count();
         }
         public void SaveJobApplication()
         {

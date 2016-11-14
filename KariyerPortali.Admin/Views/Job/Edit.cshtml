@@ -24,7 +24,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Yenİ İş İlanı</span>
+                    <span class="caption-subject bold uppercase"> İş İlanı Düzenle</span>
                 </div>
             </div>
             <div class="row">
@@ -36,7 +36,7 @@
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    <div class="col-md-6 ">
+                    <div class="col-md-6 " >
                         <!-- BEGIN SAMPLE FORM PORTLET-->
                         <div class="portlet light bordered">
 
@@ -44,13 +44,14 @@
 
 
 
-                            <div class="portlet-body form">
+                            <div class="portlet-body form" >
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 @Html.HiddenFor(model => model.JobId)
                                 <div class="form-body">
                                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     @Html.HiddenFor(model => model.EmployerId)
                                     @Html.HiddenFor(model=>model.Createdate)
+                                    @Html.HiddenFor(model => model.CreatedBy)
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.EmployerId)
                                         @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control" })
@@ -80,7 +81,7 @@
                                         @foreach (SelectListItem item in ViewBag.SocialRights)
                                         {
                                             <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
-                                                <input type="checkbox" name="SocialRightId" class="checkboxes" value="@item.Value" />
+                                                <input type="checkbox" name="SocialRightId" class="checkboxes" value="@item.Value" checked="@item.Selected" />
                                                 <span></span>
                                                 @item.Text
                                             </label>
@@ -95,7 +96,7 @@
                         <!-- BEGIN SAMPLE FORM PORTLET-->
                     </div>
 
-                        <div class="col-md-6 ">
+                        <div class="col-md-6 " >
                             <!-- BEGIN SAMPLE FORM PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-body form">
@@ -108,17 +109,17 @@
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Description)<br />
-                                            @Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Description, new { @tabindex = "4", @class = "form-control spinner" })
                                             @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Responsibilities)<br />
-                                            @Html.TextAreaFor(model => model.Responsibilities, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Responsibilities, new { @tabindex = "6", @class = "form-control spinner" } )
                                             @Html.ValidationMessageFor(model => model.Responsibilities, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.Qualifications)<br />
-                                            @Html.TextAreaFor(model => model.Qualifications, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
+                                            @Html.TextAreaFor(model => model.Qualifications, new { @tabindex = "8", @class = "form-control spinner" } )
                                             @Html.ValidationMessageFor(model => model.Qualifications, "", new { @class = "text-danger" })
                                         </div>
 

@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44348</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -277,6 +277,7 @@
     <Content Include="assets\global\css\plugins-md.min.css" />
     <Content Include="assets\global\css\plugins.css" />
     <Content Include="assets\global\css\plugins.min.css" />
+    <Content Include="assets\global\css\yazdir.css" />
     <Content Include="assets\global\img\accordion-plusminus.png" />
     <Content Include="assets\global\img\ajax-loading.gif" />
     <Content Include="assets\global\img\ajax-modal-loading.gif" />
@@ -6303,6 +6304,7 @@
     <Content Include="Scripts\pages\employer-index.js" />
     <Content Include="Scripts\pages\exam-index.js" />
     <Content Include="Scripts\pages\expertise-index.js" />
+    <Content Include="Scripts\pages\graphic.css" />
     <Content Include="Scripts\pages\job-index.js" />
     <Content Include="Scripts\pages\language-index.js" />
     <Content Include="Scripts\pages\Media-Index.js" />
@@ -6316,6 +6318,7 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Uploads\Account\kariyerportaliAdminDefault.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -6422,12 +6425,15 @@
     <Content Include="Views\Sector\Delete.cshtml" />
     <Content Include="Views\Skill\Edit.cshtml" />
     <Content Include="Views\Resume\Delete.cshtml" />
+    <Content Include="Views\Skill\Delete.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
+    <Content Include="Views\Post\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\apps\img\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
-    <Folder Include="Uploads\Account\" />
     <Folder Include="Uploads\Candidate\" />
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />

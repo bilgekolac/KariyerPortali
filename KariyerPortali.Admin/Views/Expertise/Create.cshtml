@@ -16,68 +16,39 @@
 
 </div>
 
-<div class="row">
+<div class="row" style="padding-top:20px">
     <div class="col-md-12 ">
-        <!-- BEGIN SAMPLE FORM PORTLET-->
-        <div class="portlet light bordered" style="width:300px;">
-            <div class="portlet-title">
-                <h1 class="page-title">
-                    Yeni Uzmanlık Ekleme
-                </h1>
 
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <form action="/Expertise/Create" method="post" novalidate="novalidate">
+            <input name="__RequestVerificationToken" type="hidden" value="CyMQ3Qikvcy2zf_s3XsT-rXmQxztYZfVZbb_CsEnu_qILJRBAUpJnzDEgU-ZcWpSHoZQjJjyQ4gV1vEw4tJ9cl6YGNWa1P5vjwlm0B2DqxlZcBVAXI4Zaom0WInzS9Eg64xzWdKFhtI-ZfaMwF2zIQ2">
+            <div class="portlet light bordered" style="width:300px;">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
+                        <i class="icon-settings font-dark"></i>
+                        <span class="caption-subject bold uppercase">UZMANLIK EKLE</span>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="row">
-            @using (Html.BeginForm())
-            {
-                @Html.AntiForgeryToken()
-
-                <div class="actions">
-                </div>
-
                 <div class="portlet-body form">
 
-
-                    <form role="form">
-                        <div class="form-body">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            @Html.LabelFor(model => model.ExpertiseName)
-                                            @Html.EditorFor(model => model.ExpertiseName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
-                                            @Html.ValidationMessageFor(model => model.ExpertiseName, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-actions right">
-                                <button type="submit" tabindex="2" class="btn blue">Gönder</button>
-                                <a href="@Url.Action("Index", "Expertise")" id="sample_editable_1_new" class=" btn sbold blue">
-                                    İptal
-
-                                </a>
-                            </div>
-
-
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label for="ExpertiseName">Uzmanlık Adı</label>
+                            <input class="form-control spinner text-box single-line" data-val="true" data-val-required="Lütfen bir uzmanlık adı giriniz." id="ExpertiseName" name="ExpertiseName" type="text" value="">
+                            <span class="field-validation-valid text-danger" data-valmsg-for="ExpertiseName" data-valmsg-replace="true"></span>
                         </div>
-                    </form>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Ekle</button>
+                        <button type="button" class="btn default" onclick="window.location='/Expertise';">İptal</button>
+                    </div>
+
                 </div>
-            }
-        </div>
+            </div>
+        </form>
     </div>
+
 </div>
-@section Scripts {
+@section Scripts
+    {
     @Scripts.Render("~/bundles/jqueryval")
 }
-
-
-
-

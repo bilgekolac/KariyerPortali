@@ -15,7 +15,7 @@ namespace KariyerPortali.Data.Configuration
             ToTable("Table");
             HasKey<int>(p=>p.PageId);
             Property(p => p.Title).IsRequired().HasMaxLength(100);
-            Property(p => p.Slug).IsRequired().HasMaxLength(500);
+            Property(p => p.Slug).HasMaxLength(500);
             Property(p => p.Body).IsRequired();
             Property(p => p.ViewCount).IsRequired();
             Property(p => p.CreatedBy).IsRequired().HasMaxLength(100);

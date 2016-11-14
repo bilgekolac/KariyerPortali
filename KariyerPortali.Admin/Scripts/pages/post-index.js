@@ -10,8 +10,8 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "No data available in table",
-            "info": "_TOTAL_ Kaydın _START_ ile _END_ Arası Gösteriliyor",
+            "emptyTable": "Herhangi bir kayıt bulunamadı.",
+            "info":"Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Herhangi bir kayıt bulunamadı.",
             "infoFiltered": "(filtered1 from _MAX_ total records)",
             "lengthMenu": "Göster _MENU_",
@@ -21,7 +21,8 @@
                 "previous": "Önceki",
                 "next": "Sonraki",
                 "last": "Son Sayfa",
-                "first": "İlk Sayfa"
+                "first": "İlk Sayfa",
+                "proccessing":"Yükleniyor"
             }
         },
 
@@ -36,27 +37,39 @@
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+        "bProccessing": true,
+        "sAjaxSource": "/Post/AjaxHandler",
+        "bStateSave":true,
 
         "lengthMenu": [
             [5, 15, 20, -1],
-            [5, 15, 20, "All"] // change per page values here
+            [5, 15, 20, "Tümü"] // change per page values here
         ],
         // set the initial value
         "pageLength": 5,
         "pagingType": "bootstrap_full_number",
         "columnDefs": [
-            {  // set default column settings
+          {  // set default column settings
+              'orderable': false,
+              'searchable': false,
+              'targets': [0],
+              'render': function (data, type, row) {
+                  return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
+              }
+          },
+
+            {
                 'orderable': false,
-                'targets': [0]
-            },
-            {
-                "searchable": false,
-                "targets": [0]
-            },
-            {
-                "className": "dt-right",
-                //"targets": [2]
+                'searchable': false,
+                'targets': [5],
+                'render': function (data, type, row) {
+                    return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Post/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Post/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                      + '<a href="/Post/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                }
+
             }
+
         ],
         "order": [
             [1, "asc"]

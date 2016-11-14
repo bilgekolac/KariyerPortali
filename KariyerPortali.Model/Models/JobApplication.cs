@@ -15,7 +15,9 @@ namespace KariyerPortali.Model
         public int? CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
 
-      
+        public int? ResumeId { get; set; }
+        public virtual Resume Resume { get; set; }
+
         public int? EmployerId { get; set; }
         public virtual Employer Employer { get; set; }
 

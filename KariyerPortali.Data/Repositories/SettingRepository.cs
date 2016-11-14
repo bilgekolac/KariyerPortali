@@ -13,9 +13,14 @@ namespace KariyerPortali.Data.Repositories
     {
         public SettingRepository(IDbFactory dbFactory)
             : base(dbFactory) { }
+
+        public Setting GetSettingByName(string name)
+        {
+            return DbContext.Settings.FirstOrDefault(s => s.Name == name);
+        }
     }
     public interface ISettingRepository : IRepository<Setting>
     {
-
+        Setting GetSettingByName(string name);
     }
 }

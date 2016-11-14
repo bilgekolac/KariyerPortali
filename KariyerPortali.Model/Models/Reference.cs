@@ -21,9 +21,7 @@ namespace KariyerPortali.Model
         public int? SectorId { get; set; }
         public virtual Sector Sector { get; set; }
 
-        public int? ResumeId { get; set; }
-        public virtual Resume Resume { get; set; }
-
+        public virtual ICollection<Resume> Resumes { get; set; }
         public string Message { get; set; }
         public string ReferenceFile { get; set; }
 

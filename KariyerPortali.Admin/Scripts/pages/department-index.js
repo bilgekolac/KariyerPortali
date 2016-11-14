@@ -11,7 +11,7 @@
                 "sortDescending": ": activate to sort column descending"
             },
             "emptyTable": "Görüntülenecek Kayıt Yok",
-            "info": "Gösterilen _START_ ile _END_ arası. Toplam _TOTAL_ Kayıt",
+            "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı",
             "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
             "lengthMenu": "Göster _MENU_",

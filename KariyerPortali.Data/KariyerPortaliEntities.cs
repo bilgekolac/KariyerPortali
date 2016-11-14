@@ -11,7 +11,8 @@ namespace KariyerPortali.Data
 {
     public class KariyerPortaliEntities : DbContext
     {
-        public KariyerPortaliEntities() : base("KariyerPortaliEntities") {
+        public KariyerPortaliEntities() : base("KariyerPortaliEntities")
+        {
             this.Configuration.LazyLoadingEnabled = true;
         }
 
@@ -47,7 +48,14 @@ namespace KariyerPortali.Data
 
         public virtual void Commit()
         {
-            base.SaveChanges();
+            try {                 
+                base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+         
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -77,6 +85,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new SocialRightConfiguration());
             modelBuilder.Configurations.Add(new UniversityConfiguration());
             modelBuilder.Configurations.Add(new PageConfiguration());
+            modelBuilder.Configurations.Add(new SettingConfiguration());
         }
     }
 }

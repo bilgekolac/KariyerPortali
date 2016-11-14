@@ -21,7 +21,7 @@ namespace KariyerPortali.Data.Repositories
             {
                 if (sSearch != null && sSearch != "")
                 {
-                    query = query.Where(p => p.PostId.ToString().Contains(sSearch) || p.Slug.Contains(sSearch) || p.Title.Contains(sSearch) || p.Body.Contains(sSearch) || p.CreateDate.ToString().Contains(sSearch) || p.CreatedBy.Contains(sSearch) || p.UpdateDate.ToString().Contains(sSearch) || p.UptdatedBy.Contains(sSearch));
+                    query = query.Where(p => p.PostId.ToString().Contains(sSearch)  || p.Title.Contains(sSearch) || p.Body.Contains(sSearch) || p.CreateDate.ToString().Contains(sSearch) || p.CreatedBy.Contains(sSearch) || p.UpdateDate.ToString().Contains(sSearch) || p.UpdatedBy.Contains(sSearch));
                 }
             }
             var allPosts = query;
@@ -59,7 +59,7 @@ namespace KariyerPortali.Data.Repositories
                 }
 
             } var displayedPosts = filteredPosts.Skip(displayStart);
-            if (displayLength >= 0)
+            if (displayLength > 0)
             {
                 displayedPosts = displayedPosts.Take(displayLength);
             }

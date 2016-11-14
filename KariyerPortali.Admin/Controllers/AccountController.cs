@@ -91,8 +91,7 @@ namespace KariyerPortali.Admin.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        
+        [ValidateAntiForgeryToken]        
         public ActionResult Edit(ApplicationUser model,System.Web.HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
@@ -145,10 +144,12 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         
-        public ActionResult MyProfile(string usernames)
+        public ActionResult MyProfile(string username = "")
         {
 
-            var username = User.Identity.Name;
+            if (username == "")
+                username = User.Identity.Name; 
+
             var user = db.Users.First(c => c.UserName == username);
                 var u = new UserViewModel();
                 u.UserName = user.UserName;
@@ -219,8 +220,7 @@ namespace KariyerPortali.Admin.Controllers
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
-        {
-            
+        {            
 
             if (!ModelState.IsValid)
             {
@@ -322,7 +322,7 @@ namespace KariyerPortali.Admin.Controllers
 
                     UserManager.AddToRole(user.Id,form["List"].ToString());
                    
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -382,7 +382,7 @@ namespace KariyerPortali.Admin.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("ertyeni@gmail.com", "Kariyer Portalı");
+                mailMessage.From = new MailAddress("kariyerportali@gmail.com", "Kariyer Portalı");
                 mailMessage.Subject = "Şifre Sıfırlama İsteği ";
                 mailMessage.To.Add(model.Email);
                 string body;
@@ -391,7 +391,7 @@ namespace KariyerPortali.Admin.Controllers
                 mailMessage.IsBodyHtml = true;
                 mailMessage.Body = body;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new System.Net.NetworkCredential("ertyeni@gmail.com", "48448300+");
+                smtp.Credentials = new System.Net.NetworkCredential("kariyerportali@gmail.com", "Admin123+");
                 smtp.EnableSsl = true;
                 smtp.Send(mailMessage);
                 //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
@@ -453,6 +453,10 @@ namespace KariyerPortali.Admin.Controllers
             return View();
         }
 
+       
+
+
+
         //
         // POST: /Account/ExternalLogin
         [HttpPost]
@@ -463,6 +467,9 @@ namespace KariyerPortali.Admin.Controllers
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
+
+
+
 
         //
         // GET: /Account/SendCode

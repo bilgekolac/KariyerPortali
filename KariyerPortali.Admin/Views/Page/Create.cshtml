@@ -1,76 +1,69 @@
-﻿
+﻿@model KariyerPortali.Admin.ViewModels.PageViewModel
 @{
     ViewBag.Title = "Create";
-    }
+}
 
-    <!-- BEGIN PAGE HEADER-->
-    <!-- BEGIN THEME PANEL -->
-    <!-- END THEME PANEL -->
-    <!-- BEGIN PAGE BAR -->
- <script src="/Scripts/ckeditor/ckeditor.js"></script>
-    <br />
-    <div class="page-bar">
-        <ul class="page-breadcrumb">
-            <li>
-                <a href="http://localhost:62710/Page">Sayfalar</a>
-                <i class="fa fa-circle"></i>
-            </li>
-            <li>
-                <span>Yeni Sayfa</span>
-            </li>
-        </ul>
-        <div class="page-toolbar">
+<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN THEME PANEL -->
+<!-- END THEME PANEL -->
+<!-- BEGIN PAGE BAR -->
+<script src="/Scripts/ckeditor/ckeditor.js"></script>
+<br />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","Page")" class="nav-link ">Sayfalar</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Yeni Sayfa</span>
+        </li>
+    </ul>
 
-        </div>
-    </div>
-    <br />
-    <!-- END PAGE BAR -->
-    <!-- BEGIN PAGE TITLE-->
-    <h1 class="page-title">
-        <small></small>
-    </h1>
-    <!-- END PAGE TITLE-->
-    <!-- END PAGE HEADER-->
-    <div class="row">
-        <div class="col-md-6 ">
-            <!-- BEGIN SAMPLE FORM PORTLET-->
-            <div class="portlet light bordered" style="
-    width: 1000px;
-">
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="icon-settings font-black-sunglo"></i>
-                        <span class="caption-subject bold uppercase">
-                            YENİ SAYFA EKLE
-                        </span>
-                    </div>
-
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title" style="border-bottom-width: 1px;margin-bottom: 10px;">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase ">YENİ SAYFA EKLEME</span>
                 </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @using (Html.BeginForm("Create", "Media", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+          {
+                @Html.AntiForgeryToken()
                 <div class="portlet-body form">
-                    <form role="form">
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Title)
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", placeholder = "BAŞLIĞI GİRİNİZ" } })
+                            @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
+                        </div>
+
                         <div class="form-body">
-
-
-
-                            <div class="form-group">
-                                <label></label>
-                                <div class="input-icon right">
-
-                                    <input type="text" class="form-control" placeholder="BAŞLIĞI GİRİNİZ">
-                                </div>
-                            </div>
+                            @Html.LabelFor(model => model.Body)
 
 
                             <p>
                                 <br>
 
-                                <textarea cols="80" id="editor1" name="editor1" rows="10" data-sample="2"></textarea>
+                                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "2", @cols = "80", @rows = "10" } })
+                                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                                 <script>
-                                    CKEDITOR.replace('editor1');
+                                    CKEDITOR.replace('Body');
                                 </script>
+
                             </p>
-
-
 
                             <div id="content2" style="display: none" data-sample="2">
                                 <p>The number of <code>change</code> events: <strong><span id="changes"></span></strong>.</p>
@@ -87,55 +80,54 @@
                             <div class="col-md-6">
                                 <div id="pageparentdiv" class="postbox ">
 
-                                        <div class="inside">
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label>Üst Sayfa</label>
-                                                    <select class="form-control">
-                                                        <option>Yok</option>
-                                                        <option>Yok</option>
-                                                        <option>Yok</option>
-                                                        <option>Yok</option>
-                                                        <option>Yok</option>
-                                                    </select>
-                                                </div>
-
+                                    <div class="inside">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Üst Sayfa</label>
+                                                <select class="form-control">
+                                                    <option>Yok</option>
+                                                    <option>Yok</option>
+                                                    <option>Yok</option>
+                                                    <option>Yok</option>
+                                                    <option>Yok</option>
+                                                </select>
                                             </div>
-                                            <div class="col-sm-6">
 
-                                                <div class="form-group">
-                                                    <label>Sıralama</label>
-                                                    <div class="input-icon right">
+                                        </div>
+                                        <div class="col-sm-6">
 
-                                                        <input type="text" class="form-control" placeholder="Sıralama">
-                                                    </div>
+                                            <div class="form-group">
+                                                <label>Sıralama</label>
+                                                <div class="input-icon right">
+
+                                                    <input type="text" class="form-control" placeholder="Sıralama">
                                                 </div>
-
-
                                             </div>
-                                       
 
-                                         </div>
+
+                                        </div>
+
+
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                                <div class="form-actions">
-                                    <button type="submit" class="btn blue">
-                                        Kaydet
-                                    </button>
-                                    <button type="button" class="btn default">
-                                        İptal
-                                    </button>
-                                </div>
-                    </form>
-
+                        <div class="form-actions">
+                            <button type="submit" class="btn blue">
+                                Kaydet
+                            </button>
+                            <button type="button" class="btn default">
+                                İptal
+                            </button>
+                        </div>
+                    </div>
+                    
                 </div>
+                }
             </div>
-
         </div>
-
-    </div>
-    <div class="row ">
-
-    </div>
+ </div>
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }

@@ -45,7 +45,7 @@ namespace KariyerPortali.Admin.Controllers
                 if (upload != null)
                 {
 
-                    if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                    if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf" || Path.GetExtension(upload.FileName) == ".docx" || Path.GetExtension(upload.FileName) == ".jpg" || Path.GetExtension(upload.FileName) == ".img" || Path.GetExtension(upload.FileName) == ".png")
                     {
                         string dosyaYolu = Path.GetFileName(upload.FileName);
                         var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
@@ -90,7 +90,7 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     try
                     {
-                        if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf")
+                        if (Path.GetExtension(upload.FileName) == ".doc" || Path.GetExtension(upload.FileName) == ".pdf" || Path.GetExtension(upload.FileName) == ".rtf" || Path.GetExtension(upload.FileName) == ".docx" || Path.GetExtension(upload.FileName) == ".jpg" || Path.GetExtension(upload.FileName) == ".img" || Path.GetExtension(upload.FileName) == ".png")
                         {
                             string dosyaYolu = Path.GetFileName(upload.FileName);
                             var yuklemeYeri = Path.Combine(Server.MapPath("~/Uploads/File"), dosyaYolu);
