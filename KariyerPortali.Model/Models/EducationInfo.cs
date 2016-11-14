@@ -1,4 +1,5 @@
-﻿namespace KariyerPortali.Model
+﻿using System.Collections.Generic;
+namespace KariyerPortali.Model
 {
     public class EducationInfo
     {
@@ -11,9 +12,7 @@
         public int? DepartmentId { get; set; }
         public virtual Department Department { get; set; }
 
-        public int? ResumeId { get; set; }
-        public virtual Resume Resume { get; set; }
-
+        public virtual ICollection<Resume> Resumes { get; set; }
 
     }
 }

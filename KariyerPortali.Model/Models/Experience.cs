@@ -11,8 +11,7 @@ namespace KariyerPortali.Model
         public int ExperienceId { get; set; }
         public string ExperienceName { get; set; }
 
-        public int? ResumeId { get; set; }
-        public virtual Resume Resume { get; set; }
+        public virtual ICollection<Resume> Resumes { get; set; }
         public virtual ICollection<Job> Jobs { get; set; }
     }
 }

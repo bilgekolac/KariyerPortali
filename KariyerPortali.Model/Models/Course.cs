@@ -16,8 +16,7 @@ namespace KariyerPortali.Model
         public float Time { get; set; }
         public string Statement { get; set; }
 
-        public int? ResumeId { get; set; }
-        public virtual Resume Resume { get; set; }
+        public virtual ICollection<Resume> Resumes { get; set; }
 
     }
 }

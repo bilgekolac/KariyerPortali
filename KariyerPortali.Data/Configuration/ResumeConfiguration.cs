@@ -42,7 +42,8 @@ namespace KariyerPortali.Data.Configuration
             Property(c => c.ScholarshipAndProject).IsOptional().HasMaxLength(200);
             Property(c => c.Hobby).IsOptional();
             Property(c => c.MemberOwnedCommunity).IsOptional().HasMaxLength(200);
-            Property(c => c.MilitaryPostponeDate).IsRequired();
+            Property(c => c.MilitaryPostponeDate).IsOptional();
+            
             
            
 

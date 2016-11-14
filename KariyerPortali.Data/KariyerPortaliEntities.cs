@@ -47,8 +47,14 @@ namespace KariyerPortali.Data
 
 
         public virtual void Commit()
-        {  
+        {
+            try {                 
                 base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
          
         }
 
