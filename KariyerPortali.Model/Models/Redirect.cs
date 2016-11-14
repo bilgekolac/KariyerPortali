@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model.Models
 {
-    class Redirect
+   public class Redirect
     {
+        public int RedirectId { get; set; }
+        public string RedirectName { get; set; }
+        public string OldUrl { get; set; }
+        public string NewUrl { get; set; }
+
     }
 }
