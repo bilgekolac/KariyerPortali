@@ -12,6 +12,7 @@ namespace KariyerPortali.Service
 
     public interface INotificationService
     {
+        IEnumerable<Notification> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Notification> GetLatestNotifications();
         Notification GetLatestNotification(int id);
 
@@ -40,6 +41,12 @@ namespace KariyerPortali.Service
         {
             var notification = notificationRepository.GetById(id);
             return notification;
+        }
+
+        public IEnumerable<Notification> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var notifications = notificationRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+            return notifications;
         }
 
         #endregion
