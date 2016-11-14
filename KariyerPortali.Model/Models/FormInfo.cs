@@ -1,11 +1,10 @@
-﻿using KariyerPortali.Model.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model.Models
+namespace KariyerPortali.Model
 {
     public class FormInfo
     {
@@ -18,5 +17,7 @@ namespace KariyerPortali.Model.Models
         public int? FormTypeId { get; set; }
 
         public virtual FormType FormType { get; set; }
+
+        public virtual Form Form { get; set; }
     }
 }

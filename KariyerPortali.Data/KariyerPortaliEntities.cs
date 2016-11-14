@@ -46,6 +46,9 @@ namespace KariyerPortali.Data
         public DbSet<Page> Pages { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Form> Forms { get; set; }
+        public DbSet<FormInfo> FormInfos { get; set; }
+        public DbSet<FormType> FormTypes { get; set; }
 
         public virtual void Commit()
         {
@@ -88,6 +91,9 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new PageConfiguration());
             modelBuilder.Configurations.Add(new SettingConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
+            modelBuilder.Configurations.Add(new FormConfiguration());
+            modelBuilder.Configurations.Add(new FormInfoConfiguration());
+            modelBuilder.Configurations.Add(new FormTypeConfiguration());
         }
     }
 }
