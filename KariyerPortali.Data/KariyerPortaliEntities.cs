@@ -43,7 +43,7 @@ namespace KariyerPortali.Data
         public DbSet<SocialRight> SocialRights { get; set; }
         public DbSet<University> Universities { get; set; }
         public DbSet<Page> Pages { get; set; }
-
+        public DbSet<Notification> Notifications { get; set; }
 
         public virtual void Commit()
         {
