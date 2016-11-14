@@ -14,6 +14,6 @@ namespace KariyerPortali.Model.Models
 
         public string Value { get; set; }
 
-        public ICollection<FormType> FormTypes { get; set; }
+        public virtual ICollection<FormType> FormTypes { get; set; }
     }
 }

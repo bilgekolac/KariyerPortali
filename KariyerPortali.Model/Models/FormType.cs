@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model.Models
 {
-    class FormType
+    public class FormType
     {
+        public int FormTypeId { get; set; }
+
+        public string FormTypeName { get; set; }
+
     }
 }
