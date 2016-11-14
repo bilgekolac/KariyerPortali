@@ -14,23 +14,44 @@ namespace KariyerPortali.Admin.Controllers
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
 
-            if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
-            {
-                using (var db = new ApplicationDbContext())
-                {
-                    try
-                    {
-                        var loggedInUser = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-                        ViewBag.LoggedInUser = loggedInUser;
-                        base.OnActionExecuting(filterContext);
-                    }
-                    catch (Exception)
-                    {
-                        ViewBag.LoggedInUser = null;
-                        base.OnActionExecuting(filterContext);
+            //if (User != null && User.Identity != null && User.Identity.IsAuthenticated)
+            //{
+            //    using (var db = new ApplicationDbContext())
+            //    {
+            //        try
+            //        {
+            //            var loggedInUser = db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+            //            ViewBag.LoggedInUser = loggedInUser;
+            //            base.OnActionExecuting(filterContext);
+            //        }
+            //        catch (Exception)
+            //        {
+            //            ViewBag.LoggedInUser = null;
+            //            base.OnActionExecuting(filterContext);
 
+            //        }
+            //    }
+            //}
+            if (Request.IsAuthenticated && User != null && User.Identity != null && User.Identity.IsAuthenticated)
+            {
+                if (Session["User"] == null)
+                {
+                    using (var db = new ApplicationDbContext())
+                    {
+                        string username = User.Identity.Name;
+                        var user = db.Users.FirstOrDefault(u => u.UserName == username);
+                        Session["User"] = user;
+                        ViewBag.LoggedInUser = Session["User"];
                     }
                 }
+                else
+                {
+                    ViewBag.LoggedInUser = Session["User"];
+                }
+            }
+            else
+            {
+                Session["User"] = null;
             }
         }
     }
