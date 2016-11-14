@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 namespace KariyerPortali.Model
 {
     public class EducationInfo
@@ -8,6 +9,8 @@ namespace KariyerPortali.Model
 
         public int? UniversityId { get; set; }
         public virtual University University { get; set; }
+        public DateTime UniversityStart { get; set; }
+        public DateTime UniversityEnd { get; set; }
 
         public int? DepartmentId { get; set; }
         public virtual Department Department { get; set; }

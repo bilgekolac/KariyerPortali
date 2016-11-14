@@ -15,6 +15,8 @@ namespace KariyerPortali.Data
         {
            
             GetCandidates().ForEach(c => context.Candidates.Add(c));
+            GetDepartments().ForEach(c => context.Departments.Add(c));
+            GetUniversities().ForEach(c => context.Universities.Add(c));
             GetHighSchoolTypes().ForEach(c => context.HighSchollTypes.Add(c));
             GetHighSchoolDeparments().ForEach(c => context.HighSchollDepartments.Add(c));
             GetCountries().ForEach(c => context.Countries.Add(c));
@@ -91,7 +93,9 @@ namespace KariyerPortali.Data
                 new City {
 
                     CityId =1,
-                    CityName="İstanbul (Avr.)",
+                    CityName="Erzincan",
+                    
+                    
          
                
                     
@@ -112,20 +116,34 @@ namespace KariyerPortali.Data
             };
         }
 
+        private static List<University> GetUniversities()
+        {
+            return new List<University>
+            {
+                new University {
+                    UniversityId=1,
+                    UniversityName="Ankara Üniversitesi"
+                    
 
-        //private static List<LanguageInfo> GetLanguageInfos()
-        //{
-        //    return new List<LanguageInfo>
-        //    {
-        //        new LanguageInfo {
-        //           LanguageId=1,
-        //           LanguageInfoId=1,
-                   
+                }
 
-        //        },
+            };
+        }
 
-        //    };
-        //}
+        private static List<Department> GetDepartments()
+        {
+            return new List<Department>
+            {
+                new Department {
+                    
+                    DepartmentId=1,
+                    DepartmentName="Fizik Mühendisliği"
+                    
+
+                }
+
+            };
+        }
 
        
         private static List<Resume> GetResumes()
@@ -180,11 +198,19 @@ namespace KariyerPortali.Data
                 CertificateDegree= 3,
                 BloodType = BloodType.ARhP,
                 CigaretteStatus = CigaretteStatus.Yes,
-                SalaryWaited = SalaryWaited.B3000and4000
+                SalaryWaited = SalaryWaited.B3000and4000,
+                
             };
 
             resume.LanguageInfos = new List<LanguageInfo>();
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
+
+           
+
+            resume.EducationInfos = new List<EducationInfo>();
+            resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=1,DepartmentId=1,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
+
+           
 
 
             resumes.Add(resume);
