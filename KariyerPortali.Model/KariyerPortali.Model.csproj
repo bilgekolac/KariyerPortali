@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Models\BloodType.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CigaretteStatus.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
