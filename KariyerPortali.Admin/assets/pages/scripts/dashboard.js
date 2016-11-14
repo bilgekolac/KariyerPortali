@@ -323,16 +323,18 @@ var Dashboard = function() {
                 $('#site_activities_content').show();
 
                 var data1 = [
-                    ['DEC', 300],
-                    ['JAN', 600],
-                    ['FEB', 1100],
-                    ['MAR', 1200],
-                    ['APR', 860],
-                    ['MAY', 1200],
-                    ['JUN', 1450],
-                    ['JUL', 1800],
-                    ['AUG', 1200],
-                    ['SEP', 600]
+                    ['Oca', 1200],
+                    ['Sub', 600],
+                    ['Mar', 1100],
+                    ['Nis', 1200],
+                    ['May', 860],
+                    ['Haz', 1200],
+                    ['Tem', 1450],
+                    ['Agu', 1800],
+                    ['Eyl', 1200],
+                    ['Eki', 600],
+                    ['Kas', 600],
+                    ['Ara', 600]
                 ];
 
 

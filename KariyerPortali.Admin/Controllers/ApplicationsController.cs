@@ -36,8 +36,6 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            int time=0;
-            string aktar = "";
             var displayedJobsAplications = jobApplicationService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
 
@@ -45,7 +43,7 @@ namespace KariyerPortali.Admin.Controllers
                          select new[] {j.JobApplicationId.ToString(), (j.Candidate != null ? j.Candidate.FirstName.ToString():string.Empty),
                              (j.Candidate != null ? j.Candidate.LastName.ToString():string.Empty),
                              (j.Employer != null ? j.Employer.EmployerName.ToString():string.Empty ),
-                             (j.Job !=null ? j.Job.Title.ToString():string.Empty), aktar=j.ApplicationDate.ToShortDateString(),
+                             (j.Job !=null ? j.Job.Title.ToString():string.Empty), j.ApplicationDate.ToShortDateString(),
                              j.UpdateDate.ToShortDateString(), string.Empty};
             
             return Json(new

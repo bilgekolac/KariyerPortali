@@ -26,7 +26,7 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Yazar")]
         public string CreatedBy { get; set; }
         public DateTime CreateDate { get; set; }
-        public string UptdatedBy { get; set; }
+        public string UpdatedBy { get; set; }
 
         [DisplayName("Tarih")]
         public DateTime UpdateDate { get; set; }
