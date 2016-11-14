@@ -6429,6 +6429,7 @@
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Post\Details.cshtml" />
+    <Content Include="Views\Page\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
