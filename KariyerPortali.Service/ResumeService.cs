@@ -46,7 +46,7 @@ namespace KariyerPortali.Service
 
         public Resume GetResume(int id)
         {
-            var cv = resumeRepository.GetById(id);
+            var cv = resumeRepository.GetById(id, "City", "Language","BirthCity");
             return cv;
         }
 

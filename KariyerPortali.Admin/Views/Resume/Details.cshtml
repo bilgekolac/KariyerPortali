@@ -187,14 +187,14 @@
 
                     <tbody>
                         <tr>
-
-                            <td><strong>Eğitim Durumu &ensp; &ensp;&ensp; : </strong>Üniversite</td>
-                            <td><strong>Eğitim Kurumu Adı</strong><br />Fakülte,Bölüm Adı<br />Giriş Tarihi - Mezuniyet Tarihi</td>
-
+                            @foreach (var educationInfo in Model.EducationInfos) { 
+                            <td><strong>Eğitim Durumu &ensp; &ensp;&ensp; : </strong>@educationInfo.EducationStatus</td>
+                            <td><strong>@educationInfo.University.UniversityName</strong><br />@educationInfo.Department.DepartmentName<br />@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
+                            }
                         </tr>
 
                         <tr>
-                            <td><strong>Lise Bilgileri  &ensp; &ensp;&ensp;&ensp;&ensp;&ensp; :</strong></td>
+                            <td><strong>Lise Bilgileri  &ensp; &ensp;&ensp;&ensp;&ensp;&ensp; </strong></td>
                             <td><strong>@Model.HighSchoolName</strong><br />@Model.HighSchoolType.TypeName , @Model.HighSchoolDepartment.DepartmentName<br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
 
                         </tr>
