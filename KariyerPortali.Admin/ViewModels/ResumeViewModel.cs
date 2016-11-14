@@ -65,6 +65,8 @@ namespace KariyerPortali.Admin.ViewModels
 
         public virtual DrivingLicenseClass DrivingLicense2Class { get; set; }
         public DateTime DrivingLicense2Date { get; set; }
+        public DateTime UniversityStart { get; set; }
+        public DateTime UniversityEnd { get; set; }
 
         public int? HighSchoolTypeId { get; set; }
         public virtual HighSchoolType HighSchoolType { get; set; }
@@ -80,5 +82,11 @@ namespace KariyerPortali.Admin.ViewModels
         public virtual SalaryWaited SalaryWaited { get; set; }
 
         public List<LanguageInfo> LanguageInfos { get; set; }
+        public List<EducationInfo> EducationInfos { get; set; }
+        public List<ExamInfo> ExamInfos { get; set; }
+        public List<SkillInfo> SkillInfos { get; set; }
+        public List<Course> Courses { get; set; }
+        public List<Reference> References { get; set; }
+        public List<Experience> Experiences { get; set; }
     }
 }
