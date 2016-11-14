@@ -109,11 +109,14 @@ namespace KariyerPortali.Data
             {
                 new Language {
                     LanguageId=1,
-                    LanguageName="İngilizce"
-
-                }
-
+                    LanguageName="İngilizce"},
+            
+                new Language{LanguageId=2,LanguageName="Fransızca"}
+            
             };
+
+        
+        
         }
 
         private static List<University> GetUniversities()
@@ -180,8 +183,8 @@ namespace KariyerPortali.Data
                 BirthDate=Convert.ToDateTime("05.11.1988"),
                 CreateDate=Convert.ToDateTime("11.11.2016"),
                 MilitaryPostponeDate=Convert.ToDateTime("18.04.2018"),
-                CandidateId=1,
                 LanguageId=1,
+                CandidateId=1,
                 Gender = Gender.Male,
                 BirthCityId=1,
                 MaritalStatus =MaritalStatus.Single,
@@ -205,6 +208,8 @@ namespace KariyerPortali.Data
             resume.LanguageInfos = new List<LanguageInfo>();
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
 
+         
+            
            
 
             resume.EducationInfos = new List<EducationInfo>();

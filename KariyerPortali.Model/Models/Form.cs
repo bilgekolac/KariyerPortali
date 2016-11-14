@@ -12,9 +12,9 @@ namespace KariyerPortali.Model.Models
 
         public string FormName { get; set; }
 
-        public string Emailbcc { get; set; }
+        public string Email_bcc { get; set; }
 
-        public string Emailcc { get; set; }
+        public string Email_cc { get; set; }
 
         public string Description { get; set; }
 

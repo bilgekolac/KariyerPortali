@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model.Models
 {
-    public class FormType
+    class Redirect
     {
-        public int FormTypeId { get; set; }
-
-        public string FormTypeName { get; set; }
-
     }
 }
