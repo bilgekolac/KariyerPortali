@@ -235,6 +235,8 @@
     <Compile Include="ViewModels\JobViewModel.cs" />
     <Compile Include="ViewModels\LanguageFormViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
+    <Compile Include="ViewModels\NotificationFormViewModel.cs" />
+    <Compile Include="ViewModels\NotificationViewModel.cs" />
     <Compile Include="ViewModels\PageFormViewModel.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\PostFormViewModel.cs" />
