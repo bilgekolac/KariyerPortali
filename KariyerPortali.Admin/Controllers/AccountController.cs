@@ -382,7 +382,7 @@ namespace KariyerPortali.Admin.Controllers
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("ertyeni@gmail.com", "Kariyer Portalı");
+                mailMessage.From = new MailAddress("kariyerportali@gmail.com", "Kariyer Portalı");
                 mailMessage.Subject = "Şifre Sıfırlama İsteği ";
                 mailMessage.To.Add(model.Email);
                 string body;
@@ -391,7 +391,7 @@ namespace KariyerPortali.Admin.Controllers
                 mailMessage.IsBodyHtml = true;
                 mailMessage.Body = body;
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
-                smtp.Credentials = new System.Net.NetworkCredential("ertyeni@gmail.com", "48448300+");
+                smtp.Credentials = new System.Net.NetworkCredential("kariyerportali@gmail.com", "Admin123+");
                 smtp.EnableSsl = true;
                 smtp.Send(mailMessage);
                 //await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
