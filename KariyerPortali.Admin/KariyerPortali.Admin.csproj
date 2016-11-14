@@ -218,6 +218,8 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CandidateFormViewModel.cs" />
     <Compile Include="ViewModels\CandidateViewModel.cs" />
+    <Compile Include="ViewModels\CategoryFormViewModel.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CityFormViewModel.cs" />
     <Compile Include="ViewModels\CityViewModel.cs" />
     <Compile Include="ViewModels\CountryFormViewModel.cs" />
