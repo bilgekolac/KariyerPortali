@@ -34,23 +34,7 @@
     <!-- BEGIN THEME LAYOUT STYLES -->
     <!-- END THEME LAYOUT STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
-    <script type="text/javascript">
-    $(document).ready(function () {
-
-        var makeAllFormSubmitOnEnter = function () {
-            $('form input, form select').live('keypress', function (e) {
-                if (e.which && e.which == 13) {
-                    $(this).parents('form').submit();
-                    return false;
-                } else {
-                    return true;
-                }
-            });
-        };
-
-        makeAllFormSubmitOnEnter();
-    });
-    </script>
+    
 </head>
 
 <!-- BEGIN LOGO -->
