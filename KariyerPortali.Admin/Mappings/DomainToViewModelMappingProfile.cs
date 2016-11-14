@@ -36,6 +36,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Sector, SectorViewModel>();
             Mapper.CreateMap<Page, PageViewModel>();
             Mapper.CreateMap<Setting, SettingViewModel>();
+            Mapper.CreateMap<Notification, NotificationViewModel>();
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }
