@@ -10,7 +10,7 @@
                 "sortAscending": ": A'dan Z'ye Sonuçlar Listeleniyor.",
                 "sortDescending": ": Z'den A'ya Sonuçlar Listeleniyor."
             },
-            "emptyTable": "Bu Tabloda Veri Bulunamadı.",
+            "emptyTable": "Kayıt Bulunamadı",
             "info":"Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı.",
 

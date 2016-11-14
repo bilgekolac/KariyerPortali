@@ -57,6 +57,7 @@
     <Compile Include="JobService.cs" />
     <Compile Include="LanguageInfoService.cs" />
     <Compile Include="LanguageService.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="PostService.cs" />
     <Compile Include="ReferenceService.cs" />
