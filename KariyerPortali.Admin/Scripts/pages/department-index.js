@@ -10,7 +10,7 @@
                 "sortAscending": ": activate to sort column ascending",
                 "sortDescending": ": activate to sort column descending"
             },
-            "emptyTable": "Görüntülenecek Kayıt Yok",
+            "emptyTable":"Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı",
             "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",

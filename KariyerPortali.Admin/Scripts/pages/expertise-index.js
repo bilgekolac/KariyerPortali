@@ -12,7 +12,7 @@
             },
 
 
-            "emptyTable": "Böyle bir kayıt bulunamamaktadır",
+            "emptyTable":"Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt bulunamadı",
             "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
