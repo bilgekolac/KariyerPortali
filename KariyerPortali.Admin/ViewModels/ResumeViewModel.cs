@@ -78,5 +78,7 @@ namespace KariyerPortali.Admin.ViewModels
         public virtual BloodType BloodType { get; set; }
         public virtual CigaretteStatus CigaretteStatus { get; set; }
         public virtual SalaryWaited SalaryWaited { get; set; }
+
+        public List<LanguageInfo> LanguageInfos { get; set; }
     }
 }
