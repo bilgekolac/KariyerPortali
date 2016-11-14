@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model.Models
+namespace KariyerPortali.Model
 {
     public class Category
     {
