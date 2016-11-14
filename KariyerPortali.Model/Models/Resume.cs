@@ -56,6 +56,7 @@ namespace KariyerPortali.Model
 
         
         public int? BirthCityId { get; set; }
+        [ForeignKey("BirthCityId")]
         public virtual City BirthCity { get; set; }
 
         public virtual MaritalStatus MaritalStatus { get; set; }

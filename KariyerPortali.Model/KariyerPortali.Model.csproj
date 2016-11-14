@@ -54,6 +54,9 @@
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\ExamInfo.cs" />
     <Compile Include="Models\Expertise.cs" />
+    <Compile Include="Models\Form.cs" />
+    <Compile Include="Models\FormInfo.cs" />
+    <Compile Include="Models\FormType.cs" />
     <Compile Include="Models\Gender.cs" />
     <Compile Include="Models\HighSchoolCertificate.cs" />
     <Compile Include="Models\HighSchoolDepartment.cs" />
@@ -68,6 +71,7 @@
     <Compile Include="Models\NotificationType.cs" />
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Redirect.cs" />
     <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\ReferenceType.cs" />
     <Compile Include="Models\Resume.cs" />
