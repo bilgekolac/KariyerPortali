@@ -144,7 +144,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         
         
-        public ActionResult MyProfile(string username = "")
+        public ActionResult MyProfile(string username="")
         {
 
             if (username == "")
