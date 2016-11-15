@@ -6307,6 +6307,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pages\application-index.js" />
     <Content Include="Scripts\pages\candidate-index.js" />
+    <Content Include="Scripts\pages\category-index.js" />
     <Content Include="Scripts\pages\city-index.js" />
     <Content Include="Scripts\pages\Country-Index.js" />
     <Content Include="Scripts\pages\department-index.js" />
