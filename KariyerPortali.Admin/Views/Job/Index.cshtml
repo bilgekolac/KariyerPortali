@@ -7,7 +7,26 @@
     <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 
 <!-- END HEAD -->
+<script type="text/javascript">
+    function exportExcel() {
+        var tableExport = document.getElementById('allJobTable');
+        var html = tableExport.outerHTML;
+		 while (html.indexOf('ç') != -1) html = html.replace('ç', '&ccedil;');
+     while (html.indexOf('ğ') != -1) html = html.replace('ğ', '&#287;');
+     while (html.indexOf('ı') != -1) html = html.replace('ı', '&#305;');
+     while (html.indexOf('ö') != -1) html = html.replace('ö', '&ouml;');
+     while (html.indexOf('ş') != -1) html = html.replace('ş', '&#351;');
+     while (html.indexOf('ü') != -1) html = html.replace('ü', '&uuml;');
 
+     while (html.indexOf('Ç') != -1) html = html.replace('Ç', '&Ccedil;');
+     while (html.indexOf('Ğ') != -1) html = html.replace('Ğ', '&#286;');
+     while (html.indexOf('İ') != -1) html = html.replace('İ', '&#304;');
+     while (html.indexOf('Ö') != -1) html = html.replace('Ö', '&Ouml;');
+     while (html.indexOf('Ş') != -1) html = html.replace('Ş', '&#350;');
+     while (html.indexOf('Ü') != -1) html = html.replace('Ü', '&Uuml;');
+        window.open('data:application/vnd.ms-excel,' + encodeURIComponent(html));
+    }
+</script>
 
     <br />
     <div class="page-bar">
