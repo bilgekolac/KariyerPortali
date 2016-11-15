@@ -5,6 +5,7 @@
 
 <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<script src="/Scripts/generate-slug.js"></script>
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -34,7 +35,7 @@
 
                 </div>
             </div>
-            @using (Html.BeginForm("Edit", "Category", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm())
 
             {
                 @Html.AntiForgeryToken()
