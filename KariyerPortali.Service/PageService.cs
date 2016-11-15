@@ -12,7 +12,7 @@ namespace KariyerPortali.Service
     public interface IPageService
     {
         IEnumerable<Page> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
-        IEnumerable<Page> GetCities();
+        IEnumerable<Page> GetPages();
         Page GetPage(int id);
         void CreatePage(Page Page);
         void UpdatePage(Page Page);
@@ -31,14 +31,14 @@ namespace KariyerPortali.Service
         #region IPageService Members
         public IEnumerable<Page> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
         {
-            var cities = PageRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+            var pages = PageRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
 
-            return cities;
+            return pages;
         }
-        public IEnumerable<Page> GetCities()
+        public IEnumerable<Page> GetPages()
         {
-            var cities = PageRepository.GetAll();
-            return cities;
+            var pages = PageRepository.GetAll();
+            return pages;
         }
         public Page GetPage(int id)
         {
