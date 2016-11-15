@@ -6454,7 +6454,7 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
     <Content Include="Views\Form\CreateForm.cshtml" />
-    <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Form\CreateFormInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
