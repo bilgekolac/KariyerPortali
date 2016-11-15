@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model.Models
 {
-    class RedirectType
+    public enum RedirectType
     {
     }
 }
