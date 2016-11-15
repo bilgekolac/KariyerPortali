@@ -12,18 +12,18 @@
             },
             "emptyTable": "Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
-            "infoEmpty": "Herhangi bir kayıt bulunamadı.",
+            "infoEmpty": "Kayıt bulunamadı",
             "infoFiltered": "(filtered1 from _MAX_ total records)",
-            "lengthMenu": "Göster _MENU_",
+            "lengthMenu": "Göster : _MENU_",
             "search": "Ara:",
-            "zeroRecords": "Eşleşen bir sonuç bulunamadı.",
+            "zeroRecords": "Arama kriterinizle eşleşen kayıt yok",
             "paginate": {
                 "previous": "Önceki",
                 "next": "Sonraki",
-                "last": "Son Sayfa",
-                "first": "İlk Sayfa",
-                "proccessing": "Yükleniyor"
-            }
+                "last": "Son",
+                "first": "İlk"
+            },
+            "sProcessing": "Yükleniyor..."
         },
 
         // Or you can use remote translation file
@@ -35,11 +35,10 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
-        "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
-        "bProccessing": true,
+        "bServerSide": true,
+        "bProcessing": true,
         "sAjaxSource": "/Category/AjaxHandler",
-        "bStateSave": true,
+        "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
             [5, 15, 20, -1],
@@ -49,26 +48,26 @@
         "pageLength": 5,
         "pagingType": "bootstrap_full_number",
         "columnDefs": [
-          {  // set default column settings
-              'orderable': false,
-              'searchable': false,
-              'targets': [0],
-              'render': function (data, type, row) {
-                  return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
-              }
-          },
-
-            {
+            {  // set default column settings
                 'orderable': false,
                 'searchable': false,
-                'targets': [3],
+                'targets': [0],
                 'render': function (data, type, row) {
-                    return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Category/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Category/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
-                      + '<a href="/Category/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                    return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
                 }
+            },
+             {
+                 'orderable': false,
+                 'searchable': false,
+                 'targets': [6],
+                 'render': function (data, type, row) {
+                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Category/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
+                        + '<a href="/Category/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                 }
 
-            }
+             }
+
 
         ],
         "order": [

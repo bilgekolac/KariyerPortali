@@ -17,8 +17,7 @@ namespace KariyerPortali.Model
         public int? ParentCategoryId { get; set; }
         [ForeignKey("ParentCategoryId")]
         public virtual Category ParentCategory { get; set; }
-        public string Description { get; set; }
-        
+        public string Description { get; set; } 
        
     }
 }

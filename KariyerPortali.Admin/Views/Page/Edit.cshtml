@@ -1,7 +1,6 @@
-﻿@model KariyerPortali.Admin.ViewModels.PostFormViewModel
-
+﻿@model KariyerPortali.Admin.ViewModels.PageViewModel
 @{
-    ViewBag.Title = "Yazı Oluştur";
+    ViewBag.Title = "Sayfayı Düzenle";
 }
 
 <!-- BEGIN PAGE HEADER-->
@@ -9,16 +8,16 @@
 <!-- END THEME PANEL -->
 <!-- BEGIN PAGE BAR -->
 <script src="/Scripts/ckeditor/ckeditor.js"></script>
-<script src="/Scripts/generate-slug.js"> </script>
+<script src="/Scripts/generate-slug.js"></script>
 <br />
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="@Url.Action("Index","Post")">Yazılar</a>
+            <a href="@Url.Action("Index","Page")">Sayfalar</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Yeni Yazı</span>
+            <span>Sayfayı Düzenle</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -47,16 +46,12 @@
                 <div class="caption font-dark">
                     <i class="icon-settings font-black-sunglo"></i>
                     <span class="caption-subject bold uppercase">
-                        YENİ YAZI EKLE
+                        SAYFAYI DÜZENLE
                     </span>
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                </div>
-            </div>
+
             <div>
                 @using (Html.BeginForm())
                 {
@@ -67,7 +62,16 @@
                             <div class="form-body">
 
 
-
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        @Html.HiddenFor(model => model.PageId)
+                                        @Html.HiddenFor(model => model.CreateDate)
+                                        @Html.HiddenFor(model => model.CreatedBy)
+                                        @Html.HiddenFor(model => model.UpdateDate)
+                                        @Html.HiddenFor(model => model.UpdatedBy)
+                                    </div>
+                                </div>
 
 
 
@@ -75,37 +79,31 @@
 
 
                                     @Html.LabelFor(model => model.Title)
-                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", autofocus = "autofocus",@onblur="$('#Slug').val(slug($(this).val().toLowerCase(),'-'))" } })
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
-
-                                  
                                 </div>
-                     
+
                                 <div class="form-group">
 
 
                                     @Html.LabelFor(model => model.Slug)
-                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control", autofocus = "autofocus" } })               
+                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
-                                    <script></script>
-                                    
-                                    
                                 </div>
 
 
-
                                 <div class="form-group">
-                                    
-                                        <br>
-                                    @Html.LabelFor(model => model.Body)
-                                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10", autofocus = "autofocus" } })
-                                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
-                                        
-                                        <script>
-                                            CKEDITOR.replace('Body');
-                                        </script>
 
-                                   
+                                    <br>
+
+                                    @Html.LabelFor(model => model.Body)
+                                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10" } })
+                                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                                    <script>
+                                            CKEDITOR.replace('Body');
+                                    </script>
+
+
 
 
 
@@ -122,14 +120,38 @@
                             </div>
 
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="pageparentdiv" class="postbox ">
+
+                                        <div class="inside">
+                                          
+                                            <div class="col-sm-6">
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(model => model.PageOrder)
+                                                    @Html.EditorFor(model => model.PageOrder, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", autofocus = "autofocus" } })
+                                                    @Html.ValidationMessageFor(model => model.PageOrder, " ", new { @class = "text-danger" })
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
 
 
                             <div class="form-actions">
-                                <button type="submit" tabindex="4" class="btn blue">
+                                <button type="submit" tabindex="6" class="btn blue">
                                     Kaydet
                                 </button>
-                                <button type="button" tabindex="5" class="btn default" onclick="window.location='@Url.Action("Index","Post")';">
+                                <button type="button" tabindex="7" class="btn default" onclick="window.location='@Url.Action("Index","Page")';">
                                     İptal
                                 </button>
 
@@ -152,6 +174,3 @@
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
-<div class="row ">
-
-</div>

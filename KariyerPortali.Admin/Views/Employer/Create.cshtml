@@ -62,23 +62,23 @@
 
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.EmployerName)
-                                                @Html.EditorFor(model => model.EmployerName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
+                                                @Html.EditorFor(model => model.EmployerName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner",autofocus="autofocus" } })
                                                 @Html.ValidationMessageFor(model => model.EmployerName, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.UserName)
-                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @tabindex = "3", @class = "form-control spinner" } })
+                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @tabindex = "3", @class = "form-control spinner", autofocus = "autofocus" } })
                                                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.SectorId)
-                                                @Html.DropDownList("SectorId", null, new { @tabindex = "5", @class = "form-control" })
+                                                @Html.DropDownList("SectorId", null, new { @tabindex = "5", @class = "form-control", autofocus = "autofocus" })
                                                 @Html.ValidationMessageFor(model => model.SectorId, "", new { @class = "text-danger" })
 
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.CityId)
-                                                @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control" })
+                                                @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control", autofocus = "autofocus" })
                                                 @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
@@ -96,26 +96,26 @@
                                                 <div class="form-group">
 
                                                     @Html.LabelFor(model => model.Email)
-                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner", autofocus = "autofocus" } })
                                                     @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
 
                                                 </div>
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.Phone)
-                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner" } })
+                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @tabindex = "4", @class = "form-control spinner", autofocus = "autofocus" } })
                                                     @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
 
 
                                                 </div>
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.WebSite)
-                                                    @Html.EditorFor(model => model.WebSite, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner" } })
+                                                    @Html.EditorFor(model => model.WebSite, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner", autofocus = "autofocus" } })
                                                     @Html.ValidationMessageFor(model => model.WebSite, "", new { @class = "text-danger" })
 
                                                 </div>
                                                 <div class="form-group">
                                                     @Html.LabelFor(model => model.Address)<br/>
-                                                    @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner" } })
+                                                    @Html.TextAreaFor(model => model.Address, new { htmlAttributes = new { @tabindex = "8", @class = "form-control spinner", autofocus = "autofocus" } })
                                                     @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
 
 

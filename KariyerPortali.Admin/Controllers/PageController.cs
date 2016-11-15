@@ -14,14 +14,18 @@ namespace KariyerPortali.Admin.Controllers
     public class PageController : BaseController
     {
         // GET: Pages
-       private readonly IPageService PageService;
-        public PageController(IPageService PageService,ICountryService countryService)
+       private readonly IPageService pageService;
+       
+
+       public PageController(IPageService pageService)
         {
-            this.PageService = PageService;
+            this.pageService = pageService;
+            
         }
 
         public ActionResult Index()
         {
+
             return View();
         }
         public ActionResult Edit(int? id)
@@ -29,7 +33,7 @@ namespace KariyerPortali.Admin.Controllers
            
             if (id.HasValue)
             {
-                var Page = PageService.GetPage(id.Value);
+                var Page = pageService.GetPage(id.Value);
                 if (Page != null)
                 {
                     var PageViewModel = Mapper.Map<Page, PageViewModel>(Page);
@@ -47,8 +51,8 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var Page = Mapper.Map<PageFormViewModel, Page>(PageForm);
-                PageService.UpdatePage(Page);
-                PageService.SavePage();
+                pageService.UpdatePage(Page);
+                pageService.SavePage();
                 return RedirectToAction("Index");
             }
             return View(PageForm);
@@ -57,6 +61,7 @@ namespace KariyerPortali.Admin.Controllers
       
         public ActionResult Create()
         {
+            ViewBag.ParentPageId = new SelectList(pageService.GetPages(), "ParentPageId", "ParentPage");
            
             return View();
         }
@@ -72,8 +77,8 @@ namespace KariyerPortali.Admin.Controllers
                 page.CreateDate = DateTime.Now;
                 page.UpdatedBy = User.Identity.Name;
                 page.UpdateDate = DateTime.Now;
-                PageService.CreatePage(page);
-                PageService.SavePage();
+                pageService.CreatePage(page);
+                pageService.SavePage();
                 return RedirectToAction("Index");
             }
             return View(PageForm);
@@ -81,7 +86,7 @@ namespace KariyerPortali.Admin.Controllers
 
         public ActionResult Details(int id)
         {
-            var Page = PageService.GetPage(id);
+            var Page = pageService.GetPage(id);
             return View(Mapper.Map<Page, PageViewModel>(Page));
 
         }
@@ -90,11 +95,11 @@ namespace KariyerPortali.Admin.Controllers
         {
             if (id.HasValue)
             {
-                var Page = PageService.GetPage(id.Value);
+                var Page = pageService.GetPage(id.Value);
                 if (Page != null)
                 {
-                    PageService.DeletePage(Page);
-                    PageService.SavePage();
+                    pageService.DeletePage(Page);
+                    pageService.SavePage();
                     return RedirectToAction("Index");
                 }
             }
@@ -125,7 +130,7 @@ namespace KariyerPortali.Admin.Controllers
             var sortDirection = Request["sSortDir_0"]; // asc or desc
             int iTotalRecords;
             int iTotalDisplayRecords;
-            var displayedPages = PageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var displayedPages = pageService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from p in displayedPages
                          select new[] { p.PageId.ToString(), p.Title.ToString(),p.CreatedBy.ToString(),p.ViewCount.ToString(),p.UpdateDate.ToString(),string.Empty };

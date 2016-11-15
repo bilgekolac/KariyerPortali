@@ -73,6 +73,7 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Redirect.cs" />
+    <Compile Include="Models\RedirectType.cs" />
     <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\ReferenceType.cs" />
     <Compile Include="Models\Resume.cs" />

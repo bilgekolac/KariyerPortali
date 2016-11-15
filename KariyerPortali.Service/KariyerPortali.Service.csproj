@@ -63,6 +63,7 @@
     <Compile Include="NotificationService.cs" />
     <Compile Include="PageService.cs" />
     <Compile Include="PostService.cs" />
+    <Compile Include="RedirectService.cs" />
     <Compile Include="ReferenceService.cs" />
     <Compile Include="ResumeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

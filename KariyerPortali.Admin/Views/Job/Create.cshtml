@@ -54,22 +54,22 @@
                                 <div class="form-body">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.EmployerId)
-                                        @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control" })
+                                        @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control",autofocus="autofocus" })
                                         @Html.ValidationMessageFor(model => model.EmployerId, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.CityId)
-                                        @Html.DropDownList("CityId", null, new { @tabindex = "3", @class = "form-control" })
+                                        @Html.DropDownList("CityId", null, new { @tabindex = "3", @class = "form-control", autofocus = "autofocus" })
                                         @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.JobType)
-                                        @Html.EnumDropDownListFor(model => model.JobType, "", new { @tabindex = "5", @class = "form-control" })
+                                        @Html.EnumDropDownListFor(model => model.JobType, "", new { @tabindex = "5", @class = "form-control", autofocus = "autofocus" })
                                         @Html.ValidationMessageFor(model => model.JobType, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.ExperienceId)
-                                        @Html.DropDownList("ExperienceId", null, new { @tabindex = "7", @class = "form-control" })
+                                        @Html.DropDownList("ExperienceId", null, new { @tabindex = "7", @class = "form-control", autofocus = "autofocus" })
                                         @Html.ValidationMessageFor(model => model.ExperienceId, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
@@ -100,22 +100,22 @@
                                 <div class="form-body">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Title)
-                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
+                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner", autofocus = "autofocus" } })
                                         @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Description)<br />
-                                        @Html.TextAreaFor(model => model.Description, new { @tabindex = "4", @class = "form-control spinner", @width="auto" })
+                                        @Html.TextAreaFor(model => model.Description, new { @tabindex = "4", @class = "form-control spinner", @width="auto", autofocus = "autofocus" })
                                         @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Responsibilities)<br />
-                                        @Html.TextAreaFor(model => model.Responsibilities,new { @tabindex = "6", @class = "form-control spinner" } )
+                                        @Html.TextAreaFor(model => model.Responsibilities,new { @tabindex = "6", @class = "form-control spinner", autofocus = "autofocus" } )
                                         @Html.ValidationMessageFor(model => model.Responsibilities, "", new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Qualifications)<br />
-                                        @Html.TextAreaFor(model => model.Qualifications, new { @tabindex = "8", @class = "form-control spinner" } )
+                                        @Html.TextAreaFor(model => model.Qualifications, new { @tabindex = "8", @class = "form-control spinner", autofocus = "autofocus" } )
                                         @Html.ValidationMessageFor(model => model.Qualifications, "", new { @class = "text-danger" })
                                     </div>
 

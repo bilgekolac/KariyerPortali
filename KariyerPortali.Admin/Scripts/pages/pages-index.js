@@ -39,7 +39,7 @@
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
         "bProccessing": true,
         "sAjaxSource": "/Page/AjaxHandler",
-        "bStateSave": true,
+        
 
         "lengthMenu": [
             [5, 15, 20, -1],

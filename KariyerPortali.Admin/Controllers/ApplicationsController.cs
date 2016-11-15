@@ -43,8 +43,8 @@ namespace KariyerPortali.Admin.Controllers
                          select new[] {j.JobApplicationId.ToString(), (j.Candidate != null ? j.Candidate.FirstName.ToString():string.Empty),
                              (j.Candidate != null ? j.Candidate.LastName.ToString():string.Empty),
                              (j.Employer != null ? j.Employer.EmployerName.ToString():string.Empty ),
-                             (j.Job !=null ? j.Job.Title.ToString():string.Empty), j.ApplicationDate.ToShortDateString(),
-                             j.UpdateDate.ToShortDateString(), string.Empty};
+                             (j.Job !=null ? j.Job.Title.ToString():string.Empty), j.ApplicationDate.ToString(),
+                             j.UpdateDate.ToString(), string.Empty};
             
             return Json(new
             {

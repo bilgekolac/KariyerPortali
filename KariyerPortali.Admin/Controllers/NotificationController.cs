@@ -33,8 +33,8 @@ namespace KariyerPortali.Admin.Controllers
             var displayedNotifications = notificationService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
 
             var result = from n in displayedNotifications
-                         select new[] { n.NotificationId.ToString(), n.Message.ToString(), n.Details.ToString(),
-                         n.Param1.ToString(),n.Param2.ToString(),n.Param3.ToString(),n.NotificationDate.ToShortDateString(), n.NotificationType.ToString()};
+                         select new[] { n.NotificationId.ToString(), n.UserName,n.NotificationType.ToString(), string.Format(n.Message,n.Param1,n.Param2,n.Param3), n.Details ?? string.Empty,
+                         n.NotificationDate.ToShortDateString() };
             
             return Json(new
             {
