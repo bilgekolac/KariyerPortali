@@ -8,5 +8,7 @@ namespace KariyerPortali.Model
 {
     public enum RedirectType
     {
+        Permanent = 1,
+        Temporary = 2
     }
 }
