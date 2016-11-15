@@ -198,6 +198,7 @@
     <Compile Include="Controllers\NotificationController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Controllers\SectorController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
