@@ -100,7 +100,7 @@ namespace KariyerPortali.Data.Repositories
             var displayedJobs = filteredJobs.Skip(displayStart);
             if (displayLength >= 0)
             {
-                displayedDepartments = displayedDepartments.Take(displayLength);
+                displayedJobs = displayedJobs.Take(displayLength);
             }
             totalRecords = allJobs.Count();
             totalDisplayRecords = filteredJobs.Count();
