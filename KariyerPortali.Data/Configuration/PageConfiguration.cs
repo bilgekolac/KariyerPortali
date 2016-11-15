@@ -12,7 +12,7 @@ namespace KariyerPortali.Data.Configuration
     {
         public PageConfiguration()
         {
-            ToTable("Table");
+            ToTable("Pages");
             HasKey<int>(p=>p.PageId);
             Property(p => p.Title).IsRequired().HasMaxLength(100);
             Property(p => p.Slug).HasMaxLength(500);
