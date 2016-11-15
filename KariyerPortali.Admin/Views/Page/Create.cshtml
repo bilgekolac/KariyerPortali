@@ -89,14 +89,10 @@
                                     <div class="inside">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Üst Sayfa</label>
-                                                <select class="form-control">
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                </select>
+                                                @Html.LabelFor(model => model.ParentPageId)
+                                                @Html.DropDownList("ParentPageId", null, new { @tabindex = "4", @class = "form-control", autofocus = "autofocus" })
+                                                @Html.ValidationMessageFor(model => model.ParentPageId, "", new { @class = "text-danger" })
+
                                             </div>
 
                                         </div>
