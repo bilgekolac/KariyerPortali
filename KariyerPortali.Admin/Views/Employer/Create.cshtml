@@ -78,7 +78,7 @@
                                             </div>
                                             <div class="form-group">
                                                 @Html.LabelFor(model => model.CityId)
-                                                @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control" })
+                                                @Html.DropDownList("CityId", null, new { @tabindex = "7", @class = "form-control", autofocus = "autofocus" })
                                                 @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
                                             </div>
                                         </div>
