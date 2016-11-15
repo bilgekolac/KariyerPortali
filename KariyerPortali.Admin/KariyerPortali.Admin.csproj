@@ -189,6 +189,7 @@
     <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExpertiseController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -234,6 +235,8 @@
     <Compile Include="ViewModels\ExpertiseViewModel.cs" />
     <Compile Include="ViewModels\FileFormViewModel.cs" />
     <Compile Include="ViewModels\FileViewModel.cs" />
+    <Compile Include="ViewModels\FormFormViewModel.cs" />
+    <Compile Include="ViewModels\FormViewModel.cs" />
     <Compile Include="ViewModels\JobApplicationViewModel.cs" />
     <Compile Include="ViewModels\JobFormViewModel.cs" />
     <Compile Include="ViewModels\JobViewModel.cs" />
@@ -6314,7 +6317,6 @@
     <Content Include="Scripts\pages\employer-index.js" />
     <Content Include="Scripts\pages\exam-index.js" />
     <Content Include="Scripts\pages\expertise-index.js" />
-    <Content Include="Scripts\pages\graphic.css" />
     <Content Include="Scripts\pages\job-index.js" />
     <Content Include="Scripts\pages\language-index.js" />
     <Content Include="Scripts\pages\Media-Index.js" />
@@ -6447,7 +6449,6 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Scripts\pages\index.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6457,6 +6458,7 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

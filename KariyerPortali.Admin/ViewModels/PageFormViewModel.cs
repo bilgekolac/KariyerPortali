@@ -1,6 +1,8 @@
-﻿using System;
+﻿using KariyerPortali.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -29,5 +31,14 @@ namespace KariyerPortali.Admin.ViewModels
 
         [DisplayName("Tarih")]
         public DateTime UpdateDate { get; set; }
+       
+        [DisplayName("Sıralama")]
+        public int PageOrder { get; set; }
+
+        [DisplayName("Üst Sayfa")]
+        public int? ParentPageId { get; set; }
+
+        [ForeignKey("ParentPageId")]
+        public virtual Page ParentPage { get; set; }
     }
 }
