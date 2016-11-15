@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace KariyerPortali.Model
         public string Address { get; set; }
         public string HighSchoolName { get; set; }
         public string ComputerSkill { get; set; }
-        public string Certificate { get; set; }
+       
         public string ScholarshipAndProject { get; set; }
         public string Hobby { get; set; }
         public string MemberOwnedCommunity { get; set; }
@@ -85,7 +86,7 @@ namespace KariyerPortali.Model
         public virtual BloodType BloodType { get; set; }
         public virtual CigaretteStatus CigaretteStatus { get; set; }
         public virtual SalaryWaited SalaryWaited { get; set; }
-
+        public virtual ICollection<Certificate> CertificateInfos { get; set; }
         public virtual ICollection<LanguageInfo> LanguageInfos { get; set; }
         public virtual ICollection<ExamInfo> ExamInfos { get; set; }
         public virtual ICollection<SkillInfo> SkillInfos { get; set; }

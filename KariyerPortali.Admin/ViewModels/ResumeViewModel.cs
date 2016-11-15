@@ -1,4 +1,5 @@
 ﻿using KariyerPortali.Model;
+using KariyerPortali.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,6 @@ namespace KariyerPortali.Admin.ViewModels
         public string Address { get; set; }
         public string HighSchoolName { get; set; }
         public string ComputerSkill { get; set; }
-        public string Certificate { get; set; }
         public string ScholarshipAndProject { get; set; }
         public string Hobby { get; set; }
         public string MemberOwnedCommunity { get; set; }
@@ -41,7 +41,7 @@ namespace KariyerPortali.Admin.ViewModels
 
         public int? CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
-
+       
 
         public int? LanguageId { get; set; }
         public virtual Language Language { get; set; }
@@ -81,6 +81,7 @@ namespace KariyerPortali.Admin.ViewModels
         public virtual CigaretteStatus CigaretteStatus { get; set; }
         public virtual SalaryWaited SalaryWaited { get; set; }
 
+        public List<Certificate> CertificateInfos { get; set; }
         public List<LanguageInfo> LanguageInfos { get; set; }
         public List<EducationInfo> EducationInfos { get; set; }
         public List<ExamInfo> ExamInfos { get; set; }

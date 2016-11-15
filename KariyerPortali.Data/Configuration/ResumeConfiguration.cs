@@ -38,7 +38,7 @@ namespace KariyerPortali.Data.Configuration
             Property(c => c.HighSchoolEnd).IsRequired();
             Property(c => c.CertificateDegree).IsOptional();
             Property(c => c.ComputerSkill).IsOptional().HasMaxLength(200);
-            Property(c => c.Certificate).IsOptional().HasMaxLength(200);
+           
             Property(c => c.ScholarshipAndProject).IsOptional().HasMaxLength(200);
             Property(c => c.Hobby).IsOptional();
             Property(c => c.MemberOwnedCommunity).IsOptional().HasMaxLength(200);
