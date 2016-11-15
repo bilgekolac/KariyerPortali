@@ -51,13 +51,13 @@
                             <div class="form-body">
 
                                 @Html.LabelFor(model => model.Slug)
-                                @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
+                                @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner" } })
                                 @Html.ValidationMessageFor(model => model.Slug, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-body">
 
                                 @Html.LabelFor(model => model.Description)
-                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner" } })
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @tabindex = "3", @class = "form-control spinner" } })
                                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
 
