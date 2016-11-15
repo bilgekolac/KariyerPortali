@@ -115,6 +115,7 @@
     <Compile Include="Repositories\NotificationRepository.cs" />
     <Compile Include="Repositories\PageRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\RedirectRepository.cs" />
     <Compile Include="Repositories\ReferenceRepository.cs" />
     <Compile Include="Repositories\ResumeRepository.cs" />
     <Compile Include="Repositories\SectorRepository.cs" />
