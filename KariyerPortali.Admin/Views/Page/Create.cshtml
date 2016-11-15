@@ -103,11 +103,9 @@
                                         <div class="col-sm-6">
 
                                             <div class="form-group">
-                                                <label>Sıralama</label>
-                                                <div class="input-icon right">
-
-                                                    <input type="text" class="form-control" placeholder="Sıralama">
-                                                </div>
+                                                @Html.LabelFor(model => model.)
+                                                @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", placeholder = "KISA ADI GİRİNİZ" } })
+                                                @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
                                             </div>
 
 
