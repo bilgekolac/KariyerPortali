@@ -73,32 +73,33 @@
 
                                 <div class="form-group">
 
-                                   
-                                        @Html.LabelFor(model => model.Title)
-                                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
-                                        @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
+
+                                    @Html.LabelFor(model => model.Title)
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", autofocus = "autofocus" } })
+                                    @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
 
                                   
                                 </div>
                      
                                 <div class="form-group">
 
-                                   
+
                                     @Html.LabelFor(model => model.Slug)
+                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control", autofocus = "autofocus" } })
                                     @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control",@onblur="slug()" } })
                                     @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
                                     
                                     
                                     
                                 </div>
-                                 
+
 
 
                                 <div class="form-group">
                                     
                                         <br>
                                     @Html.LabelFor(model => model.Body)
-                                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10" } })
+                                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10", autofocus = "autofocus" } })
                                     @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                                         
                                         <script>

@@ -23,17 +23,17 @@ namespace KariyerPortali.Data.Repositories
             {
                 if (sSearch != null && sSearch != "")
                 {
-                    DateTime dDate;
-                    bool dateParsed = false;
-                    if (DateTime.TryParse(sSearch, out dDate))
-                    {
-                        dDate = DateTime.Parse(sSearch);
-                        dateParsed = true;
-                    }
+                    //DateTime dDate;
+                    //bool dateParsed = false;
+                    //if (DateTime.TryParse(sSearch, out dDate))
+                    //{
+                    //    dDate = DateTime.Parse(sSearch);
+                    //    dateParsed = true;
+                    //}
                     query = query.Where(j => j.Candidate.FirstName.Contains(sSearch) ||
                    j.Candidate.LastName.Contains(sSearch) || j.Employer.EmployerName.Contains(sSearch) ||
-                   j.Job.Title.Contains(sSearch) || (dateParsed == true ? j.ApplicationDate == dDate : false) ||
-                   (dateParsed == true ? j.UpdateDate == dDate : false)
+                   j.Job.Title.Contains(sSearch) || /*dateParsed == true ?*/ j.ApplicationDate.ToString().Contains(sSearch) /*== dDate : false*/ ||
+                   /*dateParsed == true ?*/ j.UpdateDate.ToString().Contains(sSearch) /*=/*= dDate : false*/
                     );
                 }
             }

@@ -189,6 +189,7 @@
     <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExpertiseController.cs" />
+    <Compile Include="Controllers\FormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -6457,6 +6458,7 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
