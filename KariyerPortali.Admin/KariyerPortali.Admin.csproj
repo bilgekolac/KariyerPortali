@@ -5606,6 +5606,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="assets\layouts\layout7\img\Thumbs.db" />
@@ -6332,6 +6334,7 @@
     <Content Include="Scripts\pdfFromHTML.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\table-datatables-buttons.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Uploads\Account\kariyerportaliAdminDefault.png" />
     <Content Include="Web.config" />
