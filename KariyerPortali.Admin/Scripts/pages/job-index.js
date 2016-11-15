@@ -7,21 +7,21 @@
         // Internationalisation. For more info refer to http://datatables.net/manual/i18n
         "language": {
             "aria": {
-                "sortAscending": ": A'dan Z'ye Sonuçlar Listeleniyor.",
-                "sortDescending": ": Z'den A'ya Sonuçlar Listeleniyor."
+                "sortAscending": ": activate to sort column ascending",
+                "sortDescending": ": activate to sort column descending"
             },
             "emptyTable": "Kayıt Bulunamadı",
-            "info":"Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
-            "infoEmpty": "Kayıt Bulunamadı.",
-
-            "lengthMenu": "Sayfa başına _MENU_ kayıt göster",
+            "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
+            "infoEmpty": "Kayıt Bulunamadı",
+            "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
+            "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
-            "zeroRecords": "Sonuç Bulunamadı.",
+            "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
             "paginate": {
-                "previous": "Prev",
-                "next": "Next",
-                "last": "Last",
-                "first": "First"
+                "previous": "Önceki",
+                "next": "Sonraki",
+                "last": "Son",
+                "first": "İlk"
             }
         },
 
@@ -62,7 +62,7 @@
                  'render': function (data, type, row) {
                      return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
                          + '<ul class="dropdown-menu" role="menu"><li><a href="/Job/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Job/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
-                         + '<a href="/Job/Delete/' + row[0] + '"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                         + '<a href="/Job/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                  }
 
              }

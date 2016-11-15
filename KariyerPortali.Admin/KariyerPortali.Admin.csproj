@@ -6314,7 +6314,6 @@
     <Content Include="Scripts\pages\employer-index.js" />
     <Content Include="Scripts\pages\exam-index.js" />
     <Content Include="Scripts\pages\expertise-index.js" />
-    <Content Include="Scripts\pages\graphic.css" />
     <Content Include="Scripts\pages\job-index.js" />
     <Content Include="Scripts\pages\language-index.js" />
     <Content Include="Scripts\pages\Media-Index.js" />

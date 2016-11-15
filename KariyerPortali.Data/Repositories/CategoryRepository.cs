@@ -70,7 +70,7 @@ namespace KariyerPortali.Data.Repositories
 
             }
             var displayedCategories = filteredCategories.Skip(displayStart);
-            if (displayLength > 0)
+            if (displayLength >= 0)
             {
                 displayedCategories = displayedCategories.Take(displayLength);
             }

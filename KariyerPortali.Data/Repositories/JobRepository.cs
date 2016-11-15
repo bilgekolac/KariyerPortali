@@ -97,8 +97,11 @@ namespace KariyerPortali.Data.Repositories
                 }
             }
 
-            var displayedJobs = filteredJobs.Skip(displayStart).Take(displayLength);
-
+            var displayedJobs = filteredJobs.Skip(displayStart);
+            if (displayLength >= 0)
+            {
+                displayedJobs = displayedJobs.Take(displayLength);
+            }
             totalRecords = allJobs.Count();
             totalDisplayRecords = filteredJobs.Count();
             return displayedJobs.ToList();

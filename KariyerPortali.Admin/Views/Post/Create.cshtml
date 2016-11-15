@@ -82,7 +82,7 @@
 
 
                                     @Html.LabelFor(model => model.Slug)
-                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control",@onblur="slug" } })
+                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control" } })
                                     @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
                                 </div>
 
@@ -91,15 +91,15 @@
                                 <div class="form-group">
                                     
                                         <br>
-
-                                        @Html.LabelFor(model => model.Body)
-                                        @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10" } })
-                                        @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                                    @Html.LabelFor(model => model.Body)
+                                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10" } })
+                                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                                        
                                         <script>
                                             CKEDITOR.replace('Body');
                                         </script>
 
-                                    
+                                   
 
 
 
