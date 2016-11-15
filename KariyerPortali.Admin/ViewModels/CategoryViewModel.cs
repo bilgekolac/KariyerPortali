@@ -17,7 +17,8 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Kısa Ad")]
         [Required(ErrorMessage = "Lütfen bir kısa ad giriniz.")]
         public string Slug { get; set; }
-        public int? ParentCategoryId { get; set; }
+        [DisplayName("Veli")]
+        public int? ParentCategoryId { get; set; }        
         public virtual Category ParentCategory { get; set; }
         [DisplayName("Açıklama")]
         public string Description { get; set; }
