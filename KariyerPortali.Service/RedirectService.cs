@@ -1,4 +1,6 @@
-﻿using KariyerPortali.Model;
+﻿using KariyerPortali.Data.Infrastructure;
+using KariyerPortali.Data.Repositories;
+using KariyerPortali.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,63 +9,58 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Service
 {
-    //public interface IRedirectService
-    //{
-    //    IEnumerable<Redirect> GetCandidates();
-    //    Redirect GetCandidate(int id);
-    //    void CreateCandidate(Candidate candidate);
-    //    void UpdateCandidate(Candidate candidate);
-    //    void DeleteCandidate(Candidate candidate);
-    //    int CountCandidate();
-    //    void SaveCandidate();
-    //}
-    //public class RedirectService : IRedirectService
-    //{
-    //    private readonly ICandidateRepository candidateRepository;
-    //    private readonly IUnitOfWork unitOfWork;
-    //    public CandidateService(ICandidateRepository candidateRepository, IUnitOfWork unitOfWork)
-    //    {
-    //        this.candidateRepository = candidateRepository;
-    //        this.unitOfWork = unitOfWork;
-    //    }
-    //    #region ICandidateService Members
-    //    public IEnumerable<Candidate> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
-    //    {
-    //        var candidates = candidateRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+    public interface IRedirectService
+    {
+        IEnumerable<Redirect> GetRedirects();
+        Redirect GetRedirect(int id);
+        void CreateRedirect(Redirect redirect);
+        void UpdateRedirect(Redirect redirect);
+        void DeleteRedirect(Redirect redirect);
+        int CountRedirect();
+        void SaveRedirect();
+    }
+    public class RedirectService : IRedirectService
+    {
+        private readonly IRedirectRepository redirectRepository;
+        private readonly IUnitOfWork unitOfWork;
+        public RedirectService(IRedirectRepository redirectRepository, IUnitOfWork unitOfWork)
+        {
+            this.redirectRepository = redirectRepository;
+            this.unitOfWork = unitOfWork;
+        }
+        #region IService Members
+       
+        public IEnumerable<Redirect> GetRedirects()
+        {
+            var redirects = redirectRepository.GetAll();
+            return redirects;
+        }
+        public Redirect GetRedirect(int id)
+        {
+            var redirect = redirectRepository.GetById(id);
+            return redirect;
+        }
+        public void CreateRedirect(Redirect redirect)
+        {
+            redirectRepository.Add(redirect);
+        }
+        public void UpdateRedirect(Redirect redirect)
+        {
+            redirectRepository.Update(redirect);
+        }
+        public void DeleteRedirect(Redirect redirect)
+        {
+            redirectRepository.Delete(redirect);
+        }
+        public void SaveRedirect()
+        {
+            unitOfWork.Commit();
+        }
+        public int CountRedirect()
+        {
+            return redirectRepository.GetAll().Count();
+        }
 
-    //        return candidates;
-    //    }
-    //    public IEnumerable<Candidate> GetCandidates()
-    //    {
-    //        var candidates = candidateRepository.GetAll();
-    //        return candidates;
-    //    }
-    //    public Candidate GetCandidate(int id)
-    //    {
-    //        var candidate = candidateRepository.GetById(id);
-    //        return candidate;
-    //    }
-    //    public void CreateCandidate(Candidate candidate)
-    //    {
-    //        candidateRepository.Add(candidate);
-    //    }
-    //    public void UpdateCandidate(Candidate candidate)
-    //    {
-    //        candidateRepository.Update(candidate);
-    //    }
-    //    public void DeleteCandidate(Candidate candidate)
-    //    {
-    //        candidateRepository.Delete(candidate);
-    //    }
-    //    public void SaveCandidate()
-    //    {
-    //        unitOfWork.Commit();
-    //    }
-    //    public int CountCandidate()
-    //    {
-    //        return candidateRepository.GetAll().Count();
-    //    }
-
-    //    #endregion
-    //}
+        #endregion
+    }
 }

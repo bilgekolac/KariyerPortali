@@ -25,6 +25,7 @@ namespace KariyerPortali.Admin.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.ParentCategoryId = new SelectList(categoryService.GetCategories(), "ParentCategoryId", "CategoryName");
             return View();
         }
         [HttpPost]
@@ -48,6 +49,7 @@ namespace KariyerPortali.Admin.Controllers
                 if (category != null)
                 {
                     var categoryViewModel = Mapper.Map<Category, CategoryViewModel>(category);
+                    ViewBag.ParentCategoryId = new SelectList(categoryService.GetCategories(), "ParentCategoryId", "CategoryName", category.ParentCategoryId);
                     return View(categoryViewModel);
                 }
             }
@@ -64,6 +66,7 @@ namespace KariyerPortali.Admin.Controllers
                 categoryService.SaveCategory();
                 return RedirectToAction("Index");
             }
+            ViewBag.ParentCategoryId = new SelectList(categoryService.GetCategories(), "ParentCategoryId", "CategoryName", categoryForm.ParentCategoryId);
             return View(categoryForm);
         }
         public ActionResult Delete(int? id)
