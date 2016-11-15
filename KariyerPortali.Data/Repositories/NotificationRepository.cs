@@ -62,9 +62,12 @@ namespace KariyerPortali.Data.Repositories
                     case 5:
                         filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationDate);
                         break;
+                    case 6:
+                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationType);
+                        break;
 
                     default:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationType);
+                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationId);
                         break;
                 }
             }
@@ -92,8 +95,12 @@ namespace KariyerPortali.Data.Repositories
                         filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationDate);
                         break;
 
-                    default:
+                       case 6:
                         filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationType);
+                        break;
+
+                    default:
+                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationId);
                         break;
                 }
             }
