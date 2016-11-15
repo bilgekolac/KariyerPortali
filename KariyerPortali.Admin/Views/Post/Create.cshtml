@@ -75,7 +75,7 @@
 
 
                                     @Html.LabelFor(model => model.Title)
-                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", autofocus = "autofocus" } })
+                                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", autofocus = "autofocus",@onblur="$('#Slug').val(slug($(this).val().toLowerCase(),'-'))" } })
                                     @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
 
                                   
@@ -87,7 +87,7 @@
                                     @Html.LabelFor(model => model.Slug)
                                     @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control", autofocus = "autofocus" } })               
                                     @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
-                                    
+                                    <script></script>
                                     
                                     
                                 </div>
