@@ -103,9 +103,9 @@
                                         <div class="col-sm-6">
 
                                             <div class="form-group">
-                                                @Html.LabelFor(model => model.)
-                                                @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", placeholder = "KISA ADI GİRİNİZ" } })
-                                                @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
+                                                @Html.LabelFor(model => model.PageOrder)
+                                                @Html.EditorFor(model => model.PageOrder, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", placeholder = "SIRALAMA" } })
+                                                @Html.ValidationMessageFor(model => model.PageOrder, " ", new { @class = "text-danger" })
                                             </div>
 
 

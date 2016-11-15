@@ -32,7 +32,10 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Tarih")]
         public DateTime UpdateDate { get; set; }
        
+        [DisplayName("Sıralama")]
         public int PageOrder { get; set; }
+
+        [DisplayName("Üst Sayfa")]
         public int? ParentPageId { get; set; }
 
         [ForeignKey("ParentPageId")]
