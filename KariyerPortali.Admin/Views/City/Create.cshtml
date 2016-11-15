@@ -26,16 +26,14 @@
 {
     @Html.AntiForgeryToken()
     <div class="row">
-        <div class="col-md-6 ">
+        
             <!-- BEGIN SAMPLE FORM PORTLET-->
             <div class="portlet light bordered">
                 <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase">YENİ ŞEHİR EKLEME</span>
+                    <h1 class="page-title">
+                        Yeni Şehir
+                    </h1>
                     </div>
-
-                </div>
                 <div class="row">
                     <div class="col-md-12">
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -74,7 +72,7 @@
                 </div>
             </div>
         </div>
-    </div>
+ 
 }
     <!-- END SAMPLE FORM PORTLET-->
     <!-- BEGIN SAMPLE FORM PORTLET-->
