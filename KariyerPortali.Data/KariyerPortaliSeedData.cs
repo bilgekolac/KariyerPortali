@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Data
 {
-    public class KariyerPortaliSeedData : DropCreateDatabaseIfModelChanges<KariyerPortaliEntities>
+    public class KariyerPortaliSeedData : CreateDatabaseIfNotExists<KariyerPortaliEntities>
     {
         
         protected override void Seed(KariyerPortaliEntities context)
@@ -111,7 +111,7 @@ namespace KariyerPortali.Data
                     LanguageId=1,
                     LanguageName="İngilizce"},
             
-                new Language{LanguageId=2,LanguageName="Fransızca"}
+                new Language{LanguageId=2,LanguageName="Fransızca"},
             
             };
 
@@ -123,12 +123,17 @@ namespace KariyerPortali.Data
         {
             return new List<University>
             {
+
                 new University {
                     UniversityId=1,
-                    UniversityName="Ankara Üniversitesi"
-                    
+                    UniversityName="Yıldız Teknik Üniversitesi"},
 
-                }
+                new University {
+                    UniversityId=2,
+                    UniversityName="Ankara Üniversitesi"},
+                
+
+
 
             };
         }
@@ -137,14 +142,20 @@ namespace KariyerPortali.Data
         {
             return new List<Department>
             {
-                new Department {
-                    
+
+                  new Department {
+
                     DepartmentId=1,
+                    DepartmentName="Elektronik-Haberleşme Mühendisliği"
+
+                },
+                  new Department {
+                    
+                    DepartmentId=2,
                     DepartmentName="Fizik Mühendisliği"
                     
-
-                }
-
+                },
+              
             };
         }
 
@@ -207,17 +218,15 @@ namespace KariyerPortali.Data
 
             resume.LanguageInfos = new List<LanguageInfo>();
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
+            resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 2, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
 
          
             
-           
-
+         
             resume.EducationInfos = new List<EducationInfo>();
-            resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=1,DepartmentId=1,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
-
-           
-
-
+            resume.EducationInfos.Add(new EducationInfo() { EducationInfoId = 1, EducationStatus = EducationStatus.Master, UniversityId = 1, DepartmentId = 1, UniversityStart = Convert.ToDateTime("14.03.2016"), UniversityEnd = Convert.ToDateTime("14.03.2019") });
+            resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=2,DepartmentId=2,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
+          
             resumes.Add(resume);
 
             return resumes;

@@ -82,7 +82,7 @@
 
 
                                     @Html.LabelFor(model => model.Slug)
-                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control" } })
+                                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control",@onblur="slug" } })
                                     @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
                                 </div>
 

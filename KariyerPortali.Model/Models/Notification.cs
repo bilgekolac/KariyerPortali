@@ -10,6 +10,7 @@ namespace KariyerPortali.Model
     public class Notification
     {
         public int NotificationId { get; set; }
+        public string UserName { get; set; }
         public string Message { get; set; }
         public string Details { get; set; }
         public DateTime NotificationDate { get; set; }

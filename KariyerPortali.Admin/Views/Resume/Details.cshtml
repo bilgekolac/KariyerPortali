@@ -66,6 +66,7 @@
                 </div>
 
                 <br />
+                <br />
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">local_phone</i>
@@ -183,23 +184,61 @@
                 </div>
 
 
-                <table class="table">
-
+                <table class="table" style="margin-right:auto">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Üniversite Adı</th>
+                            <th>Bölüm Adı</th>
+                            <th>Giriş - Mezuniyet Tarihi</th>
+                           
+                        </tr>
+                    </thead>
                     <tbody>
-                        <tr>
-                            @foreach (var educationInfo in Model.EducationInfos) { 
-                            <td><strong>Eğitim Durumu &ensp; &ensp;&ensp; : </strong>@educationInfo.EducationStatus</td>
-                            <td><strong>@educationInfo.University.UniversityName</strong><br />@educationInfo.Department.DepartmentName<br />@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
-                            }
-                        </tr>
+                        @foreach (var educationInfo in Model.EducationInfos)
+                        {
+                            <tr>
 
-                        <tr>
-                            <td><strong>Lise Bilgileri  &ensp; &ensp;&ensp;&ensp;&ensp;&ensp; </strong></td>
-                            <td><strong>@Model.HighSchoolName</strong><br />@Model.HighSchoolType.TypeName , @Model.HighSchoolDepartment.DepartmentName<br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
+                                <td><strong>(@educationInfo.EducationStatus)</strong></td>
+                                <td>@educationInfo.University.UniversityName</td>
+                                <td>@educationInfo.Department.DepartmentName</td>
+                                <td>@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
+                             
+                            </tr>
 
-                        </tr>
+                        }
                     </tbody>
                 </table>
+                <br />
+                <table class="table" style="margin-right:auto">
+                    <thead>
+                        <tr>
+                            <th><strong>Lise Bilgileri</strong></th>
+                            <th>Lise Adı</th>
+                            <th>Lise Türü - Bölüm</th>
+                           
+                            <th>Giriş ve Mezuniyet Tarihi</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                            <tr>
+                                <td></td>
+                                <td>@Html.DisplayFor(model => model.HighSchoolName)</td>
+                                <td>@Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName)</td>
+                            
+                                <td>@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
+
+                            </tr>
+
+                       
+                    </tbody>
+                </table>
+
+                
+                
+             
 
                 <br />
 
@@ -301,9 +340,13 @@
                         <span class="caption-subject">Referanslar</span>
                     </div>
                 </div>
-
-
+            
             </div>
+
+            <div class="form-actions right" style="margin-left:653px">
+                <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
+            </div>
+
         </div>
 
        

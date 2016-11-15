@@ -6307,6 +6307,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pages\application-index.js" />
     <Content Include="Scripts\pages\candidate-index.js" />
+    <Content Include="Scripts\pages\category-index.js" />
     <Content Include="Scripts\pages\city-index.js" />
     <Content Include="Scripts\pages\Country-Index.js" />
     <Content Include="Scripts\pages\department-index.js" />
@@ -6317,6 +6318,7 @@
     <Content Include="Scripts\pages\job-index.js" />
     <Content Include="Scripts\pages\language-index.js" />
     <Content Include="Scripts\pages\Media-Index.js" />
+    <Content Include="Scripts\pages\notification-index.js" />
     <Content Include="Scripts\pages\pages-index.js" />
     <Content Include="Scripts\pages\post-index.js" />
     <Content Include="Scripts\pages\resume-index.js" />
