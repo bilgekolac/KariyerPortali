@@ -15,12 +15,12 @@ namespace KariyerPortali.Admin.Controllers
     {
         // GET: Pages
        private readonly IPageService pageService;
-       private readonly IPageService pageParentService;
+       
 
-       public PageController(IPageService pageService, IPageService pageParentService)
+       public PageController(IPageService pageService)
         {
             this.pageService = pageService;
-            this.pageParentService = pageParentService;
+            
         }
 
         public ActionResult Index()
@@ -61,7 +61,7 @@ namespace KariyerPortali.Admin.Controllers
       
         public ActionResult Create()
         {
-            ViewBag.PageParentId = new SelectList(pageService.GetPages(), "ParentPageId", "ParentPage");
+            ViewBag.ParentPageId = new SelectList(pageService.GetPages(), "ParentPageId", "ParentPage");
            
             return View();
         }
