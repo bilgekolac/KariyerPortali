@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Data
 {
-    public class KariyerPortaliSeedData : CreateDatabaseIfNotExists<KariyerPortaliEntities>
+    public class KariyerPortaliSeedData : DropCreateDatabaseIfModelChanges<KariyerPortaliEntities>
     {
         
         protected override void Seed(KariyerPortaliEntities context)
