@@ -237,6 +237,8 @@
     <Compile Include="ViewModels\FileFormViewModel.cs" />
     <Compile Include="ViewModels\FileViewModel.cs" />
     <Compile Include="ViewModels\FormFormViewModel.cs" />
+    <Compile Include="ViewModels\FormInfoFormViewModel.cs" />
+    <Compile Include="ViewModels\FormInfoViewModel.cs" />
     <Compile Include="ViewModels\FormViewModel.cs" />
     <Compile Include="ViewModels\JobApplicationViewModel.cs" />
     <Compile Include="ViewModels\JobFormViewModel.cs" />
@@ -5606,7 +5608,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -6310,7 +6311,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pages\application-index.js" />
     <Content Include="Scripts\pages\candidate-index.js" />
@@ -6327,12 +6327,12 @@
     <Content Include="Scripts\pages\notification-index.js" />
     <Content Include="Scripts\pages\pages-index.js" />
     <Content Include="Scripts\pages\post-index.js" />
+    <Content Include="Scripts\pages\redirect-index.js" />
     <Content Include="Scripts\pages\resume-index.js" />
     <Content Include="Scripts\pages\sector-index.js" />
     <Content Include="Scripts\pages\skill-index.js" />
     <Content Include="Scripts\pages\university-index.js" />
     <Content Include="Scripts\pages\user-index.js" />
-    <Content Include="Scripts\pdfFromHTML.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\table-datatables-buttons.min.js" />
@@ -6457,6 +6457,7 @@
     <Content Include="Views\Form\CreateForm.cshtml" />
     <Content Include="Views\Form\CreateFormInfo.cshtml" />
     <Content Include="Views\Form\FormDetails.cshtml" />
+    <Content Include="Views\Redirect\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

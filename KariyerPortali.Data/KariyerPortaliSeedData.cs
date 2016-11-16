@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Data
 {
-    public class KariyerPortaliSeedData : CreateDatabaseIfNotExists<KariyerPortaliEntities>
+    public class KariyerPortaliSeedData : DropCreateDatabaseIfModelChanges<KariyerPortaliEntities>
     {
         
         protected override void Seed(KariyerPortaliEntities context)
@@ -183,7 +183,7 @@ namespace KariyerPortali.Data
                 Address="Bahçeşehir/İSTANBUL",
                 HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
                 ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
-                Certificate="İŞKUR Yazılım Sertifikası",
+               
                 ScholarshipAndProject="Kariyer Portalı",
                 Hobby="Müzik,Spor",
                 MemberOwnedCommunity="TEV",
@@ -219,13 +219,14 @@ namespace KariyerPortali.Data
             resume.LanguageInfos = new List<LanguageInfo>();
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 1, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
             resume.LanguageInfos.Add(new LanguageInfo() { LanguageInfoId = 1, LanguageId = 2, ReadingLanguageLevel = LanguageLevel.Advance, WritingLanguageLevel = LanguageLevel.Advance, SpeakingLanguageLevel = LanguageLevel.Good });
-
-         
-            
+                   
          
             resume.EducationInfos = new List<EducationInfo>();
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId = 1, EducationStatus = EducationStatus.Master, UniversityId = 1, DepartmentId = 1, UniversityStart = Convert.ToDateTime("14.03.2016"), UniversityEnd = Convert.ToDateTime("14.03.2019") });
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=2,DepartmentId=2,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
+
+            resume.Experiences = new List<Experience>();
+            resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,ExperienceName = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016") });
           
             resumes.Add(resume);
 
