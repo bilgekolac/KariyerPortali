@@ -26,15 +26,17 @@
             "sProcessing": "Yükleniyor..."
         },
 
-        // Or you can use remote translation file
-        //"language": {
-        //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-        //},
-
-        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
-        // So when dropdowns used the scrollable div should be removed. 
-        //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+        buttons: [{
+            extend: 'collection',
+            className: 'btn green  btn-outline dropdown-toggle',
+            text: 'Araçlar',
+            buttons: [
+              { extend: "excel", className: "fa fa-file-excel-o" },
+              { extend: "pdf", className: "fa fa-file-pdf-o" },
+              { extend: "print", className: "fa fa-print" }
+            ]
+        }
+        ],
         "bServerSide": true,
         "bProcessing": true,
         "sAjaxSource": "/Sector/AjaxHandler",
@@ -66,7 +68,8 @@
                         + '<a href="/Sector/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
                  }
              }
-        ],
+        ],        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
