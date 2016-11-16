@@ -22,71 +22,21 @@
                 "next": "Sonraki",
                 "last": "Son",
                 "first": "İlk"
-            }
+            },
+            "sProcessing": "Yükleniyor..."
         },
 
-        // Or you can use remote translation file
-        //"language": {
-        //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-        //},
-
-        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
-        // So when dropdowns used the scrollable div should be removed. 
-        //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-        //buttons: [
-        //{ extend: 'print', className: 'btn default' },
-        //{ extend: 'copy', className: 'btn default' },
-        //{ extend: 'pdf', className: 'btn default' },
-        //{ extend: 'excel', className: 'btn default' },
-        //{ extend: 'csv', className: 'btn default' },
-        //{
-        //    text: 'Reload',
-        //    className: 'btn default',
-        //    action: function ( e, dt, node, config ) {
-        //        //dt.ajax.reload();
-        //        alert('Custom Button');
-        //    }
-        //}
-        //],
-        //buttons: [{
-        //    extend: "print",
-        //    className: "btn dark btn-outline"
-        //}, {
-        //    extend: "copy",
-        //    className: "btn red btn-outline"
-
-        //}, {
-        //    extend: "pdf",
-        //    className: "btn green btn-outline"
-        //}, {
-        //    extend: "excel", 
-        //    className: "btn yellow btn-outline "
-        //}, {
-        //    extend: "csv",
-        //    className: "btn purple btn-outline "
-        //}, {
-        //    extend: "colvis",
-        //    className: "btn dark btn-outline",
-        //    text: "Columns"
-        //}],
-
         buttons: [{
-            extend: "print",
-            className: "btn dark btn-outline"
-        }, {
-            extend: "copy", className: "btn red btn-outline"
-        }, {
-            extend: "pdf", className: "btn green btn-outline"
-        }, {
-            extend: "excel", className: "btn yellow btn-outline "
-        }, {
-            extend: "csv", className: "btn purple btn-outline "
-        }, {
-            extend: "colvis", className: "btn dark btn-outline", text: "Columns"
-        }],
-
-
+            extend: 'collection',
+            className: 'btn green  btn-outline dropdown-toggle',
+            text: 'Araçlar',
+            buttons: [
+              { extend: "excel", className: "fa fa-file-excel-o" },
+              { extend: "pdf", className: "fa fa-file-pdf-o" },
+              { extend: "print", className: "fa fa-print" }
+            ]
+        }
+        ],
 
         "bServerSide": true,
         "bProcessing": true,
