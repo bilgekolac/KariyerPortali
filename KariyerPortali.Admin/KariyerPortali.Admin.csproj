@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExpertiseController.cs" />
     <Compile Include="Controllers\FormController.cs" />
+    <Compile Include="Controllers\FormInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -265,6 +266,7 @@
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
     <Content Include="assets\apps\css\ticket.css" />
@@ -6457,7 +6459,7 @@
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
     <Content Include="Views\Form\Create.cshtml" />
-    <Content Include="Views\Form\FormInfo\Create.cshtml" />
+    <Content Include="Views\FormInfo\Create.cshtml" />
     <Content Include="Views\Form\Details.cshtml" />
     <Content Include="Views\Redirect\Index.cshtml" />
     <Content Include="Views\Redirect\Create.cshtml" />

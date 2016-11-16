@@ -20,14 +20,14 @@ namespace KariyerPortali.Admin.Controllers
             this.formInfoService = formInfoService;
         }
         // GET: Form
-        public ActionResult CreateForm()
+        public ActionResult Create()
         {
             var form = new FormFormViewModel();
             return View(form);
         }
 
         //[HttpPost]
-        //public ActionResult CreateForm(FormFormViewModel form)
+        //public ActionResult Create(FormFormViewModel form)
         //{
         //    if (ModelState.IsValid)
         //    {
@@ -56,44 +56,9 @@ namespace KariyerPortali.Admin.Controllers
 
         //}
 
-        public ActionResult FormDetails(int? id)
+        public ActionResult Details(int? id)
         {
             return View();
         }
-
-        public ActionResult CreateFormInfo(int? id)
-        {
-            var formInfo = new FormInfoFormViewModel();
-            return View(formInfo);
-        }
-        //[HttpPost]
-        //public ActionResult CreateForm(FormFormViewModel form, FormInfoFormViewModel formInfo)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var frm = Mapper.Map<FormFormViewModel, Form>(form);
-        //        List<SocialRight> selectedSocialRights = new List<SocialRight>();
-        //        foreach (var item in form.SocialRightId)
-        //        {
-        //            selectedSocialRights.Add(socialService.GetSocialRight(item));
-        //        }
-        //        job.SocialRights = selectedSocialRights;
-        //        job.Createdate = DateTime.Now;
-        //        job.CreatedBy = User.Identity.Name;
-        //        job.UpdateDate = DateTime.Now;
-        //        job.UpdatedBy = User.Identity.Name;
-        //        jobService.CreateJob(job);
-
-        //        jobService.SaveJob();
-        //        return RedirectToAction("Index");
-
-        //    }
-        //    ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
-        //    ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-        //    ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-        //    ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
-        //    return View(jobForm);
-
-        //}
     }
 }
