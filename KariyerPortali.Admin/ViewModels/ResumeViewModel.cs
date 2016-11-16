@@ -81,6 +81,7 @@ namespace KariyerPortali.Admin.ViewModels
         public virtual CigaretteStatus CigaretteStatus { get; set; }
         public virtual SalaryWaited SalaryWaited { get; set; }
 
+        public virtual ExperienceStatus ExperienceStatus { get; set; }
         public List<Certificate> CertificateInfos { get; set; }
         public List<LanguageInfo> LanguageInfos { get; set; }
         public List<EducationInfo> EducationInfos { get; set; }
