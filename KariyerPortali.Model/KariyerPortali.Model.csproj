@@ -43,6 +43,7 @@
     <Compile Include="Models\BloodType.cs" />
     <Compile Include="Models\Candidate.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\CigaretteStatus.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Models\Page.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\Redirect.cs" />
+    <Compile Include="Models\RedirectType.cs" />
     <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\ReferenceType.cs" />
     <Compile Include="Models\Resume.cs" />

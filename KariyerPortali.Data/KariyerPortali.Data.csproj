@@ -71,6 +71,7 @@
     <Compile Include="Configuration\NotificationConfiguration.cs" />
     <Compile Include="Configuration\PageConfiguration.cs" />
     <Compile Include="Configuration\PostConfiguration.cs" />
+    <Compile Include="Configuration\RedirectConfiguration.cs" />
     <Compile Include="Configuration\ReferenceConfiguration.cs" />
     <Compile Include="Configuration\ResumeConfiguration.cs" />
     <Compile Include="Configuration\SectorConfiguration.cs" />
@@ -103,6 +104,8 @@
     <Compile Include="Repositories\ExperienceRepository.cs" />
     <Compile Include="Repositories\ExpertiseRepository.cs" />
     <Compile Include="Repositories\FileRepository.cs" />
+    <Compile Include="Repositories\FormInfoRepository.cs" />
+    <Compile Include="Repositories\FormRepository.cs" />
     <Compile Include="Repositories\HighSchoolDepartmentRepository.cs" />
     <Compile Include="Repositories\HighSchoolTypeRepository.cs" />
     <Compile Include="Repositories\JobApplicationRepository.cs" />
@@ -112,6 +115,7 @@
     <Compile Include="Repositories\NotificationRepository.cs" />
     <Compile Include="Repositories\PageRepository.cs" />
     <Compile Include="Repositories\PostRepository.cs" />
+    <Compile Include="Repositories\RedirectRepository.cs" />
     <Compile Include="Repositories\ReferenceRepository.cs" />
     <Compile Include="Repositories\ResumeRepository.cs" />
     <Compile Include="Repositories\SectorRepository.cs" />

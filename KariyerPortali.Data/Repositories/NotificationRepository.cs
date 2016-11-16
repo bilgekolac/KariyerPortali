@@ -50,21 +50,15 @@ namespace KariyerPortali.Data.Repositories
                         filteredNotifications = filteredNotifications.OrderBy(n => n.Details);
                         break;
                     case 2:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.Param1);
+                        filteredNotifications = filteredNotifications.OrderBy(n => n.UserName);
                         break;
+     
                     case 3:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.Param2);
-                        break;
-
-                    case 4:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.Param3);
-                        break;
-                    case 5:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationDate);
+                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationType);
                         break;
 
                     default:
-                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationType);
+                        filteredNotifications = filteredNotifications.OrderBy(n => n.NotificationDate);
                         break;
                 }
             }
@@ -80,20 +74,14 @@ namespace KariyerPortali.Data.Repositories
                         filteredNotifications = filteredNotifications.OrderByDescending(n=>n.Details);
                         break;
                     case 2:
-                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.Param1);
+                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.UserName);
                         break;
                     case 3:
-                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.Param2);
-                        break;
-                    case 4:
-                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.Param3);
-                        break;
-                    case 5:
-                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationDate);
+                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationType);
                         break;
 
                     default:
-                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationType);
+                        filteredNotifications = filteredNotifications.OrderByDescending(n => n.NotificationDate);
                         break;
                 }
             }

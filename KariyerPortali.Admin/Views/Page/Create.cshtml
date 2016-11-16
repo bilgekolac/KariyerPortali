@@ -46,13 +46,13 @@
                     <div class="form-body">
                         <div class="form-group">
                             @Html.LabelFor(model => model.Title)
-                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", placeholder = "BAŞLIĞI GİRİNİZ" } })
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control", placeholder = "BAŞLIĞI GİRİNİZ", autofocus = "autofocus", @onblur = "$('#Slug').val(slug($(this).val().toLowerCase(),'-'))" } })
                             @Html.ValidationMessageFor(model => model.Title, " ", new { @class = "text-danger" })
                         </div>
 
                         <div class="form-group">
                             @Html.LabelFor(model => model.Slug)
-                            @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control", placeholder = "KISA ADI GİRİNİZ" } })
+                            @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @tabindex = "2", @class = "form-control", placeholder = "KISA ADI GİRİNİZ", autofocus = "autofocus" } })
                             @Html.ValidationMessageFor(model => model.Slug, " ", new { @class = "text-danger" })
                         </div>
 
@@ -63,7 +63,7 @@
                             <p>
                                 <br>
 
-                                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10" } })
+                                @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10", autofocus = "autofocus" } })
                                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                                 <script>
                                     CKEDITOR.replace('Body');
@@ -89,25 +89,19 @@
                                     <div class="inside">
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label>Üst Sayfa</label>
-                                                <select class="form-control">
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                    <option>Yok</option>
-                                                </select>
+                                                @Html.LabelFor(model => model.ParentPageId)
+                                                @Html.DropDownList("ParentPageId", null, new { @tabindex = "4", @class = "form-control", autofocus = "autofocus" })
+                                                @Html.ValidationMessageFor(model => model.ParentPageId, "", new { @class = "text-danger" })
+
                                             </div>
 
                                         </div>
                                         <div class="col-sm-6">
 
                                             <div class="form-group">
-                                                <label>Sıralama</label>
-                                                <div class="input-icon right">
-
-                                                    <input type="text" class="form-control" placeholder="Sıralama">
-                                                </div>
+                                                @Html.LabelFor(model => model.PageOrder)
+                                                @Html.EditorFor(model => model.PageOrder, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", placeholder = "SIRALAMA", autofocus = "autofocus" } })
+                                                @Html.ValidationMessageFor(model => model.PageOrder, " ", new { @class = "text-danger" })
                                             </div>
 
 

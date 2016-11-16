@@ -13,7 +13,7 @@
             "emptyTable":"Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı",
-            "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
+            "infoFiltered": "(Toplam _MAX_ Kayıt Arasından)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
             "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
@@ -34,7 +34,21 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-
+        buttons: [
+                { extend: 'print', className: 'btn default' },
+                { extend: 'copy', className: 'btn default' },
+                { extend: 'pdf', className: 'btn default' },
+                { extend: 'excel', className: 'btn default' },
+                { extend: 'csv', className: 'btn default' },
+                {
+                    text: 'Reload',
+                    className: 'btn default',
+                    action: function ( e, dt, node, config ) {
+                        //dt.ajax.reload();
+                        alert('Custom Button');
+                    }
+                }
+            ],
         "bServerSide": true,
         "bProcessing": true,
         "sAjaxSource": "/Department/AjaxHandler",
@@ -70,6 +84,7 @@
             }
 
         ],
+        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
@@ -94,4 +109,6 @@
     table.on('change', 'tbody tr .checkboxes', function () {
         $(this).parents('tr').toggleClass("active");
     });
+
+   
 }

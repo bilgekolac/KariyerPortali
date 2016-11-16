@@ -34,7 +34,7 @@
     <br />
 <div class="caption font dark">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-10">
             <div class="portlet light bordered">
                 <div class="portlet-title">
                     <div class="caption font-dark">
@@ -168,11 +168,38 @@
 
                 <div class="form-body">
                     <div class="form-group">
-                        <label><strong>Toplam Tecrübe &ensp; &ensp;&ensp; :</strong></label>
+                        <div class="form-group">
+                            <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> @Html.DisplayFor(model => model.WorkStatus)</label>
+                            <br /><br />
+
+                        </div>
+
+                        <table class="table" style="margin-right:auto">
+                            <thead>
+                                <tr>
+                                  
+                                    <th>Şirket Adı</th>
+                                    <th>Poziyon - Görev</th>
+                                    <th>Giriş Tarihi - Çıkış Tarihi</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var experienceInfo in Model.Experiences)
+                                {
+                                    <tr>
+                                       
+                                        <td>@experienceInfo.CompanyName</td>
+                                        <td>@experienceInfo.ExperienceName</td>
+                                        <td>@experienceInfo.ExperienceStart.ToShortDateString() - @experienceInfo.ExperienceEnd.ToShortDateString()</td>
+
+                                    </tr>
+
+                                }
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="form-group">
-                        <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> @Html.DisplayFor(model => model.WorkStatus)</label>
-                    </div>
+                 
                 </div>
 
                 <br />
@@ -187,10 +214,10 @@
                 <table class="table" style="margin-right:auto">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Durum</th>
                             <th>Üniversite Adı</th>
                             <th>Bölüm Adı</th>
-                            <th>Giriş - Mezuniyet Tarihi</th>
+                            <th>Giriş - Mezuniyet</th>
                            
                         </tr>
                     </thead>
@@ -210,13 +237,14 @@
                     </tbody>
                 </table>
                 <br />
+                   
+             
                 <table class="table" style="margin-right:auto">
                     <thead>
                         <tr>
-                            <th><strong>Lise Bilgileri</strong></th>
-                            <th>Lise Adı</th>
-                            <th>Lise Türü - Bölüm</th>
                            
+                            <th>Lise Adı</th>
+                            <th>Lise Türü - Bölüm</th>                          
                             <th>Giriş ve Mezuniyet Tarihi</th>
 
                         </tr>
@@ -224,7 +252,7 @@
                     <tbody>
                        
                             <tr>
-                                <td></td>
+                             
                                 <td>@Html.DisplayFor(model => model.HighSchoolName)</td>
                                 <td>@Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName)</td>
                             
@@ -237,8 +265,7 @@
                 </table>
 
                 
-                
-             
+              
 
                 <br />
 
@@ -279,22 +306,106 @@
                     </div>
                 </div>
                
-                    <div class="form-body" >
+                 
+                    <div class="form-body">
                         <div class="form-group">
-                            <label><strong>Bilgisayar Bilgileri &ensp; &ensp;: </strong>@Html.DisplayFor(model => model.ComputerSkill)</label>
-                        </div>                                
+                            <label><strong>Sertifika Bilgileri</strong></label>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Dosya</th>
+                                    <th>Sertifika Adı</th>
+                                    <th>Alınan Kurum</th>
+                                    <th>Alındığı Tarih</th>
+                                   
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var certificateInfo in Model.CertificateInfos)
+                                {
+                                    <tr>
+                                        <td>@certificateInfo.FileName</td>
+                                        <td>@certificateInfo.CertificateName</td>
+                                        <td>@certificateInfo.Institute</td>
+                                        <td>@certificateInfo.CertificateDate.ToShortDateString()</td>   
+                                    </tr>                                 
+
+                                }
+                              
+                            </tbody>
+                        </table>
+                        <br />
+                                                             
+                            
                    </div>
                     <div class="form-body">
                         <div class="form-group">
-                            <label><strong>Sertifika Bilgileri &ensp; &ensp;&thinsp;&ensp;: </strong>@Html.DisplayFor(model => model.Certificate)</label>
-                        </div>    
-                   </div>
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label><strong>Sınav Bilgileri &ensp; &ensp;&thinsp;&ensp;&ensp;&ensp;&ensp;: </strong></label>
-                        </div>    
-                       
+                            <label><strong>Sınav Bilgileri</strong></label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sınav Adı</th>
+                                            <th>Puan</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var examInfo in Model.ExamInfos)
+                                        {
+                                            <tr>
+                                                <td>@examInfo.Exam.ExamName</td>
+                                                <td>@examInfo.Point</td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>  
+                            </div>
+                        </div> 
+                     </div>
+                <br />
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <label><strong>Yetenekler</strong></label>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Yetenek Adı</th>
+                                        <th>Puan</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var skillInfo in Model.SkillInfos)
+                                    {
+                                        <tr>
+                                            <td>@skillInfo.Skill.SkillName</td>
+                                            <td>@skillInfo.Point</td>
+                                        </tr>
+
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                </div>
+                <br />
+                <div class="form-group">
+                    <label><strong>Bilgisayar Bilgileri</strong>&ensp; &ensp;&ensp;: @Html.DisplayFor(model =>model.ComputerSkill)</label>
+                </div>
                    
                 <br />
                 <div class="portlet-title">
@@ -302,6 +413,33 @@
                         <i class="material-icons">poll</i>
                         <span class="caption-subject">Seminerler ve Kurslar</span>
                     </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Kurs - Seminer Adı</th>
+                                <th>Kurum</th>
+                                <th>Durum</th>
+                                <th>Süre</th>
+                                <th>Başlangıç - Bitiş Tarihi</th>
+                             
+                              
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var courseInfo in Model.Courses)
+                            {
+                                <tr>
+                                    <td>@courseInfo.CourseName</td>
+                                    <td>@courseInfo.Institution</td>
+                                    <td>@courseInfo.Statement</td>
+                                    <td>@courseInfo.Time</td>
+                                    <td>@courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString()</td>                                                                   
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
                 </div>
 
                 <br />
@@ -340,10 +478,44 @@
                         <span class="caption-subject">Referanslar</span>
                     </div>
                 </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ad</th>
+                            <th>Soyad</th>
+                            <th>E-Posta</th>
+                            <th>Telefon</th>
+                            <th>Şirket Adı</th>
+                            <th>Sektör</th>
+                            <th>Mesaj</th>
+                            <th>Referans Dosyası</th>
+
+
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var referenceInfo in Model.References)
+                        {
+                            <tr>
+                                <td>@referenceInfo.FirstName</td>
+                                <td>@referenceInfo.LastName</td>
+                                <td>@referenceInfo.EPosta</td>
+                                <td>@referenceInfo.Phone</td>
+                                <td>@referenceInfo.CompanyName</td>
+                                <td>@referenceInfo.Sector.SectorName</td>
+                                <td>@referenceInfo.Message</td>
+                                <td>@referenceInfo.ReferenceFile</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
             
             </div>
 
-            <div class="form-actions right" style="margin-left:653px">
+            <div class="form-actions right" >
                 <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
             </div>
 
@@ -352,7 +524,7 @@
        
               
        
-        <div class="col-md-3">
+        <div class="col-md-2">
             <!--ÖZGEÇMİŞ İŞLEMLERİ-->
             <div class="btn-group pull-right">
                 <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">
@@ -384,8 +556,7 @@
             <br />
             <br />
 
-            <div class="portlet light bordered">
-                
+            @*<div class="portlet light bordered">               
                     <div class="form-body">
                         <div class="form-group">
                             <label><strong> Created By : </strong>@Html.DisplayFor(model => model.CreatedBy)</label>
@@ -394,7 +565,7 @@
                             <label><strong> Update By : </strong>@Html.DisplayFor(model => model.UpdatedBy)</label>
                         </div>                                                              
                    </div>             
-            </div>
+            </div>*@
         </div>
 
 

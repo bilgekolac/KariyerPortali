@@ -1,12 +1,14 @@
-﻿@model KariyerPortali.Admin.ViewModels.ExpertiseViewModel
+﻿@model KariyerPortali.Admin.ViewModels.ExpertiseFormViewModel
 @{
     ViewBag.Title = "Create";
 }
-<!DOCTYPE html>
+
+<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="@Url.Action("Index", "Expertise")" class="nav-link ">Uzmanlıklar</a>
+            <a href="@Url.Action("Index", "Expertise")" class="nav-link">Tanımlamalar</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -15,40 +17,47 @@
     </ul>
 
 </div>
-
-<div class="row" style="padding-top:20px">
+<br />
+<div class="row">
     <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <h1 class="page-title">
+                    Yeni Uzmanlık
+                </h1>
 
-        <form action="/Expertise/Create" method="post" novalidate="novalidate">
-            <input name="__RequestVerificationToken" type="hidden" value="CyMQ3Qikvcy2zf_s3XsT-rXmQxztYZfVZbb_CsEnu_qILJRBAUpJnzDEgU-ZcWpSHoZQjJjyQ4gV1vEw4tJ9cl6YGNWa1P5vjwlm0B2DqxlZcBVAXI4Zaom0WInzS9Eg64xzWdKFhtI-ZfaMwF2zIQ2">
-            <div class="portlet light bordered" style="width:300px;">
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="icon-settings font-dark"></i>
-                        <span class="caption-subject bold uppercase">UZMANLIK EKLE</span>
-                    </div>
-                </div>
-                <div class="portlet-body form">
-
-                    <div class="form-body">
-                        <div class="form-group">
-                            <label for="ExpertiseName">Uzmanlık Adı</label>
-                            <input class="form-control spinner text-box single-line" data-val="true" data-val-required="Lütfen bir uzmanlık adı giriniz." id="ExpertiseName" name="ExpertiseName" type="text" value="">
-                            <span class="field-validation-valid text-danger" data-valmsg-for="ExpertiseName" data-valmsg-replace="true"></span>
-                        </div>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn blue">Ekle</button>
-                        <button type="button" class="btn default" onclick="window.location='/Expertise';">İptal</button>
-                    </div>
-
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </form>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ExpertiseName)
+                                @Html.EditorFor(model => model.ExpertiseName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner", autofocus = "autofocus" } })
+                                @Html.ValidationMessageFor(model => model.ExpertiseName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn blue">Ekle</button>
+                            <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Expertise")';">İptal</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
     </div>
 
 </div>
-@section Scripts
-    {
+<!-- END SAMPLE FORM PORTLET-->
+<!-- BEGIN SAMPLE FORM PORTLET-->
+@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 }
