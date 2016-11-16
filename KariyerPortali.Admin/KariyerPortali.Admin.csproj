@@ -265,7 +265,7 @@
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\404.aspx" />
+    <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
     <Content Include="assets\apps\css\ticket.css" />
