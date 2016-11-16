@@ -1,6 +1,6 @@
 ﻿var initTable1 = function () {
 
-    var table = $('#sample_1');
+    var table = $('#allApplicationTable');
     // begin first table
     table.dataTable({
 
@@ -34,6 +34,17 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+        buttons: [{
+            extend: 'collection',
+            className: 'btn green  btn-outline dropdown-toggle',
+            text: 'Araçlar',
+            buttons: [
+              { extend: "excel", className: "fa fa-file-excel-o" },
+              { extend: "pdf", className: "fa fa-file-pdf-o" },
+              { extend: "print", className: "fa fa-print" }
+            ]
+        }
+        ],
         "bServerSide": true,
         "bProccessing": true,
         "sAjaxSource": "/Applications/AjaxHandler",
@@ -68,12 +79,13 @@
 
             }
         ],
+        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
     });
 
-    var tableWrapper = jQuery('#Sample_1_wrapper');
+    var tableWrapper = jQuery('#allApplicationTable_wrapper');
 
     table.find('.group-checkable').change(function () {
         var set = jQuery(this).attr("data-set");
