@@ -31,7 +31,7 @@ namespace KariyerPortali.Admin.ViewModels
         public DateTime CreateDate { get; set; }
         public string UpdatedBy { get; set; }
 
-        [DisplayName("Tarih")]
+        [DisplayName("Oluşturulma Tarihi")]
         public DateTime UpdateDate { get; set; }
        
         [DisplayName("Sıralama")]

@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IRedirectService
     {
+        //IEnumerable<Redirect> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Redirect> GetRedirects();
         Redirect GetRedirect(int id);
         void CreateRedirect(Redirect redirect);
@@ -28,8 +29,14 @@ namespace KariyerPortali.Service
             this.redirectRepository = redirectRepository;
             this.unitOfWork = unitOfWork;
         }
-        #region IService Members
-       
+        #region IRedirectService Members
+        //public IEnumerable<Redirect> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        //{
+        //    var redirects = redirectRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+        //    return redirects;
+        //}
+
         public IEnumerable<Redirect> GetRedirects()
         {
             var redirects = redirectRepository.GetAll();
