@@ -7,5 +7,12 @@ namespace KariyerPortali.Admin.ViewModels
 {
     public class FormInfoViewModel
     {
+        public int FormInfoId { get; set; }
+
+        public string FormInfoDescription { get; set; }
+
+        public string Value { get; set; }
+
+        public List<int> FormTypeId { get; set; }
     }
 }
