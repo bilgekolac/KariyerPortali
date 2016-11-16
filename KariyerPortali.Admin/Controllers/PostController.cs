@@ -15,9 +15,11 @@ namespace KariyerPortali.Admin.Controllers
     {
         // GET: Post
         private readonly IPostService postService;
-        public PostController(IPostService postService)
+        private readonly ICategoryService categoryService;
+        public PostController(IPostService postService, ICategoryService categoryService)
         {
             this.postService = postService;
+            this.categoryService = categoryService;
         }
         public ActionResult Index()
         {
@@ -26,7 +28,10 @@ namespace KariyerPortali.Admin.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            
+            ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", null);
+            var postform = new PostFormViewModel();
+            return View(postform);
         }
         [HttpPost]
         [ValidateInput(false)]
@@ -35,6 +40,12 @@ namespace KariyerPortali.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var post = Mapper.Map<PostFormViewModel, Post>(postFrom);
+                List<Category> selectedCategories = new List<Category>();
+                foreach (var item in postFrom.CategoryId)
+                {
+                    selectedCategories.Add(categoryService.GetCategory(item));
+                }
+                post.Categories = selectedCategories;
                 post.CreatedBy = User.Identity.Name;
                 post.CreateDate = DateTime.Now;
                 post.UpdatedBy = User.Identity.Name;
@@ -43,6 +54,7 @@ namespace KariyerPortali.Admin.Controllers
                 postService.SavePost();
                 return RedirectToAction("Index");
             }
+            ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postFrom.CategoryId);
             return View(postFrom);
         }
         public ActionResult Edit(int? id)

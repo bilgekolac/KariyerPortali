@@ -1,6 +1,6 @@
 ﻿var initTable1 = function () {
 
-    var table = $('#allDepartmentTable');
+    var table = $('#allRedirectTable');
     // begin first table
     table.dataTable({
 
@@ -12,17 +12,18 @@
             },
             "emptyTable":"Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
-            "infoEmpty": "Kayıt Bulunamadı",
-            "infoFiltered": "(Toplam _MAX_ Kayıt Arasından)",
+            "infoEmpty": "Herhangi bir kayıt bulunamadı.",
+            "infoFiltered": "(filtered1 from _MAX_ total records)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
-            "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
+            "zeroRecords": "Eşleşen bir sonuç bulunamadı.",
             "paginate": {
                 "previous": "Önceki",
                 "next": "Sonraki",
-                "last": "Son",
-                "first": "İlk"
-            }
+                "last": "Son Sayfa",
+                "first": "İlk Sayfa"
+            },
+           "sProcessing": "Yükleniyor..."
         },
 
         // Or you can use remote translation file
@@ -34,24 +35,9 @@
         // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
-        buttons: [
-                { extend: 'print', className: 'btn default' },
-                { extend: 'copy', className: 'btn default' },
-                { extend: 'pdf', className: 'btn default' },
-                { extend: 'excel', className: 'btn default' },
-                { extend: 'csv', className: 'btn default' },
-                {
-                    text: 'Reload',
-                    className: 'btn default',
-                    action: function ( e, dt, node, config ) {
-                        //dt.ajax.reload();
-                        alert('Custom Button');
-                    }
-                }
-            ],
         "bServerSide": true,
-        "bProcessing": true,
-        "sAjaxSource": "/Department/AjaxHandler",
+        "bProcessing": true,       
+        "sAjaxSource": "/Redirect/AjaxHandler",        
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
@@ -64,8 +50,8 @@
         "columnDefs": [
             {  // set default column settings
                 'orderable': false,
-                'searchable': false,
-                'targets': [0],
+                "searchable": false,
+                "targets": [0],
                 'render': function (data, type, row) {
                     return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
                 }
@@ -74,23 +60,25 @@
             {
                 'orderable': false,
                 'searchable': false,
-                'targets': [3],
-                'render': function (data, type, row) {
+                'targets': [5],
+                'render': function(data, type, row) {
                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Department/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
-                        + '<a href="/Department/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/Redirect/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Redirect/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
+                        + '<a href="/Redirect/Delete/' + row[0] + '"onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;">><i class="icon-ban"></i> Sil</a></li></ul></div>';
                 }
+                
 
             }
-
+            
         ],
-        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+          
+        
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
     });
 
-    var tableWrapper = jQuery('#allDepartmentTable_wrapper');
+    var tableWrapper = jQuery('#allRedirectTable_wrapper');
 
     table.find('.group-checkable').change(function () {
         var set = jQuery(this).attr("data-set");
@@ -109,6 +97,4 @@
     table.on('change', 'tbody tr .checkboxes', function () {
         $(this).parents('tr').toggleClass("active");
     });
-
-   
 }

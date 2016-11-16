@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface ICategoryService
     {
+        int GetPostCountByPost(int post);
         IEnumerable<Category> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Category> GetCategories();
         Category GetCategory(int id);
@@ -18,6 +19,7 @@ namespace KariyerPortali.Service
         void UpdateCategory(Category category);
         void DeleteCategory(Category category);
         void SaveCategory();
+        
     }
     public class CategoryService : ICategoryService
     {
@@ -59,6 +61,11 @@ namespace KariyerPortali.Service
         public void SaveCategory()
         {
             unitOfWork.Commit();
+        }
+        
+        public int GetPostCountByPost(int post)
+        {
+            return categoryRepository.GetMany(c => c.CategoryId == post).Count();
         }
         #endregion
     }

@@ -27,5 +27,6 @@ namespace KariyerPortali.Admin.ViewModels
         public string UpdatedBy { get; set; }
         [DisplayName("Güncelleme Tarihi")]
         public DateTime UpdateDate { get; set; }
+        public List<int> CategoryId { get; set; }
     }
 }
