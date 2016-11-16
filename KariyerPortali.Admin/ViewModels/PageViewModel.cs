@@ -46,6 +46,6 @@ namespace KariyerPortali.Admin.ViewModels
 
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
-        public string KeyWords { get; set; }
+        public string SeoKeywords { get; set; }
     }
 }

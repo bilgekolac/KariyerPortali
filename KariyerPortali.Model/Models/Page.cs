@@ -27,6 +27,6 @@ namespace KariyerPortali.Model
         public virtual Page ParentPage { get; set; }
         public string SeoTitle { get; set; }
         public string SeoDescription { get; set; }
-        public string KeyWords { get; set; }
+        public string SeoKeywords { get; set; }
     }
 }
