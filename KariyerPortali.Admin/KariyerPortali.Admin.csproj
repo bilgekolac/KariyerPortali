@@ -6325,6 +6325,7 @@
     <Content Include="Scripts\pages\notification-index.js" />
     <Content Include="Scripts\pages\pages-index.js" />
     <Content Include="Scripts\pages\post-index.js" />
+    <Content Include="Scripts\pages\redirect-index.js" />
     <Content Include="Scripts\pages\resume-index.js" />
     <Content Include="Scripts\pages\sector-index.js" />
     <Content Include="Scripts\pages\skill-index.js" />
@@ -6454,6 +6455,7 @@
     <Content Include="Views\Form\CreateForm.cshtml" />
     <Content Include="Views\Form\CreateFormInfo.cshtml" />
     <Content Include="Views\Form\FormDetails.cshtml" />
+    <Content Include="Views\Redirect\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6463,7 +6465,6 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Redirect\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
