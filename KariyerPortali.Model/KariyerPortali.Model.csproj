@@ -54,6 +54,7 @@
     <Compile Include="Models\EducationStatus.cs" />
     <Compile Include="Models\Exam.cs" />
     <Compile Include="Models\ExamInfo.cs" />
+    <Compile Include="Models\ExperienceStatus.cs" />
     <Compile Include="Models\Expertise.cs" />
     <Compile Include="Models\Form.cs" />
     <Compile Include="Models\FormInfo.cs" />

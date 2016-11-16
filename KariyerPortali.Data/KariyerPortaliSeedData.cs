@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Data
 {
-    public class KariyerPortaliSeedData : CreateDatabaseIfNotExists<KariyerPortaliEntities>
+    public class KariyerPortaliSeedData : DropCreateDatabaseIfModelChanges<KariyerPortaliEntities>
     {
         
         protected override void Seed(KariyerPortaliEntities context)
@@ -94,11 +94,8 @@ namespace KariyerPortali.Data
 
                     CityId =1,
                     CityName="Erzincan",
-                    
-                    
-         
-               
-                    
+                                        
+                             
                 },
 
             };
@@ -226,7 +223,7 @@ namespace KariyerPortali.Data
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=2,DepartmentId=2,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
 
             resume.Experiences = new List<Experience>();
-            resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,ExperienceName = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016") });
+            resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,Title = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016"),ExperienceStatus = ExperienceStatus.FullTime,Description="Oftalmoloji Sektöründe Türkiye Distribütörü Firmada Aplikasyon Mühendisi"});
           
             resumes.Add(resume);
 
