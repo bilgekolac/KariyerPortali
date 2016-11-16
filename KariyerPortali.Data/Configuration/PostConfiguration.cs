@@ -22,6 +22,7 @@ namespace KariyerPortali.Data.Configuration
             Property(c => c.CreateDate).IsRequired();
             Property(c => c.UpdatedBy).IsRequired().HasMaxLength(100);
             Property(c => c.UpdateDate).IsRequired();
+            HasMany(c => c.Categories).WithMany(c => c.Posts).Map(m => m.ToTable("PostCategories").MapLeftKey("PostId").MapRightKey("CategoryId"));
         }
     }
 }
