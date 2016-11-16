@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.ViewModels
 {
@@ -19,6 +20,7 @@ namespace KariyerPortali.Admin.ViewModels
         public string Slug { get; set; }
         
         [DisplayName("İçerik")]
+        [AllowHtml]
         public string Body { get; set; }
 
         [DisplayName("İstatistikler")]
@@ -29,7 +31,7 @@ namespace KariyerPortali.Admin.ViewModels
         public DateTime CreateDate { get; set; }
         public string UpdatedBy { get; set; }
 
-        [DisplayName("Tarih")]
+        [DisplayName("Oluşturulma Tarihi")]
         public DateTime UpdateDate { get; set; }
        
         [DisplayName("Sıralama")]
@@ -40,5 +42,9 @@ namespace KariyerPortali.Admin.ViewModels
 
         [ForeignKey("ParentPageId")]
         public virtual Page ParentPage { get; set; }
+
+        public string SeoTitle { get; set; }
+        public string SeoDescription { get; set; }
+        public string SeoKeywords { get; set; }
     }
 }

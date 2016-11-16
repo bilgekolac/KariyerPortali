@@ -13,19 +13,21 @@ namespace KariyerPortali.Admin.Controllers
     public class FormController : BaseController
     {
         private readonly IFormService formService;
-        public FormController(IFormService formService)
+        private readonly IFormInfoService formInfoService;
+        public FormController(IFormService formService, IFormInfoService formInfoService)
         {
             this.formService = formService;
+            this.formInfoService = formInfoService;
         }
         // GET: Form
-        public ActionResult CreateForm()
+        public ActionResult Create()
         {
-            var jobform = new FormFormViewModel();
-            return View(jobform);
+            var form = new FormFormViewModel();
+            return View(form);
         }
 
         //[HttpPost]
-        //public ActionResult CreateForm(FormFormViewModel form)
+        //public ActionResult Create(FormFormViewModel form)
         //{
         //    if (ModelState.IsValid)
         //    {
@@ -54,12 +56,7 @@ namespace KariyerPortali.Admin.Controllers
 
         //}
 
-        public ActionResult FormDetails(/*int id*/)
-        {
-            return View();
-        }
-
-        public ActionResult CreateFormInfo(FormFormViewModel form)
+        public ActionResult Details(int? id)
         {
             return View();
         }

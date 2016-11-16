@@ -50,9 +50,12 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var job = Mapper.Map<JobFormViewModel, Job>(jobForm);
                 List<SocialRight> selectedSocialRights = new List<SocialRight>();
-                foreach (var item in jobForm.SocialRightId)
+                if (jobForm.SocialRightId != null)
                 {
-                    selectedSocialRights.Add(socialService.GetSocialRight(item));
+                    foreach (var item in jobForm.SocialRightId)
+                    {
+                        selectedSocialRights.Add(socialService.GetSocialRight(item));
+                    }
                 }
                 job.SocialRights = selectedSocialRights;
                 job.Createdate = DateTime.Now;

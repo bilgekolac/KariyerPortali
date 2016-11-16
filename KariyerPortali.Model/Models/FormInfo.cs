@@ -14,8 +14,6 @@ namespace KariyerPortali.Model
 
         public string Value { get; set; }
 
-        public int? FormTypeId { get; set; }
-
         public virtual FormType FormType { get; set; }
 
         public virtual Form Form { get; set; }
