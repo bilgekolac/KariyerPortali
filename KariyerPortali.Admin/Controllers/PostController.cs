@@ -121,6 +121,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Details(int? id)
         {
+           
             if (id.HasValue)
             {
                 var post = postService.GetPost(id.Value);
@@ -128,6 +129,8 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     postService.SavePost();
                     var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postViewModel.CategoryId);
+                    List<Category> selectedCategories = new List<Category>();
                     return View(postViewModel);
                 }
             }
