@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KariyerPortali.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,6 @@ namespace KariyerPortali.Admin.ViewModels
 
         public string Value { get; set; }
 
-        public List<int> FormTypeId { get; set; }
+        public FormType FormType { get; set; }
     }
 }

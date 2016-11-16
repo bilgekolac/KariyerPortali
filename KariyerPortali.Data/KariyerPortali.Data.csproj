@@ -61,7 +61,6 @@
     <Compile Include="Configuration\FileConfiguration.cs" />
     <Compile Include="Configuration\FormConfiguration.cs" />
     <Compile Include="Configuration\FormInfoConfiguration.cs" />
-    <Compile Include="Configuration\FormTypeConfiguration.cs" />
     <Compile Include="Configuration\HighSchoolDepartmentConfiguration.cs" />
     <Compile Include="Configuration\HighSchoolTypeConfiguration.cs" />
     <Compile Include="Configuration\JobApplicationConfiguration.cs" />
