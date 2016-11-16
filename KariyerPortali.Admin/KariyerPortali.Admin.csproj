@@ -6456,11 +6456,12 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Views\Form\CreateForm.cshtml" />
-    <Content Include="Views\Form\CreateFormInfo.cshtml" />
-    <Content Include="Views\Form\FormDetails.cshtml" />
+    <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\Form\FormInfo\Create.cshtml" />
+    <Content Include="Views\Form\Details.cshtml" />
     <Content Include="Views\Redirect\Index.cshtml" />
     <Content Include="Views\Redirect\Create.cshtml" />
+    <Content Include="Views\Form\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
