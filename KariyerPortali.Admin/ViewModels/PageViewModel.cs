@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.ViewModels
 {
@@ -20,6 +21,7 @@ namespace KariyerPortali.Admin.ViewModels
         public string Slug { get; set; }
         
         [DisplayName("İçerik")]
+        [AllowHtml]
         public string Body { get; set; }
 
         [DisplayName("İstatistikler")]
