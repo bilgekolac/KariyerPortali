@@ -6460,6 +6460,7 @@
     <Content Include="Views\Form\CreateFormInfo.cshtml" />
     <Content Include="Views\Form\FormDetails.cshtml" />
     <Content Include="Views\Redirect\Index.cshtml" />
+    <Content Include="Views\Redirect\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

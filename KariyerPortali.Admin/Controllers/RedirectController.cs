@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Admin.Models;
+﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
@@ -43,5 +46,24 @@ namespace KariyerPortali.Admin.Controllers
                 JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(RedirectFormViewModel redirectForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var redirect = Mapper.Map<RedirectFormViewModel, Redirect>(redirectForm);
+
+                redirectService.CreateRedirect(redirect);
+                redirectService.SaveRedirect();
+                return RedirectToAction("Index");
+            }
+            return View(redirectForm);
+        }
     }
 }
