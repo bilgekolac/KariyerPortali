@@ -39,6 +39,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Notification, NotificationViewModel>();
             Mapper.CreateMap<Category, CategoryViewModel>();
             Mapper.CreateMap<Form, FormViewModel>();
+            Mapper.CreateMap<Redirect, RedirectViewModel>();
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }
