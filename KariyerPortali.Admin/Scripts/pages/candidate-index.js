@@ -25,7 +25,17 @@
             },
            "sProcessing": "Yükleniyor..."
         },
-
+        buttons: [{
+            extend: 'collection',
+            className: 'btn green  btn-outline dropdown-toggle',
+            text: 'Araçlar',
+            buttons: [
+              { extend: "excel", className: "fa fa-file-excel-o" },
+              { extend: "pdf", className: "fa fa-file-pdf-o" },
+              { extend: "print", className: "fa fa-print" }
+            ]
+        }
+        ],
         // Or you can use remote translation file
         //"language": {
         //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
@@ -72,7 +82,7 @@
             
         ],
           
-        
+        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
