@@ -53,5 +53,15 @@ namespace KariyerPortali.Admin.Controllers
         //    return View(jobForm);
 
         //}
+
+        public ActionResult FormDetails(/*int id*/)
+        {
+            return View();
+        }
+
+        public ActionResult CreateFormInfo(FormFormViewModel form)
+        {
+            return View();
+        }
     }
 }
