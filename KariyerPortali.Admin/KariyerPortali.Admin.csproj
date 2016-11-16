@@ -251,6 +251,8 @@
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\PostFormViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\RedirectFormViewModel.cs" />
+    <Compile Include="ViewModels\RedirectViewModel.cs" />
     <Compile Include="ViewModels\ResumeFormViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SectorFormViewModel.cs" />
@@ -6458,6 +6460,7 @@
     <Content Include="Views\Form\CreateFormInfo.cshtml" />
     <Content Include="Views\Form\FormDetails.cshtml" />
     <Content Include="Views\Redirect\Index.cshtml" />
+    <Content Include="Views\Redirect\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

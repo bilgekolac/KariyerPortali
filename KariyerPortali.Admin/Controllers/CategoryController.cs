@@ -20,6 +20,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.Count = categoryService.GetPostCountByPost(1);
             return View();
         }
 
