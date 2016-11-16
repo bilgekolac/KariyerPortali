@@ -41,9 +41,12 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var post = Mapper.Map<PostFormViewModel, Post>(postFrom);
                 List<Category> selectedCategories = new List<Category>();
+                if (postFrom.CategoryId != null) 
+                { 
                 foreach (var item in postFrom.CategoryId)
                 {
                     selectedCategories.Add(categoryService.GetCategory(item));
+                }
                 }
                 post.Categories = selectedCategories;
                 post.CreatedBy = User.Identity.Name;
@@ -64,7 +67,15 @@ namespace KariyerPortali.Admin.Controllers
                 var post = postService.GetPost(id.Value);
                 if (post != null)
                 {
+                    var selectedcategories = post.Categories;
+                    var selectedCategoryIds = new List<int>();
                     var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    foreach (var item in selectedcategories)
+                    {
+                        selectedCategoryIds.Add(item.CategoryId);
+                    }
+                    postViewModel.CategoryId = selectedCategoryIds;
+                    ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postViewModel.CategoryId);
                     return View(postViewModel);
                 }
             }
@@ -74,11 +85,18 @@ namespace KariyerPortali.Admin.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(PostFormViewModel postForm)
         {
+            ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postForm.CategoryId);
             if (ModelState.IsValid)
             {
                 var post = Mapper.Map<PostFormViewModel, Post>(postForm);
+                List<Category> selectedCategories = new List<Category>();
+                foreach (var item in postForm.CategoryId)
+                {
+                    selectedCategories.Add(categoryService.GetCategory(item));
+                }
                 //post.CreateDate = post.CreateDate;
                 //post.CreatedBy = post.CreatedBy;
+                post.Categories = selectedCategories;
                 post.UpdatedBy = User.Identity.Name;
                 post.UpdateDate = DateTime.Now;
                 postService.UpdatePost(post);
@@ -103,6 +121,7 @@ namespace KariyerPortali.Admin.Controllers
         }
         public ActionResult Details(int? id)
         {
+           
             if (id.HasValue)
             {
                 var post = postService.GetPost(id.Value);
@@ -110,6 +129,8 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     postService.SavePost();
                     var postViewModel = Mapper.Map<Post, PostViewModel>(post);
+                    ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postViewModel.CategoryId);
+                    List<Category> selectedCategories = new List<Category>();
                     return View(postViewModel);
                 }
             }
