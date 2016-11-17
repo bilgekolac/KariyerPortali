@@ -1,6 +1,6 @@
 ﻿var initTable1 = function () {
 
-    var table = $('#allFormTable');
+    var table = $('#allSeoTable');
     // begin first table
     table.dataTable({
 
@@ -13,7 +13,7 @@
             "emptyTable": "Kayıt Bulunamadı",
             "info": "Gösterilen _START_ ile _END_ arasında toplam _TOTAL_ kayıt ",
             "infoEmpty": "Kayıt Bulunamadı",
-            "infoFiltered": "(Filitrenilen toplam _MAX_ kayıt)",
+            "infoFiltered": "(Toplam _MAX_ Kayıt Arasından)",
             "lengthMenu": "Göster _MENU_",
             "search": "Ara:",
             "zeroRecords": "Eşleşen kayıt bulunmamaktadır",
@@ -22,18 +22,10 @@
                 "next": "Sonraki",
                 "last": "Son",
                 "first": "İlk"
-            }
+            },
+            "sProcessing": "Yükleniyor..."
         },
 
-        // Or you can use remote translation file
-        //"language": {
-        //   url: '//cdn.datatables.net/plug-ins/3cfcc339e89/i18n/Portuguese.json'
-        //},
-
-        // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
-        // setup uses scrollable div(table-scrollable) with overflow:auto to enable vertical scroll(see: assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js). 
-        // So when dropdowns used the scrollable div should be removed. 
-       // "dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         buttons: [{
             extend: 'collection',
             className: 'btn green  btn-outline dropdown-toggle',
@@ -48,7 +40,7 @@
 
         "bServerSide": true,
         "bProcessing": true,
-        "sAjaxSource": "/Form/AjaxHandler",
+        "sAjaxSource": "/SeoSetting/AjaxHandler",
         "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
 
         "lengthMenu": [
@@ -59,34 +51,37 @@
         "pageLength": 5,
         "pagingType": "bootstrap_full_number",
         "columnDefs": [
-             {  // set default column settings
-                 'orderable': false,
-                 'searchable': false,
-                 'targets': [0],
-                 'render': function (data, type, row) {
-                     return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
-                 },
-             }, 
-             {
-                 'orderable': false,
-                 'searchable': false,
-                 'targets': [3],
-                 'render': function (data, type, row) {
-                     return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
-                         + '<ul class="dropdown-menu" role="menu"><li><a href="/Job/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li><a href="/Job/Details/' + row[0] + '"><i class="icon-list"></i> Detaylar</a></li><li>'
-                         + '<a href="/Job/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
-                 }
+            {  // set default column settings
+                'orderable': false,
+                'searchable': false,
+                'targets': [0],
+                'render': function (data, type, row) {
+                    return '<label class="mt-checkbox mt-checkbox-single mt-checkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>';
+                }
+            },
 
-             }
+            {
+                'orderable': false,
+                'searchable': false,
+                'targets': [5],
+                'render': function (data, type, row) {
+                    return '<div class="btn-group"><button class="btn btn-xs green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Eylemler<i class="fa fa-angle-down"></i></button>'
+                        + '<ul class="dropdown-menu" role="menu"><li><a href="/SeoSetting/Edit/' + row[0] + '"><i class="icon-note"></i> Düzenle</a></li><li>'
+                        + '<a href="/SeoSetting/Delete/' + row[0] + '" onclick="if (!confirm(\'Bu kaydı silmek istediğinize emin misiniz? Bu işlem geri alınamaz.\')) return false;"><i class="icon-ban"></i> Sil</a></li></ul></div>';
+                }
+
+            }
 
         ],
-        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+
+        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
+        //"dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         "order": [
             [1, "asc"]
         ] // set first column as a default sort by asc
     });
 
-    var tableWrapper = jQuery('#allFormTable_wrapper');
+    var tableWrapper = jQuery('#allSeoTable_wrapper');
 
     table.find('.group-checkable').change(function () {
         var set = jQuery(this).attr("data-set");
