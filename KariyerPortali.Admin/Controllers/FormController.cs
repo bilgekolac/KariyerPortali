@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
 using KariyerPortali.Admin.ViewModels;
 using KariyerPortali.Model;
 using KariyerPortali.Service;
@@ -26,35 +27,22 @@ namespace KariyerPortali.Admin.Controllers
             return View(form);
         }
 
-        //[HttpPost]
-        //public ActionResult Create(FormFormViewModel form)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var frm = Mapper.Map<FormFormViewModel, Form>(form);
-        //        List<SocialRight> selectedSocialRights = new List<SocialRight>();
-        //        foreach (var item in form.SocialRightId)
-        //        {
-        //            selectedSocialRights.Add(socialService.GetSocialRight(item));
-        //        }
-        //        job.SocialRights = selectedSocialRights;
-        //        job.Createdate = DateTime.Now;
-        //        job.CreatedBy = User.Identity.Name;
-        //        job.UpdateDate = DateTime.Now;
-        //        job.UpdatedBy = User.Identity.Name;
-        //        jobService.CreateJob(job);
+        [HttpPost]
+        public ActionResult Create(FormFormViewModel form)
+        {
+            if (ModelState.IsValid)
+            {
+                var frm = Mapper.Map<FormFormViewModel, Form>(form);
+                
+                formService.CreateForm(frm);
 
-        //        jobService.SaveJob();
-        //        return RedirectToAction("Index");
+                formService.SaveForm();
+                return RedirectToAction("Index");
 
-        //    }
-        //    ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
-        //    ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-        //    ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
-        //    ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
-        //    return View(jobForm);
+            }
+            return View(form);
 
-        //}
+        }
 
         public ActionResult Details(int? id)
         {
@@ -64,6 +52,27 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult AjaxHandler(jQueryDataTableParamModel param)
+        {
+
+            string sSearch = "";
+            if (param.sSearch != null) sSearch = param.sSearch;
+            var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
+            var sortDirection = Request["sSortDir_0"]; // asc or desc
+            int iTotalRecords;
+            int iTotalDisplayRecords;
+            var displayedForms = formService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
+            var result = from c in displayedForms
+                         select new[] { c.FormId.ToString(), c.FormName.ToString(), (c.Description != null ? c.Description.ToString() : string.Empty), (c.ClosingDescription != null ? c.ClosingDescription.ToString() : string.Empty), string.Empty };
+            return Json(new
+            {
+                sEcho = param.sEcho,
+                iTotalRecords = iTotalRecords,
+                iTotalDisplayRecords = iTotalDisplayRecords,
+                aaData = result.ToList()
+            },
+                JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -1,7 +1,7 @@
 @media print
 {
 #non_write{
-    /*display:none;*/
+   /* display:none;*/
     visibility:hidden;
 }
 #sample_editable_1_new{

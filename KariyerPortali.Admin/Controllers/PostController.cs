@@ -90,9 +90,12 @@ namespace KariyerPortali.Admin.Controllers
             {
                 var post = Mapper.Map<PostFormViewModel, Post>(postForm);
                 List<Category> selectedCategories = new List<Category>();
+                if (postForm.CategoryId != null)
+                {
                 foreach (var item in postForm.CategoryId)
                 {
                     selectedCategories.Add(categoryService.GetCategory(item));
+                }
                 }
                 //post.CreateDate = post.CreateDate;
                 //post.CreatedBy = post.CreatedBy;
@@ -102,6 +105,7 @@ namespace KariyerPortali.Admin.Controllers
                 postService.UpdatePost(post);
                 postService.SavePost();
                 return RedirectToAction("Index");
+                
             }
             return View(postForm);
         }

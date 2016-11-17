@@ -102,7 +102,34 @@
                 <dd>
                     @Html.DisplayFor(model => model.UpdateDate)
                 </dd>
+                
+
 </dl>
+            <div class="caption font-dark">
+                
+                <span class="caption-subject bold uppercase"> SEO Detayları </span>
+            </div>
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SeoTitle)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SeoTitle)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SeoDescription)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SeoDescription)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.SeoKeywords)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.SeoKeywords)
+                </dd>
+            </dl>
 </div>
 <div class="form-actions right">
     <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Post")';">Yazılara Dön</button>

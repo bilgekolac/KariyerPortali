@@ -86,6 +86,9 @@ namespace KariyerPortali.Data.Repositories
             post.Title = entity.Title;
             post.UpdateDate = entity.UpdateDate;
             post.UpdatedBy = entity.UpdatedBy;
+            post.SeoDescription = entity.SeoDescription;
+            post.SeoKeywords = entity.SeoKeywords;
+            post.SeoTitle = entity.SeoTitle;
             DbContext.SaveChanges();
         }
 

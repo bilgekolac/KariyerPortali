@@ -51,7 +51,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="shortcut icon" href="/favicon.ico" />
 </head>
 <!-- END HEAD -->
-<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white  @((HttpContext.Current.Request.Cookies["body"]!=null)? HttpContext.Current.Request.Cookies["body"].Value:"") ">
     <div class="page-wrapper">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <a href="@Url.Action("Index","Notification")"> tümünü göster</a>
                                 </li>
                                 <li>
-                                    <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                    @*<ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                        @foreach (KariyerPortali.Model.Notification n in ViewBag.Notifications)
                                        {
                                            <li>
@@ -110,7 +110,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </a>
                                         </li>
                                        }
-                                    </ul>
+                                    </ul>*@
                                 </li>
                             </ul>
                         </li>
@@ -193,7 +193,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                     <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                    <ul class="page-sidebar-menu @((HttpContext.Current.Request.Cookies["sidebar-menu-option"]!=null)? HttpContext.Current.Request.Cookies["sidebar-menu-option"].Value:"")  page-header-fixed"  data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                    <ul class="page-sidebar-menu  @((HttpContext.Current.Request.Cookies["sidebar-menu-option"]!=null)? HttpContext.Current.Request.Cookies["sidebar-menu-option"].Value:"")  page-header-fixed"  data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
                         <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
                         <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
                         <li class="sidebar-toggler-wrapper hide">
@@ -452,6 +452,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <li class="nav-item  ">
                                     <a href="@Url.Action("Theme", "Settings")" class="nav-link ">
                                         <span class="title">Tema Ayarları</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item  ">
+                                    <a href="@Url.Action("Contact", "Settings")" class="nav-link ">
+                                        <span class="title">İletişim Bilgileri</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">

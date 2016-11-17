@@ -29,7 +29,7 @@ namespace KariyerPortali.Data
 
             context.Commit();
         }
-        private static List<Candidate> GetCandidates()
+        private  List<Candidate> GetCandidates()
         {
             return new List<Candidate>
             {
@@ -52,7 +52,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<HighSchoolType> GetHighSchoolTypes()
+        private  List<HighSchoolType> GetHighSchoolTypes()
         {
             return new List<HighSchoolType>
             {
@@ -65,7 +65,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<HighSchoolDepartment> GetHighSchoolDeparments()
+        private  List<HighSchoolDepartment> GetHighSchoolDeparments()
         {
             return new List<HighSchoolDepartment>
             {
@@ -76,7 +76,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<Country> GetCountries()
+        private  List<Country> GetCountries()
         {
             return new List<Country>
             {
@@ -88,7 +88,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<City> GetCities()
+        private  List<City> GetCities()
         {
             return new List<City>
             {
@@ -102,7 +102,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<Language> GetLanguages()
+        private List<Language> GetLanguages()
         {
             return new List<Language>
             {
@@ -118,7 +118,7 @@ namespace KariyerPortali.Data
         
         }
 
-        private static List<Sector> GetSectors()
+        private  List<Sector> GetSectors()
         {
             return new List<Sector>
             {
@@ -131,7 +131,7 @@ namespace KariyerPortali.Data
 
         }
 
-        private static List<Skill> GetSkills()
+        private  List<Skill> GetSkills()
         {
             return new List<Skill>
             {
@@ -145,7 +145,7 @@ namespace KariyerPortali.Data
 
         }
 
-        private static List<SkillInfo> GetSkillInfos()
+        private List<SkillInfo> GetSkillInfos()
         {
             return new List<SkillInfo>
             {
@@ -161,7 +161,7 @@ namespace KariyerPortali.Data
         }
 
 
-        private static List<University> GetUniversities()
+        private List<University> GetUniversities()
         {
             return new List<University>
             {
@@ -180,7 +180,7 @@ namespace KariyerPortali.Data
             };
         }
 
-        private static List<Department> GetDepartments()
+        private List<Department> GetDepartments()
         {
             return new List<Department>
             {
@@ -202,7 +202,7 @@ namespace KariyerPortali.Data
         }
 
        
-        private static List<Resume> GetResumes()
+        private List<Resume> GetResumes()
         {
             var resumes = new List<Resume>();  
                 
@@ -218,9 +218,9 @@ namespace KariyerPortali.Data
                 UpdatedBy="muhammed",
                 CoverLetter="Merhaba, Bilişim Eğitim Merkezi",
                 Email="muhammed.sezgin88@gmail.com",
-                CellPhone="(0539)6454545",
-                CellPhone2="(0505)4441444",
-                HomePhone="(0212)4441111",
+                CellPhone="(0539)-645-4545",
+                CellPhone2="(0505)-444-1444",
+                HomePhone="(0212)-444-1111",
                 Website="www.muhammedsezgin.wordpress.com",
                 Address="Bahçeşehir/İSTANBUL",
                 HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
@@ -271,7 +271,7 @@ namespace KariyerPortali.Data
             resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,Title = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016"),ExperienceStatus = ExperienceStatus.FullTime,Description="Oftalmoloji Sektöründe Türkiye Distribütörü Firmada Aplikasyon Mühendisi"});
 
             resume.References = new List<Reference>();
-            resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-4441313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
+            resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-444-1313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
                SectorId=1 });
 
             resume.SkillInfos = new List<SkillInfo>();

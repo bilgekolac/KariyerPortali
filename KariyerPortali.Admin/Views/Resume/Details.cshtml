@@ -7,16 +7,23 @@
             text-align: left;
         }
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
         th, td {
             padding: 15px;
         }
     </style>
 <br />
+    <div class="page-bar" id="non_write"></div>
+    th, td {
+        padding: 15px;
+    }
+
+
+    <br />
     <div class="page-bar">
         <ul class="page-breadcrumb">
             <li>
@@ -27,7 +34,7 @@
                 <span>Özgeçmiş Detayları</span>
             </li>
         </ul>
-     
+
         <div class="page-toolbar">
 
         </div>
@@ -51,229 +58,309 @@
                     <div class="col-md-4">
                       
                             <img src="~/Uploads/Candidate/123.jpg" width="175" height="175" />
-                        
-                    </div>
-                    <div class="col-md-8">
-                        <div class="portlet-title">
-                            <div class="caption font-dark">
-                                <div class="caption-subject bold uppercase">
-                                    <h1 class="page-title">
-                                        <strong>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</strong>
-                                    </h1>
+
+                        </div>
+                        <div class="col-md-8">
+                            <div class="portlet-title">
+                                <div class="caption font-dark">
+                                    <div class="caption-subject bold uppercase">
+                                        <h1 class="page-title">
+                                            <strong>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</strong>
+                                        </h1>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <br />
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">local_phone</i>
-                        <span class="caption-subject">İletişim Bilgileri</span>
-                    </div>
-                </div>
-
-
-
-                <div class="form-body" style="font-size:unset">
-                    <div class="form-group">
-                        <label><strong>E-Posta &ensp; &ensp;&ensp; &ensp;&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp;: </strong>@Html.DisplayFor(model => model.Email)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Adres Bilgileri &thinsp;&ensp; &ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.Address)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Ev Telefonu &thinsp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;: </strong>@Html.DisplayFor(model => model.HomePhone)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Cep Telefonu(1) &thinsp;&ensp; &ensp;&ensp;&ensp;: </strong>@Html.DisplayFor(model => model.CellPhone)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Cep Telefonu(2) &thinsp;&ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.CellPhone2)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Web Adresi &thinsp;&ensp; &ensp; &ensp; &ensp;&ensp;&ensp;&thinsp;&ensp;: </strong>@Html.DisplayFor(model => model.Website) </label>
-                    </div>
-                </div>
-                <br />
-
-
-
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">person</i>
-                        <span class="caption-subject">Kişisel Bilgiler</span>
-                    </div>
-                </div>
-
-
-
-
-                <div class="form-body">
-                    <div class="form-group">
-                        <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>@Html.DisplayFor(model => model.MaritalStatus) </label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Uyruk &ensp; &ensp;&ensp;&ensp; &ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </strong>@Html.DisplayFor(model => model.Nationality.CountryName)</label>
-                    </div>
-
-                    <div class="form-group">
-                        <label><strong>TC Kimlik NO &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;: </strong>@Model.CitizenshipId</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Doğum Tarihi &ensp; &ensp;&ensp; &ensp;&ensp; : </strong>@Model.BirthDate.ToShortDateString() </label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Doğum Yeri &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;&ensp; : </strong> @Html.DisplayFor(model => model.BirthCity.CityName)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Sürücü Belgesi &ensp; &ensp;&ensp;&ensp;&ensp;: </strong> @Html.DisplayFor(model => model.DrivingLicenseExists)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Sürücü Belgesi Türü&thinsp; : </strong> @Html.DisplayFor(model => model.DrivingLicense1Class)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Askerlik Durumu &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.MilitaryService)</label>
-                    </div>
-                    <div class="form-group">
-                        <label><strong>Askerlik Tecil Tarihi&ensp;: </strong>@Model.MilitaryPostponeDate.ToShortDateString()</label>
+                    <br />
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">local_phone</i>
+                            <span class="caption-subject">İletişim Bilgileri</span>
+                        </div>
                     </div>
 
 
 
-                </div>
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">info</i>
-                        <span class="caption-subject">Özet Bilgi</span>
-                    </div>
-                </div>
-
-                <div class="form-body">
-                    <div class="form-group">
-                        <label> @Html.DisplayFor(model => model.CoverLetter)</label>
-                    </div>
-                </div>
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">work</i>
-                        <span class="caption-subject">İş Deneyimleri</span>
-                    </div>
-                </div>
-
-                <div class="form-body">
-                    <div class="form-group">
+                    <div class="form-body" style="font-size:unset">
                         <div class="form-group">
-                            <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> @Html.DisplayFor(model => model.WorkStatus)</label>
-                            <br /><br />
+                            <label><strong>E-Posta &ensp; &ensp;&ensp; &ensp;&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp;: </strong>@Html.DisplayFor(model => model.Email)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Adres Bilgileri &thinsp;&ensp; &ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.Address)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Ev Telefonu &thinsp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;: </strong>@Html.DisplayFor(model => model.HomePhone)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Cep Telefonu(1) &thinsp;&ensp; &ensp;&ensp;&ensp;: </strong>@Html.DisplayFor(model => model.CellPhone)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Cep Telefonu(2) &thinsp;&ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.CellPhone2)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Web Adresi &thinsp;&ensp; &ensp; &ensp; &ensp;&ensp;&ensp;&thinsp;&ensp;: </strong>@Html.DisplayFor(model => model.Website) </label>
+                        </div>
+                    </div>
+                    <br />
+
+
+
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">person</i>
+                            <span class="caption-subject">Kişisel Bilgiler</span>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            
+                                
+                                @if (Model.MaritalStatus == KariyerPortali.Model.MaritalStatus.Single)
+                                {
+                                    <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Bekar</label>
+                                }
+                                else
+                                {
+                                    <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Evli</label>
+                                }
 
                         </div>
-                        
+                        <div class="form-group">
+                            <label><strong>Uyruk &ensp; &ensp;&ensp;&ensp; &ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </strong>@Html.DisplayFor(model => model.Nationality.CountryName)</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label><strong>TC Kimlik NO &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;: </strong>@Model.CitizenshipId</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Doğum Tarihi &ensp; &ensp;&ensp; &ensp;&ensp; : </strong>@Model.BirthDate.ToShortDateString() </label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Doğum Yeri &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;&ensp; : </strong> @Html.DisplayFor(model => model.BirthCity.CityName)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Sürücü Belgesi &ensp; &ensp;&ensp;&ensp;&ensp;: </strong> @Html.DisplayFor(model => model.DrivingLicenseExists)</label>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Sürücü Belgesi Türü&thinsp; : </strong> @Html.DisplayFor(model => model.DrivingLicense1Class)</label>
+                        </div>
+
+                        <div class="form-group">
+
+                            @if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Done)
+                            {
+                                <label><strong>Askerlik Durumu &ensp; &ensp; : </strong>Yapıldı</label>
+                            }
+                            else if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Exempt)
+                            {
+                                <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Muaf</label>
+                            }
+                            else if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Postpone)
+                            {
+                                <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Tecilli</label>
+                            }
+                         
+                        </div>
+
+                        <div class="form-group">
+                            <label><strong>Askerlik Tecil Tarihi&ensp;: </strong>@Model.MilitaryPostponeDate.ToShortDateString()</label>
+                        </div>
+
+
+                    </div>
+
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">info</i>
+                            <span class="caption-subject">Özet Bilgi</span>
+                        </div>
+                    </div>
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label> @Html.DisplayFor(model => model.CoverLetter)</label>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">work</i>
+                            <span class="caption-subject">İş Deneyimleri</span>
+                        </div>
+                    </div>
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            <div class="form-group">
+
+                               @if(Model.WorkStatus == KariyerPortali.Model.WorkStatus.Active)
+                                {  <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> Çalışıyor</label> }
+
+                               else
+                               {
+                                <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> Çalışmıyor</label>
+                               }
+                                <br /><br />
+                                
+                                
+                                
+
+                            </div>
+
+                            <table class="table" style="margin-right:auto">
+                                <thead>
+
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var experienceInfo in Model.Experiences)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@experienceInfo.Title</strong> <br /><br />@experienceInfo.CompanyName <br /><br />
+                                                @experienceInfo.ExperienceStart.ToShortDateString() - @experienceInfo.ExperienceEnd.ToShortDateString() - 
+                                                
+                                                @if (experienceInfo.ExperienceStatus == KariyerPortali.Model.ExperienceStatus.Free)
+                                                { <label>Serbest</label>}
+                                                else if (experienceInfo.ExperienceStatus == KariyerPortali.Model.ExperienceStatus.FullTime)
+                                                { <label>Tam Zamanlı</label>}
+                                                else if (experienceInfo.ExperienceStatus == KariyerPortali.Model.ExperienceStatus.Intern)
+                                                { <label>Stajer</label>}
+                                                else if (experienceInfo.ExperienceStatus == KariyerPortali.Model.ExperienceStatus.PartTime)
+                                                { <label>Yarı Zamanlı(Part-Time)</label>}
+                                                else 
+                                                { <label> Proje Tabanlı </label>}
+
+                                                 <br /> @experienceInfo.Description
+                                            </td> 
+
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">school</i>
+                            <span class="caption-subject">Eğitim Bilgileri</span>
+                        </div>
+
+
+
                         <table class="table" style="margin-right:auto">
-                            <thead>
-                             
-                            </thead>
+
                             <tbody>
-                                @foreach (var experienceInfo in Model.Experiences)
+                                @foreach (var educationInfo in Model.EducationInfos)
                                 {
                                     <tr>
-                                       <td><strong>@experienceInfo.Title</strong> <br /><br />@experienceInfo.CompanyName <br /><br />
-                                        @experienceInfo.ExperienceStart.ToShortDateString() - @experienceInfo.ExperienceEnd.ToShortDateString() - @experienceInfo.ExperienceStatus <br /> @experienceInfo.Description</td>
-                                                                        
+                                        <td>
+                                            @if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Doctorate)
+                                        {<label><strong>(Doktora)</strong></label> }
+                                        else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Master)
+                                        { <label><strong>(Master)</strong></label>}
+                                        else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.University)
+                                        { <label><strong>(Üniversite)</strong></label>} <br /> @educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()
+                                    </td>
+                                    <td><strong>@educationInfo.University.UniversityName</strong> <br /> @educationInfo.Department.DepartmentName</td>
+
+                                </tr>
+
+                                }
+                            </tbody>
+                        </table>
+
+
+
+                        <table class="table" style="margin-left:20px">
+
+                            <tbody>
+                                <tr>
+                                    <td><strong>Lise</strong><br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
+                                    <td><strong>@Html.DisplayFor(model => model.HighSchoolName)</strong><br /> @Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName), @Html.DisplayFor(model => model.HighSchoolCertificate)</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+                    <br />
+
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">public</i>
+                            <span class="caption-subject">Yabancı Dil</span>
+                        </div>
+
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Okuma</th>
+                                    <th>Yazma</th>
+                                    <th>Konuşma</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var languageInfo in Model.LanguageInfos)
+                                {
+                                    <tr>
+                                        <td><strong>@languageInfo.Language.LanguageName</strong></td>
+                                        
+                                        <td>
+                                            @if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                        { <label>İleri</label>}
+                                        else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                        { <label>Başlangıç</label>}
+                                        else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                        {<label>İyi</label>}
+
+                                        <td>
+                                            @if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                            { <label>İleri</label>}
+                                            else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                            { <label>Başlangıç</label>}
+                                            else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                            {<label>İyi</label>}
+
+                                        <td>
+                                            @if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                        { <label>İleri</label>}
+                                        else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                        { <label>Başlangıç</label>}
+                                        else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                        {<label>İyi</label>}
                                     </tr>
+
                                 }
                             </tbody>
                         </table>
                     </div>
-                 
-                </div>
 
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">school</i>
-                        <span class="caption-subject">Eğitim Bilgileri</span>
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">color_lens</i>
+                            <span class="caption-subject">Yetkinlikler</span>
+                        </div>
                     </div>
-                </div>
 
 
-                <table class="table" style="margin-right:auto">
-                  
-                    <tbody>
-                        @foreach (var educationInfo in Model.EducationInfos)
-                        {
-                            <tr>
-                                <td><strong>(@educationInfo.EducationStatus)</strong> <br />@educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()</td>
-                                <td><strong>@educationInfo.University.UniversityName</strong> <br /> @educationInfo.Department.DepartmentName</td>   
-                                                      
-                            </tr>
-
-                        }
-                    </tbody>
-                </table>
-               
-                   
-             
-                <table class="table" style="margin-right:auto">
-                   
-                    <tbody>                       
-                            <tr>
-                              <td><strong>Lise</strong><br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
-                                <td><strong>@Html.DisplayFor(model =>model.HighSchoolName)</strong><br /> @Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName), @Html.DisplayFor(model => model.HighSchoolCertificate)</td>
-                                
-                            </tr>                       
-                    </tbody>
-                </table>
-
-                
-              
-
-                <br />
-
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">public</i>
-                        <span class="caption-subject">Yabancı Dil</span>
-                    </div>
-                </div>
-
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Okuma</th>
-                            <th>Yazma</th>
-                            <th>Konuşma</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var languageInfo in Model.LanguageInfos) {
-                            <tr>
-                                <td><strong>@languageInfo.Language.LanguageName</strong></td>
-                                <td>@languageInfo.ReadingLanguageLevel</td>
-                                <td>@languageInfo.WritingLanguageLevel</td>
-                                <td>@languageInfo.SpeakingLanguageLevel</td>
-                            </tr>
-                       
-                        }
-                    </tbody>
-                </table>
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">color_lens</i>
-                        <span class="caption-subject">Yetkinlikler</span>
-                    </div>
-                </div>
-               
-                 
                     <div class="form-body">
                         <div class="form-group">
                             <label><strong>Sertifika Bilgileri</strong></label>
@@ -283,7 +370,7 @@
                                 <tr>
                                     <th>Dosya</th>
                                     <th></th>
-                                   
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -292,17 +379,17 @@
                                     <tr>
                                         <td>@certificateInfo.FileName</td>
                                         <td>@certificateInfo.CertificateName <br />@certificateInfo.Institute - @certificateInfo.CertificateDate.ToShortDateString() </td>
-                                       
-                                    </tr>                                 
+
+                                    </tr>
 
                                 }
-                              
+
                             </tbody>
                         </table>
                         <br />
-                                                             
-                            
-                   </div>
+
+
+                    </div>
                     <div class="form-body">
                         <div class="form-group">
                             <label><strong>Sınav Bilgileri</strong></label>
@@ -313,7 +400,7 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Sınav Adı</th>
+                                            <th>Sınav </th>
                                             <th>Puan</th>
 
                                         </tr>
@@ -329,147 +416,171 @@
                                         }
 
                                     </tbody>
-                                </table>  
+                                </table>
                             </div>
-                        </div> 
-                     </div>
-                <br />
-
-                <div class="form-body">
-                    <div class="form-group">
-                        <label><strong>Yetenekler</strong></label>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Yetenek </th>
-                                        <th>Puan</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var skillInfo in Model.SkillInfos)
-                                    {
-                                        <tr>
-                                            <td>@skillInfo.Skill.SkillName</td>
-                                            <td>@skillInfo.Point / 5.00</td>
-                                        </tr>
-
-                                    }
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
-                    
-                </div>
-                <br />
-                <div class="form-group">
-                    <label><strong>Bilgisayar Bilgileri</strong>&ensp; &ensp;&ensp;: @Html.DisplayFor(model =>model.ComputerSkill)</label>
-                </div>
-                   
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">poll</i>
-                        <span class="caption-subject">Seminerler ve Kurslar</span>
+                    <br />
+
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label><strong>Yetenekler</strong></label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Yetenek </th>
+                                            <th>Puan</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var skillInfo in Model.SkillInfos)
+                                        {
+                                            <tr>
+                                                <td>@skillInfo.Skill.SkillName</td>
+                                                <td>@skillInfo.Point / 5.00</td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label><strong>Bilgisayar Bilgileri</strong>&ensp; &ensp;&ensp;: @Html.DisplayFor(model => model.ComputerSkill)</label>
                     </div>
 
-                    <table class="table" style="margin-right:auto">
-                        <thead>
-                            @foreach (var courseInfo in Model.Courses)
-                            {
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">poll</i>
+                            <span class="caption-subject">Seminerler ve Kurslar</span>
+                        </div>
 
-                            }
-                        </thead>
-                        <tbody>
-                            @foreach (var courseInfo in Model.Courses)
-                            {
-                                <tr>
-                                    <td>
-                                        <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution - @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br /><br />                                       
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                        <table class="table" style="margin-right:auto">
+                            <thead>
+                                @foreach (var courseInfo in Model.Courses)
+                                {
+
+                                }
+                            </thead>
+                            <tbody>
+                                @foreach (var courseInfo in Model.Courses)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution - @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br /><br />
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
 
 
 
-                </div>
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">library_books</i>
-                        <span class="caption-subject">Burslar ve Projeler</span>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label><strong>Projeler&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp;&ensp;&ensp;&ensp;  :</strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
-                </div>
 
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">info_outline</i>
-                        <span class="caption-subject">Ek Bilgiler</span>
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">library_books</i>
+                            <span class="caption-subject">Burslar ve Projeler</span>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label><strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong> @Html.DisplayFor(model => model.BloodType)</label>             
-                </div>
-                <div class="form-group">
-                    <label><strong>Hobiler &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;&ensp; &ensp;&ensp;:</strong> @Html.DisplayFor(model => model.Hobby)</label>
-                </div>
-                <div class="form-group">
-                    <label><strong>Sigara Kullanımı &ensp; &ensp;&thinsp;&thinsp; :</strong> @Html.DisplayFor(model => model.CigaretteStatus)</label>
-                </div>
-                <div class="form-group">
-                    <label><strong>Beklenen Ücret &ensp;&ensp;&ensp;&ensp;  :</strong> @Html.DisplayFor(model => model.SalaryWaited)</label>
-                </div>
-
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">account_box</i>
-                        <span class="caption-subject">Referanslar</span>
+                    <div class="form-group">
+                        <label><strong>Projeler&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp;&ensp;&ensp;&ensp;  :</strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
                     </div>
+
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">info_outline</i>
+                            <span class="caption-subject">Ek Bilgiler</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong> @Html.DisplayFor(model => model.BloodType)</label>
+                    </div>
+                    <div class="form-group">
+                        <label><strong>Hobiler &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;&ensp; &ensp;&ensp;:</strong> @Html.DisplayFor(model => model.Hobby)</label>
+                    </div>
+                    <div class="form-group">
+                        <strong>Sigara Kullanımı &ensp; &ensp;&thinsp;&thinsp; :</strong> @if (Model.CigaretteStatus == KariyerPortali.Model.CigaretteStatus.No)
+                        { <label>Hayır</label>}
+                        else
+                        { <label>Evet</label>}
+                    </div>
+                    <div class="form-group">
+                        <strong>Beklenen Ücret &ensp;&ensp;&ensp;&ensp;  :</strong> 
+                        @if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B1000and2000)
+                        { <label>1000 TL - 2000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B2000and3000)
+                        { <label>2000 TL - 3000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B3000and4000)
+                        { <label>3000 TL - 4000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B4000and5000)
+                        { <label>4000 TL - 5000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B5000and6000)
+                        { <label>5000 TL - 6000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B6000and70000)
+                        { <label>6000 TL - 7000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B7000and10000)
+                        { <label>7000 TL - 10000 TL</label>}
+                        else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.Over10000)
+                        { <label>10000 TL ve Üzeri</label>}
+                        else
+                        {<label>1000 TL Altı</label> }
+
+
+
+                    </div>
+
+
+                    <br />
+                    <div class="portlet-title">
+                        <div class="caption font-dark">
+                            <i class="material-icons">account_box</i>
+                            <span class="caption-subject">Referanslar</span>
+                        </div>
+
+
+                        <table class="table" style="margin-right:auto">
+                            <thead>
+
+                            </thead>
+                            <tbody>
+                                @foreach (var referenceInfo in Model.References)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>@referenceInfo.FirstName @referenceInfo.LastName - (@referenceInfo.ReferenceType)</strong><br /><br />@referenceInfo.CompanyName - @referenceInfo.Sector.SectorName <br /><br /> <strong>Tel : </strong>@referenceInfo.Phone  &ensp; <strong>E-Posta : </strong> @referenceInfo.EPosta <br />
+                                            <br /> @referenceInfo.Message <br /> @referenceInfo.ReferenceFile
+                                        </td>
+
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+
+                    </div>
+
+
                 </div>
 
-                <table class="table" style="margin-right:auto">
-                    <thead>
+                <div class="form-actions right">
+                    <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
+                </div>
 
-                    </thead>
-                    <tbody>
-                        @foreach (var referenceInfo in Model.References)
-                        {
-                            <tr>
-                                <td>
-                                    <strong>@referenceInfo.FirstName @referenceInfo.LastName - (@referenceInfo.ReferenceType)</strong><br /><br />@referenceInfo.CompanyName - @referenceInfo.Sector.SectorName <br /><br /> <strong>Tel : </strong>@referenceInfo.Phone  &ensp; <strong>E-Posta : </strong> @referenceInfo.EPosta <br />
-                                     <br /> @referenceInfo.Message <br /> @referenceInfo.ReferenceFile
-                                </td>
-
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-
-
-
-
-            
             </div>
-
-            <div class="form-actions right" >
-                <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
-            </div>
-
-        </div>
 
        
               
@@ -507,21 +618,20 @@
             <br />
             <br />
 
-            <div class="portlet light bordered">               
+                <div class="portlet light bordered">
                     <div class="form-body">
                         <div class="form-group">
-                            <label><strong> Created By : </strong>@Html.DisplayFor(model => model.CreatedBy)</label>
-                            <label><strong> Create Date : </strong>@Model.CreateDate.ToShortDateString()</label>
-                            <label><strong> Update Date : </strong>@Model.UpdateDate.ToShortDateString()</label>
-                            <label><strong> Update By : </strong>@Html.DisplayFor(model => model.UpdatedBy)</label>
-                        </div>                                                              
-                   </div>             
+                            <label><strong>Oluşturan : </strong>@Html.DisplayFor(model => model.CreatedBy)</label>
+                            <label><strong>Oluş.Tarihi : </strong>@Model.CreateDate.ToShortDateString()</label>
+                            <label><strong>Değiş. Tarihi : </strong>@Model.UpdateDate.ToShortDateString()</label>
+                            <label><strong>Değiştiren : </strong>@Html.DisplayFor(model => model.UpdatedBy)</label>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
 
-
-    </div>
-</div>
        
+        </div>
+    </div>
 
-    
+
