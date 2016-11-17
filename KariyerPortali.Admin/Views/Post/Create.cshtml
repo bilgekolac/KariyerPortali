@@ -130,20 +130,36 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <strong>SEO Ayarları</strong>
+                                <br />
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SeoTitle)
+                                    @Html.EditorFor(model => model.SeoTitle, new { htmlAttributes = new { @tabindex = "4", @class = "form-control", autofocus = "autofocus" } })
 
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SeoDescription)<br />
+                                    @Html.TextAreaFor(model => model.SeoDescription, new { htmlAttributes = new { @tabindex = "5", @class = "form-control", autofocus = "autofocus" } })
 
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.SeoKeywords)<br />
+                                    @Html.TextAreaFor(model => model.SeoKeywords, new { htmlAttributes = new { @tabindex = "6", @class = "form-control", autofocus = "autofocus" } })
 
-
+                                </div>
+                            </div>
 
                             <div class="form-actions">
-                                <button type="submit" tabindex="4" class="btn blue">
+                                <button type="submit" tabindex="7" class="btn blue">
                                     Kaydet
                                 </button>
-                                <button type="button" tabindex="5" class="btn default" onclick="window.location='@Url.Action("Index","Post")';">
+                                <button type="button" tabindex="8" class="btn default" onclick="window.location='@Url.Action("Index","Post")';">
                                     İptal
                                 </button>
 
                             </div>
+
                         </form>
                     </div>
                 }
