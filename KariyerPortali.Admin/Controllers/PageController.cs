@@ -36,11 +36,13 @@ namespace KariyerPortali.Admin.Controllers
                 var Page = pageService.GetPage(id.Value);
                 if (Page != null)
                 {
+                    ViewBag.ParentPageId = new SelectList(pageService.GetPages(), "ParentPageId", "ParentPage");
                     var PageViewModel = Mapper.Map<Page, PageViewModel>(Page);
                     return View(PageViewModel);
                 }
 
             }
+            ViewBag.ParentPageId = new SelectList(pageService.GetPages(), "ParentPageId", "ParentPage");
             return HttpNotFound();
         }
 
