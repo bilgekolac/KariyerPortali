@@ -23,6 +23,10 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Contact()
+        {
+            return View();
+        }
         public ActionResult Index()
         {
             var settings = settingService.GetSettings();
