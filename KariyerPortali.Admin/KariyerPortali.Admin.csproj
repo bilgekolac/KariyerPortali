@@ -202,6 +202,7 @@
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Controllers\SectorController.cs" />
+    <Compile Include="Controllers\SeoSettingController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SocialRightController.cs" />
@@ -258,6 +259,8 @@
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SectorFormViewModel.cs" />
     <Compile Include="ViewModels\SectorViewModel.cs" />
+    <Compile Include="ViewModels\SeoSettingFormViewModel.cs" />
+    <Compile Include="ViewModels\SeoSettingViewModel.cs" />
     <Compile Include="ViewModels\SettingFormViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
     <Compile Include="ViewModels\SkillFormViewModel.cs" />
@@ -267,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Scripts\pages\seosettings-index.js" />
     <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
@@ -6468,6 +6472,7 @@
     <Content Include="Views\Redirect\Edit.cshtml" />
     <Content Include="Views\Redirect\Delete.cshtml" />
     <Content Include="Views\FormInfo\Index.cshtml" />
+    <Content Include="Views\SeoSetting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
