@@ -44,8 +44,13 @@ namespace KariyerPortali.Admin.ViewModels
         [ForeignKey("ParentPageId")]
         public virtual Page ParentPage { get; set; }
 
+        [DisplayName("Başlık")]
         public string SeoTitle { get; set; }
+
+        [DisplayName("Açıklama")]
         public string SeoDescription { get; set; }
+
+        [DisplayName("Anahtar Kelimeler")]
         public string SeoKeywords { get; set; }
     }
 }

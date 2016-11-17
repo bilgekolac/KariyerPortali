@@ -209,6 +209,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TimeFormatHelper.cs" />
     <Compile Include="Mappings\AutoMapperConfiguration.cs" />
     <Compile Include="Mappings\DomainToViewModelMappingProfile.cs" />
     <Compile Include="Mappings\ViewModelToDomainMappingProfile.cs" />
@@ -6467,6 +6468,9 @@
     <Content Include="Views\Form\Index.cshtml" />
     <Content Include="Views\Redirect\Edit.cshtml" />
     <Content Include="Views\Redirect\Delete.cshtml" />
+    <Content Include="Views\FormInfo\Index.cshtml" />
+    <Content Include="Views\Settings\Contact.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

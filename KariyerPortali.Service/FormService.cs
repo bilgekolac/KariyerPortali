@@ -11,6 +11,7 @@ namespace KariyerPortali.Service
 {
     public interface IFormService
     {
+        IEnumerable<Form> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
         IEnumerable<Form> GetForms();
         Form GetForm(int id);
         void CreateForm(Form form);
@@ -29,6 +30,12 @@ namespace KariyerPortali.Service
         {
             this.formRepository = formRepository;
             this.unitOfWork = unitOfWork;
+        }
+        public IEnumerable<Form> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords)
+        {
+            var forms = formRepository.Search(search, sortColumnIndex, sortDirection, displayStart, displayLength, out totalRecords, out totalDisplayRecords);
+
+            return forms;
         }
         public IEnumerable<Form> GetForms()
         {
