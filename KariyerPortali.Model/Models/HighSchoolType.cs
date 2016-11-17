@@ -11,6 +11,6 @@ namespace KariyerPortali.Model
         public int HighSchoolTypeId { get; set; }
         public string TypeName { get; set; }
 
-       
+        public float HighSchoolDegree { get; set; }
     }
 }

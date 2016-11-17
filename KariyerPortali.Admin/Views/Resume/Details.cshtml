@@ -284,21 +284,12 @@
 
 
 
-                        <table class="table" style="margin-left:61px">
+                        <table class="table" style="margin-left:20px">
 
                             <tbody>
                                 <tr>
                                     <td><strong>Lise</strong><br />@Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
-                                    <td><strong>@Html.DisplayFor(model => model.HighSchoolName) </strong><br /> @Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName), 
-                                    Diploma Notu : <strong> @Model.HighSchoolDegree /</strong> 
-                                     @if (Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N10)
-                                     { <label><strong>10</strong></label>}
-                                     else if (Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N100)
-                                     { <label><strong>100</strong></label>}
-                                     else if (Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N4)
-                                     { <label><strong>4</strong></label>}
-                                     else
-                                     { <label><strong>5</strong></label>}
+                                    <td><strong>@Html.DisplayFor(model => model.HighSchoolName)</strong><br /> @Html.DisplayFor(model => model.HighSchoolType.TypeName) , @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName), @Html.DisplayFor(model => model.HighSchoolCertificate)</td>
 
                                 </tr>
                             </tbody>

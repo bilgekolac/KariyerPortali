@@ -125,16 +125,6 @@
                                     <div id="pageparentdiv" class="postbox ">
 
                                         <div class="inside">
-
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    @Html.LabelFor(model => model.ParentPageId)
-                                                    @Html.DropDownList("ParentPageId", null, new { @tabindex = "4", @class = "form-control", autofocus = "autofocus" })
-                                                    @Html.ValidationMessageFor(model => model.ParentPageId, "", new { @class = "text-danger" })
-
-                                                </div>
-
-                                            </div>
                                           
                                             <div class="col-sm-6">
 
@@ -146,6 +136,8 @@
 
 
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -161,7 +153,7 @@
                                         </div>
                                         <div class="form-group">
                                             @Html.LabelFor(model => model.SeoDescription)<br />
-                                            @Html.TextAreaFor(model => model.SeoDescription, new { @tabindex = "7", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                            @Html.TextAreaFor(model => model.SeoDescription, new { @tabindex = "4", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
                                             @Html.ValidationMessageFor(model => model.SeoDescription, "", new { @class = "text-danger" })
                                         </div>
 

@@ -1,6 +1,6 @@
 ﻿@model KariyerPortali.Admin.ViewModels.SeoSettingFormViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Create";
 }
 
 <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
@@ -9,7 +9,7 @@
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="@Url.Action("Index", "SeoSetting")" class="nav-link">Tanımlamalar</a>
+            <a href="@Url.Action("Index", "SeoSetting")" class="nav-link">Ayarlar</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -26,7 +26,7 @@
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <h1 class="page-title">
-                    Yeni SEO
+                    ARAMA
                 </h1>
 
             </div>
@@ -43,17 +43,17 @@
                         <div class="form-body">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Title)
-                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner", autofocus = "autofocus" } })
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner", autofocus = "autofocus" } })
                                 @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Description)<br />
-                                @Html.TextAreaFor(model => model.Description, new { @tabindex = "4", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                @Html.TextAreaFor(model => model.Description, new { @tabindex = "2", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
                                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Keyword)<br />
-                                @Html.TextAreaFor(model => model.Keyword, new { @tabindex = "4", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                @Html.TextAreaFor(model => model.Keyword, new { @tabindex = "3", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
                                 @Html.ValidationMessageFor(model => model.Keyword, "", new { @class = "text-danger" })
                             </div>
                         </div>
