@@ -28,5 +28,11 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Güncelleme Tarihi")]
         public DateTime UpdateDate { get; set; }
         public List<int> CategoryId { get; set; }
+        [DisplayName("Başlık")]
+        public string SeoTitle { get; set; }
+        [DisplayName("Tanım")]
+        public string SeoDescription { get; set; }
+        [DisplayName("Anahtar Kelimeler")]
+        public string SeoKeywords { get; set; }
     }
 }

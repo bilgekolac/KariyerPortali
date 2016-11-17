@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class DepartmentController : Controller
+    public class DepartmentController : BaseController
     {
        
         // GET: Department

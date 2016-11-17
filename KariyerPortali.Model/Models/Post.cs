@@ -17,6 +17,8 @@ namespace KariyerPortali.Model
         public string UpdatedBy { get; set; }
         public DateTime UpdateDate { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
-
+        public string SeoTitle { get; set; }
+        public string SeoDescription { get; set; }
+        public string SeoKeywords { get; set; }
     }
 }
