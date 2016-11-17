@@ -271,6 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Scripts\pages\seosettings-index.js" />
     <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
@@ -6473,6 +6474,7 @@
     <Content Include="Views\Redirect\Delete.cshtml" />
     <Content Include="Views\FormInfo\Index.cshtml" />
     <Content Include="Views\Settings\Contact.cshtml" />
+    <Content Include="Views\SeoSetting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
