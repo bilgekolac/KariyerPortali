@@ -37,7 +37,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "Title");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", null);
             var jobform = new JobFormViewModel();
             return View(jobform);
@@ -70,7 +70,7 @@ namespace KariyerPortali.Admin.Controllers
             }
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "Title");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
             return View(jobForm);
         }
@@ -92,7 +92,7 @@ namespace KariyerPortali.Admin.Controllers
                     jobViewModel.SocialRightId = selectedRightIds;
                     ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
                     ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-                    ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+                    ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "Title");
                     ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobViewModel.SocialRightId);
                     return View(jobViewModel);
                 }
@@ -106,7 +106,7 @@ namespace KariyerPortali.Admin.Controllers
         {
             ViewBag.EmployerId = new SelectList(employerService.GetEmployers(), "EmployerId", "EmployerName");
             ViewBag.CityId = new SelectList(cityService.GetCities(), "CityId", "CityName");
-            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "ExperienceName");
+            ViewBag.ExperienceId = new SelectList(experienceService.GetExperiences(), "ExperienceId", "Title");
             ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobForm.SocialRightId);
             if (ModelState.IsValid)
             {
@@ -142,10 +142,20 @@ namespace KariyerPortali.Admin.Controllers
             }
             return HttpNotFound();
         }
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            var job = jobService.GetJob(id);
-            return View(Mapper.Map<Job, JobViewModel>(job));
+            if (id.HasValue)
+            {
+                var job = jobService.GetJob(id.Value);
+                if (job != null)
+                {
+                    jobService.SaveJob();
+                    var jobViewModel = Mapper.Map<Job, JobViewModel>(job);
+                    ViewBag.SocialRights = new MultiSelectList(socialService.GetSocialRights(), "SocialRightId", "SocialRightName", jobViewModel.SocialRightId);
+                    return View(jobViewModel);
+                }
+            }
+            return HttpNotFound();
 
         }
         public ActionResult Liste()
