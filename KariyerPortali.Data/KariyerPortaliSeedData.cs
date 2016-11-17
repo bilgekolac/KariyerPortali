@@ -25,7 +25,7 @@ namespace KariyerPortali.Data
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
             GetResumes().ForEach(c => context.Resumes.Add(c));
-
+            GetSettings().ForEach(c => context.Settings.Add(c));
 
             context.Commit();
         }
@@ -282,6 +282,16 @@ namespace KariyerPortali.Data
             return resumes;
              
             
+        }
+        private List<Setting> GetSettings()
+        {
+            return new List<Setting>
+            {
+
+               new Setting {SettingId=1, Name="Header Script",Value=""},
+               new Setting {SettingId=2,Name="Google Analytics",Value=""},
+               new Setting {SettingId=3,Name="Footer Script",Value=""}
+            };
         }
 
     }
