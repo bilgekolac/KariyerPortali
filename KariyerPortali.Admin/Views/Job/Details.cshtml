@@ -73,7 +73,20 @@
                                 <label><strong>Çalışma Şekli :</strong> @Html.DisplayFor(model => model.JobType)</label>
                             </div>
                             <div class="form-group">
-                                <label><strong>İş Tecrübesi :</strong> @Html.DisplayFor(model => model.Experience.ExperienceName)</label>
+                                <label><strong>Sosyal Haklar :</strong> @foreach (SelectListItem item in ViewBag.SocialRights)
+                                {
+
+                                    <input type="text" name="SocialRightId" class="label" value="@item.Value" checked="@item.Selected" />
+                                    @item.Text
+
+                                    <span> </span>
+
+
+
+                                }</label>
+                            </div>
+                            <div class="form-group">
+                                <label><strong>İş Tecrübesi :</strong> @Html.DisplayFor(model => model.Experience.Title)</label>
                             </div>
                             <div class="form-group">
                                 <label><strong>Sorumluluklar :</strong> @Html.DisplayFor(model => model.Responsibilities)</label>
