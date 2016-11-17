@@ -61,8 +61,7 @@
 
 
                             <p>
-                                <br>
-
+                               
                                 @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @tabindex = "3", @cols = "80", @rows = "10", autofocus = "autofocus" } })
                                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
                                 <script>
@@ -73,10 +72,6 @@
 
                             <div id="content2" style="display: none" data-sample="2">
                                 <p>The number of <code>change</code> events: <strong><span id="changes"></span></strong>.</p>
-                                <h3>Mirrored Content</h3>
-                                <!-- This <div> will be used to display the editor content. -->
-                                <div id="editorcontent2">
-                                </div>
                             </div>
 
                         </div>
