@@ -516,7 +516,23 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label><strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong> @Html.DisplayFor(model => model.BloodType)</label>
+                       <strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong> 
+                       @if(Model.BloodType == KariyerPortali.Model.BloodType.ABRhN)
+                       {<label>AB Rh (-)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhP)
+                       {<label>AB Rh (+)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhN)
+                       {<label>A Rh (-)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhP)
+                       {<label>A Rh (+)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhN)
+                       {<label>B Rh (-)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhP)
+                       {<label>B Rh (+)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhN)
+                       {<label>0 Rh (-)</label> }
+                       else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhP)
+                       {<label>0 Rh (+)</label> }
                     </div>
                     <div class="form-group">
                         <label><strong>Hobiler &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;&ensp; &ensp;&ensp;:</strong> @Html.DisplayFor(model => model.Hobby)</label>

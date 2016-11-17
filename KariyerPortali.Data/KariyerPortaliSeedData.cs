@@ -249,8 +249,8 @@ namespace KariyerPortali.Data
                 DrivingLicense2Date= Convert.ToDateTime("04.07.2009"),
                 HighSchoolTypeId=1,
                 HighSchoolDepartmentId=1,
-                HighSchoolCertificate=HighSchoolCertificate.N100,
-                HighSchoolDegree= 75,
+                HighSchoolCertificate=HighSchoolCertificate.N5,
+                HighSchoolDegree= 3.85f,
                 CertificateDegree= 3,
                 BloodType = BloodType.ARhP,
                 CigaretteStatus = CigaretteStatus.Yes,
@@ -275,7 +275,7 @@ namespace KariyerPortali.Data
                SectorId=1 });
          
             resume.SkillInfos = new List<SkillInfo>();
-            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5 });
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5.00F });
           
             resumes.Add(resume);
 
