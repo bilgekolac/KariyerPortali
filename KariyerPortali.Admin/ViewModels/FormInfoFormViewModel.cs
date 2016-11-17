@@ -12,6 +12,8 @@ namespace KariyerPortali.Admin.ViewModels
 
         public string FormInfoDescription { get; set; }
 
+        public bool Required { get; set; }
+
         public string Value { get; set; }
 
         public FormType FormType { get; set; }

@@ -12,6 +12,8 @@ namespace KariyerPortali.Model
 
         public string FormInfoDescription { get; set; }
 
+        public bool Required { get; set; }
+
         public string Value { get; set; }
 
         public virtual FormType FormType { get; set; }
