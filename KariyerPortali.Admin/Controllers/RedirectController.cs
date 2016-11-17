@@ -65,5 +65,47 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(redirectForm);
         }
+        public ActionResult Edit(int? id)
+        {
+            if (id.HasValue)
+            {
+                var redirect = redirectService.GetRedirect(id.Value);
+                if (redirect != null)
+                {
+                    var redirectViewModel = Mapper.Map<Redirect,RedirectViewModel>(redirect);
+                    return View(redirectViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(RedirectFormViewModel redirectForm)
+        {
+            if (ModelState.IsValid)
+            {
+                var redirect = Mapper.Map<RedirectFormViewModel, Redirect>(redirectForm);
+                redirectService.UpdateRedirect(redirect);
+                redirectService.SaveRedirect();
+                return RedirectToAction("Index");
+            }
+            return View(redirectForm);
+        }
+
+        public ActionResult Delete(int? id)
+        {
+            if (id.HasValue)
+            {
+                var redirect = redirectService.GetRedirect(id.Value);
+                if (redirect != null)
+                {
+                    redirectService.DeleteRedirect(redirect);
+                    redirectService.SaveRedirect();
+                    return RedirectToAction("Index");
+                }
+            }
+            return HttpNotFound();
+        }
     }
 }

@@ -37,7 +37,17 @@
         // So when dropdowns used the scrollable div should be removed. 
         //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
-        
+        buttons: [{
+            extend: 'collection',
+            className: 'btn green  btn-outline dropdown-toggle',
+            text: 'Araçlar',
+            buttons: [
+              { extend: "excel", className: "fa fa-file-excel-o" },
+              { extend: "pdf", className: "fa fa-file-pdf-o" },
+              { extend: "print", className: "fa fa-print" }
+            ]
+        }
+        ],
 
         "lengthMenu": [
             [5, 15, 20, -1],
@@ -74,6 +84,7 @@
             }
 
         ],
+        "dom": "<'row' <'col-md-12'B>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r><'table-scrollable't><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         "order": [
             [1, "asc"]
 
