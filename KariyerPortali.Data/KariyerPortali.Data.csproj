@@ -74,6 +74,7 @@
     <Compile Include="Configuration\ReferenceConfiguration.cs" />
     <Compile Include="Configuration\ResumeConfiguration.cs" />
     <Compile Include="Configuration\SectorConfiguration.cs" />
+    <Compile Include="Configuration\SeoSettingConfiguration.cs" />
     <Compile Include="Configuration\SettingConfiguration.cs" />
     <Compile Include="Configuration\SkillConfiguration.cs" />
     <Compile Include="Configuration\SkillInfoConfiguration.cs" />
