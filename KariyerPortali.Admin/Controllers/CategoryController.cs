@@ -94,7 +94,7 @@ namespace KariyerPortali.Admin.Controllers
             int iTotalRecords;
             int iTotalDisplayRecords;
             var displayedCategories = categoryService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
-            var result = from c in displayedCategories select new[] { c.CategoryId.ToString(), c.CategoryId.ToString(), c.CategoryName, c.Slug, c.Description, string.Empty };
+            var result = from c in displayedCategories select new[] { c.CategoryId.ToString(), c.CategoryId.ToString(), c.CategoryName, c.Slug, c.PostCount.ToString(), string.Empty };
             return Json(new
             {
                 sEcho = param.sEcho,
