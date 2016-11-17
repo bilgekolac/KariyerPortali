@@ -9,6 +9,7 @@ namespace KariyerPortali.Model
     public class SeoSetting
     {
         public int SeoSettingId { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public string Keyword { get; set; }
     }
