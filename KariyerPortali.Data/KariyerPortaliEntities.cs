@@ -52,6 +52,7 @@ namespace KariyerPortali.Data
         public DbSet<FormInfo> FormInfos { get; set; }
         public DbSet<Redirect> Redirects { get; set; }
         public DbSet<SeoSetting> SeoSettings { get; set; }
+        public DbSet<Link> Links { get; set; }
 
         public virtual void Commit()
         {
@@ -98,6 +99,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new FormInfoConfiguration());
             modelBuilder.Configurations.Add(new RedirectConfiguration());
             modelBuilder.Configurations.Add(new SeoSettingConfiguration());
+            
         }
     }
 }

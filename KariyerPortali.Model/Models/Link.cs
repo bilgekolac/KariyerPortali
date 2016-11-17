@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model.Models
+namespace KariyerPortali.Model
 {
-    class Link
+    public class Link
     {
         public int LinkId { get; set; }
         public string LinkName { get; set; }
