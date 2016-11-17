@@ -18,7 +18,7 @@ namespace KariyerPortali.Data.Repositories
             var searchWords = search.Split(' ');
 
 
-            var query = this.DbContext.Forms.Include("FormInfo").AsQueryable();
+            var query = this.DbContext.Forms.AsQueryable();
             foreach (string sSearch in searchWords)
             {
                 if (sSearch != null && sSearch != "")
