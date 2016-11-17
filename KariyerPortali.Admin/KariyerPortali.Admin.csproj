@@ -268,6 +268,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Scripts\pages\form-index.js" />
+    <Content Include="Scripts\pages\formInfo-index.js" />
     <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
