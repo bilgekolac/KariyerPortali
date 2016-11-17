@@ -10,6 +10,8 @@ namespace KariyerPortali.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+          //  AutomaticMigrationDataLossAllowed = true;
+
             ContextKey = "KariyerPortali.Data.KariyerPortaliEntities";
         }
 
