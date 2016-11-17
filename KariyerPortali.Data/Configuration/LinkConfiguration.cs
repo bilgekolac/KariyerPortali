@@ -13,7 +13,7 @@ namespace KariyerPortali.Data.Configuration
          public LinkConfiguration()
         {
             /* Fluent-API */
-            ToTable("Categories");
+            ToTable("Links");
             HasKey<int>(c => c.LinkId);
             Property(c => c.LinkName).IsRequired().HasMaxLength(100);
             Property(c => c.Url).IsRequired().HasMaxLength(500);
