@@ -166,11 +166,20 @@ var Demo = function() {
                     $('#frontend-link').tooltip('destroy').tooltip({
                         placement: 'right'
                     });
+                    if (typeof Cookies !== "undefined") {
+                        Cookies.set('body', "page-sidebar-reversed");
+                    }
                 } else {
                     $("body").removeClass("page-sidebar-reversed");
+                   
                     $('#frontend-link').tooltip('destroy').tooltip({
                         placement: 'left'
+                       
                     });
+                    if (typeof Cookies !== "undefined") {
+                        Cookies.set('body', "");
+                    }
+                       
                 }
             } else {
                 if (sidebarPosOption === 'right') {
@@ -178,11 +187,17 @@ var Demo = function() {
                     $('#frontend-link').tooltip('destroy').tooltip({
                         placement: 'left'
                     });
+                    if (typeof Cookies !== "undefined") {
+                        Cookies.set('body', "page-sidebar-reversed");
+                    }
                 } else {
                     $("body").removeClass("page-sidebar-reversed");
                     $('#frontend-link').tooltip('destroy').tooltip({
                         placement: 'right'
                     });
+                    if (typeof Cookies !== "undefined") {
+                        Cookies.set('body', "");
+                    }
                 }
             }
 
