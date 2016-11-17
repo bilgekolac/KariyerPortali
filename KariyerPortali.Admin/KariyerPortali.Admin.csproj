@@ -6469,6 +6469,7 @@
     <Content Include="Views\Redirect\Edit.cshtml" />
     <Content Include="Views\Redirect\Delete.cshtml" />
     <Content Include="Views\FormInfo\Index.cshtml" />
+    <Content Include="Views\Settings\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
