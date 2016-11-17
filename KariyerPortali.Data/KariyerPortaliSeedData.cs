@@ -225,7 +225,6 @@ namespace KariyerPortali.Data
                 Address="Bahçeşehir/İSTANBUL",
                 HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
                 ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
-               
                 ScholarshipAndProject="Kariyer Portalı",
                 Hobby="Müzik,Spor",
                 MemberOwnedCommunity="TEV",
@@ -251,6 +250,7 @@ namespace KariyerPortali.Data
                 HighSchoolTypeId=1,
                 HighSchoolDepartmentId=1,
                 HighSchoolCertificate=HighSchoolCertificate.N100,
+                HighSchoolDegree= 75,
                 CertificateDegree= 3,
                 BloodType = BloodType.ARhP,
                 CigaretteStatus = CigaretteStatus.Yes,
@@ -273,7 +273,7 @@ namespace KariyerPortali.Data
             resume.References = new List<Reference>();
             resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-444-1313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
                SectorId=1 });
-
+         
             resume.SkillInfos = new List<SkillInfo>();
             resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5 });
           
