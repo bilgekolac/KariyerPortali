@@ -19,6 +19,8 @@ namespace KariyerPortali.Model
         public virtual Category ParentCategory { get; set; }
         public string Description { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+
+        public int PostCount { get { return Posts.Count(); } }
        
     }
 }
