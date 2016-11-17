@@ -65,5 +65,13 @@ namespace KariyerPortali.Admin.Controllers
             }
             return View(redirectForm);
         }
+        public ActionResult Edit()
+        {
+            return View();
+        }
+        public ActionResult Delete()
+        {
+            return View();
+        }
     }
 }
