@@ -190,6 +190,7 @@
     <Compile Include="Controllers\ExamController.cs" />
     <Compile Include="Controllers\ExpertiseController.cs" />
     <Compile Include="Controllers\FormController.cs" />
+    <Compile Include="Controllers\FormInfoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -237,6 +238,8 @@
     <Compile Include="ViewModels\FileFormViewModel.cs" />
     <Compile Include="ViewModels\FileViewModel.cs" />
     <Compile Include="ViewModels\FormFormViewModel.cs" />
+    <Compile Include="ViewModels\FormInfoFormViewModel.cs" />
+    <Compile Include="ViewModels\FormInfoViewModel.cs" />
     <Compile Include="ViewModels\FormViewModel.cs" />
     <Compile Include="ViewModels\JobApplicationViewModel.cs" />
     <Compile Include="ViewModels\JobFormViewModel.cs" />
@@ -249,6 +252,8 @@
     <Compile Include="ViewModels\PageViewModel.cs" />
     <Compile Include="ViewModels\PostFormViewModel.cs" />
     <Compile Include="ViewModels\PostViewModel.cs" />
+    <Compile Include="ViewModels\RedirectFormViewModel.cs" />
+    <Compile Include="ViewModels\RedirectViewModel.cs" />
     <Compile Include="ViewModels\ResumeFormViewModel.cs" />
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SectorFormViewModel.cs" />
@@ -261,6 +266,8 @@
     <Compile Include="ViewModels\UniversityViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\404.html" />
+    <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
     <Content Include="assets\apps\css\ticket.css" />
@@ -5606,7 +5613,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\app.min.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -6310,7 +6316,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jspdf.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\pages\application-index.js" />
     <Content Include="Scripts\pages\candidate-index.js" />
@@ -6327,12 +6332,12 @@
     <Content Include="Scripts\pages\notification-index.js" />
     <Content Include="Scripts\pages\pages-index.js" />
     <Content Include="Scripts\pages\post-index.js" />
+    <Content Include="Scripts\pages\redirect-index.js" />
     <Content Include="Scripts\pages\resume-index.js" />
     <Content Include="Scripts\pages\sector-index.js" />
     <Content Include="Scripts\pages\skill-index.js" />
     <Content Include="Scripts\pages\university-index.js" />
     <Content Include="Scripts\pages\user-index.js" />
-    <Content Include="Scripts\pdfFromHTML.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\table-datatables-buttons.min.js" />
@@ -6454,9 +6459,14 @@
     <Content Include="Views\Category\Create.cshtml" />
     <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Views\Form\CreateForm.cshtml" />
-    <Content Include="Views\Form\CreateFormInfo.cshtml" />
-    <Content Include="Views\Form\FormDetails.cshtml" />
+    <Content Include="Views\Form\Create.cshtml" />
+    <Content Include="Views\FormInfo\Create.cshtml" />
+    <Content Include="Views\Form\Details.cshtml" />
+    <Content Include="Views\Redirect\Index.cshtml" />
+    <Content Include="Views\Redirect\Create.cshtml" />
+    <Content Include="Views\Form\Index.cshtml" />
+    <Content Include="Views\Redirect\Edit.cshtml" />
+    <Content Include="Views\Redirect\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -14,7 +14,8 @@ namespace KariyerPortali.Data.Configuration
         {
             ToTable("Experiences");
             HasKey<int>(c => c.ExperienceId);
-            Property(c => c.ExperienceName).IsRequired();
+            Property(c => c.Title).IsRequired();
+            Property(c => c.Description).IsOptional();
         }
     }
 }

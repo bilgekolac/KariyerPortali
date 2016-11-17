@@ -6,11 +6,19 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model
 {
-    public class FormType
+    public enum FormType
     {
-        public int FormTypeId { get; set; }
-
-        public string FormTypeName { get; set; }
+        smallText=1,
+        largeText=2,
+        singleChoice=3,
+        multipleChoice=4,
+        email=5,
+        file=6,
+        radioButtons=7,
+        datePicker=8,
+        urlWebSite=9,
+        numberValue=10,
+        timeValue=11
 
     }
 }
