@@ -91,7 +91,6 @@ namespace KariyerPortali.Data.Repositories
             post.SeoTitle = entity.SeoTitle;
             DbContext.SaveChanges();
         }
-
     }
     public interface IPostRepository : IRepository<Post>
         {
