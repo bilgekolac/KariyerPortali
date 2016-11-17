@@ -109,31 +109,31 @@
                                 </div>
                             </div>
                         </div>
-                        <br/>
-                        <label>SEO Özellikleri</label>
-                        <br/>
+                       
                         <div class="portlet light bordered">
                             <div class="portlet-body form">
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.SeoTitle)
-                                    @Html.EditorFor(model => model.SeoTitle, new { htmlAttributes = new { @tabindex = "6", @class = "form-control", autofocus = "autofocus" } })
-                                    @Html.ValidationMessageFor(model => model.SeoTitle, " ", new { @class = "text-danger" })
-                                </div>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.SeoDescription)<br />
-                                    @Html.TextAreaFor(model => model.SeoDescription, new { @tabindex = "4", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
-                                    @Html.ValidationMessageFor(model => model.SeoDescription, "", new { @class = "text-danger" })
-                                </div>
+                                <fieldset>
+                                    <legend>SEO Özellikleri</legend>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SeoTitle)
+                                        @Html.EditorFor(model => model.SeoTitle, new { htmlAttributes = new { @tabindex = "6", @class = "form-control", autofocus = "autofocus" } })
+                                        @Html.ValidationMessageFor(model => model.SeoTitle, " ", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SeoDescription)<br />
+                                        @Html.TextAreaFor(model => model.SeoDescription, new { @tabindex = "4", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                        @Html.ValidationMessageFor(model => model.SeoDescription, "", new { @class = "text-danger" })
+                                    </div>
 
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.SeoKeywords)<br />
-                                    @Html.TextAreaFor(model => model.SeoKeywords, new { @tabindex = "8", @class = "form-control spinner", autofocus = "autofocus" })
-                                    @Html.ValidationMessageFor(model => model.SeoKeywords, "", new { @class = "text-danger" })
-                                </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.SeoKeywords)<br />
+                                        @Html.TextAreaFor(model => model.SeoKeywords, new { @tabindex = "8", @class = "form-control spinner", autofocus = "autofocus" })
+                                        @Html.ValidationMessageFor(model => model.SeoKeywords, "", new { @class = "text-danger" })
+                                    </div>
+                                </fieldset>
 
 
-
-                            </div>
+</div>
                         </div>
                     </div>
                     <div class="form-actions">
