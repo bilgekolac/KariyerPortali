@@ -13,7 +13,9 @@ namespace KariyerPortali.Data
         
         protected override void Seed(KariyerPortaliEntities context)
         {
-           
+            GetSectors().ForEach(c => context.Sectors.Add(c));
+            GetSkills().ForEach(c => context.Skills.Add(c));
+            GetSkillInfos().ForEach(c => context.SkillInfos.Add(c));
             GetCandidates().ForEach(c => context.Candidates.Add(c));
             GetDepartments().ForEach(c => context.Departments.Add(c));
             GetUniversities().ForEach(c => context.Universities.Add(c));
@@ -115,6 +117,49 @@ namespace KariyerPortali.Data
         
         
         }
+
+        private static List<Sector> GetSectors()
+        {
+            return new List<Sector>
+            {
+                new Sector {
+                  SectorId=1,
+                  SectorName="Bilişim"},
+              
+            };
+
+
+        }
+
+        private static List<Skill> GetSkills()
+        {
+            return new List<Skill>
+            {
+                new Skill {
+                SkillId=1,
+                SkillName="C#",
+                },
+              
+            };
+
+
+        }
+
+        private static List<SkillInfo> GetSkillInfos()
+        {
+            return new List<SkillInfo>
+            {
+                new SkillInfo {
+               SkillId=1,
+               SkillInfoId=1,             
+               Point=5,
+                },
+              
+            };
+
+
+        }
+
 
         private static List<University> GetUniversities()
         {
@@ -224,6 +269,13 @@ namespace KariyerPortali.Data
 
             resume.Experiences = new List<Experience>();
             resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,Title = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016"),ExperienceStatus = ExperienceStatus.FullTime,Description="Oftalmoloji Sektöründe Türkiye Distribütörü Firmada Aplikasyon Mühendisi"});
+
+            resume.References = new List<Reference>();
+            resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-4441313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
+               SectorId=1 });
+
+            resume.SkillInfos = new List<SkillInfo>();
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5 });
           
             resumes.Add(resume);
 

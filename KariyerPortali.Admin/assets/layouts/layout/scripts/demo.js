@@ -139,17 +139,26 @@ var Demo = function() {
             }
 
             //sidebar menu 
+          
+
             if (sidebarMenuOption === 'hover') {
                 if (sidebarOption == 'fixed') {
                     $('.sidebar-menu-option', panel).val("accordion");
                     alert("Hover Sidebar Menu is not compatible with Fixed Sidebar Mode. Select Default Sidebar Mode Instead.");
                 } else {
                     $(".page-sidebar-menu").addClass("page-sidebar-menu-hover-submenu");
+                    if (typeof Cookies !== "undefined") {
+                        Cookies.set('sidebar-menu-option',"page-sidebar-menu-hover-submenu");
+                    }
                 }
             } else {
                 $(".page-sidebar-menu").removeClass("page-sidebar-menu-hover-submenu");
+                if (typeof Cookies !== "undefined") {
+                    Cookies.set('sidebar-menu-option', "");
+                }
             }
-
+          
+           
             //sidebar position
             if (App.isRTL()) {
                 if (sidebarPosOption === 'left') {
@@ -209,6 +218,9 @@ var Demo = function() {
             setColor(color);
             $('ul > li', panel).removeClass("current");
             $(this).addClass("current");
+            if (typeof Cookies !== "undefined") {
+                Cookies.set('theme-color', color);
+            }
         });
 
         // set default theme options:
@@ -247,6 +259,7 @@ var Demo = function() {
         var sidebarPosOption = $('.sidebar-pos-option', panel).val();
         var sidebarStyleOption = $('.sidebar-style-option', panel).val();
         var sidebarMenuOption = $('.sidebar-menu-option', panel).val();
+      
 
         $('.layout-option, .page-header-option, .page-header-top-dropdown-style-option, .sidebar-option, .page-footer-option, .sidebar-pos-option, .sidebar-style-option, .sidebar-menu-option', panel).change(setLayout);
     };
@@ -258,9 +271,7 @@ var Demo = function() {
 
         $('#style_components').attr("href", App.getGlobalCssPath() + file + ".min.css");
 
-        if (typeof Cookies !== "undefined") {
-            Cookies.set('layout-style-option', style);
-        }
+       
     };
 
     return {
@@ -272,14 +283,15 @@ var Demo = function() {
             
             // handle layout style change
             $('.theme-panel .layout-style-option').change(function() {
-                 setThemeStyle($(this).val());
+                setThemeStyle($(this).val());
+           
             });
 
             // set layout style from cookie
             if (typeof Cookies !== "undefined" && Cookies.get('layout-style-option') === 'rounded') {
                 setThemeStyle(Cookies.get('layout-style-option'));
                 $('.theme-panel .layout-style-option').val(Cookies.get('layout-style-option'));
-            }            
+            }
         }
     };
 

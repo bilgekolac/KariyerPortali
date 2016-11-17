@@ -1,4 +1,5 @@
 ﻿using KariyerPortali.Admin.Models;
+using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,13 @@ namespace KariyerPortali.Admin.Controllers
     [Authorize]
     public class BaseController : Controller
     {
+        private readonly INotificationService notificationService;
+
+        public BaseController()
+        {
+           this.notificationService = DependencyResolver.Current.GetService<INotificationService>();
+
+        }
         // GET: Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
@@ -53,6 +61,9 @@ namespace KariyerPortali.Admin.Controllers
             {
                 Session["User"] = null;
             }
+
+            ViewBag.Notifications = notificationService.GetLatestNotifications();
+            base.OnActionExecuting(filterContext);
         }
     }
 }
