@@ -38,7 +38,7 @@ namespace KariyerPortali.Admin.ViewModels
         public DateTime CreateDate { get; set; }
         public DateTime MilitaryPostponeDate { get; set; }
 
-
+        public float HighSchoolDegree { get; set; }
         public int? CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
        
