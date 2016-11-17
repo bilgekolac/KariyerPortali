@@ -130,8 +130,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
+                            <div class="portlet light bordered">
+                                <div class="portlet-body form">
                                     <strong>SEO Ayarları</strong>
                                     <br />
                                     <div class="form-group">
@@ -149,18 +149,17 @@
                                         @Html.TextAreaFor(model => model.SeoKeywords, new { htmlAttributes = new { @tabindex = "6", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" } })
 
                                     </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-actions">
-                                <button type="submit" tabindex="7" class="btn blue">
-                                    Kaydet
-                                </button>
-                                <button type="button" tabindex="8" class="btn default" onclick="window.location='@Url.Action("Index","Post")';">
-                                    İptal
-                                </button>
+                                <div class="form-actions">
+                                    <button type="submit" tabindex="7" class="btn blue">
+                                        Kaydet
+                                    </button>
+                                    <button type="button" tabindex="8" class="btn default" onclick="window.location='@Url.Action("Index","Post")';">
+                                        İptal
+                                    </button>
 
-                            </div>
-
+                                </div>
                         </form>
                     </div>
                 }
