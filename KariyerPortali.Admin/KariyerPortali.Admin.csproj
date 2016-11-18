@@ -270,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Content\500.html" />
     <Content Include="Scripts\pages\link-index.js" />
     <Content Include="Scripts\pages\seosettings-index.js" />
     <Content Include="Views\404.aspx" />
