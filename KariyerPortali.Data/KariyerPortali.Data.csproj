@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Configuration\CandidateConfiguration.cs" />
     <Compile Include="Configuration\CategoryConfiguration.cs" />
+    <Compile Include="Configuration\CertificateConfiguration.cs" />
     <Compile Include="Configuration\CityConfiguration.cs" />
     <Compile Include="Configuration\CountryConfiguration.cs" />
     <Compile Include="Configuration\CourseConfiguration.cs" />

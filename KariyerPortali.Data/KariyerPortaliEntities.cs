@@ -15,9 +15,9 @@ namespace KariyerPortali.Data
         {
             this.Configuration.LazyLoadingEnabled = true;
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<KariyerPortaliEntities, KariyerPortali.Data.Migrations.Configuration>("KariyerPortaliEntities"));
-
         }
 
+        public DbSet<Certificate>Certificates { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
@@ -99,8 +99,6 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new FormInfoConfiguration());
             modelBuilder.Configurations.Add(new RedirectConfiguration());
             modelBuilder.Configurations.Add(new SeoSettingConfiguration());
-            modelBuilder.Configurations.Add(new LinkConfiguration());
-            
         }
     }
 }

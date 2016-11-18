@@ -41,9 +41,5 @@ namespace KariyerPortali.Admin.Controllers
             },
                 JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }

@@ -46,7 +46,17 @@ namespace KariyerPortali.Admin.Controllers
 
         public ActionResult Details(int? id)
         {
-            return View();
+            if (id.HasValue)
+            {
+                var frm = formService.GetForm(id.Value);
+                if (frm != null)
+                {
+                    formService.SaveForm();
+                    var formViewModel = Mapper.Map<Form, FormViewModel>(frm);
+                    return View(formViewModel);
+                }
+            }
+            return HttpNotFound();
         }
 
         public ActionResult Index()

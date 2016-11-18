@@ -1,4 +1,4 @@
-﻿using KariyerPortali.Model.Models;
+﻿using KariyerPortali.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -44,8 +44,8 @@ namespace KariyerPortali.Model
         public DateTime BirthDate { get; set; }
         public DateTime CreateDate { get; set; }
         public DateTime MilitaryPostponeDate { get; set; }
-        public float HighSchoolDegree { get; set; }
 
+       
         public int? CandidateId { get; set; }
         public virtual Candidate Candidate { get; set; }
 
