@@ -2,7 +2,11 @@
 @{
     ViewBag.Title = "IndexSeo";
 }
-
+<style>
+    .theme-option > textarea {
+        width: 100%;
+    }
+</style>
 <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 <br />
@@ -43,26 +47,26 @@
                         <div class="form-body">
                             <div class="form-group">
                                 <div class="theme-option">
-                                    <span> Adres:</span><br />
+                                    <span>Başlık:</span><br />
                                     <textarea name="Title">@Model.FirstOrDefault(m => m.Name == "Title").Value</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="theme-option">
-                                    <span> Adres:</span><br />
+                                    <span> Tanım:</span><br />
                                     <textarea name="Description">@Model.FirstOrDefault(m => m.Name == "Description").Value</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="theme-option">
-                                    <span> Adres:</span><br />
+                                    <span> Anahtar Kelimeler:</span><br />
                                     <textarea name="Keyword">@Model.FirstOrDefault(m => m.Name == "Keyword").Value</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="form-actions">
-                            <button type="submit" class="btn blue">Kaydet</button>
-                            <button type="button" class="btn default" onclick="window.location='@Url.Action("IndexSeo","Settings")';">İptal</button>
+                            <button type="submit" class="btn blue" onclick='alert("Ayarlarınız Kaydedildi")'>Kaydet</button>
+                            
                         </div>
                     </form>
                 </div>
