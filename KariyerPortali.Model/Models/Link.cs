@@ -8,5 +8,6 @@ namespace KariyerPortali.Model
 {
     public class Link
     {
+        public int LinkId { get; set; }
     }
 }
