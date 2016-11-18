@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model
+namespace KariyerPortali.Data.Repositories
 {
-   public class SocialMedia
+    class SocialMediaRepository
     {
     }
 }

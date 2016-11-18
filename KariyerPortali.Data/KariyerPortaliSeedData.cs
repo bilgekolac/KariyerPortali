@@ -356,7 +356,10 @@ namespace KariyerPortali.Data
 
                new Setting {SettingId=1, Name="HeaderScript",Value=""},
                new Setting {SettingId=2,Name="GoogleAnalytics",Value=""},
-               new Setting {SettingId=3,Name="FooterScript",Value=""}
+               new Setting {SettingId=3,Name="FooterScript",Value=""},
+               new Setting {SettingId=4, Name="Adres",Value=""},
+               new Setting {SettingId=5,Name="Iletisim",Value=""},
+               new Setting {SettingId=6,Name="Websayfa",Value=""}
             };
         }
 

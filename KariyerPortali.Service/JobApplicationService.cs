@@ -70,7 +70,7 @@ namespace KariyerPortali.Service
         }
         public int GetJobApplicationCountByMonth(int month) 
         {
-            return jobApplicationRepository.GetMany(j => j.ApplicationDate.Month == month).Count();
+            return jobApplicationRepository.GetMany(j => j.ApplicationDate.Month == month && j.ApplicationDate.Year == 2016).Count();
         }
         public void SaveJobApplication()
         {

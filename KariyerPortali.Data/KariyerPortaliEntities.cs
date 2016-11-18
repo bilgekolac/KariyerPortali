@@ -98,7 +98,7 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new FormConfiguration());
             modelBuilder.Configurations.Add(new FormInfoConfiguration());
             modelBuilder.Configurations.Add(new RedirectConfiguration());
-           // modelBuilder.Configurations.Add(new SeoSettingConfiguration());
+            modelBuilder.Configurations.Add(new SeoSettingConfiguration());
         }
     }
 }
