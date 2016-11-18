@@ -379,7 +379,11 @@ namespace KariyerPortali.Data.Migrations
                new Setting {SettingId=6,Name="Webpage",Value=""},
                 new Setting {SettingId=7,Name="Title",Value=""},
                  new Setting {SettingId=8,Name="Description",Value=""},
-                  new Setting {SettingId=9,Name="Keyword",Value=""}
+                  new Setting {SettingId=9,Name="Keyword",Value=""},
+                   new Setting {SettingId=14,Name="UserMail",Value=""},
+                new Setting {SettingId=15,Name="UserPassword",Value=""},
+                 new Setting {SettingId=16,Name="SmtpServer",Value=""},
+                  new Setting {SettingId=17,Name="UseSsn",Value=""}
             };
         }
     }
