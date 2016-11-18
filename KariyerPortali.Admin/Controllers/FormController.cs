@@ -73,7 +73,7 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     var formViewModel = Mapper.Map<Form, FormViewModel>(frm);
                     ViewBag.FormId = new SelectList(formService.GetForms(), "FormId", "FormName");
-                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoDescription");
                     return View(formViewModel);
                 }
             }
@@ -85,7 +85,7 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult Edit(FormFormViewModel form)
         {
             ViewBag.FormId = new SelectList(formService.GetForms(), "FormId", "FormName");
-            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoDescription");
             if (ModelState.IsValid)
             {
                 var frm = Mapper.Map<FormFormViewModel, Form>(form);
