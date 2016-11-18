@@ -190,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -244,6 +245,8 @@
     <Compile Include="ViewModels\JobViewModel.cs" />
     <Compile Include="ViewModels\LanguageFormViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
+    <Compile Include="ViewModels\LinkFormViewModel.cs" />
+    <Compile Include="ViewModels\LinkViewModel.cs" />
     <Compile Include="ViewModels\NotificationFormViewModel.cs" />
     <Compile Include="ViewModels\NotificationViewModel.cs" />
     <Compile Include="ViewModels\PageFormViewModel.cs" />
@@ -267,6 +270,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Scripts\pages\link-index.js" />
     <Content Include="Scripts\pages\seosettings-index.js" />
     <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
