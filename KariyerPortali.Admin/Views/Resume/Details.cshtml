@@ -1,10 +1,26 @@
 ﻿@model KariyerPortali.Admin.ViewModels.ResumeViewModel      
  <!-- BEGIN SAMPLE FORM PORTLET-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="~/assets/global/css/yazdir.css" media="print">
+    <style>
+        table, td, th {
+            border:none;
+            text-align: left;
+        }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
 <br />
     <div class="page-bar" id="non_write"></div>
-   
+    th, td {
+        padding: 15px;
+    }
 
 
     <br />
@@ -24,18 +40,18 @@
         </div>
     </div>
     <br />
-<div class="caption font dark" id="non_write">
+<div class="caption font dark">
     <div class="row">
-        <div class="col-md-9" id="non_write">
-            <div class="portlet light bordered" id="non_write">
-                <div class="portlet-title" id="non_write">
-                    <div class="caption font-dark" >
+        <div class="col-md-9">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption font-dark">
                         <i class="icon-settings font-dark"></i>
                         <span class="caption-subject bold uppercase"> ÖZGEÇMİŞ DETAYI </span>
                     </div>
                 </div>
-            
-            <div class="portlet light bordered" id="write">
+            </div>
+            <div class="portlet light bordered">
                 <!--ADAY BİLGİLERİ SIRALANACAK-->
                 <div class="row">
                     <br />
@@ -574,12 +590,11 @@
                 </div>
 
             </div>
-       </div>
 
        
               
        
-      @*  <div class="col-md-3">
+        <div class="col-md-3">
             <!--ÖZGEÇMİŞ İŞLEMLERİ-->
             <div class="btn-group pull-right" >
                 <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">
@@ -588,7 +603,9 @@
                 </button>
                 <ul class="dropdown-menu pull-right">
                     <li>
-                      >
+                        <a href="javascript:;">
+                            <i class="fa fa-print"></i> Yazdır
+                        </a>
                     </li>
                     <li>
                         <a href="javascript:;">
@@ -602,19 +619,14 @@
                     </li>
                 </ul>
             </div>
-          *@
+          
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
 
-            <br />
-            <br />
-            <br />
-			<a href="javascript:void(0)" onclick="window.print();" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
-                        <i class="fa fa-print"></i> Yazdır
-                    </a> 
-            <br />
-            <br />
-            <br />
-			<div class="col-md-3">
-			
                 <div class="portlet light bordered">
                     <div class="form-body">
                         <div class="form-group">
@@ -626,7 +638,8 @@
                     </div>
                 </div>
             </div>
-			</div>
+
+       
         </div>
     </div>
 
