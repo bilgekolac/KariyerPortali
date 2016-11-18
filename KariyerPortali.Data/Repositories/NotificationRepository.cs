@@ -106,7 +106,11 @@ namespace KariyerPortali.Data.Repositories
             return query;
         }
 
-      
+      //public Notification MarkAsRead()
+      //  {
+      //      var query = this.DbContext.Notifications.
+      //      return query;
+      //  }
     }
 
     public interface INotificationRepository: IRepository<Notification>
