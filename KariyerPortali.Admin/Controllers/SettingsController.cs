@@ -97,19 +97,19 @@ namespace KariyerPortali.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     // header script setting güncellenir
-                    var setting1 = settingService.GetSettingByName("Title");
-                    setting1.Value = settingForm.Title;
-                    settingService.UpdateSetting(setting1);
+                    var setting4 = settingService.GetSettingByName("Title");
+                    setting4.Value = settingForm.Title;
+                    settingService.UpdateSetting(setting4);
 
                     // google analytics setting güncellenir
-                    var setting2 = settingService.GetSettingByName("Description");
-                    setting2.Value = settingForm.Description;
-                    settingService.UpdateSetting(setting2);
+                    var setting5 = settingService.GetSettingByName("Description");
+                    setting5.Value = settingForm.Description;
+                    settingService.UpdateSetting(setting5);
 
                     // footer script setting güncellenir
-                    var setting3 = settingService.GetSettingByName("Keyword");
-                    setting3.Value = settingForm.Keyword;
-                    settingService.UpdateSetting(setting3);
+                    var setting6 = settingService.GetSettingByName("Keyword");
+                    setting6.Value = settingForm.Keyword;
+                    settingService.UpdateSetting(setting6);
 
 
 
