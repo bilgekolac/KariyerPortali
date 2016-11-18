@@ -13,7 +13,10 @@ namespace KariyerPortali.Data
         
         protected override void Seed(KariyerPortaliEntities context)
         {
+          
+           
             GetSectors().ForEach(c => context.Sectors.Add(c));
+            GetExams().ForEach(c => context.Exams.Add(c));
             GetSkills().ForEach(c => context.Skills.Add(c));
             GetSkillInfos().ForEach(c => context.SkillInfos.Add(c));
             GetCandidates().ForEach(c => context.Candidates.Add(c));
@@ -25,11 +28,11 @@ namespace KariyerPortali.Data
             GetCities().ForEach(c => context.Cities.Add(c));
             GetLanguages().ForEach(c => context.Languages.Add(c));
             GetResumes().ForEach(c => context.Resumes.Add(c));
-
+            GetSettings().ForEach(c => context.Settings.Add(c));
 
             context.Commit();
         }
-        private static List<Candidate> GetCandidates()
+        private  List<Candidate> GetCandidates()
         {
             return new List<Candidate>
             {
@@ -52,7 +55,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<HighSchoolType> GetHighSchoolTypes()
+        private  List<HighSchoolType> GetHighSchoolTypes()
         {
             return new List<HighSchoolType>
             {
@@ -65,7 +68,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<HighSchoolDepartment> GetHighSchoolDeparments()
+        private  List<HighSchoolDepartment> GetHighSchoolDeparments()
         {
             return new List<HighSchoolDepartment>
             {
@@ -76,7 +79,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<Country> GetCountries()
+        private  List<Country> GetCountries()
         {
             return new List<Country>
             {
@@ -88,7 +91,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<City> GetCities()
+        private  List<City> GetCities()
         {
             return new List<City>
             {
@@ -102,7 +105,7 @@ namespace KariyerPortali.Data
 
             };
         }
-        private static List<Language> GetLanguages()
+        private List<Language> GetLanguages()
         {
             return new List<Language>
             {
@@ -118,7 +121,7 @@ namespace KariyerPortali.Data
         
         }
 
-        private static List<Sector> GetSectors()
+        private  List<Sector> GetSectors()
         {
             return new List<Sector>
             {
@@ -131,37 +134,80 @@ namespace KariyerPortali.Data
 
         }
 
-        private static List<Skill> GetSkills()
+        private  List<Skill> GetSkills()
         {
             return new List<Skill>
             {
                 new Skill {
                 SkillId=1,
                 SkillName="C#",
+                
                 },
-              
+
+                new Skill {
+                SkillId=2,
+                SkillName="HTML5",
+                },
+
             };
 
 
         }
 
-        private static List<SkillInfo> GetSkillInfos()
+        private List<Exam> GetExams()
+        {
+            return new List<Exam>
+            {
+                new Exam {
+              
+                    ExamId=1,
+                    ExamName="TOEFL",
+                    
+                    
+                    
+                },
+
+                new Exam {
+
+                    ExamId=2,
+                    ExamName="IELTS",
+                },
+
+
+            };
+
+
+        }
+
+     
+
+     
+
+        private List<SkillInfo> GetSkillInfos()
         {
             return new List<SkillInfo>
             {
                 new SkillInfo {
                SkillId=1,
-               SkillInfoId=1,             
-               Point=5,
+               SkillInfoId=1,  
+               
+             
                 },
-              
+
+
+                new SkillInfo {
+               SkillId=2,
+               SkillInfoId=1,
+             
+                },
+
             };
 
 
         }
 
 
-        private static List<University> GetUniversities()
+        private List<University> GetUniversities()
         {
             return new List<University>
             {
@@ -180,7 +226,7 @@ namespace KariyerPortali.Data
             };
         }
 
-        private static List<Department> GetDepartments()
+        private List<Department> GetDepartments()
         {
             return new List<Department>
             {
@@ -202,7 +248,7 @@ namespace KariyerPortali.Data
         }
 
        
-        private static List<Resume> GetResumes()
+        private List<Resume> GetResumes()
         {
             var resumes = new List<Resume>();  
                 
@@ -218,9 +264,9 @@ namespace KariyerPortali.Data
                 UpdatedBy="muhammed",
                 CoverLetter="Merhaba, Bilişim Eğitim Merkezi",
                 Email="muhammed.sezgin88@gmail.com",
-                CellPhone="(0539)6454545",
-                CellPhone2="(0505)4441444",
-                HomePhone="(0212)4441111",
+                CellPhone="(0539)-645-4545",
+                CellPhone2="(0505)-444-1444",
+                HomePhone="(0212)-444-1111",
                 Website="www.muhammedsezgin.wordpress.com",
                 Address="Bahçeşehir/İSTANBUL",
                 HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
@@ -266,22 +312,52 @@ namespace KariyerPortali.Data
             resume.EducationInfos = new List<EducationInfo>();
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId = 1, EducationStatus = EducationStatus.Master, UniversityId = 1, DepartmentId = 1, UniversityStart = Convert.ToDateTime("14.03.2016"), UniversityEnd = Convert.ToDateTime("14.03.2019") });
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=2,DepartmentId=2,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
-
+          
             resume.Experiences = new List<Experience>();
             resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,Title = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016"),ExperienceStatus = ExperienceStatus.FullTime,Description="Oftalmoloji Sektöründe Türkiye Distribütörü Firmada Aplikasyon Mühendisi"});
 
             resume.References = new List<Reference>();
-            resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-4441313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
+            resume.References.Add(new Reference() { ReferenceId = 1, FirstName = "Hakan", LastName = "YILMAZ", CompanyName = "Bilişim Eğitim Merkezi", Phone = "(0539)-444-1313", EPosta = "hakanyilmaz@gmail.com", Message = "Referans Mesajı Görüntülenecek", ReferenceType = ReferenceType.BusinessFriend ,ReferenceFile="Referans Dosya Uzantısı Olacak",
                SectorId=1 });
 
             resume.SkillInfos = new List<SkillInfo>();
-            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5 });
-          
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 3.3F });        
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 2, Point = 3.4F  });
+
+            resume.ExamInfos = new List<ExamInfo>();
+            resume.ExamInfos.Add(new ExamInfo() { ExamId=1,ExamInfoId=1,Point=90 });           
+            resume.ExamInfos.Add(new ExamInfo() { ExamId = 2, ExamInfoId = 2, Point = 8});
+
+            resume.CertificateInfos = new List<Certificate>();
+            resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate.jpg", CertificateId = 1, CertificateName = "İŞKUR", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("18.12.2016") });        
+            resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate2.jpg", CertificateId = 2, CertificateName = "MİCROSOFT", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("19.12.2016") });
+
+            resume.Courses = new List<Course>();
+            resume.Courses.Add(new Course()
+            {
+                CourseId = 1,
+                CourseName = "İŞKUR Yazılım Kursu",
+                Institution = "BİLİŞİM EĞİTİM MERKEZİ",
+                StartDate = Convert.ToDateTime("17.07.2016"),
+                FinishDate = Convert.ToDateTime("17.12.2016"),
+                Statement = "Bu Kısımlara ENUM atanacak",
+                Time = 800,
+            });
             resumes.Add(resume);
 
             return resumes;
              
             
+        }
+        private List<Setting> GetSettings()
+        {
+            return new List<Setting>
+            {
+
+               new Setting {SettingId=1, Name="Header Script",Value=""},
+               new Setting {SettingId=2,Name="Google Analytics",Value=""},
+               new Setting {SettingId=3,Name="Footer Script",Value=""}
+            };
         }
 
     }

@@ -60,10 +60,6 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="MvcCheckBoxList, Version=1.4.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MvcCheckBoxList.1.4.5\lib\net45\MvcCheckBoxList.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -194,6 +190,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
+    <Compile Include="Controllers\LinkController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\NotificationController.cs" />
@@ -202,6 +199,7 @@
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Controllers\SectorController.cs" />
+    <Compile Include="Controllers\SeoSettingController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SocialRightController.cs" />
@@ -247,6 +245,8 @@
     <Compile Include="ViewModels\JobViewModel.cs" />
     <Compile Include="ViewModels\LanguageFormViewModel.cs" />
     <Compile Include="ViewModels\LanguageViewModel.cs" />
+    <Compile Include="ViewModels\LinkFormViewModel.cs" />
+    <Compile Include="ViewModels\LinkViewModel.cs" />
     <Compile Include="ViewModels\NotificationFormViewModel.cs" />
     <Compile Include="ViewModels\NotificationViewModel.cs" />
     <Compile Include="ViewModels\PageFormViewModel.cs" />
@@ -259,6 +259,8 @@
     <Compile Include="ViewModels\ResumeViewModel.cs" />
     <Compile Include="ViewModels\SectorFormViewModel.cs" />
     <Compile Include="ViewModels\SectorViewModel.cs" />
+    <Compile Include="ViewModels\SeoSettingFormViewModel.cs" />
+    <Compile Include="ViewModels\SeoSettingViewModel.cs" />
     <Compile Include="ViewModels\SettingFormViewModel.cs" />
     <Compile Include="ViewModels\SettingViewModel.cs" />
     <Compile Include="ViewModels\SkillFormViewModel.cs" />
@@ -268,6 +270,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\404.html" />
+    <Content Include="Scripts\pages\link-index.js" />
+    <Content Include="Scripts\pages\seosettings-index.js" />
     <Content Include="Views\404.aspx" />
     <Content Include="assets\apps\css\inbox.css" />
     <Content Include="assets\apps\css\inbox.min.css" />
@@ -6469,6 +6473,7 @@
     <Content Include="Views\Redirect\Edit.cshtml" />
     <Content Include="Views\Redirect\Delete.cshtml" />
     <Content Include="Views\FormInfo\Index.cshtml" />
+    <Content Include="Views\Settings\Contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

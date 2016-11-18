@@ -16,7 +16,7 @@ namespace KariyerPortali.Admin.ViewModels
         [DisplayName("Başlık")]
         public string Title { get; set; }
 
-        [DisplayName("Kısa Ad")]
+        [DisplayName("Bağlantı")]
         public string Slug { get; set; }
         
         [DisplayName("İçerik")]
@@ -43,8 +43,13 @@ namespace KariyerPortali.Admin.ViewModels
         [ForeignKey("ParentPageId")]
         public virtual Page ParentPage { get; set; }
 
+        [DisplayName("Başlık")]
         public string SeoTitle { get; set; }
+
+        [DisplayName("Açıklama")]
         public string SeoDescription { get; set; }
+
+        [DisplayName("Anahtar Kelimeler")]
         public string SeoKeywords { get; set; }
     }
 }

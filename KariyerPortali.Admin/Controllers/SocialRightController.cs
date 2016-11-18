@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SocialRightController : Controller
+    public class SocialRightController : BaseController
     {
         // GET: SocialRight
         public ActionResult Index()

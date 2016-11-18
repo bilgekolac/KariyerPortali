@@ -1,0 +1,75 @@
+﻿@model KariyerPortali.Admin.ViewModels.SeoSettingFormViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<br />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index", "SeoSetting")" class="nav-link">Ayarlar</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Arama Ayarı</span>
+        </li>
+    </ul>
+
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-12 ">
+        <!-- BEGIN SAMPLE FORM PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <h1 class="page-title">
+                    ARAMA
+                </h1>
+
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="portlet-body form">
+                    <form role="form">
+                        <div class="form-body">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Title)
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner", autofocus = "autofocus" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Description)<br />
+                                @Html.TextAreaFor(model => model.Description, new { @tabindex = "2", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Keyword)<br />
+                                @Html.TextAreaFor(model => model.Keyword, new { @tabindex = "3", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
+                                @Html.ValidationMessageFor(model => model.Keyword, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn blue">Kaydet</button>
+                            <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","SeoSetting")';">İptal</button>
+                        </div>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+<!-- END SAMPLE FORM PORTLET-->
+<!-- BEGIN SAMPLE FORM PORTLET-->
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
