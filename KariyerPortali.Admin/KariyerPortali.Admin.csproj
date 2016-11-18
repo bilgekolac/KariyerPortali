@@ -6482,6 +6482,9 @@
     <Content Include="Views\Link\Edit.cshtml" />
     <Content Include="Views\Link\Delete.cshtml" />
     <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Views\Form\Edit.cshtml" />
+    <Content Include="Views\FormInfo\Details.cshtml" />
+    <Content Include="Views\FormInfo\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
