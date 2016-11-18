@@ -35,6 +35,12 @@ namespace KariyerPortali.Admin.Controllers
             var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
             return View(settingViewModels);
         }
+        public ActionResult Mail()
+        {
+            var settings = settingService.GetSettings();
+            var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
+            return View(settingViewModels);
+        }
         public ActionResult IndexSeo()
         {
             var settings = settingService.GetSettings();
@@ -128,6 +134,10 @@ namespace KariyerPortali.Admin.Controllers
                 }
                 return RedirectToAction("IndexSeo", new { error = "1" });
             }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Mail(SettingFormViewModel settingForm)
+        { return RedirectToAction("IndexSeo", new { error = "1" }); }
         }
 
     }
