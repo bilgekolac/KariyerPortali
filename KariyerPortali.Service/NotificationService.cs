@@ -32,7 +32,8 @@ namespace KariyerPortali.Service
 
         public IEnumerable<Notification> GetLatestNotifications()
         {
-            var notifications = notificationRepository.GetAll().OrderByDescending(n=>n.NotificationDate).Take(10);
+
+            var notifications = notificationRepository.GetLatestNotifications();
             return notifications;
         }
 

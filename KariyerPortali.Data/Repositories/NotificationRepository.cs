@@ -102,7 +102,7 @@ namespace KariyerPortali.Data.Repositories
 
         public List<Notification> GetLatestNotifications()
         {
-            var query = this.DbContext.Notifications.OrderByDescending(o => o.NotificationDate).Take(10).ToList();
+            var query = this.DbContext.Notifications.OrderByDescending(o => o.NotificationDate).Where(n => n.IsRead == false).ToList();
             return query;
         }
     }
@@ -111,6 +111,7 @@ namespace KariyerPortali.Data.Repositories
     {
         Notification GetLatestNotification();
         IEnumerable<Notification> Search(string search, int sortColumnIndex, string sortDirection, int displayStart, int displayLength, out int totalRecords, out int totalDisplayRecords);
+        List<Notification> GetLatestNotifications();
     }
 
 }
