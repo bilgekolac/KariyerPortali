@@ -18,5 +18,9 @@ namespace KariyerPortali.Admin.ViewModels
         public string Url { get; set; }
         [DisplayName("Görünür")]
         public bool Visible { get; set; }
+        [DisplayName("Tanım")]
+        public string Definition { get; set; }
+        [DisplayName("Hedef")]
+        public string Target { get; set; }
     }
 }
