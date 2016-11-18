@@ -133,8 +133,8 @@ namespace KariyerPortali.Admin.Controllers
                 {
                     postService.SavePost();
                     var postViewModel = Mapper.Map<Post, PostViewModel>(post);
-                    ViewBag.Categories = new MultiSelectList(categoryService.GetCategories(), "CategoryId", "CategoryName", postViewModel.CategoryId);
-                    List<Category> selectedCategories = new List<Category>();
+                    ViewBag.Categories = new MultiSelectList(post.Categories, "CategoryId", "CategoryName", postViewModel.CategoryId);
+                    
                     return View(postViewModel);
                 }
             }

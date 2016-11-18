@@ -29,50 +29,43 @@
             <div class="portlet light profile-sidebar-portlet ">
                 <div class="theme-panel">
                     <h1 class="page-title">
-                        İletişim Bilgileri
+                        Genel Ayarlar
                     </h1>
+                    @using (Html.BeginForm("Contact", "Settings", null, FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="theme-option">
+                                    <span> Adres:</span><br />
+                                    <textarea name="Adres">@Model.FirstOrDefault(m => m.Name == "Adres").Value</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="theme-option">
+                                    <span> İletişim:</span><br />
+                                    <textarea name="Iletisim">@Model.FirstOrDefault(m => m.Name == "Iletisim").Value</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="theme-option">
+                                    <span>  Websayfası:</span><br />
+                                    <textarea name="Websayfa">@Model.FirstOrDefault(m => m.Name == "Websayfa").Value</textarea>
+                                    <div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn blue" onclick='alert("Ayarlarınız Kaydedildi")'>Kaydet</button>
 
-                    <div class="theme-option">
-                        <span> ADRES:</span><br />
-                        <textarea name="Adres"></textarea>
-                    </div>
-                    <div class="theme-option">
-                        <span> İLETİŞİM:</span><br />
-                        <textarea name="iletisim"></textarea>
-                    </div>
-                    <div class="theme-option">
-                        <span> WEB SAYFASI:</span><br />
-                        <textarea name="websayfasi"></textarea>
-                    </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn blue">Kaydet</button>
-                        <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Setting")';">İptal</button>
-                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
     </div>
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

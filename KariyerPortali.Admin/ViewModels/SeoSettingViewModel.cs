@@ -9,17 +9,8 @@ namespace KariyerPortali.Admin.ViewModels
 {
     public class SeoSettingViewModel
     {
-        public int SeoSettingId { get; set; }
-        [Required(ErrorMessage = "Başlık gereklidir.")]
-        [DisplayName("Başlık :")]
-        public string Title { get; set; }
-        [DisplayName("Tanım :")]
-        [Required(ErrorMessage = "Tanım gereklidir.")]
-        public string Description { get; set; }
-        [DisplayName("Anahtar Kelimeler :")]
-        [Required(ErrorMessage = "Anahtar Kelimeler gereklidir.")]
-        public string Keyword { get; set; }
-        
-
+        public int SettingId { get; set; }
+        public string Name { get; set; }
+        public string Value { get; set; }
     }
 }

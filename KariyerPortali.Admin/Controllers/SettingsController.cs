@@ -74,12 +74,12 @@ namespace KariyerPortali.Admin.Controllers
              settingService.UpdateSetting(setting1);
 
              // Adres setting güncellenir
-             var setting2 = settingService.GetSettingByName("iletisim");
+             var setting2 = settingService.GetSettingByName("Iletisim");
              setting2.Value = settingForm2.GoogleAnalytics;
              settingService.UpdateSetting(setting2);
 
              // iletisim setting güncellenir
-             var setting3 = settingService.GetSettingByName("websayfasi");
+             var setting3 = settingService.GetSettingByName("websayfa");
              setting3.Value = settingForm2.FooterScript;
              settingService.UpdateSetting(setting3);
 
