@@ -92,10 +92,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </h3>
                                     <a href="@Url.Action("Index","Notification")"> tümünü göster</a>
                                 </li>
-                                @*<li>
+                                <li>
                                     <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-                                       @foreach (KariyerPortali.Model.Notification n in ViewBag.Notifications)
-                                       {
+                                      
+                                        @if (ViewBag.Notifications!=null)
+                                        {
+                                        foreach (KariyerPortali.Model.Notification n in ViewBag.Notifications)
+                                        {
                                            <li>
                                             <a href="@Url.Action("Index", "Notification")">
                                               
@@ -105,14 +108,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="details">
                                                     <span>
                                                         <i class="fa fa-plus"></i>
-                                                    </span> @Html.DisplayFor(model=>n.Message)
+                                                    </span> @string.Format(n.Message, n.Param1, n.Param2, n.Param3)
                                                 </span>
                                                 
                                             </a>
                                         </li>
                                        }
+                                        }
                                     </ul>
-                                </li>*@
+                                </li>
                             </ul>
                         </li>
 
