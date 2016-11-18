@@ -24,7 +24,7 @@
 
 
 <br />
-<div class="page-bar">
+<div class="page-bar" id="non_write">
     <ul class="page-breadcrumb">
         <li>
             <a href="/Resume">Özgeçmişler</a>
@@ -35,12 +35,12 @@
         </li>
     </ul>
 
-    <div class="page-toolbar">
+    <div class="page-toolbar" id="non_write">
 
     </div>
 </div>
 <br />
-<div class="caption font dark">
+<div class="caption font dark"id="non_write">
     <div class="row">
         <div class="col-md-9">
             <div class="portlet light bordered">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="portlet light bordered">
+            <div class="portlet light bordered" id="write">
                 <!--ADAY BİLGİLERİ SIRALANACAK-->
                 <div class="row">
                     <br />
@@ -627,7 +627,7 @@
 
         <div class="col-md-3">
             <!--ÖZGEÇMİŞ İŞLEMLERİ-->
-            <div class="btn-group pull-right">
+           @* <div class="btn-group pull-right">
                 <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">
                     Özgeçmiş İşlemleri
                     <i class="fa fa-angle-down"></i>
@@ -649,8 +649,10 @@
                         </a>
                     </li>
                 </ul>
-            </div>
-
+            </div>*@
+			<a href="javascript:void(0)" onclick="window.print();" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
+                        <i class="fa fa-print"></i> Yazdır
+                    </a>
             <br />
             <br />
             <br />
