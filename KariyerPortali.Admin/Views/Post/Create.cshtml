@@ -95,10 +95,12 @@
                                     @Html.Label("Kategoriler")<br />
                                     @foreach (SelectListItem item in ViewBag.Categories)
                                     {
+                                        <br />
                                         <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
                                             <input type="checkbox" name="CategoryId" class="checkboxes" value="@item.Value" checked="@item.Selected" />
                                             <span></span>
                                             @item.Text
+                                            
                                         </label>
                                     }
                                 </div>

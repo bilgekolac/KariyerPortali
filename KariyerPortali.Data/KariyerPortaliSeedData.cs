@@ -270,8 +270,7 @@ namespace KariyerPortali.Data
                 Website="www.muhammedsezgin.wordpress.com",
                 Address="Bahçeşehir/İSTANBUL",
                 HighSchoolName="Bahçeşehir Atatürk Anadolu Lisesi",
-                ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",
-               
+                ComputerSkill="C#, Matlab , PhotoShop, AutoCAD ,SQL Server",               
                 ScholarshipAndProject="Kariyer Portalı",
                 Hobby="Müzik,Spor",
                 MemberOwnedCommunity="TEV",
@@ -296,11 +295,12 @@ namespace KariyerPortali.Data
                 DrivingLicense2Date= Convert.ToDateTime("04.07.2009"),
                 HighSchoolTypeId=1,
                 HighSchoolDepartmentId=1,
-                HighSchoolCertificate=HighSchoolCertificate.N100,
-                CertificateDegree= 3,
+                HighSchoolCertificate=HighSchoolCertificate.N100,     
+                CertificateDegree= 3.85f,
                 BloodType = BloodType.ARhP,
                 CigaretteStatus = CigaretteStatus.Yes,
                 SalaryWaited = SalaryWaited.B3000and4000,
+                
                 
             };
 
@@ -356,10 +356,7 @@ namespace KariyerPortali.Data
 
                new Setting {SettingId=1, Name="HeaderScript",Value=""},
                new Setting {SettingId=2,Name="GoogleAnalytics",Value=""},
-               new Setting {SettingId=3,Name="FooterScript",Value=""},
-               new Setting {SettingId=4, Name="Adres",Value=""},
-               new Setting {SettingId=5,Name="Iletisim",Value=""},
-               new Setting {SettingId=6,Name="Websayfa",Value=""}
+               new Setting {SettingId=3,Name="FooterScript",Value=""}
             };
         }
 
