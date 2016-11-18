@@ -127,6 +127,7 @@
     <Compile Include="Repositories\SettingRepository.cs" />
     <Compile Include="Repositories\SkillInfoRepository.cs" />
     <Compile Include="Repositories\SkillRepository.cs" />
+    <Compile Include="Repositories\SocialMediaRepository.cs" />
     <Compile Include="Repositories\SocialRightRepository.cs" />
     <Compile Include="Repositories\UniversityRepository.cs" />
   </ItemGroup>
