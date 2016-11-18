@@ -17,7 +17,7 @@ namespace KariyerPortali.Model
         public string Param1 { get; set; }
         public string Param2 { get; set; }
         public string Param3 { get; set; }
-
+        public bool IsRead { get; set;}
         public virtual NotificationType NotificationType { get; set; }
     }
 }

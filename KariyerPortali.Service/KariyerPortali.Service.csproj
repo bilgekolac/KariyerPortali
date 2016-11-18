@@ -72,7 +72,6 @@
     <Compile Include="SettingService.cs" />
     <Compile Include="SkillInfoService.cs" />
     <Compile Include="SkillService.cs" />
-    <Compile Include="SocialMediaService.cs" />
     <Compile Include="SocialRightService.cs" />
     <Compile Include="UniversityService.cs" />
   </ItemGroup>

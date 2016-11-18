@@ -79,7 +79,6 @@
     <Compile Include="Configuration\SettingConfiguration.cs" />
     <Compile Include="Configuration\SkillConfiguration.cs" />
     <Compile Include="Configuration\SkillInfoConfiguration.cs" />
-    <Compile Include="Configuration\SocialMediaConfiguraion.cs" />
     <Compile Include="Configuration\SocialRightConfiguration.cs" />
     <Compile Include="Configuration\UniversityConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
@@ -125,7 +124,6 @@
     <Compile Include="Repositories\SettingRepository.cs" />
     <Compile Include="Repositories\SkillInfoRepository.cs" />
     <Compile Include="Repositories\SkillRepository.cs" />
-    <Compile Include="Repositories\SocialMediaRepository.cs" />
     <Compile Include="Repositories\SocialRightRepository.cs" />
     <Compile Include="Repositories\UniversityRepository.cs" />
   </ItemGroup>

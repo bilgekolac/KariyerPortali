@@ -1,0 +1,97 @@
+﻿@model KariyerPortali.Admin.ViewModels.FormInfoViewModel
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<title>@ViewBag.Title-Kariyer Portalı</title>
+<br />
+<style>
+    textarea {
+        max-width: 100%;
+        max-height: 100%;
+    }
+</style>
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Index","FormInfo")">Form Bilgileri</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Form Bilgisi Düzenle</span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="icon-settings font-dark"></i>
+                    <span class="caption-subject bold uppercase"> Form Bilgisi Düzenle</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="row">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-12 ">
+                        <!-- BEGIN SAMPLE FORM PORTLET-->
+                        <div class="portlet light bordered">
+
+                            <!--İLAN VERİLİŞ TARİHİ O AN ALINACAK-->
+
+
+
+                            <div class="portlet-body form">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(model => model.FormInfoId)
+                                <div class="form-body">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FormInfoId)
+                                        @Html.DropDownList("EmployerId", null, new { @tabindex = "1", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FormInfoId, "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.FormInfoId)
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FormInfoId)
+                                        @Html.DropDownList("CityId", null, new { @tabindex = "3", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FormInfoId, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FormInfoId)
+                                        @Html.EnumDropDownListFor(model => model.FormInfoId, "", new { @tabindex = "5", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FormInfoId, "", new { @class = "text-danger" })
+                                    </div>
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    @Html.HiddenFor(model => model.FormInfoId)
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.FormInfoId)
+                                        @Html.DropDownList("ExperienceId", null, new { @tabindex = "7", @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.FormInfoId, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- END SAMPLE FORM PORTLET-->
+                        <!-- BEGIN SAMPLE FORM PORTLET-->
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -12,5 +12,7 @@ namespace KariyerPortali.Model
         public string LinkName { get; set; }
         public string Url { get; set; }
         public bool Visible { get; set; }
+        public string Definition { get; set; }
+        public string Target { get; set; }
     }
 }

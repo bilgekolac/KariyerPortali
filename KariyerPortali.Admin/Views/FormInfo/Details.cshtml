@@ -1,4 +1,4 @@
-﻿@model KariyerPortali.Admin.ViewModels.FormViewModel
+﻿@model KariyerPortali.Admin.ViewModels.FormInfoViewModel
 <!DOCTYPE html>
 <meta charset="utf-8" />
 <title>@ViewBag.Title-Kariyer Portalı</title>
@@ -16,7 +16,7 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Form Önizlemesi</span>
+            <span>Form Sorusu Detayı</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -30,7 +30,7 @@
             <div class="portlet-title">
                 <div class="caption font-dark">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject bold uppercase"> Form Önizlemesi</span>
+                    <span class="caption-subject bold uppercase"> Form Sorusu Detayı</span>
                 </div>
             </div>
             <div class="row">
@@ -51,33 +51,25 @@
 
                                 <div class="form-body">
                                     <div class="form-group">
-                                        @Html.DisplayFor(model => model.FormName)<br />
+                                        @Html.DisplayFor(model => model.FormInfoDescription)
                                     </div>
                                     <div class="form-group">
-                                        <text>E-posta adresi giriniz:</text><br />
-                                        <text>cc:</text>@Html.EditorFor(model => model.FormName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner", autofocus = "autofocus" } })
-                                        @Html.ValidationMessageFor(model => model.FormName, "", new { @class = "text-danger" })
-                                        <text>bcc:</text>@Html.EditorFor(model => model.FormName, new { htmlAttributes = new { @tabindex = "2", @class = "form-control spinner", autofocus = "autofocus" } })
-                                        @Html.ValidationMessageFor(model => model.FormName, "", new { @class = "text-danger" })
+                                        @Html.DisplayFor(model => model.FormType)
                                     </div>
-                                    <div class="form-group">
-                                       @Html.DisplayFor(model => model.Description, new { htmlAttributes = new {@class = "form-control spinner", autofocus = "autofocus" } })
-                                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                                    </div>
-                                    <div class="form-group">
-                                        @*@foreach(var item in ViewBag.FormInfos)
-                                        {
-
-                                        }*@
-                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.DisplayFor(model => model.Value)
+                                </div>
+                                <div class="form-group">
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" />
+                    </div>
+                        <input type="submit" value="Ekle" />
                         <!-- END SAMPLE FORM PORTLET-->
                         <!-- BEGIN SAMPLE FORM PORTLET-->
-                    </div>
             </div>
+
         </div>
     </div>
 </div>

@@ -67,7 +67,7 @@ namespace KariyerPortali.Admin.Controllers
                 if (frmInfo != null)
                 {
                     var formInfoViewModel = Mapper.Map<FormInfo, FormInfoViewModel>(frmInfo);
-                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoDescription");
                     return View(formInfoViewModel);
                 }
             }
@@ -78,7 +78,7 @@ namespace KariyerPortali.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(FormInfoFormViewModel formInfo)
         {
-            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoDescription");
             if (ModelState.IsValid)
             {
                 var frmInfo = Mapper.Map<FormInfoFormViewModel, FormInfo>(formInfo);

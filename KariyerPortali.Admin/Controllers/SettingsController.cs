@@ -35,6 +35,18 @@ namespace KariyerPortali.Admin.Controllers
             var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
             return View(settingViewModels);
         }
+        public ActionResult Mail()
+        {
+            var settings = settingService.GetSettings();
+            var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
+            return View(settingViewModels);
+        }
+        public ActionResult IndexSeo()
+        {
+            var settings = settingService.GetSettings();
+            var settingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SettingViewModel>>(settings);
+            return View(settingViewModels);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(SettingFormViewModel settingForm)
@@ -65,23 +77,25 @@ namespace KariyerPortali.Admin.Controllers
             }
             return RedirectToAction("Index", new { error = "1" });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Contact(SettingFormViewModel settingForm2)
         {
          if (ModelState.IsValid)
          {
-             var setting1 = settingService.GetSettingByName("Adres");
-             setting1.Value = settingForm2.HeaderScript;
-             settingService.UpdateSetting(setting1);
+             var setting4 = settingService.GetSettingByName("Adres");
+             setting4.Value = settingForm2.HeaderScript;
+             settingService.UpdateSetting(setting4);
 
              // Adres setting güncellenir
-             var setting2 = settingService.GetSettingByName("Iletisim");
-             setting2.Value = settingForm2.GoogleAnalytics;
-             settingService.UpdateSetting(setting2);
+             var setting5 = settingService.GetSettingByName("Iletisim");
+             setting5.Value = settingForm2.GoogleAnalytics;
+             settingService.UpdateSetting(setting5);
 
              // iletisim setting güncellenir
-             var setting3 = settingService.GetSettingByName("websayfa");
-             setting3.Value = settingForm2.FooterScript;
-             settingService.UpdateSetting(setting3);
+             var setting6 = settingService.GetSettingByName("websayfa");
+             setting6.Value = settingForm2.FooterScript;
+             settingService.UpdateSetting(setting6);
 
              // değişiklikler kaydedilir
              settingService.SaveSetting();
@@ -89,5 +103,70 @@ namespace KariyerPortali.Admin.Controllers
          }
          return RedirectToAction("Contact", new { error = "1" });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult IndexSeo(SettingFormViewModel settingForm)
+             {
+        
+                if (ModelState.IsValid)
+                {
+                    // header script setting güncellenir
+                    var setting7 = settingService.GetSettingByName("Title");
+                    setting7.Value = settingForm.Title;
+                    settingService.UpdateSetting(setting7);
+
+                    // google analytics setting güncellenir
+                    var setting8 = settingService.GetSettingByName("Description");
+                    setting8.Value = settingForm.Description;
+                    settingService.UpdateSetting(setting8);
+
+                    // footer script setting güncellenir
+                    var setting9 = settingService.GetSettingByName("Keyword");
+                    setting9.Value = settingForm.Keyword;
+                    settingService.UpdateSetting(setting9);
+
+
+
+                    // değişiklikler kaydedilir
+                    settingService.SaveSetting();
+                    return RedirectToAction("IndexSeo");
+
+                }
+                return RedirectToAction("IndexSeo", new { error = "1" });
+            }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Mail(SettingFormViewModel settingForm)
+        {
+            if (ModelState.IsValid)
+            {
+                // header script setting güncellenir
+                var setting14 = settingService.GetSettingByName("UserMail");
+                setting14.Value = settingForm.Title;
+                settingService.UpdateSetting(setting14);
+
+                // google analytics setting güncellenir
+                var setting15 = settingService.GetSettingByName("UserPassword");
+                setting15.Value = settingForm.Description;
+                settingService.UpdateSetting(setting15);
+
+                // footer script setting güncellenir
+                var setting16 = settingService.GetSettingByName("SmtpServer");
+                setting16.Value = settingForm.Keyword;
+                settingService.UpdateSetting(setting16);
+
+                var setting17 = settingService.GetSettingByName("UseSsn");
+                setting17.Value = settingForm.Keyword;
+                settingService.UpdateSetting(setting17);
+
+
+
+                // değişiklikler kaydedilir
+                settingService.SaveSetting();
+                return RedirectToAction("Mail");
+
+            } return RedirectToAction("Mail", new { error = "1" });
+        }
+        }
+
     }
-}

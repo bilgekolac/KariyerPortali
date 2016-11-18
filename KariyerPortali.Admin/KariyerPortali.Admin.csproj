@@ -199,7 +199,6 @@
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\ResumeController.cs" />
     <Compile Include="Controllers\SectorController.cs" />
-    <Compile Include="Controllers\SeoSettingController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\SkillController.cs" />
     <Compile Include="Controllers\SocialRightController.cs" />
@@ -6481,7 +6480,12 @@
     <Content Include="Views\Link\Create.cshtml" />
     <Content Include="Views\Link\Edit.cshtml" />
     <Content Include="Views\Link\Delete.cshtml" />
-    <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Views\Settings\IndexSeo.cshtml" />
+    <Content Include="Views\Form\Edit.cshtml" />
+    <Content Include="Views\FormInfo\Details.cshtml" />
+    <Content Include="Views\FormInfo\Edit.cshtml" />
+    <Content Include="Views\Page\Edit.cshtml" />
+    <Content Include="Views\Settings\Mail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6491,7 +6495,6 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\SeoSetting\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
