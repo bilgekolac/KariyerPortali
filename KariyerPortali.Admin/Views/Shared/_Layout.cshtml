@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using KariyerPortali.Admin.Helpers
+<!DOCTYPE html>
 <!--
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.7
 Version: 4.7.1
@@ -91,27 +92,27 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </h3>
                                     <a href="@Url.Action("Index","Notification")"> tümünü göster</a>
                                 </li>
-                                <li>
-                                    @*<ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+                                @*<li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                        @foreach (KariyerPortali.Model.Notification n in ViewBag.Notifications)
                                        {
                                            <li>
                                             <a href="@Url.Action("Index", "Notification")">
                                               
                                          
-                                                <span class="time">@Html.DisplayFor(model => (DateTime.Now - n.NotificationDate).TotalMinutes)</span>
+                                                <span class="time"> @Html.TimeFormat(n.NotificationDate) </span>
                                        
                                                 <span class="details">
                                                     <span>
                                                         <i class="fa fa-plus"></i>
-                                                    </span> @Html.DisplayFor(model => n.Message)
+                                                    </span> @Html.DisplayFor(model=>n.Message)
                                                 </span>
                                                 
                                             </a>
                                         </li>
                                        }
-                                    </ul>*@
-                                </li>
+                                    </ul>
+                                </li>*@
                             </ul>
                         </li>
 
