@@ -16,6 +16,10 @@ namespace KariyerPortali.Admin.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public string Keyword { get; set; }
+        public string UserMail { get; set; }
+        public string UserPassword { get; set; }
+        public string SmtpServer { get; set; }
+        public string UseSsn { get; set; }
 
     }
 }
