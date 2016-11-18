@@ -1,6 +1,6 @@
-﻿@model KariyerPortali.Admin.ViewModels.SettingFormViewModel
+﻿@model IEnumerable<KariyerPortali.Admin.ViewModels.SettingViewModel>
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "IndexSeo";
 }
 
 <link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
@@ -9,7 +9,7 @@
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="@Url.Action("Index", "Settings")" class="nav-link">Ayarlar</a>
+            <a href="@Url.Action("IndexSeo", "Settings")" class="nav-link">Ayarlar</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -42,24 +42,27 @@
                     <form role="form">
                         <div class="form-body">
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Title)
-                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @tabindex = "1", @class = "form-control spinner", autofocus = "autofocus" } })
-                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                <div class="theme-option">
+                                    <span> Adres:</span><br />
+                                    <textarea name="Title">@Model.FirstOrDefault(m => m.Name == "Title").Value</textarea>
+                                </div>
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Description)<br />
-                                @Html.TextAreaFor(model => model.Description, new { @tabindex = "2", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
-                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                <div class="theme-option">
+                                    <span> Adres:</span><br />
+                                    <textarea name="Description">@Model.FirstOrDefault(m => m.Name == "Description").Value</textarea>
+                                </div>
                             </div>
                             <div class="form-group">
-                                @Html.LabelFor(model => model.Keyword)<br />
-                                @Html.TextAreaFor(model => model.Keyword, new { @tabindex = "3", @class = "form-control spinner", @width = "auto", autofocus = "autofocus" })
-                                @Html.ValidationMessageFor(model => model.Keyword, "", new { @class = "text-danger" })
+                                <div class="theme-option">
+                                    <span> Adres:</span><br />
+                                    <textarea name="Keyword">@Model.FirstOrDefault(m => m.Name == "Keyword").Value</textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="btn blue">Kaydet</button>
-                            <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Settings")';">İptal</button>
+                            <button type="button" class="btn default" onclick="window.location='@Url.Action("IndexSeo","Settings")';">İptal</button>
                         </div>
                     </form>
                 </div>
