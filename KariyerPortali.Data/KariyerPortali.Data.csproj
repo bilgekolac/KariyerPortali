@@ -80,6 +80,7 @@
     <Compile Include="Configuration\SettingConfiguration.cs" />
     <Compile Include="Configuration\SkillConfiguration.cs" />
     <Compile Include="Configuration\SkillInfoConfiguration.cs" />
+    <Compile Include="Configuration\SocialMediaConfiguraion.cs" />
     <Compile Include="Configuration\SocialRightConfiguration.cs" />
     <Compile Include="Configuration\UniversityConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
