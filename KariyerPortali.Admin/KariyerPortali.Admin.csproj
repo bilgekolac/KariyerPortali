@@ -6480,7 +6480,6 @@
     <Content Include="Views\Link\Create.cshtml" />
     <Content Include="Views\Link\Edit.cshtml" />
     <Content Include="Views\Link\Delete.cshtml" />
-    <Content Include="Views\Setting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
