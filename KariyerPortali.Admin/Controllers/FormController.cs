@@ -63,6 +63,39 @@ namespace KariyerPortali.Admin.Controllers
         {
             return View();
         }
+        public ActionResult Edit(int? id)
+        {
+
+            if (id.HasValue)
+            {
+                var frm = formService.GetForm(id.Value);
+                if (frm != null)
+                {
+                    var formViewModel = Mapper.Map<Form, FormViewModel>(frm);
+                    ViewBag.FormId = new SelectList(formService.GetForms(), "FormId", "FormName");
+                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+                    return View(formViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FormFormViewModel form)
+        {
+            ViewBag.FormId = new SelectList(formService.GetForms(), "FormId", "FormName");
+            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+            if (ModelState.IsValid)
+            {
+                var frm = Mapper.Map<FormFormViewModel, Form>(form);
+                formService.UpdateForm(frm);
+                formService.SaveForm();
+                return RedirectToAction("Index");
+            }
+
+            return View(form);
+        }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
 

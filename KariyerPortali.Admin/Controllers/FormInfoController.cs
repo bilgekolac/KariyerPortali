@@ -1,4 +1,7 @@
-﻿using KariyerPortali.Admin.Models;
+﻿using AutoMapper;
+using KariyerPortali.Admin.Models;
+using KariyerPortali.Admin.ViewModels;
+using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
@@ -19,6 +22,72 @@ namespace KariyerPortali.Admin.Controllers
         public ActionResult Create()
         {
             return View();
+        }
+        [HttpPost]
+        public ActionResult Create(FormInfoFormViewModel formInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                var frmInfo = Mapper.Map<FormInfoFormViewModel, FormInfo>(formInfo);
+
+                formInfoService.CreateFormInfo(frmInfo);
+
+                formInfoService.SaveFormInfo();
+                return RedirectToAction("Index");
+
+            }
+            return View(formInfo);
+
+        }
+        public ActionResult Details(int? id)
+        {
+            if (id.HasValue)
+            {
+                var frmInfo = formInfoService.GetFormInfo(id.Value);
+                if (frmInfo != null)
+                {
+                    formInfoService.SaveFormInfo();
+                    var formInfoViewModel = Mapper.Map<FormInfo, FormInfoViewModel>(frmInfo);
+                    return View(formInfoViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Edit(int? id)
+        {
+
+            if (id.HasValue)
+            {
+                var frmInfo = formInfoService.GetFormInfo(id.Value);
+                if (frmInfo != null)
+                {
+                    var formInfoViewModel = Mapper.Map<FormInfo, FormInfoViewModel>(frmInfo);
+                    ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+                    return View(formInfoViewModel);
+                }
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(FormInfoFormViewModel formInfo)
+        {
+            ViewBag.FormInfoId = new SelectList(formInfoService.GetFormInfos(), "FormInfoId", "FormInfoName");
+            if (ModelState.IsValid)
+            {
+                var frmInfo = Mapper.Map<FormInfoFormViewModel, FormInfo>(formInfo);
+                formInfoService.UpdateFormInfo(frmInfo);
+                formInfoService.SaveFormInfo();
+                return RedirectToAction("Index");
+            }
+
+            return View(formInfo);
         }
         public ActionResult AjaxHandler(jQueryDataTableParamModel param)
         {
