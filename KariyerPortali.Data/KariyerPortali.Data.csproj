@@ -76,10 +76,10 @@
     <Compile Include="Configuration\ReferenceConfiguration.cs" />
     <Compile Include="Configuration\ResumeConfiguration.cs" />
     <Compile Include="Configuration\SectorConfiguration.cs" />
-    <Compile Include="Configuration\SeoSettingConfiguration.cs" />
     <Compile Include="Configuration\SettingConfiguration.cs" />
     <Compile Include="Configuration\SkillConfiguration.cs" />
     <Compile Include="Configuration\SkillInfoConfiguration.cs" />
+    <Compile Include="Configuration\SocialMediaConfiguraion.cs" />
     <Compile Include="Configuration\SocialRightConfiguration.cs" />
     <Compile Include="Configuration\UniversityConfiguration.cs" />
     <Compile Include="Infrastructure\DbFactory.cs" />
@@ -122,10 +122,10 @@
     <Compile Include="Repositories\ReferenceRepository.cs" />
     <Compile Include="Repositories\ResumeRepository.cs" />
     <Compile Include="Repositories\SectorRepository.cs" />
-    <Compile Include="Repositories\SeoSettingRepository.cs" />
     <Compile Include="Repositories\SettingRepository.cs" />
     <Compile Include="Repositories\SkillInfoRepository.cs" />
     <Compile Include="Repositories\SkillRepository.cs" />
+    <Compile Include="Repositories\SocialMediaRepository.cs" />
     <Compile Include="Repositories\SocialRightRepository.cs" />
     <Compile Include="Repositories\UniversityRepository.cs" />
   </ItemGroup>

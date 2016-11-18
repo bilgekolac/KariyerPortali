@@ -6477,7 +6477,11 @@
     <Content Include="Views\Redirect\Delete.cshtml" />
     <Content Include="Views\FormInfo\Index.cshtml" />
     <Content Include="Views\Settings\Contact.cshtml" />
-    <Content Include="Views\SeoSetting\Index.cshtml" />
+    <Content Include="Views\Link\Index.cshtml" />
+    <Content Include="Views\Link\Create.cshtml" />
+    <Content Include="Views\Link\Edit.cshtml" />
+    <Content Include="Views\Link\Delete.cshtml" />
+    <Content Include="Views\Setting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -6487,6 +6491,7 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\SeoSetting\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

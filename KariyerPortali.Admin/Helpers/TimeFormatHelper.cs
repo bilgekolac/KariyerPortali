@@ -19,9 +19,19 @@ namespace KariyerPortali.Admin.Helpers
                 return string.Format("{0} dakika önce", Math.Round((DateTime.Now - Date).TotalMinutes));
             }
 
-            else
+            else if (Convert.ToInt32((DateTime.Now - Date).TotalSeconds) > 3600 && Convert.ToInt32((DateTime.Now - Date).TotalSeconds) <= 86400)
             {
                 return string.Format("{0} saat önce", Math.Round((DateTime.Now - Date).TotalHours));
+            }
+
+            else if (Convert.ToInt32((DateTime.Now - Date).TotalSeconds) > 86400 && Convert.ToInt32((DateTime.Now - Date).TotalSeconds) <= 2629743)
+            {
+                return string.Format("{0} gün önce", Math.Round((DateTime.Now - Date).TotalDays));
+            }
+
+            else
+            {
+                return string.Format("1 Aydan fazla");
             }
         }
     }

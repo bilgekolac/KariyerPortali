@@ -55,14 +55,10 @@
                     @foreach (SelectListItem item in ViewBag.Categories)
                     {
                         
-                            <input type="text" name="CategoryId" class="label" value="@item.Value" checked="@item.Selected" />
-                         @item.Text
-                      
-                            
-                            <span>,</span>
-                    
-                           
-
+                            <input name="CategoryId" class="label" value="@item.Value" checked="@item.Selected" />
+                            <span></span>
+                            @item.Text
+                        
                     }
                 </dd>
 
