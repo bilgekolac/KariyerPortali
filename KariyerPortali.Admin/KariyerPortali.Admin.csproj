@@ -6491,7 +6491,6 @@
     <Folder Include="Uploads\Employer\" />
     <Folder Include="Uploads\File\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\SeoSetting\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
