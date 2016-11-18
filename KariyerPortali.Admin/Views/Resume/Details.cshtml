@@ -86,22 +86,22 @@
 
                 <div class="form-body" style="font-size:unset">
                     <div class="form-group">
-                        <label><strong>E-Posta &ensp; &ensp;&ensp; &ensp;&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp;: </strong>@Html.DisplayFor(model => model.Email)</label>
+                        <label><strong>E-Posta <b style="margin-left:100px">:</b> </strong>@Html.DisplayFor(model => model.Email)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Adres Bilgileri &thinsp;&ensp; &ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.Address)</label>
+                        <label><strong>Adres Bilgileri <b style="margin-left:30px">:</b> </strong>@Html.DisplayFor(model => model.Address)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Ev Telefonu &thinsp;&ensp; &ensp; &ensp; &ensp; &ensp; &ensp;: </strong>@Html.DisplayFor(model => model.HomePhone)</label>
+                        <label><strong>Ev Telefonu <b style="margin-left:30px">:</b> </strong>@Html.DisplayFor(model => model.HomePhone)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Cep Telefonu(1) &thinsp;&ensp; &ensp;&ensp;&ensp;: </strong>@Html.DisplayFor(model => model.CellPhone)</label>
+                        <label><strong>Cep Telefonu(1) <b style="margin-left:30px">:</b> </strong>@Html.DisplayFor(model => model.CellPhone)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Cep Telefonu(2) &thinsp;&ensp; &ensp; &ensp; : </strong>@Html.DisplayFor(model => model.CellPhone2)</label>
+                        <label><strong>Cep Telefonu(2) <b style="margin-left:30px">:</b> </strong>@Html.DisplayFor(model => model.CellPhone2)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Web Adresi &thinsp;&ensp; &ensp; &ensp; &ensp;&ensp;&ensp;&thinsp;&ensp;: </strong>@Html.DisplayFor(model => model.Website) </label>
+                        <label><strong>Web Adresi<b style="margin-left:30px">:</b> </strong>@Html.DisplayFor(model => model.Website) </label>
                     </div>
                 </div>
                 <br />
@@ -120,57 +120,57 @@
 
                 <div class="form-body">
                     <div class="form-group">
-
+                        
 
                         @if (Model.MaritalStatus == KariyerPortali.Model.MaritalStatus.Single)
                         {
-                            <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Bekar</label>
+                            <label><strong>Medeni Durumu <b style="margin-left:30px">:</b> </strong>Evli</label>
                         }
                         else
                         {
-                            <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Evli</label>
+                            <label><strong>Medeni Durumu <b style="margin-left:30px">:</b></strong>Evli</label>
                         }
 
                     </div>
                     <div class="form-group">
-                        <label><strong>Uyruk &ensp; &ensp;&ensp;&ensp; &ensp;&ensp; &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; : </strong>@Html.DisplayFor(model => model.Nationality.CountryName)</label>
+                        <label><strong>Uyruk <b style="margin-left:30px">:</b></strong>@Html.DisplayFor(model => model.Nationality.CountryName)</label>
                     </div>
 
                     <div class="form-group">
-                        <label><strong>TC Kimlik NO &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;: </strong>@Model.CitizenshipId</label>
+                        <label><strong>TC Kimlik NO <b style="margin-left:30px">:</b></strong>@Model.CitizenshipId</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Doğum Tarihi &ensp; &ensp;&ensp; &ensp;&ensp; : </strong>@Model.BirthDate.ToShortDateString() </label>
+                        <label><strong>Doğum Tarihi <b style="margin-left:30px">:</b></strong>@Model.BirthDate.ToShortDateString() </label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Doğum Yeri &ensp; &ensp;&ensp;&ensp; &ensp;&ensp;&ensp; : </strong> @Html.DisplayFor(model => model.BirthCity.CityName)</label>
+                        <label><strong>Doğum Yeri <b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.BirthCity.CityName)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Sürücü Belgesi &ensp; &ensp;&ensp;&ensp;&ensp;: </strong> @Html.DisplayFor(model => model.DrivingLicenseExists)</label>
+                        <label><strong>Sürücü Belgesi <b style="margin-left:30px">:</b> </strong> @Html.DisplayFor(model => model.DrivingLicenseExists)</label>
                     </div>
                     <div class="form-group">
-                        <label><strong>Sürücü Belgesi Türü&thinsp; : </strong> @Html.DisplayFor(model => model.DrivingLicense1Class)</label>
+                        <label><strong>Sürücü Belgesi Türü<b style="margin-left:30px">:</b> </strong> @Html.DisplayFor(model => model.DrivingLicense1Class)</label>
                     </div>
 
                     <div class="form-group">
 
                         @if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Done)
                         {
-                            <label><strong>Askerlik Durumu &ensp; &ensp; : </strong>Yapıldı</label>
+                            <label><strong>Askerlik Durumu <b style="margin-left:30px">:</b> </strong>Yapıldı</label>
                         }
                         else if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Exempt)
                         {
-                            <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Muaf</label>
+                            <label><strong>Askerlik Durumu <b style="margin-left:30px">:</b></strong>Muaf</label>
                         }
                         else if (Model.MilitaryService == KariyerPortali.Model.MilitaryService.Postpone)
                         {
-                            <label><strong>Medeni Durumu &ensp; &ensp;&ensp; : </strong>Tecilli</label>
+                            <label><strong>Askerlik Durumu <b style="margin-left:30px">:</b></strong>Tecilli</label>
                         }
 
                     </div>
 
                     <div class="form-group">
-                        <label><strong>Askerlik Tecil Tarihi&ensp;: </strong>@Model.MilitaryPostponeDate.ToShortDateString()</label>
+                        <label><strong>Askerlik Tecil Tarihi<b style="margin-left:30px">:</b></strong>@Model.MilitaryPostponeDate.ToShortDateString()</label>
                     </div>
 
 
@@ -203,11 +203,11 @@
                         <div class="form-group">
 
                             @if (Model.WorkStatus == KariyerPortali.Model.WorkStatus.Active)
-                            {  <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> Çalışıyor</label> }
+                            {  <label><strong>Çalışma Durumu<b style="margin-left:30px">:</b></strong> Çalışıyor</label> }
 
                             else
                             {
-                                <label><strong>Çalışma Durumu &ensp; &ensp;&thinsp; :</strong> Çalışmıyor</label>
+                                <label><strong>Çalışma Durumu<b style="margin-left:30px">:</b></strong> Çalışmıyor</label>
                             }
                             <br /><br />
 
@@ -303,23 +303,7 @@
 
                             </tr>
 
-
                         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                     </table>
                 </div>
@@ -481,7 +465,7 @@
                 </div>
                 <br />
                 <div class="form-group">
-                    <label><strong>Bilgisayar Bilgileri</strong>&ensp; &ensp;&ensp;: @Html.DisplayFor(model => model.ComputerSkill)</label>
+                    <label><strong>Bilgisayar Bilgileri</strong><b style="margin-left:30px">:</b>@Html.DisplayFor(model => model.ComputerSkill)</label>
                 </div>
 
                 <br />
@@ -503,7 +487,7 @@
                             {
                                 <tr>
                                     <td>
-                                        <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution - @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br /><br />
+                                        <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution   @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br />@courseInfo.Time (Saat)
                                     </td>
                                 </tr>
                             }
@@ -522,7 +506,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label><strong>Projeler&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp;&ensp;&ensp;&ensp;  :</strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
+                    <label><strong>Projeler<b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
                 </div>
 
                 <br />
@@ -533,7 +517,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <strong>Kan Grubu&ensp; &ensp;&thinsp;&ensp; &ensp;&ensp; &ensp; &ensp; :</strong>
+                    <strong>Kan Grubu<b style="margin-left:30px">:</b></strong>
                     @if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhN)
                     { <label>AB Rh- </label> }
                     else if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhP)
@@ -552,16 +536,16 @@
                     { <label>0 Rh+ </label> }
                 </div>
                 <div class="form-group">
-                    <label><strong>Hobiler &ensp; &ensp; &ensp; &ensp;&ensp; &ensp;&ensp;&ensp; &ensp;&ensp;:</strong> @Html.DisplayFor(model => model.Hobby)</label>
+                    <label><strong>Hobiler <b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.Hobby)</label>
                 </div>
                 <div class="form-group">
-                    <strong>Sigara Kullanımı &ensp; &ensp;&thinsp;&thinsp; :</strong> @if (Model.CigaretteStatus == KariyerPortali.Model.CigaretteStatus.No)
+                    <strong>Sigara Kullanımı <b style="margin-left:30px">:</b></strong> @if (Model.CigaretteStatus == KariyerPortali.Model.CigaretteStatus.No)
                     { <label>Hayır</label>}
                     else
                     { <label>Evet</label>}
                 </div>
                 <div class="form-group">
-                    <strong>Beklenen Ücret &ensp;&ensp;&ensp;&ensp;  :</strong>
+                    <strong>Beklenen Ücret<b style="margin-left:30px">:</b></strong>
                     @if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B1000and2000)
                     { <label>1000 TL - 2000 TL</label>}
                     else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B2000and3000)

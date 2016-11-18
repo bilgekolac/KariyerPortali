@@ -13,7 +13,8 @@ namespace KariyerPortali.Data
         
         protected override void Seed(KariyerPortaliEntities context)
         {
-            GetCertificates().ForEach(c => context.Certificates.Add(c));
+          
+           
             GetSectors().ForEach(c => context.Sectors.Add(c));
             GetExams().ForEach(c => context.Exams.Add(c));
             GetSkills().ForEach(c => context.Skills.Add(c));
@@ -178,24 +179,9 @@ namespace KariyerPortali.Data
 
         }
 
-        private List<Certificate> GetCertificates()
-        {
-            return new List<Certificate>
-            {
-                new Certificate{
+     
 
-                   FileName="Certifika.jpg",
-                   CertificateId=1,
-                   CertificateDate= Convert.ToDateTime("18.12.2016"),
-                   CertificateName="İŞKUR",
-                   Institute="BİLİŞİM EĞİTİM MERKEZİ",
-                },
-
-            };
-
-
-        }
-
+     
 
         private List<SkillInfo> GetSkillInfos()
         {
@@ -346,6 +332,17 @@ namespace KariyerPortali.Data
             resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate.jpg", CertificateId = 1, CertificateName = "İŞKUR", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("18.12.2016") });        
             resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate2.jpg", CertificateId = 2, CertificateName = "MİCROSOFT", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("19.12.2016") });
 
+            resume.Courses = new List<Course>();
+            resume.Courses.Add(new Course()
+            {
+                CourseId = 1,
+                CourseName = "İŞKUR Yazılım Kursu",
+                Institution = "BİLİŞİM EĞİTİM MERKEZİ",
+                StartDate = Convert.ToDateTime("17.07.2016"),
+                FinishDate = Convert.ToDateTime("17.12.2016"),
+                Statement = "Bu Kısımlara ENUM atanacak",
+                Time = 800,
+            });
             resumes.Add(resume);
 
             return resumes;
