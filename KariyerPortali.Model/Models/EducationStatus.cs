@@ -11,7 +11,6 @@ namespace KariyerPortali.Model
         University=1,
         Master=2,
         Doctorate=3,
-        HighSchool=4,
-        JuniorTechnicalCollege=5,
+        JuniorTechnicalCollege=4,
     }
 }
