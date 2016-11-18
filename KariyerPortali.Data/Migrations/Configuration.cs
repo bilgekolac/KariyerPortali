@@ -376,7 +376,7 @@ namespace KariyerPortali.Data.Migrations
                new Setting {SettingId=3,Name="FooterScript",Value=""},
                new Setting {SettingId=4, Name="Address",Value=""},
                new Setting {SettingId=5,Name="Contact",Value=""},
-               new Setting {SettingId=6,Name="Webpage",Value=""}
+               new Setting {SettingId=6,Name="Webpage",Value=""},
                 new Setting {SettingId=7,Name="Title",Value=""},
                  new Setting {SettingId=8,Name="Description",Value=""},
                   new Setting {SettingId=9,Name="Keyword",Value=""}
