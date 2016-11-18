@@ -20,6 +20,11 @@ namespace KariyerPortali.Admin.ViewModels
         public string UserPassword { get; set; }
         public string SmtpServer { get; set; }
         public string UseSsn { get; set; }
+        public string FacebookAddress { get; set; }
+        public string TwitterAddress { get; set; }
+        public string InstagramAddress { get; set; }
+        public string LinkedinAddress { get; set; }
+
 
     }
 }
