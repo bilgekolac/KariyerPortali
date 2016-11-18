@@ -38,8 +38,17 @@
     <div class="page-toolbar" id="non_write">
 
     </div>
+
+    <div class="btn-group pull-right">
+      
+        <a href="javascript:void(0)" onclick="window.print();" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
+            <i class="fa fa-print"></i> Yazdır
+        </a>
+    </div>
 </div>
 <br />
+
+
 <div class="caption font dark"id="non_write">
     <div class="row">
         <div class="col-md-9">
@@ -51,6 +60,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="portlet light bordered" id="write">
                 <!--ADAY BİLGİLERİ SIRALANACAK-->
                 <div class="row">
@@ -84,7 +94,7 @@
 
 
 
-                <div class="form-body" style="font-size:medium">
+                <div class="form-body" style="font-size:inherit">
                     <div class="form-group">
                         <label><strong>E-Posta <b style="margin-left:100px">:</b> </strong>@Html.DisplayFor(model => model.Email)</label>
                     </div>
@@ -120,7 +130,7 @@
 
                 <div class="form-body">
                     <div class="form-group">
-                        
+
 
                         @if (Model.MaritalStatus == KariyerPortali.Model.MaritalStatus.Single)
                         {
@@ -252,131 +262,127 @@
                 </div>
 
                 <br />
+
+
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">school</i>
                         <span class="caption-subject">Eğitim Bilgileri</span>
                     </div>
 
-
-
-                    <table class="table" style="margin-right:auto">
-
-                       
-                            <tr>
-                                  @foreach (var educationInfo in Model.EducationInfos)
-                                  {
-
-                                    <td>
-                                        <label>
-                                            @if(educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Doctorate)
-                                            { <strong>(Doktora)</strong>}
-                                            else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Master)
-                                            { <strong>(Master)</strong>}
-                                            else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.University)
-                                            { <strong>(Üniversite)</strong>}
-                                            else 
-                                            { <strong>(M.Y.O)</strong>}
-                                          
-                                            <br /> @educationInfo.UniversityStart.ToShortDateString()  @educationInfo.UniversityEnd.ToShortDateString()
-                                        </label>
-                                    </td>
-
-                                    <td>
-                                        <label><strong>@educationInfo.University.UniversityName</strong> <br /> @educationInfo.Department.DepartmentName</label>
-                                    </td>
-                                  }
-
-                                  <td><strong>(Lise)</strong><br /> @Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToLongDateString()</td>
-                                <td><strong>@Html.DisplayFor(model =>model.HighSchoolName)</strong> <br /> @Html.DisplayFor(model =>model.HighSchoolType),
-                                @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName) , / @Model.CertificateDegree /
-                               
-                                 @if(Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N10 )
-                                {<strong>10</strong>}
-                                else if(Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N100)
-                                {<strong>100</strong>}
-                                else if (Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N4)
-                                 {<strong>4</strong>}
-                                else
-                                {<strong>5</strong>} </td>
-                                   
-                            </tr>
-
-
-                    </table>
-                </div>
-
-                <br />
-
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">public</i>
-                        <span class="caption-subject">Yabancı Dil</span>
-                    </div>
-
-
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th></th>
-                                <th>Okuma</th>
-                                <th>Yazma</th>
-                                <th>Konuşma</th>
-                            </tr>
+                            <tr></tr>
                         </thead>
                         <tbody>
-                            @foreach (var languageInfo in Model.LanguageInfos)
+                            @foreach (var educationInfo in Model.EducationInfos)
                             {
                                 <tr>
-                                    <td><strong>@languageInfo.Language.LanguageName</strong></td>
-
                                     <td>
-                                        @if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
-                                        { <label>İleri</label>}
-                                        else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
-                                        { <label>Başlangıç</label>}
-                                        else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
-                                        {<label>İyi</label>}
+                                        @if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Doctorate)
+                                        { <strong>(Doktora)</strong>}
+                                        else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Master)
+                                        { <strong>(Master)</strong>}
+                                        else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.University)
+                                        { <strong>(Üniversite)</strong>}
+                                        else
+                                        { <strong>(M.Y.O)</strong>} <br /> @educationInfo.UniversityStart.ToShortDateString() - @educationInfo.UniversityEnd.ToShortDateString()
+                                    </td>
 
-                                    <td>
-                                        @if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
-                                        { <label>İleri</label>}
-                                        else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
-                                        { <label>Başlangıç</label>}
-                                        else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
-                                        {<label>İyi</label>}
+                                    <td><strong>@educationInfo.University.UniversityName</strong> <br /> @educationInfo.Department.DepartmentName</td>
 
-                                    <td>
-                                        @if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
-                                        { <label>İleri</label>}
-                                        else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
-                                        { <label>Başlangıç</label>}
-                                        else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
-                                        {<label>İyi</label>}
                                 </tr>
-
                             }
                         </tbody>
                     </table>
+                    <table class="table">
+                        <thead>
+                            <tr></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>(Lise)</strong><br /> @Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToShortDateString()</td>
+                                <td><strong>  @Model.HighSchoolName</strong></td>
+                               
+                            </tr>
+                           
+                        </tbody>
+
+                    </table>
+                    
+                </div>
+              
+
+
+
+
+            <br />
+
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="material-icons">public</i>
+                    <span class="caption-subject">Yabancı Dil</span>
                 </div>
 
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">color_lens</i>
-                        <span class="caption-subject">Yetkinlikler</span>
-                    </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Okuma</th>
+                            <th>Yazma</th>
+                            <th>Konuşma</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var languageInfo in Model.LanguageInfos)
+                        {
+                            <tr>
+                                <td><strong>@languageInfo.Language.LanguageName</strong></td>
+
+                                <td>
+                                    @if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                    { <label>İleri</label>}
+                                    else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                    { <label>Başlangıç</label>}
+                                    else if (languageInfo.ReadingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                    {<label>İyi</label>}
+
+                                <td>
+                                    @if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                    { <label>İleri</label>}
+                                    else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                    { <label>Başlangıç</label>}
+                                    else if (languageInfo.WritingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                    {<label>İyi</label>}
+
+                                <td>
+                                    @if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Advance)
+                                    { <label>İleri</label>}
+                                    else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Beginner)
+                                    { <label>Başlangıç</label>}
+                                    else if (languageInfo.SpeakingLanguageLevel == KariyerPortali.Model.LanguageLevel.Good)
+                                    {<label>İyi</label>}
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <br />
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="material-icons">color_lens</i>
+                    <span class="caption-subject">Yetkinlikler</span>
                 </div>
-
-
-                <div class="form-body">
-                    <div class="form-group">
-                        <label><strong>Sertifika Bilgileri</strong></label>
-                    </div>
+               <br />
+                
+                   
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Dosya</th>
+                                <th>Sertifikalar</th>
                                 <th></th>
 
                             </tr>
@@ -387,17 +393,16 @@
                                 <tr>
                                     <td>@certificateInfo.FileName</td>
                                     <td> <strong>@certificateInfo.CertificateName</strong> <br />@certificateInfo.Institute - @certificateInfo.CertificateDate.ToShortDateString() </td>
-                                    
+
                                 </tr>
 
                             }
 
                         </tbody>
-                    </table>
-                    <br />
+                    </table>                   
+            
 
 
-                </div>
                 <div class="form-body">
                     <div class="form-group">
                         <label><strong>Sınav Bilgileri</strong></label>
@@ -461,121 +466,120 @@
                     </div>
 
                 </div>
-                <br />
-                <div class="form-group">
-                    <label><strong>Bilgisayar Bilgileri</strong><b style="margin-left:30px">:</b>@Html.DisplayFor(model => model.ComputerSkill)</label>
+            </div>
+            <br />
+            <div class="form-group">
+                <label><strong>Bilgisayar Bilgileri</strong><b style="margin-left:30px">:</b>@Html.DisplayFor(model => model.ComputerSkill)</label>
+            </div>
+
+            <br />
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="material-icons">poll</i>
+                    <span class="caption-subject">Seminerler ve Kurslar</span>
                 </div>
 
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">poll</i>
-                        <span class="caption-subject">Seminerler ve Kurslar</span>
-                    </div>
+                <table class="table" style="margin-right:auto">
+                    <thead>
+                        @foreach (var courseInfo in Model.Courses)
+                        {
 
-                    <table class="table" style="margin-right:auto">
-                        <thead>
-                            @foreach (var courseInfo in Model.Courses)
-                            {
-
-                            }
-                        </thead>
-                        <tbody>
-                            @foreach (var courseInfo in Model.Courses)
-                            {
-                                <tr>
-                                    <td>
-                                        <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution   @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br />@courseInfo.Time (Saat)
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
+                        }
+                    </thead>
+                    <tbody>
+                        @foreach (var courseInfo in Model.Courses)
+                        {
+                            <tr>
+                                <td>
+                                    <strong>@courseInfo.CourseName</strong> <br />@courseInfo.Institution   @courseInfo.StartDate.ToShortDateString() - @courseInfo.FinishDate.ToShortDateString() <br />@courseInfo.Time (Saat)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
 
 
 
+            </div>
+
+            <br />
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="material-icons">library_books</i>
+                    <span class="caption-subject">Burslar ve Projeler</span>
                 </div>
+            </div>
+            <div class="form-group">
+                <label><strong>Projeler<b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
+            </div>
 
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">library_books</i>
-                        <span class="caption-subject">Burslar ve Projeler</span>
-                    </div>
+            <br />
+            <div class="portlet-title">
+                <div class="caption font-dark">
+                    <i class="material-icons">info_outline</i>
+                    <span class="caption-subject">Ek Bilgiler</span>
                 </div>
-                <div class="form-group">
-                    <label><strong>Projeler<b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.ScholarshipAndProject)</label>
-                </div>
-
-                <br />
-                <div class="portlet-title">
-                    <div class="caption font-dark">
-                        <i class="material-icons">info_outline</i>
-                        <span class="caption-subject">Ek Bilgiler</span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <strong>Kan Grubu<b style="margin-left:30px">:</b></strong>
-                    @if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhN)
-                    { <label>AB Rh- </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhP)
-                    { <label>AB Rh+ </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhN)
-                    { <label>A Rh- </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhP)
-                    { <label>A Rh+ </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhN)
-                    { <label>B Rh- </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhP)
-                    { <label>B Rh+ </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhN)
-                    { <label>0 Rh- </label> }
-                    else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhP)
-                    { <label>0 Rh+ </label> }
-                </div>
-                <div class="form-group">
-                    <label><strong>Hobiler <b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.Hobby)</label>
-                </div>
-                <div class="form-group">
-                    <strong>Sigara Kullanımı <b style="margin-left:30px">:</b></strong> @if (Model.CigaretteStatus == KariyerPortali.Model.CigaretteStatus.No)
-                    { <label>Hayır</label>}
-                    else
-                    { <label>Evet</label>}
-                </div>
-                <div class="form-group">
-                    <strong>Beklenen Ücret<b style="margin-left:30px">:</b></strong>
-                    @if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B1000and2000)
-                    { <label>1000 TL - 2000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B2000and3000)
-                    { <label>2000 TL - 3000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B3000and4000)
-                    { <label>3000 TL - 4000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B4000and5000)
-                    { <label>4000 TL - 5000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B5000and6000)
-                    { <label>5000 TL - 6000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B6000and70000)
-                    { <label>6000 TL - 7000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B7000and10000)
-                    { <label>7000 TL - 10000 TL</label>}
-                    else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.Over10000)
-                    { <label>10000 TL ve Üzeri</label>}
-                    else
-                    {<label>1000 TL Altı</label> }
+            </div>
+            <div class="form-group">
+                <strong>Kan Grubu<b style="margin-left:30px">:</b></strong>
+                @if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhN)
+                { <label>AB Rh- </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.ABRhP)
+                { <label>AB Rh+ </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhN)
+                { <label>A Rh- </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.ARhP)
+                { <label>A Rh+ </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhN)
+                { <label>B Rh- </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.BRhP)
+                { <label>B Rh+ </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhN)
+                { <label>0 Rh- </label> }
+                else if (Model.BloodType == KariyerPortali.Model.BloodType.s0RhP)
+                { <label>0 Rh+ </label> }
+            </div>
+            <div class="form-group">
+                <label><strong>Hobiler <b style="margin-left:30px">:</b></strong> @Html.DisplayFor(model => model.Hobby)</label>
+            </div>
+            <div class="form-group">
+                <strong>Sigara Kullanımı <b style="margin-left:30px">:</b></strong> @if (Model.CigaretteStatus == KariyerPortali.Model.CigaretteStatus.No)
+                { <label>Hayır</label>}
+                else
+                { <label>Evet</label>}
+            </div>
+            <div class="form-group">
+                <strong>Beklenen Ücret<b style="margin-left:30px">:</b></strong>
+                @if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B1000and2000)
+                { <label>1000 TL - 2000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B2000and3000)
+                { <label>2000 TL - 3000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B3000and4000)
+                { <label>3000 TL - 4000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B4000and5000)
+                { <label>4000 TL - 5000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B5000and6000)
+                { <label>5000 TL - 6000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B6000and70000)
+                { <label>6000 TL - 7000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.B7000and10000)
+                { <label>7000 TL - 10000 TL</label>}
+                else if (Model.SalaryWaited == KariyerPortali.Model.SalaryWaited.Over10000)
+                { <label>10000 TL ve Üzeri</label>}
+                else
+                {<label>1000 TL Altı</label> }
 
 
 
-                </div>
+            </div>
 
 
-                <br />
+            <br />
                 <div class="portlet-title">
                     <div class="caption font-dark">
                         <i class="material-icons">account_box</i>
                         <span class="caption-subject">Referanslar</span>
                     </div>
-
-
                     <table class="table" style="margin-right:auto">
                         <thead>
 
@@ -608,57 +612,19 @@
                         </tbody>
                     </table>
 
-
                 </div>
 
-
             </div>
 
-            <div class="form-actions right">
-                <button type="button" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
-            </div>
 
         </div>
 
+        <div class="form-actions right" >
+            <button type="button"  style="margin-left:15px" class="btn blue" onclick="window.location='@Url.Action("Index","Resume")';">Özgeçmişlere Dön</button>
+        </div>
 
-
-
-        <div class="col-md-3">
-            <!--ÖZGEÇMİŞ İŞLEMLERİ-->
-           @* <div class="btn-group pull-right">
-                <button class="btn green  btn-outline dropdown-toggle" data-toggle="dropdown">
-                    Özgeçmiş İşlemleri
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu pull-right">
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-print"></i> Yazdır
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-file-pdf-o"></i> PDF Olarak Farklı Kaydet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">
-                            <i class="fa fa-file-excel-o"></i> E-Posta ile Gönder
-                        </a>
-                    </li>
-                </ul>
-            </div>*@
-			<a href="javascript:void(0)" onclick="window.print();" target="_blank" id="sample_editable_1_new" class=" btn sbold green" style="float:right">
-                        <i class="fa fa-print"></i> Yazdır
-                    </a>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <div class="portlet light bordered">
+        <div class="col-md-3" style="margin-top:78px">
+             <div class="portlet light bordered">
                 <div class="form-body">
                     <div class="form-group">
                         <label><strong>Oluşturan : </strong>@Html.DisplayFor(model => model.CreatedBy)</label>
@@ -669,9 +635,12 @@
                 </div>
             </div>
         </div>
+    </div>
+
 
 
     </div>
-</div>
+ 
+
 
 
