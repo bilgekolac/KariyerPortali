@@ -14,10 +14,12 @@ namespace KariyerPortali.Data.Configuration
         {
             /* Fluent-API */
             ToTable("Links");
-            HasKey<int>(c => c.LinkId);
-            Property(c => c.LinkName).IsRequired().HasMaxLength(100);
-            Property(c => c.Url).IsRequired().HasMaxLength(500);
-            Property(c => c.Visible);
+            HasKey<int>(l => l.LinkId);
+            Property(l => l.LinkName).IsRequired().HasMaxLength(100);
+            Property(l => l.Url).IsRequired().HasMaxLength(500);
+            Property(l => l.Visible);
+            Property(l => l.Definition);
+            Property(l => l.Target);
 
 
 
