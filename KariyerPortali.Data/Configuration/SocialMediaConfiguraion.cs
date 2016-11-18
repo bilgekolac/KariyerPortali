@@ -14,11 +14,11 @@ namespace KariyerPortali.Data.Configuration
     
         public SocialMediaConfiguraion()
         {
-            ToTable("SociakMedias");
+            ToTable("SocialMedias");
             HasKey<int>(c => c.SocialMediaId);
             Property(c => c.FaceAddress).IsRequired().HasMaxLength(100);
             Property(c => c.TwitterAddress).IsRequired().HasMaxLength(100);
-            Property(c=> c.InstagramAddress).IsRequired().HasMaxLength(100);
+            Property(c => c.InstagramAddress).IsRequired().HasMaxLength(100);
             Property(c => c.LinkedinAddress).IsRequired().HasMaxLength(100);
         }
     }
