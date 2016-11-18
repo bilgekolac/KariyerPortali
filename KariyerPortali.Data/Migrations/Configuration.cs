@@ -11,7 +11,7 @@ namespace KariyerPortali.Data.Migrations
         {
             AutomaticMigrationsEnabled = true;
             ContextKey = "KariyerPortali.Data.KariyerPortaliEntities";
-            AutomaticMigrationDataLossAllowed = true;
+           // AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(KariyerPortali.Data.KariyerPortaliEntities context)
