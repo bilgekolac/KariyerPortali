@@ -37,6 +37,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<PageFormViewModel, Page>();
             Mapper.CreateMap<CategoryFormViewModel, Category>();
             Mapper.CreateMap<FormFormViewModel, Form>();
+            Mapper.CreateMap<FormInfoFormViewModel, FormInfo>();
             Mapper.CreateMap<RedirectFormViewModel, Redirect>();
             Mapper.CreateMap<LinkFormViewModel, Link>();
         }
