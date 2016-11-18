@@ -1,5 +1,5 @@
 ﻿using KariyerPortali.Model;
-using KariyerPortali.Model.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
