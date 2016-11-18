@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KariyerPortali.Model
+namespace KariyerPortali.Service
 {
-    public class Link
+    class LinkService
     {
     }
 }
