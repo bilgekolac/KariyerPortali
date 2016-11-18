@@ -57,6 +57,7 @@ namespace KariyerPortali.Admin.Controllers
                 // değişiklikler kaydedilir
                 settingService.SaveSetting();
                 return RedirectToAction("Index");
+                
             }
             return RedirectToAction("Index", new { error = "1" });
         }
