@@ -65,6 +65,8 @@ namespace KariyerPortali.Admin.Controllers
             }
             return RedirectToAction("Index", new { error = "1" });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Contact(SettingFormViewModel settingForm2)
         {
          if (ModelState.IsValid)
