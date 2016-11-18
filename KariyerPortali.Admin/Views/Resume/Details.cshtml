@@ -84,7 +84,7 @@
 
 
 
-                <div class="form-body" style="font-size:unset">
+                <div class="form-body" style="font-size:medium">
                     <div class="form-group">
                         <label><strong>E-Posta <b style="margin-left:100px">:</b> </strong>@Html.DisplayFor(model => model.Email)</label>
                     </div>
@@ -262,35 +262,22 @@
 
                     <table class="table" style="margin-right:auto">
 
-                        @foreach (var educationInfo in Model.EducationInfos)
-                        {
-
+                       
                             <tr>
-
-
-                                @if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.HighSchool)
-                                {
+                                  @foreach (var educationInfo in Model.EducationInfos)
+                                  {
 
                                     <td>
                                         <label>
-                                            <strong>@educationInfo.EducationStatus</strong>
-                                            <br /> @educationInfo.UniversityStart.ToShortDateString()  @educationInfo.UniversityEnd.ToShortDateString()
-                                        </label>
-                                    </td>
-
-                                    <td>
-                                        <label><strong>@Model.HighSchoolName</strong> <br /> @Model.HighSchoolType.TypeName , @Model.HighSchoolDepartment.DepartmentName , @Model.HighSchoolType.HighSchoolDegree / @Model.HighSchoolCertificate</label>
-                                    </td>
-                                }
-
-
-
-                                else
-                                {
-
-                                    <td>
-                                        <label>
-                                            <strong>@educationInfo.EducationStatus</strong>
+                                            @if(educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Doctorate)
+                                            { <strong>(Doktora)</strong>}
+                                            else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.Master)
+                                            { <strong>(Master)</strong>}
+                                            else if (educationInfo.EducationStatus == KariyerPortali.Model.EducationStatus.University)
+                                            { <strong>(Üniversite)</strong>}
+                                            else 
+                                            { <strong>(M.Y.O)</strong>}
+                                          
                                             <br /> @educationInfo.UniversityStart.ToShortDateString()  @educationInfo.UniversityEnd.ToShortDateString()
                                         </label>
                                     </td>
@@ -298,12 +285,23 @@
                                     <td>
                                         <label><strong>@educationInfo.University.UniversityName</strong> <br /> @educationInfo.Department.DepartmentName</label>
                                     </td>
+                                  }
 
-                                }
-
+                                  <td><strong>(Lise)</strong><br /> @Model.HighSchoolStart.ToShortDateString() - @Model.HighSchoolEnd.ToLongDateString()</td>
+                                <td><strong>@Html.DisplayFor(model =>model.HighSchoolName)</strong> <br /> @Html.DisplayFor(model =>model.HighSchoolType),
+                                @Html.DisplayFor(model => model.HighSchoolDepartment.DepartmentName) , / @Model.CertificateDegree /
+                               
+                                 @if(Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N10 )
+                                {<strong>10</strong>}
+                                else if(Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N100)
+                                {<strong>100</strong>}
+                                else if (Model.HighSchoolCertificate == KariyerPortali.Model.HighSchoolCertificate.N4)
+                                 {<strong>4</strong>}
+                                else
+                                {<strong>5</strong>} </td>
+                                   
                             </tr>
 
-                        }
 
                     </table>
                 </div>
