@@ -71,19 +71,19 @@ namespace KariyerPortali.Admin.Controllers
         {
          if (ModelState.IsValid)
          {
-             var setting1 = settingService.GetSettingByName("Adres");
-             setting1.Value = settingForm2.HeaderScript;
-             settingService.UpdateSetting(setting1);
+             var setting4 = settingService.GetSettingByName("Adres");
+             setting4.Value = settingForm2.HeaderScript;
+             settingService.UpdateSetting(setting4);
 
              // Adres setting güncellenir
-             var setting2 = settingService.GetSettingByName("Iletisim");
-             setting2.Value = settingForm2.GoogleAnalytics;
-             settingService.UpdateSetting(setting2);
+             var setting5 = settingService.GetSettingByName("Iletisim");
+             setting5.Value = settingForm2.GoogleAnalytics;
+             settingService.UpdateSetting(setting5);
 
              // iletisim setting güncellenir
-             var setting3 = settingService.GetSettingByName("websayfa");
-             setting3.Value = settingForm2.FooterScript;
-             settingService.UpdateSetting(setting3);
+             var setting6 = settingService.GetSettingByName("websayfa");
+             setting6.Value = settingForm2.FooterScript;
+             settingService.UpdateSetting(setting6);
 
              // değişiklikler kaydedilir
              settingService.SaveSetting();
@@ -97,19 +97,19 @@ namespace KariyerPortali.Admin.Controllers
                 if (ModelState.IsValid)
                 {
                     // header script setting güncellenir
-                    var setting4 = settingService.GetSettingByName("Title");
-                    setting4.Value = settingForm.Title;
-                    settingService.UpdateSetting(setting4);
+                    var setting7 = settingService.GetSettingByName("Title");
+                    setting7.Value = settingForm.Title;
+                    settingService.UpdateSetting(setting7);
 
                     // google analytics setting güncellenir
-                    var setting5 = settingService.GetSettingByName("Description");
-                    setting5.Value = settingForm.Description;
-                    settingService.UpdateSetting(setting5);
+                    var setting8 = settingService.GetSettingByName("Description");
+                    setting8.Value = settingForm.Description;
+                    settingService.UpdateSetting(setting8);
 
                     // footer script setting güncellenir
-                    var setting6 = settingService.GetSettingByName("Keyword");
-                    setting6.Value = settingForm.Keyword;
-                    settingService.UpdateSetting(setting6);
+                    var setting9 = settingService.GetSettingByName("Keyword");
+                    setting9.Value = settingForm.Keyword;
+                    settingService.UpdateSetting(setting9);
 
 
 
