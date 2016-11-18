@@ -42,19 +42,55 @@
                         <div class="form-body">
                             <div class="form-group">
                                 @Html.LabelFor(model => model.LinkName)
-                                @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @tabindex = "3", @class = "form-control" } })
+                                @Html.EditorFor(model => model.LinkName, new { htmlAttributes = new { @tabindex = "1", @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.LinkName, " ", new { @class = "text-danger" })
                             </div>                            
                             <div class="form-group">
                                 @Html.LabelFor(model => model.Url)
-                                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @tabindex = "3", @class = "form-control" } })
+                                @Html.EditorFor(model => model.Url, new { htmlAttributes = new { @tabindex = "2", @class = "form-control" } })
                                 @Html.ValidationMessageFor(model => model.Url, " ", new { @class = "text-danger" })
-                            </div>                            
-                            <div class="misc-pub-section misc-pub-private">
-                                <label for="link_private" class="selectit"><input id="link_private" name="link_visible" type="checkbox" value="N"> Bu bağlantı özel kalsın</label>
+                            </div>    
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Definition)
+                                @Html.EditorFor(model => model.Definition, new { htmlAttributes = new { @tabindex = "3", @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Definition, " ", new { @class = "text-danger" })
                             </div>
+                            <div class="portlet light bordered">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Target)
 
-                        </div>
+                                    <div id="linktargetdiv" class="postbox ">
+
+                                        <div class="inside">
+                                            <fieldset>
+                                                <p>
+                                                    <label for="link_target_blank" class="selectit">
+                                                        <input id="link_target_blank" type="radio" name="link_target" value="_blank">
+                                                        <code>_blank</code> — yeni pencere ya da sekme.
+                                                    </label>
+                                                </p>
+                                                <p>
+                                                    <label for="link_target_top" class="selectit">
+                                                        <input id="link_target_top" type="radio" name="link_target" value="_top">
+                                                        <code>_top</code> — çerçeve olmadan, şu anki pencere ya da sekme.
+                                                    </label>
+                                                </p>
+                                                <p>
+                                                    <label for="link_target_none" class="selectit">
+                                                        <input id="link_target_none" type="radio" name="link_target" value="">
+                                                        <code>_none</code> — şu anki pencere ya da sekme.
+                                                    </label>
+                                                </p>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="misc-pub-section misc-pub-private">
+                                    <label for="link_private" class="selectit"><input id="link_private" name="link_visible" type="checkbox" value="N"> Bu bağlantı özel kalsın</label>
+                                </div>
+
+                            </div>
                         <div class="form-actions">
                             <button type="submit" class="btn blue">Ekle</button>
                             <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Link")';">İptal</button>
