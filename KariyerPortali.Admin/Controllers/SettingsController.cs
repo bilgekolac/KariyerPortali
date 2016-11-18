@@ -97,6 +97,8 @@ namespace KariyerPortali.Admin.Controllers
          }
          return RedirectToAction("Contact", new { error = "1" });
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult IndexSeo(SettingFormViewModel settingForm)
              {
         
