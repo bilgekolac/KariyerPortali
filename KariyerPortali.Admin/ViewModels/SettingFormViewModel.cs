@@ -13,5 +13,9 @@ namespace KariyerPortali.Admin.ViewModels
         public string Address { get; set; }
         public string Contact { get; set; }
         public string Webpage { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Keyword { get; set; }
+
     }
 }

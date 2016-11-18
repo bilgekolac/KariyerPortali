@@ -1,4 +1,5 @@
 ﻿using KariyerPortali.Admin.Models;
+using KariyerPortali.Model;
 using KariyerPortali.Service;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,21 @@ namespace KariyerPortali.Admin.Controllers
     public class HomeController : BaseController
     {
         private readonly IJobApplicationService jobApplicationService;
-         private readonly ICandidateService candidateService;
-         private readonly IJobService jobService;
-         private readonly IResumeService resumeService;
-         public HomeController(IJobApplicationService jobApplicationService, ICandidateService candidateService, IJobService jobService, IResumeService resumeService)
+        private readonly ICandidateService candidateService;
+        private readonly IJobService jobService;
+        private readonly IResumeService resumeService;
+        private readonly INotificationService notificationService;
+        public HomeController(IJobApplicationService jobApplicationService, ICandidateService candidateService, IJobService jobService, IResumeService resumeService)
         {
             this.jobApplicationService = jobApplicationService;
             this.candidateService = candidateService;
             this.jobService = jobService;
             this.resumeService = resumeService;
+            this.notificationService = notificationService;
         }
-       
 
-       
+
+
         public ActionResult Index()
         {
             ViewBag.JobApplicationCount = jobApplicationService.CountJobApplication();
@@ -57,7 +60,7 @@ namespace KariyerPortali.Admin.Controllers
 
             content = System.Text.Encoding.UTF8.GetString(buffer);
 
-            return View(model:content);
+            return View(model: content);
         }
 
         public ActionResult Contact()
@@ -66,5 +69,14 @@ namespace KariyerPortali.Admin.Controllers
 
             return View();
         }
+
+
+        //[HandleError()]
+        //public ActionResult Error()
+        //{
+        //    notificationService
+        //         throw new Exception("test");
+        //}
     }
 }
+

@@ -105,6 +105,8 @@ namespace KariyerPortali.Data.Repositories
             var query = this.DbContext.Notifications.OrderByDescending(o => o.NotificationDate).Where(n => n.IsRead == false).ToList();
             return query;
         }
+
+      
     }
 
     public interface INotificationRepository: IRepository<Notification>
