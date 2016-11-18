@@ -137,7 +137,36 @@ namespace KariyerPortali.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Mail(SettingFormViewModel settingForm)
-        { return RedirectToAction("IndexSeo", new { error = "1" }); }
+        {
+            if (ModelState.IsValid)
+            {
+                // header script setting güncellenir
+                var setting14 = settingService.GetSettingByName("UserMail");
+                setting14.Value = settingForm.Title;
+                settingService.UpdateSetting(setting14);
+
+                // google analytics setting güncellenir
+                var setting15 = settingService.GetSettingByName("UserPassword");
+                setting15.Value = settingForm.Description;
+                settingService.UpdateSetting(setting15);
+
+                // footer script setting güncellenir
+                var setting16 = settingService.GetSettingByName("SmtpServer");
+                setting16.Value = settingForm.Keyword;
+                settingService.UpdateSetting(setting16);
+
+                var setting17 = settingService.GetSettingByName("UseSsn");
+                setting17.Value = settingForm.Keyword;
+                settingService.UpdateSetting(setting17);
+
+
+
+                // değişiklikler kaydedilir
+                settingService.SaveSetting();
+                return RedirectToAction("Mail");
+
+            } return RedirectToAction("Mail", new { error = "1" });
+        }
         }
 
     }
