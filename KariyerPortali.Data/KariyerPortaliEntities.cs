@@ -14,8 +14,10 @@ namespace KariyerPortali.Data
         public KariyerPortaliEntities() : base("KariyerPortaliEntities")
         {
             this.Configuration.LazyLoadingEnabled = true;
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<KariyerPortaliEntities, KariyerPortali.Data.Migrations.Configuration>("KariyerPortaliEntities"));
         }
 
+        public DbSet<Certificate>Certificates { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Country> Countries { get; set; }
@@ -50,6 +52,7 @@ namespace KariyerPortali.Data
         public DbSet<FormInfo> FormInfos { get; set; }
         public DbSet<Redirect> Redirects { get; set; }
         public DbSet<SeoSetting> SeoSettings { get; set; }
+        public DbSet<Link> Links { get; set; }
 
         public virtual void Commit()
         {

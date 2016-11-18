@@ -1,7 +1,78 @@
-﻿
+﻿@model IEnumerable<KariyerPortali.Admin.ViewModels.SettingViewModel>
 @{
     ViewBag.Title = "Contact";
 }
+<style>
+    .theme-option > textarea {
+        width: 500px;
+    }
+</style>
+<link href="/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+<link href="/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="@Url.Action("Contact", "Settings")" class="nav-link">İletişim Bilgileri</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Genel Ayarlar</span>
+        </li>
+    </ul>
+</div>
 
-<h2>Contact</h2>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet ">
+                <div class="theme-panel">
+                    <h1 class="page-title">
+                        İletişim Bilgileri
+                    </h1>
+
+                    <div class="theme-option">
+                        <span> ADRES:</span><br />
+                        <textarea name="Adres"></textarea>
+                    </div>
+                    <div class="theme-option">
+                        <span> İLETİŞİM:</span><br />
+                        <textarea name="iletisim"></textarea>
+                    </div>
+                    <div class="theme-option">
+                        <span> WEB SAYFASI:</span><br />
+                        <textarea name="websayfasi"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn blue">Kaydet</button>
+                        <button type="button" class="btn default" onclick="window.location='@Url.Action("Index","Setting")';">İptal</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

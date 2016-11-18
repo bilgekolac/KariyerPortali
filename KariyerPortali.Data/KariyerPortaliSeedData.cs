@@ -13,7 +13,10 @@ namespace KariyerPortali.Data
         
         protected override void Seed(KariyerPortaliEntities context)
         {
+          
+           
             GetSectors().ForEach(c => context.Sectors.Add(c));
+            GetExams().ForEach(c => context.Exams.Add(c));
             GetSkills().ForEach(c => context.Skills.Add(c));
             GetSkillInfos().ForEach(c => context.SkillInfos.Add(c));
             GetCandidates().ForEach(c => context.Candidates.Add(c));
@@ -138,12 +141,47 @@ namespace KariyerPortali.Data
                 new Skill {
                 SkillId=1,
                 SkillName="C#",
+                
                 },
-              
+
+                new Skill {
+                SkillId=2,
+                SkillName="HTML5",
+                },
+
             };
 
 
         }
+
+        private List<Exam> GetExams()
+        {
+            return new List<Exam>
+            {
+                new Exam {
+              
+                    ExamId=1,
+                    ExamName="TOEFL",
+                    
+                    
+                    
+                },
+
+                new Exam {
+
+                    ExamId=2,
+                    ExamName="IELTS",
+                },
+
+
+            };
+
+
+        }
+
+     
+
+     
 
         private List<SkillInfo> GetSkillInfos()
         {
@@ -151,10 +189,18 @@ namespace KariyerPortali.Data
             {
                 new SkillInfo {
                SkillId=1,
-               SkillInfoId=1,             
-               Point=5,
+               SkillInfoId=1,  
+               
+             
                 },
-              
+
+
+                new SkillInfo {
+               SkillId=2,
+               SkillInfoId=1,
+             
+                },
+
             };
 
 
@@ -266,7 +312,7 @@ namespace KariyerPortali.Data
             resume.EducationInfos = new List<EducationInfo>();
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId = 1, EducationStatus = EducationStatus.Master, UniversityId = 1, DepartmentId = 1, UniversityStart = Convert.ToDateTime("14.03.2016"), UniversityEnd = Convert.ToDateTime("14.03.2019") });
             resume.EducationInfos.Add(new EducationInfo() { EducationInfoId=1, EducationStatus = EducationStatus.University,UniversityId=2,DepartmentId=2,UniversityStart = Convert.ToDateTime("20.09.2007"),UniversityEnd=Convert.ToDateTime("14.01.2014")});
-
+          
             resume.Experiences = new List<Experience>();
             resume.Experiences.Add(new Experience() { ExperienceId = 1, CompanyName="Huvitz/TÜRKİYE" ,Title = "İhale-Satış-Aplikasyon Uzmanı",ExperienceStart= Convert.ToDateTime("19.05.2015"), ExperienceEnd=Convert.ToDateTime("15.05.2016"),ExperienceStatus = ExperienceStatus.FullTime,Description="Oftalmoloji Sektöründe Türkiye Distribütörü Firmada Aplikasyon Mühendisi"});
 
@@ -275,8 +321,28 @@ namespace KariyerPortali.Data
                SectorId=1 });
 
             resume.SkillInfos = new List<SkillInfo>();
-            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 5 });
-          
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 1, Point = 3.3F });        
+            resume.SkillInfos.Add(new SkillInfo() { SkillInfoId = 1, SkillId = 2, Point = 3.4F  });
+
+            resume.ExamInfos = new List<ExamInfo>();
+            resume.ExamInfos.Add(new ExamInfo() { ExamId=1,ExamInfoId=1,Point=90 });           
+            resume.ExamInfos.Add(new ExamInfo() { ExamId = 2, ExamInfoId = 2, Point = 8});
+
+            resume.CertificateInfos = new List<Certificate>();
+            resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate.jpg", CertificateId = 1, CertificateName = "İŞKUR", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("18.12.2016") });        
+            resume.CertificateInfos.Add(new Certificate() { FileName = "Certificate2.jpg", CertificateId = 2, CertificateName = "MİCROSOFT", Institute = "BİLİŞİM EĞİTİM MERKEZİ", CertificateDate = Convert.ToDateTime("19.12.2016") });
+
+            resume.Courses = new List<Course>();
+            resume.Courses.Add(new Course()
+            {
+                CourseId = 1,
+                CourseName = "İŞKUR Yazılım Kursu",
+                Institution = "BİLİŞİM EĞİTİM MERKEZİ",
+                StartDate = Convert.ToDateTime("17.07.2016"),
+                FinishDate = Convert.ToDateTime("17.12.2016"),
+                Statement = "Bu Kısımlara ENUM atanacak",
+                Time = 800,
+            });
             resumes.Add(resume);
 
             return resumes;

@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace KariyerPortali.Model
 {
-    public enum EducationStatus
+   public class SocialMedia
     {
-        University=1,
-        Master=2,
-        Doctorate=3,
-        HighSchool=4,
-        JuniorTechnicalCollege=5,
     }
 }

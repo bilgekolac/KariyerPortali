@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using KariyerPortali.Admin.ViewModels;
 using KariyerPortali.Model;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Category, CategoryViewModel>();
             Mapper.CreateMap<Form, FormViewModel>();
             Mapper.CreateMap<Redirect, RedirectViewModel>();
+            Mapper.CreateMap<Link, LinkViewModel>();
 
 #pragma warning restore CS0618 // Type or member is obsolete
         }

@@ -71,13 +71,12 @@ namespace KariyerPortali.Data.Repositories
         {
             var post = DbContext.Posts.Include("Categories").Where(c => c.PostId == entity.PostId).Single();
             post.Categories.Clear();
-            if (entity.Categories != null)
-            {
+           
                 foreach (var category in entity.Categories)
                 {
                     post.Categories.Add(category);
                 }
-            }
+            
             post.Body = entity.Body;
             post.CreateDate = entity.CreateDate;
             post.CreatedBy = entity.CreatedBy;
