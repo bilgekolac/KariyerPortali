@@ -11,41 +11,62 @@ using System.Web.Mvc;
 
 namespace KariyerPortali.Admin.Controllers
 {
-    public class SeoSettingController : BaseController
+    public class SettingController : BaseController
     {
-        private readonly ISeoSettingService seoSettingService;
-        public SeoSettingController(ISeoSettingService seoSettingService)
+        private readonly ISettingService SettingService;
+        public SettingController(ISettingService SettingService)
         {
-            this.seoSettingService = seoSettingService;
+            this.SettingService = SettingService;
         }
-        public ActionResult Index()
+        public ActionResult Theme()
         {
 
             return View();
 
         }
-        public ActionResult AjaxHandler(jQueryDataTableParamModel param)
+        public ActionResult Contact()
         {
-            string sSearch = "";
-            if (param.sSearch != null) sSearch = param.sSearch;
-            var sortColumnIndex = Convert.ToInt32(Request["iSortCol_0"]);
-            var sortDirection = Request["sSortDir_0"]; // asc or desc
-            int iTotalRecords;
-            int iTotalDisplayRecords;
-            var displayedSeoSettings = seoSettingService.Search(sSearch, sortColumnIndex, sortDirection, param.iDisplayStart, param.iDisplayLength, out iTotalRecords, out iTotalDisplayRecords);
-
-            var result = from c in displayedSeoSettings
-                         select new[] { c.SeoSettingId.ToString(), c.Title, c.Description.ToString(), c.Keyword.ToString(), string.Empty };
-            return Json(new
-            {
-                sEcho = param.sEcho,
-                iTotalRecords = iTotalRecords,
-                iTotalDisplayRecords = iTotalDisplayRecords,
-                aaData = result.ToList()
-            },
-                JsonRequestBehavior.AllowGet);
+            var Settings = SettingService.GetSettings();
+            var SettingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SeoSettingViewModel>>(Settings);
+            return View(SettingViewModels);
         }
+        public ActionResult Index()
+        {
+            var Settings = SettingService.GetSettings();
+            var SettingViewModels = Mapper.Map<IEnumerable<Setting>, IEnumerable<SeoSettingViewModel>>(Settings);
+            return View(SettingViewModels);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(SeoSettingFormViewModel SettingForm)
+        {
+            if (ModelState.IsValid)
+            {
+                // header script setting güncellenir
+                var Setting1 = SettingService.GetSettingByName("Title");
+                Setting1.Value = SettingForm.Title;
+                SettingService.UpdateSetting(Setting1);
 
+                // google analytics setting güncellenir
+                var Setting2 = SettingService.GetSettingByName("Description");
+                Setting2.Value = SettingForm.Description;
+                SettingService.UpdateSetting(Setting2);
+
+                // footer script setting güncellenir
+                var Setting3 = SettingService.GetSettingByName("Keyword");
+                Setting3.Value = SettingForm.Keyword;
+                SettingService.UpdateSetting(Setting3);
+
+
+
+                // değişiklikler kaydedilir
+                SettingService.SaveSetting();
+                return RedirectToAction("Index");
+
+            }
+            return RedirectToAction("Index", new { error = "1" });
+        }
+        
         public ActionResult Create()
         {
             return View();
@@ -53,27 +74,27 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(SeoSettingFormViewModel seoSettingForm)
+        public ActionResult Create(SettingFormViewModel SettingForm)
         {
             if (ModelState.IsValid)
             {
-                var seoSetting = Mapper.Map<SeoSettingFormViewModel, SeoSetting>(seoSettingForm);
+                var Setting = Mapper.Map<SettingFormViewModel, Setting>(SettingForm);
 
-                seoSettingService.CreateSeoSetting(seoSetting);
-                seoSettingService.SaveSeoSetting();
+                SettingService.CreateSetting(Setting);
+                SettingService.SaveSetting();
                 return RedirectToAction("Index");
             }
-            return View(seoSettingForm);
+            return View(SettingForm);
         }
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)
             {
-                var seoSetting = seoSettingService.GetSeoSetting(id.Value);
-                if (seoSetting != null)
+                var Setting = SettingService.GetSetting(id.Value);
+                if (Setting != null)
                 {
-                    var seoSettingViewModel = Mapper.Map<SeoSetting, SeoSettingFormViewModel>(seoSetting);
-                    return View(seoSettingViewModel);
+                    var SettingViewModel = Mapper.Map<Setting, SettingFormViewModel>(Setting);
+                    return View(SettingViewModel);
                 }
             }
             return HttpNotFound();
@@ -81,27 +102,27 @@ namespace KariyerPortali.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(SeoSettingFormViewModel seoSettingForm)
+        public ActionResult Edit(SettingFormViewModel SettingForm)
         {
             if (ModelState.IsValid)
             {
-                var seoSetting = Mapper.Map<SeoSettingFormViewModel, SeoSetting>(seoSettingForm);
-                seoSettingService.UpdateSeoSetting(seoSetting);
-                seoSettingService.SaveSeoSetting();
+                var Setting = Mapper.Map<SettingFormViewModel, Setting>(SettingForm);
+                SettingService.UpdateSetting(Setting);
+                SettingService.SaveSetting();
                 return RedirectToAction("Index");
             }
-            return View(seoSettingForm);
+            return View(SettingForm);
         }
 
         public ActionResult Delete(int? id)
         {
             if (id.HasValue)
             {
-                var seoSetting = seoSettingService.GetSeoSetting(id.Value);
-                if (seoSetting != null)
+                var Setting = SettingService.GetSetting(id.Value);
+                if (Setting != null)
                 {
-                    seoSettingService.DeleteSeoSetting(seoSetting);
-                    seoSettingService.SaveSeoSetting();
+                    SettingService.DeleteSetting(Setting);
+                    SettingService.SaveSetting();
                     return RedirectToAction("Index");
                 }
             }
