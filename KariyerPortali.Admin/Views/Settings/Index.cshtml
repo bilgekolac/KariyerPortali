@@ -31,7 +31,7 @@
                     <h1 class="page-title">
                         Genel Ayarlar
                     </h1>
-                    @using (Html.BeginForm("Index", "Settings", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    @using (Html.BeginForm("Index", "Settings", null, FormMethod.Post))
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-body">

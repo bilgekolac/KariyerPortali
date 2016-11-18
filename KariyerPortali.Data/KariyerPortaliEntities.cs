@@ -13,8 +13,9 @@ namespace KariyerPortali.Data
     {
         public KariyerPortaliEntities() : base("KariyerPortaliEntities")
         {
-            this.Configuration.LazyLoadingEnabled = true;
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<KariyerPortaliEntities, KariyerPortali.Data.Migrations.Configuration>("KariyerPortaliEntities"));
+            this.Configuration.LazyLoadingEnabled = true;
+            
         }
 
         public DbSet<Certificate>Certificates { get; set; }
@@ -100,5 +101,8 @@ namespace KariyerPortali.Data
             modelBuilder.Configurations.Add(new RedirectConfiguration());
             modelBuilder.Configurations.Add(new SeoSettingConfiguration());
         }
+
+        
+
     }
 }
