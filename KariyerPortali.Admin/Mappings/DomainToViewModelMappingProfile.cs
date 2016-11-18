@@ -40,6 +40,7 @@ namespace KariyerPortali.Admin.Mappings
             Mapper.CreateMap<Notification, NotificationViewModel>();
             Mapper.CreateMap<Category, CategoryViewModel>();
             Mapper.CreateMap<Form, FormViewModel>();
+            Mapper.CreateMap<FormInfo, FormInfoViewModel>();
             Mapper.CreateMap<Redirect, RedirectViewModel>();
             Mapper.CreateMap<Link, LinkViewModel>();
 
