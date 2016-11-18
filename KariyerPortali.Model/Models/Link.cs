@@ -9,5 +9,8 @@ namespace KariyerPortali.Model
     public class Link
     {
         public int LinkId { get; set; }
+        public string LinkName { get; set; }
+        public string Url { get; set; }
+        public bool Visible { get; set; }
     }
 }
