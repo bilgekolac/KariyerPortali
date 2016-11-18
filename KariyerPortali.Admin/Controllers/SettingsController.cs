@@ -89,5 +89,35 @@ namespace KariyerPortali.Admin.Controllers
          }
          return RedirectToAction("Contact", new { error = "1" });
         }
+        public ActionResult IndexSeo(SeoSettingFormViewModel settingForm)
+             {
+        
+                if (ModelState.IsValid)
+                {
+                    // header script setting güncellenir
+                    var setting1 = settingService.GetSettingByName("Title");
+                    setting1.Value = settingForm.Title;
+                    settingService.UpdateSetting(setting1);
+
+                    // google analytics setting güncellenir
+                    var setting2 = settingService.GetSettingByName("Description");
+                    setting2.Value = settingForm.Description;
+                    settingService.UpdateSetting(setting2);
+
+                    // footer script setting güncellenir
+                    var setting3 = settingService.GetSettingByName("Keyword");
+                    setting3.Value = settingForm.Keyword;
+                    settingService.UpdateSetting(setting3);
+
+
+
+                    // değişiklikler kaydedilir
+                    settingService.SaveSetting();
+                    return RedirectToAction("IndexSeo");
+
+                }
+                return RedirectToAction("IndexSeo", new { error = "1" });
+            }
+        }
+
     }
-}
